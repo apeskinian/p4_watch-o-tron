@@ -2,13 +2,17 @@
 {% block content %}
     <h1>Welcome {{ user.username }}!</h1>
     <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
-    <p>Here are the watches:</p>
-    {% for watch in watches %}
+        {% for watch in watches %}
+        {% if watch.list_name.list_name == collection %}
         <div>
-            <h3>{{ watch.make }}&nbsp{{ watch.model }}</h3>
+           <h3>{{ watch.make }}&nbsp{{ watch.model }}</h3>
             <p>{{ watch.list_name }}</p>
             <p>{{ watch.movement_type }}</p>
         </div>
-    {% endfor %}
-    <a href="" id="switch_lists"><button>Change Lists</button></a>
+        {% endif %}
+        {% endfor %}
+        <div>
+            <a href="{% url 'collection' %}"><button>Collection</button></a>
+            <a href="{% url 'wishlist' %}"><button>Wishlist</button></a>
+        </div>
 {% endblock %}
