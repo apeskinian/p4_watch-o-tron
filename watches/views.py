@@ -1,14 +1,17 @@
-from django.shortcuts import render, get_object_or_404, HttpResponse
+from django.shortcuts import render, get_object_or_404
 from .models import Watch, WatchList
 
 
+# working code
 def collection(request):
     if request.user.is_authenticated:
         watches = Watch.objects.filter(owner=request.user)
-        collection = 'Collection'
+        lists = WatchList.objects.all()
+        current_list = 'Collection'
         context = {
             'watches': watches,
-            'collection': collection
+            'current_list': current_list,
+            'lists': lists
         }
         return render(request, 'watches/home.html', context)
     else:
@@ -18,10 +21,12 @@ def collection(request):
 def wishlist(request):
     if request.user.is_authenticated:
         watches = Watch.objects.filter(owner=request.user)
-        collection = 'Wish List'
+        lists = WatchList.objects.all()
+        current_list = 'Wish List'
         context = {
             'watches': watches,
-            'collection': collection
+            'current_list': current_list,
+            'lists': lists
         }
         return render(request, 'watches/home.html', context)
     else:
