@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>Welcome {{ user.username }}!</h1>
-    <p>Soon you will be able to see all your watches here!</p>
     <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
+    <p>Here are the watches:</p>
+    {% for watch in watches %}
+        <div>
+            <h3>{{ watch.make }}&nbsp{{ watch.model }}</h3>
+            <p>{{ watch.list_name }}</p>
+            <p>{{ watch.movement_type }}</p>
+        </div>
+    {% endfor %}
+    <a href="" id="switch_lists"><button>Change Lists</button></a>
 {% endblock %}
