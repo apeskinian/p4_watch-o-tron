@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% if user.is_authenticated %}
-        <h1>Logged in</h1>
-    {% else %}
-        <h1>Not logged in</h1>
-    {% endif %}
+    <h1>Welcome {{ user.username }}!</h1>
+    <p>Soon you will be able to see all your watches here!</p>
+    <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
 {% endblock %}
