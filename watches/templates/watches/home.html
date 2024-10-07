@@ -4,17 +4,15 @@
     <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
   
         {% for watch in watches %}
-        {% if watch.list_name.list_name == 'Collection' %}
         <div class="card-panel yellow accent-4">
            <h3>{{ watch.make }}&nbsp{{ watch.model }}</h3>
             <p>{{ watch.list_name }}</p>
             <p>{{ watch.movement_type }}</p>
         </div>
-        {% endif %}
         {% endfor %}
 
         {% for thing in lists %}
-            <a href=""><button class="switch_list">{{ thing }}</button></a>
+            <a href="{% url 'watch_list' thing %}"><button class="switch_list">{{ thing }}</button></a>
         {% endfor %}
 
 {% endblock %}
