@@ -1,7 +1,7 @@
 ---
 name: Development Bug Template
 about: Documenting bugs found during development
-title: 'BUG:'
+title: "[BUG] - "
 labels: bug
 assignees: apeskinian
 
