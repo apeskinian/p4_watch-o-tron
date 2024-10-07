@@ -9,6 +9,8 @@
             <a href="{% url 'watch_list' thing %}"><button class="switch_list">{{ thing }}</button></a>
         {% endfor %}
 
+        <a href="{% url 'add_edit' %}"><button>Add a Watch</button></a>
+
         {% for watch in watches %}
         <div class="row">
             <div class="col s12 m6 l3">

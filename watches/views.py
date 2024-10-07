@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Watch, WatchList
+from .forms import WatchForm
 
 
 def home(request, list_name='Collection'):
@@ -16,5 +17,14 @@ def home(request, list_name='Collection'):
             'current_list': current_list
         }
         return render(request, 'watches/home.html', context)
+    else:
+        return render(request, 'account/login.html')
+
+def add_edit(request):
+    if request.user.is_authenticated:
+        context = {
+            "watch_form": WatchForm()
+        }
+        return render(request, 'watches/add_edit.html', context)
     else:
         return render(request, 'account/login.html')

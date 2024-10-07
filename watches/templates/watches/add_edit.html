@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Welcome {{ user.username }}!</h1>
+    <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
+    <div>
+        {{ watch_form }}
+        {% csrf_token %}
+    </div>
+{% endblock %}
