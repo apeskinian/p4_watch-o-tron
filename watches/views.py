@@ -4,7 +4,10 @@ from .models import Watch, WatchList
 
 def home(request, list_name='Collection'):
     if request.user.is_authenticated:
-        watches = Watch.objects.filter(owner=request.user)
+        watches = Watch.objects.filter(
+            owner=request.user,
+            list_name__list_name=list_name
+        )
         lists = WatchList.objects.values_list('list_name', flat=True)
         current_list = list_name
         context = {
