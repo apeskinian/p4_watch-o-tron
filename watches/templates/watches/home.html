@@ -1,13 +1,49 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
     <h1>Welcome {{ user.username }}!</h1>
     <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
   
         {% for watch in watches %}
-        <div class="card-panel yellow accent-4">
-           <h3>{{ watch.make }}&nbsp{{ watch.model }}</h3>
-            <p>{{ watch.list_name }}</p>
-            <p>{{ watch.movement_type }}</p>
+        <div class="row">
+            <div class="col s12 m6 l3">
+                <div class="card yellow accent-4">
+                    <div class="card-image">
+                        {% if 'placeholder' in watch.image.url %}
+                        <img src="{% static 'images/placeholder.png' %}" alt="default watch image">
+                        {% else %}
+                        <img src="{{ watch.image.url }}" alt="{{ watch.make}}">
+                        {% endif %}
+                      </div>
+                    <div class="card-content center-align">
+                        <h4>{{ watch.make }}</h4>
+                        <h6>{% if watch.collection %}{{ watch.collection }}&nbsp{% endif %}{{ watch.model }}</h6>
+                        <p>{{ watch.movement_type }}</p>
+                        <p>{% if watch.movement_model %}{{ watch.movement_model }}{% endif %}</p>
+                    </div>
+                    <div class="complications center-align">
+                        <div>
+                            <span class="complication {% if not watch.complication_chronograph %}not-complicated{% endif %}">Chronograph</span>
+                            <span class="complication">{{ watch.complication_date }}</span>
+                            <span class="complication">{{ watch.complication_day }}</span>
+                            <span class="complication">{{ watch.complication_gmt }}</span>
+                        </div>
+                        <div>
+                            <span class="complication">{{ watch.complication_world_timer }}</span>
+                            <span class="complication">{{ watch.complication_moonphase }}</span>
+                            <span class="complication">{{ watch.complication_power_reserve }}</span>
+                            <span class="complication">{{ watch.complication_tourbillon }}</span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card-action amber accent-4 center-align">
+                        {% if current_list == 'Wish List' %}<a href="#" class="btn">Purchased</a>{% endif %}
+                        <a href="#" class="btn">Edit</a>
+                        <a href="#" class="btn">Delete</a>
+                    </div>
+                </div>
+            </div>
         </div>
         {% endfor %}
 

@@ -1,0 +1,7 @@
+.complication {
+    display: inline-block;
+}
+
+.not-complicated {
+    opacity: 0.2;
+}
