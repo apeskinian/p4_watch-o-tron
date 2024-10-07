@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load materializecss %}
+
 
 {% block content %}
     <h1>Welcome {{ user.username }}!</h1>
     <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
-    <div>
-        {{ watch_form }}
-        {% csrf_token %}
+    <div class="row">
+        <div class="col l4">
+                {{ watch_form|materializecss }}
+                {% csrf_token %}
+        </div>
     </div>
 {% endblock %}

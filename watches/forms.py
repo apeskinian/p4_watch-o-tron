@@ -18,4 +18,5 @@ class WatchForm(forms.ModelForm):
             'complication_power_reserve',
             'complication_tourbillon',
             'image',
+            'list_name',
         )
