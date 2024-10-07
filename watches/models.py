@@ -3,13 +3,13 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 class WatchList(models.Model):
-    list_name = models.CharField(max_length=100, null=False, blank=False)
+    list_name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.list_name
 
 class WatchMovement(models.Model):
-    movement_name = models.CharField(max_length=100, null=False, blank=False)
+    movement_name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.movement_name

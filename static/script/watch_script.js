@@ -1,5 +1,4 @@
-$(document).ready(function(){
-    // Initialize materialize data picker
-    $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
-    $('select').formSelect();
-  });
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems);
+});
