@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Watch, WatchList
 from .forms import WatchForm
 
@@ -20,11 +20,20 @@ def home(request, list_name='Collection'):
     else:
         return render(request, 'account/login.html')
 
-def add_edit(request):
+def add_watch(request):
+    print('add_watch starting')
     if request.user.is_authenticated:
-        context = {
-            "watch_form": WatchForm()
-        }
-        return render(request, 'watches/add_edit.html', context)
+        if request.method == 'POST':
+            print('POST has been found...')
+            form = WatchForm(request.POST)
+            if form.is_valid():
+                form.instance.owner = request.user
+                form.save()
+                return redirect('home')
+        else:
+            context = {
+                "watch_form": WatchForm()
+            }
+            return render(request, 'watches/add_watch.html', context)
     else:
         return render(request, 'account/login.html')

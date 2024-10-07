@@ -4,10 +4,11 @@ from .models import Watch, WatchList, WatchMovement
 class WatchForm(forms.ModelForm):
     class Meta:
         model = Watch
-        fields = (
+        fields = [
             'make',
             'collection',
             'model',
+            'movement_type',
             'movement_model',
             'complication_chronograph',
             'complication_date',
@@ -19,4 +20,18 @@ class WatchForm(forms.ModelForm):
             'complication_tourbillon',
             'image',
             'list_name',
-        )
+        ]
+
+    movement_type = forms.ModelChoiceField(
+        queryset=WatchMovement.objects.all(),
+        empty_label='SELECT',  # Custom placeholder
+        required=True,
+        widget=forms.Select(attrs={'class': 'browser-default'})
+    )
+
+    list_name = forms.ModelChoiceField(
+        queryset=WatchList.objects.all(),
+        empty_label='SELECT',  # Custom placeholder
+        required=True,
+        widget=forms.Select(attrs={'class': 'browser-default'})
+    )

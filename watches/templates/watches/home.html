@@ -9,7 +9,7 @@
             <a href="{% url 'watch_list' thing %}"><button class="switch_list">{{ thing }}</button></a>
         {% endfor %}
 
-        <a href="{% url 'add_edit' %}"><button>Add a Watch</button></a>
+        <a href="{% url 'add_watch' %}"><button>Add a Watch</button></a>
 
         {% for watch in watches %}
         <div class="row">
@@ -30,15 +30,15 @@
                         <div class="complications center-align">
                             <div>
                                 <span class="complication {% if not watch.complication_chronograph %}not-complicated{% endif %}">Chronograph</span>
-                                <span class="complication">{{ watch.complication_date }}</span>
-                                <span class="complication">{{ watch.complication_day }}</span>
-                                <span class="complication">{{ watch.complication_gmt }}</span>
+                                <span class="complication {% if not watch.complication_date %}not-complicated{% endif %}">Date</span>
+                                <span class="complication {% if not watch.complication_day %}not-complicated{% endif %}">Day</span>
+                                <span class="complication {% if not watch.complication_gmt %}not-complicated{% endif %}">GMT</span>
                             </div>
                             <div>
-                                <span class="complication">{{ watch.complication_world_timer }}</span>
-                                <span class="complication">{{ watch.complication_moonphase }}</span>
-                                <span class="complication">{{ watch.complication_power_reserve }}</span>
-                                <span class="complication">{{ watch.complication_tourbillon }}</span>
+                                <span class="complication {% if not watch.complication_world_timer %}not-complicated{% endif %}">World Timer</span>
+                                <span class="complication {% if not watch.complication_moonphase %}not-complicated{% endif %}">Moonphase</span>
+                                <span class="complication {% if not watch.complication_power_reserve %}not-complicated{% endif %}">Power Reserve</span>
+                                <span class="complication {% if not watch.complication_tourbillon %}not-complicated{% endif %}">Tourbillon</span>
                             </div>
                         </div>
                         <br>
