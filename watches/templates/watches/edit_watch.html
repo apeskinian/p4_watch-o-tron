@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <div class="row"></div>
+            <div class="col-4 offset-4">  
+                <h1>Welcome {{ user.username }}!</h1>
+                <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ watch_form | crispy }}
+                    <div>
+                        <button type="submit" class="btn btn-primary">Update Watch</button>
+                        <a href="{{ cancel_url }}" class="btn btn-danger">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

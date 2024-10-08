@@ -38,6 +38,26 @@ def add_watch(request):
 
 
 @login_required(login_url='accounts/login')
+def edit_watch(request, watch_id):
+    cancel_url = request.META.get('HTTP_REFERER', '/')
+    watch = get_object_or_404(Watch, id=watch_id)
+    if request.method == 'POST':
+        form = WatchForm(request.POST, request.FILES, instance=watch)
+        if form.is_valid():
+            form.instance.owner = request.user
+            form.save()
+
+            new_list = form.instance.list_name.list_name
+            return redirect('watch_list', list_name=new_list)
+    else:
+        context = {
+            "watch_form": WatchForm(instance=watch),
+            "cancel_url": cancel_url
+        }
+        return render(request, 'watches/edit_watch.html', context)
+    
+
+@login_required(login_url='accounts/login')
 def delete_watch(request, watch_id):
     return_url = request.META.get('HTTP_REFERER', '/')
     watch = get_object_or_404(Watch, id=watch_id)
