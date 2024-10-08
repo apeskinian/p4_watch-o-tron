@@ -59,6 +59,15 @@ def edit_watch(request, watch_id):
     
 
 @login_required(login_url='accounts/login')
+def purchase_watch(request, watch_id):
+    watch = get_object_or_404(Watch, id=watch_id)
+    collection_list = get_object_or_404(WatchList, list_name='Collection')
+    watch.list_name = collection_list
+    watch.save()
+    return redirect('watch_list', 'Collection')
+
+
+@login_required(login_url='accounts/login')
 def delete_watch(request, watch_id):
     return_url = request.META.get('HTTP_REFERER', '/')
     watch = get_object_or_404(Watch, id=watch_id)
