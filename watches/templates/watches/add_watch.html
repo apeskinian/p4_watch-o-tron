@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
     <div class="container">
@@ -9,7 +10,7 @@
                 <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
                 <form method="POST">
                     {% csrf_token %}
-                    {{ watch_form }}
+                    {{ watch_form | crispy }}
                     <div>
                         <button type="submit" class="btn btn-primary">Add Watch</button>
                     </div>
