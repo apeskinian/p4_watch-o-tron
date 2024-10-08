@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import cloudinary.uploader
 from cloudinary.models import CloudinaryField
 
 class WatchList(models.Model):
@@ -36,3 +37,10 @@ class Watch(models.Model):
 
     def __str__(self):
         return f'{self.make} {self.collection} {self.model}'
+
+    def delete(self, *args, **kwargs):
+        if self.image != 'placeholder':
+            public_id = self.image.public_id
+            cloudinary.uploader.destroy(public_id)
+
+        super().delete(*args, **kwargs)
