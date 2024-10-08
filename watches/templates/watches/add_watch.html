@@ -8,7 +8,7 @@
             <div class="col-4 offset-4">  
                 <h1>Welcome {{ user.username }}!</h1>
                 <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ watch_form | crispy }}
                     <div>

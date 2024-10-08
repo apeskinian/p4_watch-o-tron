@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 if os.path.isfile('env.py'):
     import env
 
@@ -99,6 +102,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'watchotron.wsgi.application'
 
+# Cloudinary
+cloudinary.config(
+    cloud_name = os.environ.get('CLOUDINARY_NAME'),
+    api_key = os.environ.get('CLOUDINARY_API'),
+    api_secret = os.environ.get('CLOUDINARY_SECRET')
+)
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -149,6 +158,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

@@ -25,7 +25,7 @@ def add_watch(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
             print('POST has been found...')
-            form = WatchForm(request.POST)
+            form = WatchForm(request.POST, request.FILES)
             if form.is_valid():
                 form.instance.owner = request.user
                 form.save()
