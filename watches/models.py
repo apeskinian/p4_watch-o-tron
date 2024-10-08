@@ -39,8 +39,9 @@ class Watch(models.Model):
         return f'{self.make} {self.collection} {self.model}'
 
     def delete(self, *args, **kwargs):
+        # checking to see if the image is a placeholder and delete image if not
         if self.image != 'placeholder':
             public_id = self.image.public_id
             cloudinary.uploader.destroy(public_id)
-
+        # proceed with normal deletetion
         super().delete(*args, **kwargs)
