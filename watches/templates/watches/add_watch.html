@@ -2,47 +2,19 @@
 {% load static %}
 
 {% block content %}
-    <h1>Welcome {{ user.username }}!</h1>
-    <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
-    <div class="row">
-        <div class="col l4">
-            <form method="POST">
-                {% csrf_token %}
-                {{ watch_form.make }}
-                {{ watch_form.collection }}
-                {{ watch_form.model }}
-                {{ watch_form.movement_type }}
-                {{ watch_form.movement_model }}
-                <p><label>{{ watch_form.complication_chronograph }} <!-- This renders the checkbox -->
-                        <span>{{ form.complication_chronograph.label }}</span> <!-- This renders the label -->
-                </label></p>
-                <p><label>{{ watch_form.complication_date }} <!-- This renders the checkbox -->
-                        <span>{{ form.complication_date.label }}</span> <!-- This renders the label -->
-                </label></p>
-                <p><label>{{ watch_form.complication_day }} <!-- This renders the checkbox -->
-                    <span>{{ form.complication_day.label }}</span> <!-- This renders the label -->
-                </label></p>
-                <p><label>{{ watch_form.complication_gmt }} <!-- This renders the checkbox -->
-                    <span>{{ form.complication_gmt.label }}</span> <!-- This renders the label -->
-                </label></p>
-                <p><label>{{ watch_form.complication_world_timer }} <!-- This renders the checkbox -->
-                    <span>{{ form.complication_world_timer.label }}</span> <!-- This renders the label -->
-                </label></p>
-                <p><label>{{ watch_form.complication_moonphase }} <!-- This renders the checkbox -->
-                        <span>{{ form.complication_moonphase.label }}</span> <!-- This renders the label -->
-                </label></p>
-                <p><label>{{ watch_form.complication_power_reserve }} <!-- This renders the checkbox -->
-                    <span>{{ form.complication_power_reserve.label }}</span> <!-- This renders the label -->
-                </label></p>
-                <p><label>{{ watch_form.complication_tourbillon }} <!-- This renders the checkbox -->
-                    <span>{{ form.complication_tourbillon.label }}</span> <!-- This renders the label -->
-                </label></p>
-                {{ watch_form.image }}
-                {{ watch_form.list_name }}
-                <div>
-                    <button type="submit" class="btn">Add Watch</button>
-                </div>
-            </form>
+    <div class="container">
+        <div class="row"></div>
+            <div class="col-4 offset-4">  
+                <h1>Welcome {{ user.username }}!</h1>
+                <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ watch_form }}
+                    <div>
+                        <button type="submit" class="btn btn-primary">Add Watch</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 {% endblock %}
