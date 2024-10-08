@@ -52,7 +52,8 @@ def edit_watch(request, watch_id):
     else:
         context = {
             "watch_form": WatchForm(instance=watch),
-            "cancel_url": cancel_url
+            "cancel_url": cancel_url,
+            "watch": watch
         }
         return render(request, 'watches/edit_watch.html', context)
     
