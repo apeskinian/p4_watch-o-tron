@@ -35,3 +35,11 @@ def add_watch(request):
             "cancel_url": cancel_url
         }
         return render(request, 'watches/add_watch.html', context)
+
+
+@login_required(login_url='accounts/login')
+def delete_watch(request, watch_id):
+    return_url = request.META.get('HTTP_REFERER', '/')
+    watch = get_object_or_404(Watch, id=watch_id)
+    watch.delete()
+    return redirect(return_url)
