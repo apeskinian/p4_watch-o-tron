@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Watch, WatchList
 from .forms import WatchForm
 
+
 @login_required(login_url='accounts/login')
 def home(request, list_name='Collection'):
     watches = Watch.objects.filter(
@@ -19,20 +20,18 @@ def home(request, list_name='Collection'):
     return render(request, 'watches/home.html', context)
 
 
+@login_required(login_url='accounts/login')
 def add_watch(request):
-    print('add_watch starting')
-    if request.user.is_authenticated:
-        if request.method == 'POST':
-            print('POST has been found...')
-            form = WatchForm(request.POST, request.FILES)
-            if form.is_valid():
-                form.instance.owner = request.user
-                form.save()
-                return redirect('home')
-        else:
-            context = {
-                "watch_form": WatchForm()
-            }
-            return render(request, 'watches/add_watch.html', context)
+    if request.method == 'POST':
+        form = WatchForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.instance.owner = request.user
+            form.save()
+            return redirect('home')
     else:
-        return render(request, 'account/login.html')
+        cancel_url = request.META.get('HTTP_REFERER', '/')
+        context = {
+            "watch_form": WatchForm(),
+            "cancel_url": cancel_url
+        }
+        return render(request, 'watches/add_watch.html', context)
