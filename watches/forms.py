@@ -76,26 +76,25 @@ class WatchForm(forms.ModelForm):
         required=False
     )
 
-class MovementForm(forms.ModelForm):
-    new_movement = forms.CharField(max_length=100, required=True)
-    
+class MovementForm(forms.ModelForm):    
     class Meta:
         model = WatchMovement
-        fields = [
-            'new_movement',
-        ]
+        fields = ['movement_name']
 
-    def check_new_movement(self):
-        new_movement = self.cleaned_data.get('new_movement')
-        if new_brand:
-            if WatchMovement.objects.filter(name=new_movement).exists():
-                raise forms.ValidationError(f"The movement '{new_movement}' already exists.")
-        return new_movement
+    def clean_name(self):
+        movement_name = self.cleaned_data.get('movement_name')
+        if WatchMovement.objects.filter(movement_name=movement_name).exists():
+            raise forms.ValidationError(f"The movement '{movement_name}' already exists.")
+        return movement_name
 
 class ListForm(forms.ModelForm):
     class Meta:
         model = WatchList
-        fields = [
-            'list_name',
-        ]
+        fields = ['list_name']
+
+    def clean_name(self):
+        list_name = self.cleaned_data.get('list_name')
+        if WatchList.objects.filter(list_name=list_name).exists():
+            raise forms.ValidationError(f"The list '{list_name}' already exists.")
+        return list_name
     

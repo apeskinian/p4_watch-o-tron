@@ -69,7 +69,18 @@
                     {% csrf_token %}
                     {{ movement_form | crispy }}
                     <div>
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" name="movement-add" class="btn btn-success">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 offset-4">
+                <form id="list-form" method="POST">
+                    {% csrf_token %}
+                    {{ list_form | crispy }}
+                    <div>
+                        <button type="submit" name="list-add" class="btn btn-success">Submit</button>
                     </div>
                 </form>
             </div>

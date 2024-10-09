@@ -78,11 +78,15 @@ def delete_watch(request, watch_id):
 
 @staff_member_required(login_url='accounts/login')
 def settings(request):
-    
-
-
-
-
+    if request.method == 'POST':
+        if 'movement-add' in request.POST:
+            form = MovementForm(request.POST)
+            if form.is_valid():
+                form.save()
+        elif 'list-add' in request.POST:
+            form = ListForm(request.POST)
+            if form.is_valid():
+                form.save()
 
     movements = WatchMovement.objects.all()
     list_names = WatchList.objects.all()
