@@ -13,9 +13,27 @@
                     {{ watch_form | crispy }}
                     <div>
                         <button type="submit" class="btn btn-primary">Add Watch</button>
-                        <a href="{{ cancel_url }}" class="btn btn-danger">Cancel</a>
+                        <button id="btn-add" href="{{ cancel_url }}" class="btn btn-danger">Cancel</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="edit-watch-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h4 id="edit-watch-modal-title" class="modal-title"></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="edit-watch-modal-body" class="modal-body">
+                <p id="edit-watch-modal-message"></p>
+                <p><strong>Note: this cannot be undone.</strong></p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a id="edit-watch-modal-confirm" href="#" class="btn">Delete</a>
+                </div>
             </div>
         </div>
     </div>
