@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from .models import Watch, WatchList
 from .forms import WatchForm
 
@@ -73,3 +74,9 @@ def delete_watch(request, watch_id):
     watch = get_object_or_404(Watch, id=watch_id)
     watch.delete()
     return redirect(return_url)
+
+
+@staff_member_required(login_url='accounts/login')
+def settings(request):
+    print('code will come here')
+    return render(request, 'watches/settings.html')

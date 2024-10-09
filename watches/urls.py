@@ -5,8 +5,9 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('add_watch', views.add_watch, name='add_watch'),
-    path('<str:list_name>', views.home, name='watch_list'),
+    path('delete/<watch_id>', views.delete_watch, name='delete'),
     path('edit/<watch_id>', views.edit_watch, name='delete'),
     path('purchase/<watch_id>', views.purchase_watch, name='purchase'),
-    path('delete/<watch_id>', views.delete_watch, name='delete')
+    path('settings', views.settings, name='settings'),
+    path('<str:list_name>', views.home, name='watch_list')
 ]
