@@ -8,6 +8,7 @@
                 <h1>Welcome {{ user.username }}!</h1>
                 <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
                 <h2>Settings</h2>
+                <br>
                 <h3>Movement Types</h3>
                 <table>
                     <tr>
@@ -18,16 +19,22 @@
                     {% for movement in movements %}
                     <tr>
                         <td>{{ movement }}</td>
-                        <td><button class="btn btn-warning">Edit</button></td>
-                        <td><button class="btn btn-danger">Delete</button></td>
+                        {% if forloop.counter > 4 %}
+                            <td><button class="btn btn-warning">Edit</button></td>
+                            <td><button class="btn btn-danger">Delete</button></td>
+                        {% else %}
+                            <td></td>
+                            <td></td>
+                        {% endif %}
                     </tr>
                     {% endfor %}
                     <tr>
-                        <td></td>
-                        <td></td>
                         <td><button class="btn btn-success">Add</button></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
+                <br>
                 <h3>Lists</h3>
                 <table>
                     <tr>
@@ -38,14 +45,19 @@
                     {% for list in list_names %}
                     <tr>
                         <td>{{ list }}</td>
-                        <td><button class="btn btn-warning">Edit</button></td>
-                        <td><button class="btn btn-danger">Delete</button></td>
+                        {% if forloop.counter > 2 %}
+                            <td><button class="btn btn-warning">Edit</button></td>
+                            <td><button class="btn btn-danger">Delete</button></td>
+                        {% else %}
+                            <td></td>
+                            <td></td>
+                        {% endif %}
                     </tr>
                     {% endfor %}
                     <tr>
-                        <td></td>
-                        <td></td>
                         <td><button class="btn btn-success">Add</button></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
             </div>
