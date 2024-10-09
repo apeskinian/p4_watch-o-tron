@@ -52,8 +52,8 @@
                             <br>
                             <div>
                                 {% if current_list == 'Wish List' %}<a href="/purchase/{{ watch.id }}" class="btn btn-primary">Purchased</a>{% endif %}
-                                <a href="/edit/{{ watch.id }}" class="btn btn-warning">Edit</a>
-                                <a href="/delete/{{ watch.id }}" class="btn btn-danger">Delete</a>
+                                <a href="/edit/{{ watch.id }}" class="btn btn-warning btn-edit">Edit</a>
+                                <button class="btn btn-danger btn-delete" data-watch_id="{{ watch.id }}" data-watch_name="{{ watch.make }}{% if watch.model %} {{ watch.model }}{% endif %}" data-current_list="{{ current_list }}">Delete</button>
                             </div>
                         </div>
                     </div>
@@ -62,4 +62,22 @@
             </div>
         </div>
         {% endfor %}
+        <div class="modal" id="delete-watch-modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h4 id="delete-watch-title" class="modal-title"></h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <p id="delete-watch-message"></p>
+                    <p><strong>Note: this cannot be undone.</strong></p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a id="delete-watch-confirm" href="#" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 {% endblock %}
