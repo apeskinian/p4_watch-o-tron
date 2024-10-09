@@ -10,7 +10,6 @@ const watchModalTitle = document.getElementById('watch-modal-title');
 const watchModalBody = document.getElementById('watch-modal-body');
 const watchModalConfirm = document.getElementById('watch-modal-confirm');
 
-
 for (let button of deleteButtons) {
     button.addEventListener('click', (e) => {
         let watchId = e.target.getAttribute('data-watch_id');
@@ -40,3 +39,4 @@ for (let button of purchasedButtons) {
         watchModal.show();
     });
 }
+
