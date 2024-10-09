@@ -8,15 +8,43 @@
             <div class="col-6 offset-3">  
                 <h1>Welcome {{ user.username }}!</h1>
                 <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
-                <form method="POST" enctype="multipart/form-data">
+                <form id="watch-form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ watch_form | crispy }}
                     <div>
-                        <button type="submit" class="btn btn-primary">Update Watch</button>
+                        <button type="button" id="btn-edit" class="btn btn-primary">Update Watch</button>
                         <a href="{{ cancel_url }}" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <div class="modal" id="watch-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h4 id="watch-modal-title" class="modal-title"></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        {% if 'placeholder' in watch.image.url %}
+                            <img id="confirmImage" src="{% static 'images/placeholder.png' %}" alt="image preview" style="max-width: 100%; height: auto;">
+                        {% else %}
+                            <img id="confirmImage" src="{{ watch.image.url }}" alt="{{ watch.make}}" alt="image preview" style="max-width: 100%; height: auto;">
+                        {% endif %}
+                    </div>
+                    <div id="watch-modal-body"></div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" id="watch-modal-confirm">Confirm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+<!-- Custom Script -->
+<script src="{% static 'script/edit_watch_script.js' %}"></script>
 {% endblock %}

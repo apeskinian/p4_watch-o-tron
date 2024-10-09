@@ -28,13 +28,9 @@ editButton.addEventListener('click', (e) => {
             reader.onload = function (e) {
                 // Set the src of the image tag to the file's data URL
                 confirmImage.src = e.target.result;
-                confirmImage.style.display = 'block'; // Make the image visible
             }
             // Read the image file as a data URL
             reader.readAsDataURL(imageInput.files[0]);
-        } else {
-            // If no image is uploaded, hide the image preview
-            confirmImage.style.display = 'none';
         }
 
         var selectedMovement = watchForm.elements['movement_type'];
@@ -43,6 +39,7 @@ editButton.addEventListener('click', (e) => {
         var selectedListText = selectedList.options[selectedList.selectedIndex].text;
         watchModalTitle.innerText = 'Add new watch?';
         watchModalBody.innerHTML = `
+
             <p><strong>Make:</strong> ${watchForm.elements['make'].value}</p>
             <p><strong>Collection:</strong> ${watchForm.elements['collection'].value}</p>
             <p><strong>Model:</strong> ${watchForm.elements['model'].value}</p>
