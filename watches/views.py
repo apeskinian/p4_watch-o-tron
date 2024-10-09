@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-from .models import Watch, WatchList
+from .models import Watch, WatchList, WatchMovement
 from .forms import WatchForm
 
 
@@ -78,5 +78,10 @@ def delete_watch(request, watch_id):
 
 @staff_member_required(login_url='accounts/login')
 def settings(request):
-    print('code will come here')
-    return render(request, 'watches/settings.html')
+    movements = WatchMovement.objects.all()
+    list_names = WatchList.objects.all()
+    context = {
+        'movements': movements,
+        'list_names': list_names
+    }
+    return render(request, 'watches/settings.html', context)
