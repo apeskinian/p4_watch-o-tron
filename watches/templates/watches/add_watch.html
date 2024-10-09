@@ -8,11 +8,11 @@
             <div class="col-4 offset-4">  
                 <h1>Welcome {{ user.username }}!</h1>
                 <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
-                <form method="POST" enctype="multipart/form-data">
+                <form id="watch-form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ watch_form | crispy }}
                     <div>
-                        <button type="submit" id="btn-edit" class="btn btn-primary">Add Watch</button>
+                        <button type="button" id="btn-edit" class="btn btn-primary">Add Watch</button>
                         <a href="{{ cancel_url }}" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
@@ -23,13 +23,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h4 id="watch-modal-title" class="modal-title"></h4>
+                <h4 id="watch-modal-title" class="modal-title">Confirm Your Submission</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div id="watch-modal-body" class="modal-body"></div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-success">Confirm</a>
+                <button type="button" class="btn btn-success" id="watch-modal-confirm">Confirm</a>
                 </div>
             </div>
         </div>
