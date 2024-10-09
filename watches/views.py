@@ -78,6 +78,12 @@ def delete_watch(request, watch_id):
 
 @staff_member_required(login_url='accounts/login')
 def settings(request):
+    
+
+
+
+
+
     movements = WatchMovement.objects.all()
     list_names = WatchList.objects.all()
     context = {

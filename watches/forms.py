@@ -1,18 +1,6 @@
 from django import forms
 from .models import Watch, WatchList, WatchMovement
 
-class MovementForm(forms.ModelForm):
-    model = WatchMovement
-    fields = [
-        'name',
-    ]
-
-class ListForm(forms.ModelForm):
-    model = WatchList
-    fields = [
-        'name',
-    ]
-
 class WatchForm(forms.ModelForm):
     class Meta:
         model = Watch
@@ -87,3 +75,27 @@ class WatchForm(forms.ModelForm):
         label='Tourbillon',
         required=False
     )
+
+class MovementForm(forms.ModelForm):
+    new_movement = forms.CharField(max_length=100, required=True)
+    
+    class Meta:
+        model = WatchMovement
+        fields = [
+            'new_movement',
+        ]
+
+    def check_new_movement(self):
+        new_movement = self.cleaned_data.get('new_movement')
+        if new_brand:
+            if WatchMovement.objects.filter(name=new_movement).exists():
+                raise forms.ValidationError(f"The movement '{new_movement}' already exists.")
+        return new_movement
+
+class ListForm(forms.ModelForm):
+    class Meta:
+        model = WatchList
+        fields = [
+            'list_name',
+        ]
+    

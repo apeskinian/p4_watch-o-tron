@@ -4,13 +4,13 @@ import cloudinary.uploader
 from cloudinary.models import CloudinaryField
 
 class WatchList(models.Model):
-    list_name = models.CharField(max_length=100)
+    list_name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.list_name
 
 class WatchMovement(models.Model):
-    movement_name = models.CharField(max_length=100)
+    movement_name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.movement_name
