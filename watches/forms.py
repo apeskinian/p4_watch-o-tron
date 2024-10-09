@@ -1,6 +1,18 @@
 from django import forms
 from .models import Watch, WatchList, WatchMovement
 
+class MovementForm(forms.ModelForm):
+    model = WatchMovement
+    fields = [
+        'name',
+    ]
+
+class ListForm(forms.ModelForm):
+    model = WatchList
+    fields = [
+        'name',
+    ]
+
 class WatchForm(forms.ModelForm):
     class Meta:
         model = Watch
