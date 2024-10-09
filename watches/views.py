@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import Watch, WatchList, WatchMovement
-from .forms import WatchForm
+from .forms import WatchForm, MovementForm, ListForm
 
 
 @login_required(login_url='accounts/login')
@@ -81,6 +81,8 @@ def settings(request):
     movements = WatchMovement.objects.all()
     list_names = WatchList.objects.all()
     context = {
+        'movement_form': MovementForm(),
+        'list_form': ListForm(),
         'movements': movements,
         'list_names': list_names
     }
