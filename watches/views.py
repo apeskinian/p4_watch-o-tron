@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib import messages
 from .models import Watch, WatchList, WatchMovement
 from .forms import WatchForm, MovementForm, ListForm
 
@@ -18,6 +19,8 @@ def home(request, list_name='Collection'):
         'lists': lists,
         'current_list': current_list
     }
+    viewmessage = f'Viewing {list_name}'
+    messages.add_message(request, messages.INFO, viewmessage)
     return render(request, 'watches/home.html', context)
 
 

@@ -9,3 +9,7 @@
 .hidden {
     display: none;
 }
+
+.message-box {
+    display: absolute;
+}
