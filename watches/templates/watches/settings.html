@@ -25,13 +25,11 @@
                         <td>{{ movement }}</td>
                         {% if forloop.counter > 4 %}
                         <td>
-                            <button 
-                            type="button"
+                            <a
+                            href="#"
                             class="btn-edit-movement btn btn-warning" 
-                            data-id="{{ movement.id }}" 
-                            data-name="{{ movement.name }}"
                             >Edit
-                        </button>
+                        </a>
                         </td>
                         <td>
                             <a 
@@ -76,19 +74,15 @@
                         <td>{{ list }}</td>
                         {% if forloop.counter > 2 %}
                         <td>
-                            <button
-                            type="button"
+                            <a
+                            href="#"
                             class="btn-edit-list btn btn-warning" 
-                            data-id="{{ list.id }}" 
-                            data-name="{{ list.list_name }}"
                             >Edit
-                        </button>
+                        </a>
                         </td>
                         <td><a 
                             href="/delete/list/{{ list.id }}" 
                             class="btn-delete-list btn btn-danger" 
-                            data-id="{{ list.id }}" 
-                            data-name="{{ list }}"
                             >Delete
                             </a>
                         </td>
@@ -123,7 +117,7 @@
             {{ movement_form | crispy }}
             <div>
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" name="movement" class="btn btn-success">Add</button>
+                <button type="submit" name="movement-form" class="btn btn-success">Add</button>
             </div>
         </form>
     </div>
@@ -133,11 +127,12 @@
             {{ list_form | crispy }}
             <div>
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" name="list" class="btn btn-success">Add</button>
+                <button type="submit" name="list-form" class="btn btn-success">Add</button>
             </div>
         </form>
     </div>
     <!-- End of forms -->
+     <!-- Modal for adding movements or lists -->
     <div id="new-entry-modal" class="modal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">

@@ -81,19 +81,22 @@ def delete_watch(request, watch_id):
 
 @staff_member_required(login_url='accounts/login')
 def settings(request):
+
     if request.method == 'POST':
-        if 'movement' in request.POST:
+        if 'movement-form' in request.POST:
             form = MovementForm(request.POST)
             if form.is_valid():
                 form.save()
-        elif 'list' in request.POST:
+                return redirect('settings')
+        elif 'list-form' in request.POST:
             form = ListForm(request.POST)
             if form.is_valid():
                 form.save()
-
+                return redirect('settings')
+    
     movements = WatchMovement.objects.all()
-    list_names = WatchList.objects.all()
     lists = WatchList.objects.values_list('list_name', flat=True)
+    list_names = WatchList.objects.all()   
     context = {
         'movement_form': MovementForm(),
         'list_form': ListForm(),
@@ -109,12 +112,14 @@ def delete_movement(request, movement_id):
     return_url = request.META.get('HTTP_REFERER', '/')
     movement = get_object_or_404(WatchMovement, id=movement_id)
     movement.delete()
+    messages.success(request, f'Movement "{movement}" has been deleted.')
     return redirect(return_url)
 
 
 @staff_member_required(login_url='accounts/login')
 def delete_list(request, list_id):
     return_url = request.META.get('HTTP_REFERER', '/')
-    movement = get_object_or_404(WatchList, id=list_id)
-    movement.delete()
+    list_name = get_object_or_404(WatchList, id=list_id)
+    list_name.delete()
+    messages.success(request, f'The list "{list_name}" has been deleted.')
     return redirect(return_url)
