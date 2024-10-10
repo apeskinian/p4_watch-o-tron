@@ -24,16 +24,41 @@
                     <tr>
                         <td>{{ movement }}</td>
                         {% if forloop.counter > 4 %}
-                            <td><button class="btn btn-warning">Edit</button></td>
-                            <td><a href="/delete/movement/{{ movement.id }}" class="btn-delete-movement btn btn-danger" data-movement_id="{{ movement.id }}" data-movement_name="{{ movement }}">Delete</a></td>
+                        <td>
+                            <button 
+                            type="button"
+                            class="btn-edit-movement btn btn-warning" 
+                            data-id="{{ movement.id }}" 
+                            data-name="{{ movement.name }}"
+                            >Edit
+                        </button>
+                        </td>
+                        <td>
+                            <a 
+                            href="/delete/movement/{{ movement.id }}" 
+                            class="btn-delete-movement btn btn-danger" 
+                            data-id="{{ movement.id }}" 
+                            data-name="{{ movement }}"
+                            >Delete
+                            </a>
+                        </td>
                         {% else %}
-                            <td></td>
-                            <td></td>
+                        <td></td>
+                        <td></td>
                         {% endif %}
                     </tr>
                     {% endfor %}
                     <tr>
-                        <td><button id="test" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#new-entry-modal" data-mode="new-movement">Add</button></td>
+                        <td>
+                            <button 
+                            type="button" 
+                            class="btn btn-success" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#new-entry-modal" 
+                            data-mode="new-movement"
+                            >Add
+                            </button>
+                        </td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -50,16 +75,40 @@
                     <tr>
                         <td>{{ list }}</td>
                         {% if forloop.counter > 2 %}
-                            <td><button class="btn btn-warning">Edit</button></td>
-                            <td><a href="/delete/list/{{ list.id }}" class="btn-delete-list btn btn-danger" data-list_id="{{ list.id }}" data-list_name="{{ list }}">Delete</a></td>
+                        <td>
+                            <button
+                            type="button"
+                            class="btn-edit-list btn btn-warning" 
+                            data-id="{{ list.id }}" 
+                            data-name="{{ list.list_name }}"
+                            >Edit
+                        </button>
+                        </td>
+                        <td><a 
+                            href="/delete/list/{{ list.id }}" 
+                            class="btn-delete-list btn btn-danger" 
+                            data-id="{{ list.id }}" 
+                            data-name="{{ list }}"
+                            >Delete
+                            </a>
+                        </td>
                         {% else %}
-                            <td></td>
-                            <td></td>
+                        <td></td>
+                        <td></td>
                         {% endif %}
                     </tr>
                     {% endfor %}
                     <tr>
-                        <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#new-entry-modal" data-mode="new-list">Add</button></td>
+                        <td>
+                            <button 
+                            type="button" 
+                            class="btn btn-success" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#new-entry-modal" 
+                            data-mode="new-list"
+                            >Add
+                            </button>
+                        </td>
                         <td></td>
                         <td></td>
                     </tr>

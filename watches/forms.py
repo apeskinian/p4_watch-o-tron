@@ -86,6 +86,7 @@ class MovementForm(forms.ModelForm):
         if WatchMovement.objects.filter(movement_name=movement_name).exists():
             raise forms.ValidationError(f"The movement '{movement_name}' already exists.")
         return movement_name
+        
 
 class ListForm(forms.ModelForm):
     class Meta:
@@ -97,4 +98,3 @@ class ListForm(forms.ModelForm):
         if WatchList.objects.filter(list_name=list_name).exists():
             raise forms.ValidationError(f"The list '{list_name}' already exists.")
         return list_name
-    

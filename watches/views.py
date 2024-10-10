@@ -103,6 +103,7 @@ def settings(request):
     }
     return render(request, 'watches/settings.html', context)
 
+
 @staff_member_required(login_url='accounts/login')
 def delete_movement(request, movement_id):
     return_url = request.META.get('HTTP_REFERER', '/')
