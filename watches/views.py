@@ -99,3 +99,18 @@ def settings(request):
         'list_names': list_names
     }
     return render(request, 'watches/settings.html', context)
+
+@staff_member_required(login_url='accounts/login')
+def delete_movement(request, movement_id):
+    return_url = request.META.get('HTTP_REFERER', '/')
+    movement = get_object_or_404(WatchMovement, id=movement_id)
+    movement.delete()
+    return redirect(return_url)
+
+
+@staff_member_required(login_url='accounts/login')
+def delete_list(request, list_id):
+    return_url = request.META.get('HTTP_REFERER', '/')
+    movement = get_object_or_404(WatchList, id=list_id)
+    movement.delete()
+    return redirect(return_url)

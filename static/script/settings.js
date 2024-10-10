@@ -2,7 +2,9 @@
 const newEntryModal = document.getElementById('new-entry-modal');
 const newEntryModalTitle = document.getElementById('new-entry-modal-title');
 const newEntryModalBody = document.getElementById('new-entry-modal-body');
-const newEntryModalConfirm = document.getElementById('new-entry-modal-confirm');
+
+//get delete buttons
+const deleteMovementButtons = document.getElementsByClassName('btn-delete-movement');
 
 newEntryModal.addEventListener('show.bs.modal', (e) => {
     var mode = e.relatedTarget.getAttribute('data-mode');
@@ -19,8 +21,4 @@ newEntryModal.addEventListener('show.bs.modal', (e) => {
 
     newEntryModalTitle.innerText = `Specify new ${type} type:`;
     newEntryModalBody.innerHTML = formHTML
-
-    newEntryModalConfirm.addEventListener('click', (e) => {
-        document.querySelector('#new-entry-modal-body form').submit();
-    });
 });

@@ -19,7 +19,7 @@ for (let button of deleteButtons) {
         watchModalBody.innerHTML = `
             <p>This will delete this watch from your ${watchList}.</p>
             <p><strong>Note: this cannot be undone.</strong></p>`;
-        watchModalConfirm.href = `/delete/${watchId}`;
+        watchModalConfirm.href = `/delete/watch/${watchId}`;
         watchModalConfirm.innerText = 'Delete';
         watchModalConfirm.classList.add('btn-danger');
         watchModal.show();
