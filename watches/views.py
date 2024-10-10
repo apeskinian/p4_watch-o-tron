@@ -107,12 +107,18 @@ def settings(request):
     return render(request, 'watches/settings.html', context)
 
 
+
+
+
 @staff_member_required(login_url='accounts/login')
 def delete_movement(request, movement_id):
+    
     return_url = request.META.get('HTTP_REFERER', '/')
     movement = get_object_or_404(WatchMovement, id=movement_id)
+    associated = movement.watch_movement.count()
+
     movement.delete()
-    messages.success(request, f'Movement "{movement}" has been deleted.')
+    messages.success(request, f'Movement "{movement}" has been deleted. {associated} watches have been affected by this.')
     return redirect(return_url)
 
 
@@ -120,6 +126,8 @@ def delete_movement(request, movement_id):
 def delete_list(request, list_id):
     return_url = request.META.get('HTTP_REFERER', '/')
     list_name = get_object_or_404(WatchList, id=list_id)
+    associated = list_name.watch_list.count()
+
     list_name.delete()
-    messages.success(request, f'The list "{list_name}" has been deleted.')
+    messages.success(request, f'The list "{list_name}" has been deleted. {associated} watches have been affected by this.')
     return redirect(return_url)
