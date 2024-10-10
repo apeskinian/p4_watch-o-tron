@@ -5,3 +5,7 @@
 .not-complicated {
     opacity: 0.2;
 }
+
+.hidden {
+    display: none;
+}
