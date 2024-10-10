@@ -90,10 +90,12 @@ def settings(request):
 
     movements = WatchMovement.objects.all()
     list_names = WatchList.objects.all()
+    lists = WatchList.objects.values_list('list_name', flat=True)
     context = {
         'movement_form': MovementForm(),
         'list_form': ListForm(),
         'movements': movements,
+        'lists': lists,
         'list_names': list_names
     }
     return render(request, 'watches/settings.html', context)

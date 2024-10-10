@@ -8,6 +8,12 @@
             <div class="col-4 offset-4">  
                 <h1>Welcome {{ user.username }}!</h1>
                 <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
+                {% for thing in lists %}
+                <a href="{% url 'watch_list' thing %}" class="btn btn-primary">{{ thing }}</a>
+                {% endfor %}
+                
+                
+                
                 <h2>Settings</h2>
                 <br>
                 <h3>Movement Types</h3>
