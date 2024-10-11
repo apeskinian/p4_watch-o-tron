@@ -1,3 +1,4 @@
+// set timeout of messages
 setTimeout(function() {
     let messages = document.getElementById('msg');
     let alert = new bootstrap.Alert(messages);

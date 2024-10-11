@@ -3,9 +3,10 @@ const newEntryModal = document.getElementById('new-entry-modal');
 const newEntryModalTitle = document.getElementById('new-entry-modal-title');
 const newEntryModalBody = document.getElementById('new-entry-modal-body');
 
-//get delete buttons
+// get delete buttons
 const deleteMovementButtons = document.getElementsByClassName('btn-delete-movement');
 
+// edit modal content dependant on button that launched it
 newEntryModal.addEventListener('show.bs.modal', (e) => {
     var mode = e.relatedTarget.getAttribute('data-mode');
     var formHTML;

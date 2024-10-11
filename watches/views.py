@@ -62,7 +62,7 @@ def edit_watch(request, watch_id):
             "watch": watch
         }
         return render(request, 'watches/edit_watch.html', context)
-    
+
 
 @login_required(login_url='accounts/login')
 def purchase_watch(request, watch_id):

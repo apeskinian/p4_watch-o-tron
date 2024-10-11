@@ -1,6 +1,4 @@
 // SETTING CONSTANTS
-
-// DELETING AND PURCHASING
 // getting buttons for deleting and purchasing
 const deleteButtons = document.getElementsByClassName('btn-delete');
 const purchasedButtons = document.getElementsByClassName('btn-purchased');
@@ -9,6 +7,7 @@ const watchModal = new bootstrap.Modal(document.getElementById('watch-modal'));
 const watchModalTitle = document.getElementById('watch-modal-title');
 const watchModalBody = document.getElementById('watch-modal-body');
 const watchModalConfirm = document.getElementById('watch-modal-confirm');
+
 
 for (let button of deleteButtons) {
     button.addEventListener('click', (e) => {
@@ -39,4 +38,3 @@ for (let button of purchasedButtons) {
         watchModal.show();
     });
 }
-

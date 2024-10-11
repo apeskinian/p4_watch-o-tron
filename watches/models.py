@@ -43,5 +43,5 @@ class Watch(models.Model):
         if self.image != 'placeholder':
             public_id = self.image.public_id
             cloudinary.uploader.destroy(public_id)
-        # proceed with normal deletetion
+        # proceed with normal deletion
         super().delete(*args, **kwargs)

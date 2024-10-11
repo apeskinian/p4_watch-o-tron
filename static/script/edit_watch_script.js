@@ -9,27 +9,22 @@ const watchModalTitle = document.getElementById('watch-modal-title');
 const watchModalBody = document.getElementById('watch-modal-body');
 const watchModalConfirm = document.getElementById('watch-modal-confirm');
 
-// Function to validate form
+// validating form
 function validateForm() {
-    // Check each required field for validity
     return watchForm.checkValidity();
 }
 
 editButton.addEventListener('click', (e) => {
     if (validateForm()) {
-        // If valid, populate modal and show it
-
-        // For image, read the selected file and display the preview
+        
         var imageInput = watchForm.elements['image'];
         var confirmImage = document.getElementById('confirmImage');
         
         if (imageInput.files && imageInput.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                // Set the src of the image tag to the file's data URL
                 confirmImage.src = e.target.result;
             }
-            // Read the image file as a data URL
             reader.readAsDataURL(imageInput.files[0]);
         }
 
@@ -39,7 +34,6 @@ editButton.addEventListener('click', (e) => {
         var selectedListText = selectedList.options[selectedList.selectedIndex].text;
         watchModalTitle.innerText = 'Add new watch?';
         watchModalBody.innerHTML = `
-
             <p><strong>Make:</strong> ${watchForm.elements['make'].value}</p>
             <p><strong>Collection:</strong> ${watchForm.elements['collection'].value}</p>
             <p><strong>Model:</strong> ${watchForm.elements['model'].value}</p>
@@ -57,13 +51,11 @@ editButton.addEventListener('click', (e) => {
         `;
         watchModal.show();
     } else {
-        // If invalid, trigger native form validation
         watchForm.reportValidity();
     }
 });
 
-// Handle modal confirm button click
+// make modal button submit the form
 watchModalConfirm.addEventListener('click', function () {
-    // Once confirmed, submit the form
     watchForm.submit();
 });
