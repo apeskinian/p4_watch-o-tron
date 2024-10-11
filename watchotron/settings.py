@@ -12,9 +12,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+# import dj_database_url
 from django.contrib.messages import constants as messages
 if os.path.isfile('env.py'):
     import env
@@ -33,6 +35,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 development = os.environ.get('DEVELOPMENT', False)
 DEBUG = development
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = [
     '.ws.codeinstitute-ide.net',
@@ -127,6 +131,14 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default':
+#     dj_database_url.parse(os.environ.get('DATABASE_URL'))
+# }
+
+# if 'test' in sys.argv:
+#     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 
 # Password validation

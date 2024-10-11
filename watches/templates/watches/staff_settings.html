@@ -137,7 +137,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6 offset-3">
-                <div id="edit-form-wrapper"></div>
+                <div id="edit-form-wrapper">
                     <form id="edit-form" method="POST">
                         {% csrf_token %}
                         {{ edit_form | crispy }}
@@ -148,7 +148,7 @@
                                 {% else %} {{ associated }} watches
                                 {% endif %} will be affected by this change.
                             </p>
-                            <a href="{{ cancel_url }}" class="btn btn-danger">Cancel</a>
+                            <a href="{% url 'staff_settings' %}" class="btn btn-danger">Cancel</a>
                             <button type="submit" name="edit-form" class="btn btn-success">Amend</button>
                         </div>
                     </form>
@@ -156,7 +156,28 @@
             </div>
         </div>
     </div>
-    
+    {% endif %}
+    {% if to_delete %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3">
+                <form id="confirm-delete" method="POST">
+                    {% csrf_token %}
+                    <h5>Confirm deletion of {{ to_delete }}?</h5>
+                    <p><strong>Note:</strong>
+                        {% if associated == 0 %} No watches
+                        {% elif associated == 1 %} {{ associated }} watch
+                        {% else %} {{ associated }} watches
+                        {% endif %} will be deleted by this change.
+                    </p>
+                    <div>
+                        <a href="{% url 'staff_settings' %}" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" name="confirm-delete" class="btn btn-danger">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     {% endif %}
     <!-- End of forms -->
      <!-- Modal for adding movements or lists -->
@@ -174,5 +195,5 @@
 {% endblock %}
 {% block script %}
 <!-- Custom Script -->
-<script src="{% static 'script/settings_script.js' %}"></script>
+<script src="{% static 'script/staff_settings_script.js' %}"></script>
 {% endblock %}

@@ -82,18 +82,18 @@ def delete_watch(request, watch_id):
 
 
 @staff_member_required(login_url='accounts/login')
-def settings(request):
+def staff_settings(request):
     if request.method == 'POST':
         if 'movement-form' in request.POST:
             form = MovementForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('settings')
+                return redirect('staff_settings')
         elif 'list-form' in request.POST:
             form = ListForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('settings') 
+                return redirect('staff_settings') 
     movements = WatchMovement.objects.all()
     lists = WatchList.objects.values_list('list_name', flat=True)
     list_names = WatchList.objects.all()   
@@ -104,7 +104,7 @@ def settings(request):
         'lists': lists,
         'list_names': list_names
     }
-    return render(request, 'watches/settings.html', context)
+    return render(request, 'watches/staff_settings.html', context)
 
 
 @staff_member_required(login_url='accounts/login')
@@ -116,7 +116,7 @@ def edit_movement(request, movement_id):
         form = MovementForm(request.POST, instance=movement)
         if form.is_valid():
             form.save()
-            return redirect('settings')
+            return redirect('staff_settings')
     else:
         movements = WatchMovement.objects.all()
         lists = WatchList.objects.values_list('list_name', flat=True)
@@ -131,7 +131,7 @@ def edit_movement(request, movement_id):
             'lists': lists,
             'list_names': list_names
         }
-        return render(request, 'watches/settings.html', context)
+        return render(request, 'watches/staff_settings.html', context)
 
 
 @staff_member_required(login_url='accounts/login')
@@ -143,7 +143,7 @@ def edit_list(request, list_id):
         form = ListForm(request.POST, instance=list_name)
         if form.is_valid():
             form.save()
-            return redirect('settings')
+            return redirect('staff_settings')
     else:
         movements = WatchMovement.objects.all()
         lists = WatchList.objects.values_list('list_name', flat=True)
@@ -158,27 +158,52 @@ def edit_list(request, list_id):
             'lists': lists,
             'list_names': list_names
         }
-        return render(request, 'watches/settings.html', context)
+        return render(request, 'watches/staff_settings.html', context)
 
 
 @staff_member_required(login_url='accounts/login')
 def delete_movement(request, movement_id):
-    
-    return_url = request.META.get('HTTP_REFERER', '/')
     movement = get_object_or_404(WatchMovement, id=movement_id)
     associated = movement.watch_movement.count()
-
-    movement.delete()
-    messages.success(request, f'Movement "{movement}" has been deleted. {associated} watches have been affected by this.')
-    return redirect(return_url)
+    if request.method == 'POST':
+        movement.delete()
+        messages.success(request, f'Movement "{movement}" has been deleted.')
+        return redirect('staff_settings')
+    else:
+        movements = WatchMovement.objects.all()
+        lists = WatchList.objects.values_list('list_name', flat=True)
+        list_names = WatchList.objects.all()   
+        context = {
+            'associated': associated,
+            'to_delete': movement,
+            'movement_form': MovementForm(),
+            'list_form': ListForm(),
+            'movements': movements,
+            'lists': lists,
+            'list_names': list_names
+        }
+        return render(request, 'watches/staff_settings.html', context)
 
 
 @staff_member_required(login_url='accounts/login')
 def delete_list(request, list_id):
-    return_url = request.META.get('HTTP_REFERER', '/')
     list_name = get_object_or_404(WatchList, id=list_id)
     associated = list_name.watch_list.count()
-
-    list_name.delete()
-    messages.success(request, f'The list "{list_name}" has been deleted. {associated} watches have been affected by this.')
-    return redirect(return_url)
+    if request.method == 'POST':
+        list_name.delete()
+        messages.success(request, f'The list "{list_name}" has been deleted.')
+        return redirect('staff_settings')
+    else:
+        movements = WatchMovement.objects.all()
+        lists = WatchList.objects.values_list('list_name', flat=True)
+        list_names = WatchList.objects.all()   
+        context = {
+            'associated': associated,
+            'to_delete': list_name,
+            'movement_form': MovementForm(),
+            'list_form': ListForm(),
+            'movements': movements,
+            'lists': lists,
+            'list_names': list_names
+        }
+        return render(request, 'watches/staff_settings.html', context)

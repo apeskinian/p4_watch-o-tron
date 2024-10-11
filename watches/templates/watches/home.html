@@ -12,7 +12,7 @@
                 {% endfor %}
                 <a href="{% url 'add_watch' %}" class="btn btn-success">Add a Watch</a>
                 {% if user.is_staff %}
-                    <a href="{% url 'settings' %}" class="btn btn-secondary">Settings</a>
+                    <a href="{% url 'staff_settings' %}" class="btn btn-secondary">Settings</a>
                 {% endif %}
             </div>
         </div>
