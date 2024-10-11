@@ -5,7 +5,7 @@
 {% block content %}
     <div class="container">
         <div class="row"></div>
-            <div class="col-4 offset-4">  
+            <div class="col">  
                 <h1>Welcome {{ user.username }}!</h1>
                 <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
                 {% for thing in lists %}
@@ -136,7 +136,7 @@
     {% if edit_form %}
     <div class="container">
         <div class="row">
-            <div class="col-6 offset-3">
+            <div class="col">
                 <div id="edit-form-wrapper">
                     <form id="edit-form" method="POST">
                         {% csrf_token %}
@@ -160,7 +160,7 @@
     {% if to_delete %}
     <div class="container">
         <div class="row">
-            <div class="col-6 offset-3">
+            <div class="col">
                 <form id="confirm-delete" method="POST">
                     {% csrf_token %}
                     <h5>Confirm deletion of {{ to_delete }}?</h5>

@@ -4,7 +4,7 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-4 offset-4">
+            <div class="col">
                 <h1>Welcome {{ user.username }}!</h1>
                 <p>Not {{ user.username }}? <a href="{{ logout_url }}" class="btn btn-danger">logout</a></p>
                 {% for thing in lists %}
@@ -20,7 +20,7 @@
         {% for watch in watches %}
         <div class="container">
             <div class="row">
-                <div class="col-4 offset-4">
+                <div class="col">
                     <div class="card">
                         <div>
                             {% if 'placeholder' in watch.image.url %}
