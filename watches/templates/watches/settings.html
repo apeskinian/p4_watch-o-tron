@@ -134,16 +134,29 @@
         </form>
     </div>
     {% if edit_form %}
-    <div id="edit-form-wrapper"></div>
-        <form id="edit-form" method="POST">
-            {% csrf_token %}
-            {{ edit_form | crispy }}
-            <div>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" name="edit-form" class="btn btn-success">Add</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div id="edit-form-wrapper"></div>
+                    <form id="edit-form" method="POST">
+                        {% csrf_token %}
+                        {{ edit_form | crispy }}
+                        <div>
+                            <p><strong>Note:</strong>
+                                {% if associated == 0 %} No watches
+                                {% elif associated == 1 %} {{ associated }} watch
+                                {% else %} {{ associated }} watches
+                                {% endif %} will be affected by this change.
+                            </p>
+                            <a href="{{ cancel_url }}" class="btn btn-danger">Cancel</a>
+                            <button type="submit" name="edit-form" class="btn btn-success">Amend</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
+    
     {% endif %}
     <!-- End of forms -->
      <!-- Modal for adding movements or lists -->

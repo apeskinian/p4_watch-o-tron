@@ -83,7 +83,6 @@ def delete_watch(request, watch_id):
 
 @staff_member_required(login_url='accounts/login')
 def settings(request):
-
     if request.method == 'POST':
         if 'movement-form' in request.POST:
             form = MovementForm(request.POST)
@@ -94,8 +93,7 @@ def settings(request):
             form = ListForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('settings')
-    
+                return redirect('settings') 
     movements = WatchMovement.objects.all()
     lists = WatchList.objects.values_list('list_name', flat=True)
     list_names = WatchList.objects.all()   
@@ -113,6 +111,7 @@ def settings(request):
 def edit_movement(request, movement_id):
     cancel_url = request.META.get('HTTP_REFERER', '/')
     movement = get_object_or_404(WatchMovement, id=movement_id)
+    associated = movement.watch_movement.count()
     if request.method == 'POST':
         form = MovementForm(request.POST, instance=movement)
         if form.is_valid():
@@ -123,6 +122,8 @@ def edit_movement(request, movement_id):
         lists = WatchList.objects.values_list('list_name', flat=True)
         list_names = WatchList.objects.all()   
         context = {
+            'cancel_url': cancel_url,
+            'associated': associated,
             'edit_form': MovementForm(instance=movement),
             'movement_form': MovementForm(),
             'list_form': ListForm(),
@@ -137,6 +138,7 @@ def edit_movement(request, movement_id):
 def edit_list(request, list_id):
     cancel_url = request.META.get('HTTP_REFERER', '/')
     list_name = get_object_or_404(WatchList, id=list_id)
+    associated = list_name.watch_list.count()
     if request.method == 'POST':
         form = ListForm(request.POST, instance=list_name)
         if form.is_valid():
@@ -147,6 +149,8 @@ def edit_list(request, list_id):
         lists = WatchList.objects.values_list('list_name', flat=True)
         list_names = WatchList.objects.all()   
         context = {
+            'cancel_url': cancel_url,
+            'associated': associated,
             'edit_form': ListForm(instance=list_name),
             'movement_form': MovementForm(),
             'list_form': ListForm(),
@@ -155,7 +159,6 @@ def edit_list(request, list_id):
             'list_names': list_names
         }
         return render(request, 'watches/settings.html', context)
-
 
 
 @staff_member_required(login_url='accounts/login')
