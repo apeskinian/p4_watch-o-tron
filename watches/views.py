@@ -31,7 +31,9 @@ def add_watch(request):
         if form.is_valid():
             form.instance.owner = request.user
             form.save()
-            return redirect('home')
+            
+            new_list = form.instance.list_name.list_name
+            return redirect('watch_list', list_name=new_list)
     else:
         cancel_url = request.META.get('HTTP_REFERER', '/')
         context = {
@@ -105,8 +107,6 @@ def settings(request):
         'list_names': list_names
     }
     return render(request, 'watches/settings.html', context)
-
-
 
 
 
