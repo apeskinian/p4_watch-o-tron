@@ -16,7 +16,7 @@ import sys
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-# import dj_database_url
+import dj_database_url
 from django.contrib.messages import constants as messages
 if os.path.isfile('env.py'):
     import env
@@ -125,20 +125,20 @@ cloudinary.config(
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
-#     'default':
-#     dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 # }
 
-# if 'test' in sys.argv:
-#     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+DATABASES = {
+    'default':
+    dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
+
+if 'test' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 
 # Password validation
