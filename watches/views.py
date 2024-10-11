@@ -31,7 +31,7 @@ def add_watch(request):
         if form.is_valid():
             form.instance.owner = request.user
             form.save()
-            
+
             new_list = form.instance.list_name.list_name
             return redirect('watch_list', list_name=new_list)
     else:
@@ -107,6 +107,54 @@ def settings(request):
         'list_names': list_names
     }
     return render(request, 'watches/settings.html', context)
+
+
+@staff_member_required(login_url='accounts/login')
+def edit_movement(request, movement_id):
+    cancel_url = request.META.get('HTTP_REFERER', '/')
+    movement = get_object_or_404(WatchMovement, id=movement_id)
+    if request.method == 'POST':
+        form = MovementForm(request.POST, instance=movement)
+        if form.is_valid():
+            form.save()
+            return redirect('settings')
+    else:
+        movements = WatchMovement.objects.all()
+        lists = WatchList.objects.values_list('list_name', flat=True)
+        list_names = WatchList.objects.all()   
+        context = {
+            'edit_form': MovementForm(instance=movement),
+            'movement_form': MovementForm(),
+            'list_form': ListForm(),
+            'movements': movements,
+            'lists': lists,
+            'list_names': list_names
+        }
+        return render(request, 'watches/settings.html', context)
+
+
+@staff_member_required(login_url='accounts/login')
+def edit_list(request, list_id):
+    cancel_url = request.META.get('HTTP_REFERER', '/')
+    list_name = get_object_or_404(WatchList, id=list_id)
+    if request.method == 'POST':
+        form = ListForm(request.POST, instance=list_name)
+        if form.is_valid():
+            form.save()
+            return redirect('settings')
+    else:
+        movements = WatchMovement.objects.all()
+        lists = WatchList.objects.values_list('list_name', flat=True)
+        list_names = WatchList.objects.all()   
+        context = {
+            'edit_form': ListForm(instance=list_name),
+            'movement_form': MovementForm(),
+            'list_form': ListForm(),
+            'movements': movements,
+            'lists': lists,
+            'list_names': list_names
+        }
+        return render(request, 'watches/settings.html', context)
 
 
 

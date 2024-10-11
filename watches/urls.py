@@ -11,5 +11,7 @@ urlpatterns = [
     path('edit/<watch_id>', views.edit_watch, name='edit_watch'),
     path('purchase/<watch_id>', views.purchase_watch, name='purchase'),
     path('settings', views.settings, name='settings'),
+    path('edit/movement/<int:movement_id>', views.edit_movement, name='edit_movement'),
+    path('edit/list/<int:list_id>', views.edit_list, name='edit_list'),
     path('<str:list_name>', views.home, name='watch_list'),
 ]

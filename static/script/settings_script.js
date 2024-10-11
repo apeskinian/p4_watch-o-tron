@@ -10,16 +10,17 @@ newEntryModal.addEventListener('show.bs.modal', (e) => {
     var mode = e.relatedTarget.getAttribute('data-mode');
     var formHTML;
     var type;
+    var id = e.relatedTarget.getAttribute('data-id');
     
     if (mode === 'new-list') {
         type = 'list';
         formHTML = document.getElementById('list-form-wrapper').innerHTML;
+        newEntryModalTitle.innerText = `Specify new ${type} type:`;
     } else if (mode === 'new-movement') {
         type = 'movement';
         formHTML = document.getElementById('movement-form-wrapper').innerHTML;
+        newEntryModalTitle.innerText = `Specify new ${type} type:`;
     }
-    
-    newEntryModalTitle.innerText = `Specify new ${type} type:`;
     newEntryModalBody.innerHTML = formHTML
 });
 
