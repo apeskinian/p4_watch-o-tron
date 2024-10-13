@@ -4,6 +4,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
 from .models import Watch, WatchList, WatchMovement
 from .forms import WatchForm, MovementForm, ListForm
+import datetime
 
 
 @login_required(login_url='accounts/login')
@@ -14,7 +15,10 @@ def home(request, list_name='Collection'):
     )
     lists = WatchList.objects.values_list('list_name', flat=True)
     current_list = list_name
+    day = datetime.datetime.now()
     context = {
+        'day': day.strftime('%w'),
+        'date': day.strftime('%d'),
         'watches': watches,
         'lists': lists,
         'current_list': current_list

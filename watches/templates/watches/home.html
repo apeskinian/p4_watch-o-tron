@@ -37,8 +37,8 @@
                             <div class="complications class=card-text">
                                 <div>
                                     <img src="{% static 'images/complications/chronograph.png' %}" alt="Chronograph" class="complication {% if not watch.complication_chronograph %}not-complicated{% endif %}">
-                                    <img id="date-complication" src="{% static 'images/complications/date_1.png' %}" alt="Date" class="complication {% if not watch.complication_date %}not-complicated{% endif %}">
-                                    <img id="day-complication" src="{% static 'images/complications/monday.png' %}" alt="Day" class="complication {% if not watch.complication_day %}not-complicated{% endif %}">
+                                    <img src="{% static 'images/complications/' %}date_{{ date }}.png" alt="Date" class="date-complication complication {% if not watch.complication_date %}not-complicated{% endif %}">
+                                    <img src="{% static 'images/complications/' %}day_{{ day }}.png" alt="Day" class="day-complication complication {% if not watch.complication_day %}not-complicated{% endif %}">
                                     <img src="{% static 'images/complications/gmt.png' %}" alt="GMT" class="complication {% if not watch.complication_gmt %}not-complicated{% endif %}">
                                 </div>
                                 <div>
