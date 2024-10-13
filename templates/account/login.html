@@ -8,30 +8,19 @@
 {% endblock head_title %}
 
 {% block content %}
-
-    {% element h1 %}
-        {% trans "Sign In" %}
-    {% endelement %}
-
-        {% element p %}
-            {% blocktranslate %}If you have not created an account yet, then please <a href="{{ signup_url }}">sign up</a> first.{% endblocktranslate %}
-        {% endelement %}
-
-        {% url 'account_login' as login_url %}
-
-        {% element form form=form method="post" action=login_url tags="entrance,login" %}
-            {% slot body %}
-                {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
-                {% endelement %}
-                {{ redirect_field }}
-            {% endslot %}
-            {% slot actions %}
-                {% element button type="submit" tags="prominent,login" %}
-                    {% trans "Sign In" %}
-                {% endelement %}
-            {% endslot %}
-        {% endelement %}
-
+<div id="signin-block" class="container p-5 rounded-3">
+    <div id="signin block">
+        <p>If you have not created an account yet, then please <a href="{{ signup_url }}">sign up</a> first.</p>
+    </div>
+    {% url 'account_login' as login_url %}
+    <form class="login" method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="btn btn-secondary" type="submit">{% trans "Sign In" %}</button>
+    </form>
+</div>
 {% endblock content %}
 
