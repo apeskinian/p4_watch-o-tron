@@ -32,8 +32,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ watch.make }}</h5>
                             <h6 class="card-title">{% if watch.collection %}{{ watch.collection }}&nbsp{% endif %}{{ watch.model }}</h6>
-                            <p class="card-text">{{ watch.movement_type }}</p>
-                            <p class="card-text">{% if watch.movement_model %}{{ watch.movement_model }}{% endif %}</p>
+                            <p class="card-text">{{ watch.movement_type }}{% if watch.movement_model %} ({{ watch.movement_model }}){% endif %}</p>
                             <div class="complications class=card-text">
                                 <div>
                                     <img src="{% static 'images/complications/chronograph.png' %}" alt="Chronograph" class="complication {% if not watch.complication_chronograph %}not-complicated{% endif %}">
