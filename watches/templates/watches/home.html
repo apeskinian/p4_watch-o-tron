@@ -36,16 +36,16 @@
                             <p class="card-text">{% if watch.movement_model %}{{ watch.movement_model }}{% endif %}</p>
                             <div class="complications class=card-text">
                                 <div>
-                                    <span class="complication {% if not watch.complication_chronograph %}not-complicated{% endif %}">Chronograph</span>
-                                    <span class="complication {% if not watch.complication_date %}not-complicated{% endif %}">Date</span>
-                                    <span class="complication {% if not watch.complication_day %}not-complicated{% endif %}">Day</span>
-                                    <span class="complication {% if not watch.complication_gmt %}not-complicated{% endif %}">GMT</span>
+                                    <img src="{% static 'images/complications/chronograph.png' %}" alt="Chronograph" class="complication {% if not watch.complication_chronograph %}not-complicated{% endif %}">
+                                    <img id="date-complication" src="{% static 'images/complications/date_1.png' %}" alt="Date" class="complication {% if not watch.complication_date %}not-complicated{% endif %}">
+                                    <img id="day-complication" src="{% static 'images/complications/monday.png' %}" alt="Day" class="complication {% if not watch.complication_day %}not-complicated{% endif %}">
+                                    <img src="{% static 'images/complications/gmt.png' %}" alt="GMT" class="complication {% if not watch.complication_gmt %}not-complicated{% endif %}">
                                 </div>
                                 <div>
-                                    <span class="complication {% if not watch.complication_world_timer %}not-complicated{% endif %}">World Timer</span>
-                                    <span class="complication {% if not watch.complication_moonphase %}not-complicated{% endif %}">Moonphase</span>
-                                    <span class="complication {% if not watch.complication_power_reserve %}not-complicated{% endif %}">Power Reserve</span>
-                                    <span class="complication {% if not watch.complication_tourbillon %}not-complicated{% endif %}">Tourbillon</span>
+                                    <img src="{% static 'images/complications/world_timer.png' %}" alt="World Timer" class="complication {% if not watch.complication_world_timer %}not-complicated{% endif %}">
+                                    <img src="{% static 'images/complications/moonphase.png' %}" alt="Moonphase" class="complication {% if not watch.complication_moonphase %}not-complicated{% endif %}">
+                                    <img src="{% static 'images/complications/power_reserve.png' %}" alt="Power Reserve" class="complication {% if not watch.complication_power_reserve %}not-complicated{% endif %}">
+                                    <img src="{% static 'images/complications/tourbillon.png' %}" alt="Tourbillon" class="complication {% if not watch.complication_tourbillon %}not-complicated{% endif %}">
                                 </div>
                             </div>
                             <br>
