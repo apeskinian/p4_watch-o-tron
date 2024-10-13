@@ -18,10 +18,10 @@
         </div>
     </div>
         <div class="watch-container container">
-            <div class="row">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                 {% for watch in watches %}
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
+                <div class="col">
+                    <div class="card h-100">
                         <div>
                             {% if 'placeholder' in watch.image.url %}
                             <img src="{% static 'images/placeholder.png' %}" alt="default watch image" class="card-img-top">
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <br>
-                            <div>
+                            <div class="card-footer">
                                 {% if current_list == 'Wish List' %}
                                     <button class="btn btn-primary btn-purchased" data-watch_id="{{ watch.id }}" data-watch_name="{{ watch.make }}{% if watch.model %} {{ watch.model }}{% endif %}">Purchased</button>
                                 {% endif %}
