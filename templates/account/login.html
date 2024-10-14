@@ -2,25 +2,37 @@
 
 {% load i18n %}
 {% load allauth account %}
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block head_title %}
     {% trans "Sign In" %}
 {% endblock head_title %}
 
 {% block content %}
-<div id="signin-block" class="container p-5 rounded-3">
-    <div id="signin block">
-        <p>If you have not created an account yet, then please <a href="{{ signup_url }}">sign up</a> first.</p>
+<header>
+
+</header>
+<main>
+    <div id="login-container">
+    <div id="login-box" class="bg-secondary-subtle">
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form | crispy }}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <div class="text-center">
+                <button class="btn btn-secondary" type="submit">{% trans "Sign In" %}</button>
+                <a href="{{ signup_url }}" class="btn btn-secondary">{% trans "Sign Up"%}</a>
+            </div>
+        </form>
     </div>
-    {% url 'account_login' as login_url %}
-    <form class="login" method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        <button class="btn btn-secondary" type="submit">{% trans "Sign In" %}</button>
-    </form>
-</div>
+    </div>
+</main>
+<footer class="text-center">
+    <img id="logo" src="{% static 'images/watch-o-tron_logo.png' %}" alt="watch-o-tron logo">
+</footer>
+
 {% endblock content %}
 
