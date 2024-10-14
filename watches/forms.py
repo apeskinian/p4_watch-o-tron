@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
 from .models import Watch, WatchList, WatchMovement
 
 class WatchForm(forms.ModelForm):
@@ -44,3 +45,4 @@ class ListForm(forms.ModelForm):
         if WatchList.objects.filter(list_name=list_name).exists():
             raise forms.ValidationError(f"The list '{list_name}' already exists.")
         return list_name
+

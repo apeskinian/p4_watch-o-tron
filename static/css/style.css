@@ -21,7 +21,7 @@ main {
 
 /* signin/up pages */
 .login-container {
-    margin-top: 25%;
+    margin-top: 30%;
     width: 100%;
 }
 
@@ -39,12 +39,16 @@ main {
     padding: 30px;
 }
 
+.signup-box {
+    padding: 20px 30px 20px 30px;
+}
+
 #message {
     margin-top: 10px;
 }
 
 #logo {
-    margin: 5%;
+    margin-bottom: 10px;
     width: 200px;
 }
 
@@ -89,6 +93,11 @@ main {
     }
 
     .account-box {
+        border-radius: 15px;
+    }
+
+    .signup-box {
+        padding: 30px;
         border-radius: 15px;
     }
 
