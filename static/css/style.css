@@ -29,6 +29,12 @@ main {
     width: 100%;
 }
 
+.logout-container {
+    text-align: center;
+    margin-top: 50%;
+    width: 100%;
+}
+
 .account-box {
     padding: 30px;
 }
@@ -75,6 +81,11 @@ main {
     .signup-container {
         margin-top: 3%;
         width: 50%;
+    }
+
+    .logout-container {
+        margin-top: 10%;
+        width: 30%;
     }
 
     .account-box {

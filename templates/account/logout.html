@@ -1,33 +1,36 @@
 {% extends "base.html" %}
 
 {% load allauth i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block head_title %}
     {% trans "Sign Out" %}
 {% endblock head_title %}
 
 {% block content %}
-
-    {% element h1 %}
-        {% trans "Sign Out" %}
-    {% endelement %}
-
-    {% element p %}
-        {% trans 'Are you sure you want to sign out?' %}
-    {% endelement %}
-
-    {% url 'account_logout' as action_url %}
-    
-    {% element form method="post" action=action_url no_visible_fields=True %}
-        {% slot body %}
+<header></header>
+    <h1 class="hidden">Sign Out</h1>
+</header>
+<main>
+    <div class="logout-container">
+    <div class="account-box bg-secondary-subtle">
+        <p>{% trans "Are you sure you want to log out?" %}</p>
+        <form method="POST" action="{% url 'account_logout' %}">
             {% csrf_token %}
-            {{ redirect_field }}
-        {% endslot %}
-        {% slot actions %}
-            {% element button type="submit" %}
-                {% trans 'Sign Out' %}
-            {% endelement %}
-        {% endslot %}
-    {% endelement %}
-
+            {{ form | crispy }}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <div class="text-center">
+                <button class="btn btn-danger" type="submit">{% trans "Sign Out" %}</button>
+                <a href="{% url 'home' %}" class="btn btn-primary" type="button">{% trans "Cancel" %}</a>
+            </div>
+        </form>
+    </div>
+    </div>
+</main>
+<footer class="text-center">
+    <img id="logo" src="{% static 'images/watch-o-tron_logo.png' %}" alt="watch-o-tron logo">
+</footer>
 {% endblock content %}
