@@ -19,6 +19,17 @@ main {
     align-items: center;
 }
 
+.alert-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.alert-box {
+    position: absolute;
+    width: fit-content;
+}
+
 /* signin/up pages */
 .login-container {
     margin-top: 30%;
