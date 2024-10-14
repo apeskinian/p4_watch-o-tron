@@ -31,6 +31,10 @@
                         <a href="{% url 'staff_settings' %}" class="nav-link">Settings</a>
                     </li>
                     {% endif %}
+                    <li class="nav-item session-id-sm">
+                        <div class="navbar-text">logged in as <strong>{{ user.username }}</strong></div>
+                        <div><a href="{{ logout_url }}" class="logout-btn btn btn-sm btn-danger">Logout</a></div>
+                    </li>
                 </ul>
             </div>
             <div class="session-id">

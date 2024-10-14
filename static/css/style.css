@@ -65,10 +65,10 @@ main {
 
 /* watch display */
 .session-id {
-    display: flex;
-    align-items: center;
     display: none;
 }
+
+
 
 .logout-btn {
     margin-left: 20px;
@@ -130,5 +130,9 @@ main {
     .session-id {
         display: flex;
         align-items: center;
+    }
+
+    .session-id-sm {
+        display: none;
     }
 }
