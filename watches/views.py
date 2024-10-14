@@ -23,8 +23,6 @@ def home(request, list_name='Collection'):
         'lists': lists,
         'current_list': current_list
     }
-    viewmessage = f'Viewing {list_name}'
-    messages.add_message(request, messages.INFO, viewmessage)
     return render(request, 'watches/home.html', context)
 
 

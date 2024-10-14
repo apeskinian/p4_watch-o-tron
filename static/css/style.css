@@ -64,6 +64,16 @@ main {
 }
 
 /* watch display */
+.session-id {
+    display: flex;
+    align-items: center;
+    display: none;
+}
+
+.logout-btn {
+    margin-left: 20px;
+}
+
 .complication {
     display: inline-block;
     padding: 2px;
@@ -117,4 +127,8 @@ main {
         width: 300px;
     }
 
+    .session-id {
+        display: flex;
+        align-items: center;
+    }
 }

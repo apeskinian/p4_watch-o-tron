@@ -2,81 +2,107 @@
 {% load static %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
+<header>
+    <nav class="navbar navbar-expand-md bg-secondary-subtle">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'images/watch-o-tron_logo.png' %}" alt="Logo" height="24" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#wot-navbar" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fa-solid fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="wot-navbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Select List
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% for thing in lists %}
+                                <li><a class="dropdown-item" href="{% url 'watch_list' thing %}" class="btn btn-primary">{{ thing }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'add_watch' %}" class="nav-link">Add a Watch</a>
+                    </li>
+                    {% if user.is_staff %}
+                    <li class="nav-item">
+                        <a href="{% url 'staff_settings' %}" class="nav-link">Settings</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="session-id">
+                <div class="navbar-text">logged in as <strong>{{ user.username }}</strong></div>
+                <div><a href="{{ logout_url }}" class="logout-btn btn btn-sm btn-danger">Logout</a></div>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="watch-container container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            {% for watch in watches %}
             <div class="col">
-                <h1>Welcome {{ user.username }}!</h1>
-                <p>Not {{ user.username }}? <a href="{{ logout_url }}" class="btn btn-danger">logout</a></p>
-                {% for thing in lists %}
-                    <a href="{% url 'watch_list' thing %}" class="btn btn-primary">{{ thing }}</a>
-                {% endfor %}
-                <a href="{% url 'add_watch' %}" class="btn btn-success">Add a Watch</a>
-                {% if user.is_staff %}
-                    <a href="{% url 'staff_settings' %}" class="btn btn-secondary">Settings</a>
-                {% endif %}
+                <div class="card h-100">
+                    <div>
+                        {% if 'placeholder' in watch.image.url %}
+                        <img src="{% static 'images/placeholder.png' %}" alt="default watch image" class="card-img-top">
+                        {% else %}
+                        <img src="{{ watch.image.url }}" alt="{{ watch.make}}" class="card-img-top">
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ watch.make }}</h5>
+                        <h6 class="card-title">{% if watch.collection %}{{ watch.collection }}&nbsp{% endif %}{{ watch.model }}</h6>
+                        <p class="card-text">{{ watch.movement_type }}{% if watch.movement_model %} ({{ watch.movement_model }}){% endif %}</p>
+                        <div class="complications class=card-text">
+                            <div>
+                                <img src="{% static 'images/complications/chronograph.png' %}" alt="Chronograph" class="complication {% if not watch.complication_chronograph %}not-complicated{% endif %}">
+                                <img src="{% static 'images/complications/' %}date_{{ date }}.png" alt="Date" class="date-complication complication {% if not watch.complication_date %}not-complicated{% endif %}">
+                                <img src="{% static 'images/complications/' %}day_{{ day }}.png" alt="Day" class="day-complication complication {% if not watch.complication_day %}not-complicated{% endif %}">
+                                <img src="{% static 'images/complications/gmt.png' %}" alt="GMT" class="complication {% if not watch.complication_gmt %}not-complicated{% endif %}">
+                            </div>
+                            <div>
+                                <img src="{% static 'images/complications/world_timer.png' %}" alt="World Timer" class="complication {% if not watch.complication_world_timer %}not-complicated{% endif %}">
+                                <img src="{% static 'images/complications/moonphase.png' %}" alt="Moonphase" class="complication {% if not watch.complication_moonphase %}not-complicated{% endif %}">
+                                <img src="{% static 'images/complications/power_reserve.png' %}" alt="Power Reserve" class="complication {% if not watch.complication_power_reserve %}not-complicated{% endif %}">
+                                <img src="{% static 'images/complications/tourbillon.png' %}" alt="Tourbillon" class="complication {% if not watch.complication_tourbillon %}not-complicated{% endif %}">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card-footer">
+                            {% if current_list == 'Wish List' %}
+                                <button class="btn btn-primary btn-purchased" data-watch_id="{{ watch.id }}" data-watch_name="{{ watch.make }}{% if watch.model %} {{ watch.model }}{% endif %}">Purchased</button>
+                            {% endif %}
+                            <a href="/edit/{{ watch.id }}" class="btn btn-warning btn-edit">Edit</a>
+                            <button class="btn btn-danger btn-delete" data-watch_id="{{ watch.id }}" data-watch_name="{{ watch.make }}{% if watch.model %} {{ watch.model }}{% endif %}" data-current_list="{{ current_list }}">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- modal -->
+    <div class="modal" id="watch-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h4 id="watch-modal-title" class="modal-title"></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="watch-modal-body" class="modal-body"></div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a id="watch-modal-confirm" href="#" class="btn"></a>
+                </div>
             </div>
         </div>
     </div>
-        <div class="watch-container container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                {% for watch in watches %}
-                <div class="col">
-                    <div class="card h-100">
-                        <div>
-                            {% if 'placeholder' in watch.image.url %}
-                            <img src="{% static 'images/placeholder.png' %}" alt="default watch image" class="card-img-top">
-                            {% else %}
-                            <img src="{{ watch.image.url }}" alt="{{ watch.make}}" class="card-img-top">
-                            {% endif %}
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ watch.make }}</h5>
-                            <h6 class="card-title">{% if watch.collection %}{{ watch.collection }}&nbsp{% endif %}{{ watch.model }}</h6>
-                            <p class="card-text">{{ watch.movement_type }}{% if watch.movement_model %} ({{ watch.movement_model }}){% endif %}</p>
-                            <div class="complications class=card-text">
-                                <div>
-                                    <img src="{% static 'images/complications/chronograph.png' %}" alt="Chronograph" class="complication {% if not watch.complication_chronograph %}not-complicated{% endif %}">
-                                    <img src="{% static 'images/complications/' %}date_{{ date }}.png" alt="Date" class="date-complication complication {% if not watch.complication_date %}not-complicated{% endif %}">
-                                    <img src="{% static 'images/complications/' %}day_{{ day }}.png" alt="Day" class="day-complication complication {% if not watch.complication_day %}not-complicated{% endif %}">
-                                    <img src="{% static 'images/complications/gmt.png' %}" alt="GMT" class="complication {% if not watch.complication_gmt %}not-complicated{% endif %}">
-                                </div>
-                                <div>
-                                    <img src="{% static 'images/complications/world_timer.png' %}" alt="World Timer" class="complication {% if not watch.complication_world_timer %}not-complicated{% endif %}">
-                                    <img src="{% static 'images/complications/moonphase.png' %}" alt="Moonphase" class="complication {% if not watch.complication_moonphase %}not-complicated{% endif %}">
-                                    <img src="{% static 'images/complications/power_reserve.png' %}" alt="Power Reserve" class="complication {% if not watch.complication_power_reserve %}not-complicated{% endif %}">
-                                    <img src="{% static 'images/complications/tourbillon.png' %}" alt="Tourbillon" class="complication {% if not watch.complication_tourbillon %}not-complicated{% endif %}">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="card-footer">
-                                {% if current_list == 'Wish List' %}
-                                    <button class="btn btn-primary btn-purchased" data-watch_id="{{ watch.id }}" data-watch_name="{{ watch.make }}{% if watch.model %} {{ watch.model }}{% endif %}">Purchased</button>
-                                {% endif %}
-                                <a href="/edit/{{ watch.id }}" class="btn btn-warning btn-edit">Edit</a>
-                                <button class="btn btn-danger btn-delete" data-watch_id="{{ watch.id }}" data-watch_name="{{ watch.make }}{% if watch.model %} {{ watch.model }}{% endif %}" data-current_list="{{ current_list }}">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="modal" id="watch-modal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h4 id="watch-modal-title" class="modal-title"></h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div id="watch-modal-body" class="modal-body"></div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a id="watch-modal-confirm" href="#" class="btn"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+</main>
 {% endblock %}
 {% block script %}
 <!-- Custom Script -->
