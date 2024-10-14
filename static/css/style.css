@@ -20,13 +20,21 @@ main {
 }
 
 /* signin/up pages */
-#login-container {
+.login-container {
     margin-top: 25%;
     width: 100%;
 }
 
-#login-box {
-    padding: 8%;
+.signup-container {
+    width: 100%;
+}
+
+.account-box {
+    padding: 30px;
+}
+
+#message {
+    margin-top: 10px;
 }
 
 #logo {
@@ -59,12 +67,17 @@ main {
 /* RESPONSIVE LAYOUT CHANGES TO TABLETS 768PX */
 @media screen and (min-width: 768px) {
 
-    #login-container {
+    .login-container {
         margin-top: 10%;
         width: 40%;
     }
 
-    #login-box {
+    .signup-container {
+        margin-top: 3%;
+        width: 50%;
+    }
+
+    .account-box {
         border-radius: 15px;
     }
 

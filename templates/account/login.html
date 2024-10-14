@@ -11,12 +11,12 @@
 
 {% block content %}
 <header>
-
+    <h1 class="hidden">Sign In</h1>
 </header>
 <main>
-    <div id="login-container">
-    <div id="login-box" class="bg-secondary-subtle">
-        <form class="login" method="POST" action="{% url 'account_login' %}">
+    <div class="login-container">
+    <div class="account-box bg-secondary-subtle">
+        <form method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
             {{ form | crispy }}
             {% if redirect_field_value %}
@@ -33,6 +33,5 @@
 <footer class="text-center">
     <img id="logo" src="{% static 'images/watch-o-tron_logo.png' %}" alt="watch-o-tron logo">
 </footer>
-
 {% endblock content %}
 
