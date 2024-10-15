@@ -152,6 +152,10 @@ main {
 }
 
 /* watch display */
+.watch-container {
+    margin: 56px 0px 56px 0px;
+}
+
 .session-id {
     display: none;
 }
@@ -185,6 +189,9 @@ main {
 /* RESPONSIVE LAYOUT CHANGES TO TABLETS 768PX */
 @media screen and (min-width: 768px) {
 
+    .watch-container {
+        margin: 76px 0px 74px 0px;
+    }
 
     .login-container {
         width: 40%;
