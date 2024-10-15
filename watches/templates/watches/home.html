@@ -3,11 +3,39 @@
 
 {% block content %}
 <header>
-    <nav class="navbar navbar-expand-md bg-secondary-subtle">
+    <nav id="top-nav-mobile" class="navbar bg-white fixed-top">
+        <a href="#"><img src="{% static 'images/watch-o-tron_logo.png' %}" alt="Logo" height="24" class="d-inline-block align-text-top"></a>
+    </nav>
+
+    <nav id="bottom-nav-mobile" class="navbar bg-white fixed-bottom">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="{% static 'images/watch-o-tron_logo.png' %}" alt="Logo" height="24" class="d-inline-block align-text-top">
-            </a>
+            <div class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></div>
+            <div class="collapse navbar-collapse" id="wot-navbar-mobile">
+                <ul class="navbar-nav text-center">
+                    {% for thing in lists %}
+                    <li class="nav-item mobile-nav-item">
+                        <a href="{% url 'watch_list' thing %}" class="nav-link">{{ thing }}</a>
+                    </li>
+                    <div>
+                    {% endfor %}
+                    {% if user.is_staff %}
+                    <li class="nav-item mobile-nav-item">
+                        <a href="{% url 'staff_settings' %}" class="btn btn-secondary btn-sm">Settings</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item mobile-nav-item">
+                        <a href="{% url 'add_watch' %}" class="btn btn-success btn-sm">Add a Watch</a>
+                    </li>
+
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <nav class="navbar navbar-expand-md bg-white fixed-bottom d-none">
+        <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#wot-navbar" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span><i class="fa-solid fa-bars"></i></span>
             </button>
