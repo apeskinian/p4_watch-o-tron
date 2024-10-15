@@ -3,74 +3,62 @@
 
 {% block content %}
 <header>
-    <nav id="top-nav-mobile" class="navbar bg-white fixed-top">
-        <a href="#"><img src="{% static 'images/watch-o-tron_logo.png' %}" alt="Logo" height="24" class="d-inline-block align-text-top"></a>
-    </nav>
-
-    <nav id="bottom-nav-mobile" class="navbar bg-white fixed-bottom">
-        <div class="container-fluid">
-            <div class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></div>
-            <div class="collapse navbar-collapse" id="wot-navbar-mobile">
-                <ul class="navbar-nav text-center">
-                    {% for thing in lists %}
-                    <li class="nav-item mobile-nav-item">
-                        <a href="{% url 'watch_list' thing %}" class="nav-link">{{ thing }}</a>
-                    </li>
-                    <div>
-                    {% endfor %}
-                    {% if user.is_staff %}
-                    <li class="nav-item mobile-nav-item">
-                        <a href="{% url 'staff_settings' %}" class="btn btn-secondary btn-sm">Settings</a>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item mobile-nav-item">
-                        <a href="{% url 'add_watch' %}" class="btn btn-success btn-sm">Add a Watch</a>
-                    </li>
-
-                    </div>
-                </ul>
+    <div id="mobile-nav-bar" class="d-md-none">
+        <nav id="top-nav-mobile" class="navbar bg-white fixed-top">
+            <a href="#"><img src="{% static 'images/watch-o-tron_logo.png' %}" alt="Logo" height="24" class="d-inline-block align-text-top"></a>
+        </nav>
+        <nav id="bottom-nav-mobile" class="navbar bg-white fixed-bottom">
+            <div class="container-fluid">
+                <div class="navbar-toggler mx-auto" data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="collapse navbar-collapse" id="wot-navbar-mobile">
+                    <ul class="mobile-nav-list navbar-nav text-center">
+                        {% for thing in lists %}
+                        <li class="nav-item">
+                            <a href="{% url 'watch_list' thing %}" class="nav-link mobile-nav-item {% if thing == current_list %}active{% endif %}">{{ thing }}</a>
+                        </li>
+                        {% endfor %}
+                        <div class="mobile-nav-buttons">
+                        <li class="nav-item">
+                            <a href="{% url 'add_watch' %}" class="btn btn-success mobile-nav-button">Add a Watch</a>
+                        </li>
+                        <li>
+                            {% if user.is_staff %}
+                            <a href="{% url 'staff_settings' %}" class="btn btn-outline-primary mobile-nav-button">Staff Settings</a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            <div class="session-id-mobile">
+                            <span>Signed in as <strong>{{ user.username }}</strong></span>
+                            <a href="{{ logout_url }}" class="btn btn-outline-danger mobile-nav-button w-60">Logout</a>
+                            </div>
+                        </li>
+                        </div>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
+
+    <div id="standard-nav-bar" class="d-none d-md-block">
+        <nav id="bottom-nav" class="navbar bg-white fixed-bottom">
+            <a href="#"><img src="{% static 'images/watch-o-tron_logo.png' %}" alt="Logo" height="24" class="d-inline-block align-text-top"></a>
+        </nav>
+        <nav id="top-nav" class="navbar bg-white fixed-top">
+            <div class="nav-item d-inline-block">
+            {% for thing in lists %}
+            <a href="{% url 'watch_list' thing %}" class="nav-link {% if thing == current_list %}active{% endif %}">{{ thing }}</a>
+            {% endfor %}
+            </div>
+        </nav>
+    </div>
 
 
-    <nav class="navbar navbar-expand-md bg-white fixed-bottom d-none">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#wot-navbar" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span><i class="fa-solid fa-bars"></i></span>
-            </button>
-            <div class="collapse navbar-collapse" id="wot-navbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Select List
-                        </a>
-                        <ul class="dropdown-menu">
-                            {% for thing in lists %}
-                                <li><a class="dropdown-item" href="{% url 'watch_list' thing %}" class="btn btn-primary">{{ thing }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'add_watch' %}" class="nav-link">Add a Watch</a>
-                    </li>
-                    {% if user.is_staff %}
-                    <li class="nav-item">
-                        <a href="{% url 'staff_settings' %}" class="nav-link">Settings</a>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item session-id-sm">
-                        <div class="navbar-text">logged in as <strong>{{ user.username }}</strong></div>
-                        <div><a href="{{ logout_url }}" class="logout-btn btn btn-sm btn-danger">Logout</a></div>
-                    </li>
-                </ul>
-            </div>
-            <div class="session-id">
-                <div class="navbar-text">logged in as <strong>{{ user.username }}</strong></div>
-                <div><a href="{{ logout_url }}" class="logout-btn btn btn-sm btn-danger">Logout</a></div>
-            </div>
-        </div>
-    </nav>
+
+
+    
+    
 </header>
 <main>
     <div class="watch-container container">
