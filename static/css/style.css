@@ -14,7 +14,7 @@ body {
 }
 
 main {
-    margin: 66px 5px 66px 5px;
+    margin: 66px 5px 70px 5px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -55,7 +55,20 @@ main {
     width: 100%;
 }
 
+.menu {
+    font-size: 1.5rem;
+}
+
+.session-button-mobile {
+    text-decoration: solid;
+    margin-left: 10px;
+    width: fit-content;
+}
+
 .session-id-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 5px;
 }
 

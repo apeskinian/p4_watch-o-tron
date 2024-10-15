@@ -10,8 +10,8 @@
         </nav>
         <nav id="bottom-nav-mobile" class="navbar bg-white fixed-bottom">
             <div class="container-fluid">
-                <div class="navbar-toggler mx-auto" data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
+                <div class="navbar-toggler mx-auto " data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars menu"></i>
                 </div>
                 <div class="collapse navbar-collapse" id="wot-navbar-mobile">
                     <ul class="mobile-nav-list navbar-nav text-center">
@@ -24,19 +24,15 @@
                         <li class="nav-item">
                             <a href="{% url 'add_watch' %}" class="btn btn-success mobile-nav-button">Add a Watch</a>
                         </li>
-                        <li>
-                            {% if user.is_staff %}
-                            <a href="{% url 'staff_settings' %}" class="btn btn-primary mobile-nav-button">Staff Settings</a>
-                            {% endif %}
-                        </li>
-                        <li>
-                            <div class="session-id-mobile">
-                            <span>logged in as <strong>{{ user.username }}</strong></span>
-                            <a href="{{ logout_url }}" class="btn btn-danger mobile-nav-button w-60">Logout</a>
-                            </div>
-                        </li>
                         </div>
                     </ul>
+                    <div class="session-id-mobile">
+                        <span>logged in as <strong>{{ user.username }}</strong></span>
+                        {% if user.is_staff %}
+                        <a href="{% url 'staff_settings' %}" class="btn btn-sm btn-primary session-button-mobile">Settings</a>
+                        {% endif %}
+                        <a href="{{ logout_url }}" class="btn btn-sm btn-danger session-button-mobile">Logout</a>
+                    </div>
                 </div>
             </div>
         </nav>
