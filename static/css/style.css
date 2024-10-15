@@ -20,10 +20,6 @@ main {
     align-items: center;
 }
 
-.main-container {
-    margin: 66px 5px 70px 5px;
-}
-
 /* navigation bars */
 #top-nav-mobile {
     height: 46px;
@@ -124,6 +120,7 @@ main {
 
 /* signin/up pages */
 .login-container {
+    margin-top: 75px;
     width: 100%;
 }
 
@@ -132,7 +129,7 @@ main {
 }
 
 .logout-container {
-    margin-top: 50px;
+    margin-top: 100px;
     text-align: center;
     width: 100%;
 }
@@ -150,15 +147,14 @@ main {
 }
 
 #logo {
-    margin-top: 20px;
-    width: 200px;
+    margin: 20px;
+    width: 250px;
 }
 
 /* watch display */
 .session-id {
     display: none;
 }
-
 
 
 .logout-btn {
@@ -189,12 +185,8 @@ main {
 /* RESPONSIVE LAYOUT CHANGES TO TABLETS 768PX */
 @media screen and (min-width: 768px) {
 
-    .main-container {
-        margin: 76px 0px 74px 0px;
-    }
 
     .login-container {
-        margin-top: 0;
         width: 40%;
     }
 
@@ -213,11 +205,6 @@ main {
     .signup-box {
         padding: 30px;
         border-radius: 15px;
-    }
-
-    #logo {
-        margin: 2%;
-        width: 300px;
     }
 
     .session-id {
