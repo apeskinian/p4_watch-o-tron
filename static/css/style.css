@@ -14,11 +14,14 @@ body {
 }
 
 main {
-    margin: 66px 5px 70px 5px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.main-container {
+    margin: 66px 5px 70px 5px;
 }
 
 /* navigation bars */
@@ -121,7 +124,6 @@ main {
 
 /* signin/up pages */
 .login-container {
-    margin-top: 30%;
     width: 100%;
 }
 
@@ -130,8 +132,8 @@ main {
 }
 
 .logout-container {
+    margin-top: 50px;
     text-align: center;
-    margin-top: 50%;
     width: 100%;
 }
 
@@ -148,7 +150,7 @@ main {
 }
 
 #logo {
-    margin-bottom: 10px;
+    margin-top: 20px;
     width: 200px;
 }
 
@@ -187,22 +189,20 @@ main {
 /* RESPONSIVE LAYOUT CHANGES TO TABLETS 768PX */
 @media screen and (min-width: 768px) {
 
-    main {
+    .main-container {
         margin: 76px 0px 74px 0px;
     }
 
     .login-container {
-        margin-top: 10%;
+        margin-top: 0;
         width: 40%;
     }
 
     .signup-container {
-        margin-top: 3%;
         width: 50%;
     }
 
     .logout-container {
-        margin-top: 10%;
         width: 30%;
     }
 
