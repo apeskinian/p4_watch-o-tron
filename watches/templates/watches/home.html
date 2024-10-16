@@ -73,6 +73,7 @@
 </header>
 <main>
     <div class="watch-container container">
+        {% if watches %}
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="watch-options">
             {% for watch in watches %}
             <div class="col">
@@ -119,6 +120,13 @@
             </div>
             {% endfor %}
         </div>
+        {% else %}
+        <div class="no-watch-message text-center">
+            <h5>No watches found in your {{ current_list }}.</h5>
+            <p>Get started by clicking <a href="{% url 'add_watch' %}">here</a> or on the button below!</p>
+            </p>
+        </div>
+        {% endif %}
     </div>
     <!-- modal -->
     <div class="modal" id="watch-modal" tabindex="-1">

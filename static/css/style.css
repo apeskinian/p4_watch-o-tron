@@ -154,6 +154,14 @@ main {
 /* watch display */
 .watch-container {
     margin: 56px 0px 56px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.no-watch-message {
+    align-self: center;
+    width: 90%;
+    margin-top: 200px;
 }
 
 .session-id {
