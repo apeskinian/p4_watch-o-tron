@@ -35,6 +35,7 @@ def add_watch(request):
             form.save()
 
             new_list = form.instance.list_name.list_name
+            messages.success(request, f'Added {form.instance.make} watch to {new_list}.')
             return redirect('watch_list', list_name=new_list)
     else:
         cancel_url = request.META.get('HTTP_REFERER', '/')
@@ -56,6 +57,7 @@ def edit_watch(request, watch_id):
             form.save()
 
             new_list = form.instance.list_name.list_name
+            messages.success(request, f'{watch.make} watch editted successfully.')
             return redirect('watch_list', list_name=new_list)
     else:
         context = {
@@ -71,6 +73,7 @@ def purchase_watch(request, watch_id):
     watch = get_object_or_404(Watch, id=watch_id)
     collection_list = get_object_or_404(WatchList, list_name='Collection')
     watch.list_name = collection_list
+    messages.success(request, f'{watch.make} watch moved to Collection.')
     watch.save()
     return redirect('watch_list', 'Collection')
 
@@ -79,6 +82,7 @@ def purchase_watch(request, watch_id):
 def delete_watch(request, watch_id):
     return_url = request.META.get('HTTP_REFERER', '/')
     watch = get_object_or_404(Watch, id=watch_id)
+    messages.warning(request, f'{watch.make} watch deleted from {watch.list_name}.')
     watch.delete()
     return redirect(return_url)
 

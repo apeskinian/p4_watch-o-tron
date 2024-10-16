@@ -106,16 +106,12 @@ main {
     background-color: rgb(193, 82, 82);
 }
 
-.alert-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 100;
-}
 
 .alert-box {
-    position: absolute;
+    position: fixed;
+    top: 46px;
     width: fit-content;
+    z-index: 1000;
 }
 
 /* signin/up pages */
@@ -229,5 +225,9 @@ main {
 
     .session-id-sm {
         display: none;
+    }
+
+    .alert-box {
+        top: 56px;
     }
 }

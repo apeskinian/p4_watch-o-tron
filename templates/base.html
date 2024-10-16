@@ -16,16 +16,9 @@
     <title>Watch-O-Tron</title>
 </head>
 <body>
-    <div class="alert-container">
-        <div class="alert-box">
-                {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                {% endfor %}
-        </div>
-    </div>
+    <!-- Alerts went here... -->
+
+    <!-- Alerts went here... -->
     {% block content %}
     {% endblock %}
     <!-- Bootstrap script -->
