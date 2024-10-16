@@ -13,7 +13,7 @@
                     {{ watch_form | crispy }}
                     <div>
                         <button type="button" id="btn-edit" class="btn btn-primary">Update Watch</button>
-                        <a href="{% url 'cancel_process' 'Watch editing' 'home' %}" class="btn btn-danger">Cancel</a>
+                        <a href="{% url 'cancel_process' 'Watch editing' origin %}" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>
@@ -37,7 +37,7 @@
                     <div id="watch-modal-body"></div>
                 </div>
                 <div class="modal-footer">
-                    <a href="{% url 'cancel_process' 'Watch editing' 'home' %}" class="btn btn-danger">Cancel</a>
+                    <a href="{% url 'cancel_process' 'Watch editing' origin %}" class="btn btn-danger">Cancel</a>
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit</button>
                     <button type="button" class="btn btn-success" id="watch-modal-confirm">Confirm</a>
                 </div>

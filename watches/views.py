@@ -27,7 +27,7 @@ def home(request, list_name='Collection'):
 
 
 @login_required(login_url='accounts/login')
-def add_watch(request):
+def add_watch(request, origin):
     if request.method == 'POST':
         form = WatchForm(request.POST, request.FILES)
         if form.is_valid():
@@ -44,14 +44,14 @@ def add_watch(request):
             messages.error(request, f'Failed to add watch. {error_message}.')
     else:
         context = {
+            "origin": origin,
             "watch_form": WatchForm(),
         }
         return render(request, 'watches/add_watch.html', context)
 
 
 @login_required(login_url='accounts/login')
-def edit_watch(request, watch_id):
-    cancel_url = request.META.get('HTTP_REFERER', '/')
+def edit_watch(request, watch_id, origin):
     watch = get_object_or_404(Watch, id=watch_id)
     if request.method == 'POST':
         form = WatchForm(request.POST, request.FILES, instance=watch)
@@ -64,8 +64,8 @@ def edit_watch(request, watch_id):
             return redirect('watch_list', list_name=new_list)
     else:
         context = {
+            "origin": origin,
             "watch_form": WatchForm(instance=watch),
-            "cancel_url": cancel_url,
             "watch": watch
         }
         return render(request, 'watches/edit_watch.html', context)

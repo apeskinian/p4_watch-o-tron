@@ -22,7 +22,7 @@
                         {% endfor %}
                         <div class="mobile-nav-buttons">
                         <li class="nav-item">
-                            <a href="{% url 'add_watch' %}" class="btn btn-success mobile-nav-button">Add a Watch</a>
+                            <a href="{% url 'add_watch' current_list %}" class="btn btn-success mobile-nav-button">Add a Watch</a>
                         </li>
                         </div>
                     </ul>
@@ -67,7 +67,7 @@
             </div>
         </nav>
         <nav id="bottom-nav" class="navbar bg-white fixed-bottom">
-            <a href="{% url 'add_watch' %}" class="btn btn-success">Add a Watch</a>
+            <a href="{% url 'add_watch' current_list %}" class="btn btn-success">Add a Watch</a>
         </nav>
     </div>
 </header>
@@ -113,7 +113,7 @@
                         {% if current_list == 'Wish List' %}
                             <button class="mb-3 btn btn-primary btn-purchased" data-watch_id="{{ watch.id }}" data-watch_name="{{ watch.make }}{% if watch.model %} {{ watch.model }}{% endif %}" data-current_list="{{ current_list }}">Purchased</button>
                         {% endif %}
-                        <a href="/edit/{{ watch.id }}" class="mb-3 btn btn-warning btn-edit">Edit</a>
+                        <a href="{% url 'edit_watch' watch_id=watch.id origin=current_list %}" class="mb-3 btn btn-warning btn-edit">Edit</a>
                         <button class="mb-3 btn btn-danger btn-delete" data-watch_id="{{ watch.id }}" data-watch_name="{{ watch.make }}{% if watch.model %} {{ watch.model }}{% endif %}" data-current_list="{{ current_list }}">Delete</button>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
         {% else %}
         <div class="no-watch-message text-center">
             <h5>No watches found in your {{ current_list }}.</h5>
-            <p>Get started by clicking <a href="{% url 'add_watch' %}">here</a> or on the button below!</p>
+            <p>Get started by clicking <a href="{% url 'add_watch' current_list %}">here</a> or on the button below!</p>
             </p>
         </div>
         {% endif %}
