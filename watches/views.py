@@ -33,15 +33,18 @@ def add_watch(request):
         if form.is_valid():
             form.instance.owner = request.user
             form.save()
-
             new_list = form.instance.list_name.list_name
             messages.success(request, f'Added {form.instance.make} watch to {new_list}.')
             return redirect('watch_list', list_name=new_list)
+        else:
+            errors = form.errors
+            error_message = ''
+            for field, error_list in errors.items():
+                error_message += f'{field}: {', '.join(error_list)}.'
+            messages.error(request, f'Failed to add watch. {error_message}.')
     else:
-        cancel_url = request.META.get('HTTP_REFERER', '/')
         context = {
             "watch_form": WatchForm(),
-            "cancel_url": cancel_url
         }
         return render(request, 'watches/add_watch.html', context)
 
