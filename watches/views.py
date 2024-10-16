@@ -62,6 +62,12 @@ def edit_watch(request, watch_id, origin):
             new_list = form.instance.list_name.list_name
             messages.success(request, f'{watch.make} watch editted successfully.')
             return redirect('watch_list', list_name=new_list)
+        else:
+            errors = form.errors
+            error_message = ''
+            for field, error_list in errors.items():
+                error_message += f'{field}: {', '.join(error_list)}.'
+            messages.error(request, f'Failed to edit watch. {error_message}.')
     else:
         context = {
             "origin": origin,
