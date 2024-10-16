@@ -213,3 +213,8 @@ def delete_list(request, list_id):
             'list_names': list_names
         }
         return render(request, 'watches/staff_settings.html', context)
+
+@login_required(login_url='accounts/login')
+def cancelProcess(request, content, cancel_url):
+    messages.info(request, f'{content} cancelled.')
+    return redirect(cancel_url)
