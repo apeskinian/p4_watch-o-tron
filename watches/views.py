@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
@@ -224,4 +224,7 @@ def delete_list(request, list_id):
 @login_required(login_url='accounts/login')
 def cancelProcess(request, content, cancel_url='home'):
     messages.info(request, f'{content} cancelled.')
-    return redirect(cancel_url)
+    possible_lists = WatchList.objects.values_list('list_name', flat=True)
+    if cancel_url in possible_lists:
+        return redirect(reverse('watch_list', kwargs={'list_name': cancel_url}))
+    return redirect('home')
