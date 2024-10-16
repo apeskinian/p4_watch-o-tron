@@ -223,8 +223,12 @@ def delete_list(request, list_id):
 
 @login_required(login_url='accounts/login')
 def cancelProcess(request, content, cancel_url='home'):
-    messages.info(request, f'{content} cancelled.')
-    possible_lists = WatchList.objects.values_list('list_name', flat=True)
-    if cancel_url in possible_lists:
-        return redirect(reverse('watch_list', kwargs={'list_name': cancel_url}))
-    return redirect('home')
+    try:
+        messages.info(request, f'{content} cancelled.')
+        possible_lists = WatchList.objects.values_list('list_name', flat=True)
+        if cancel_url in possible_lists:
+            return redirect(reverse('watch_list', kwargs={'list_name': cancel_url}))
+        return redirect('home')
+    except Exception as e:
+        messages.error(request, f'Error occured while cancelling: {str(e)}')
+        return redirect('home')
