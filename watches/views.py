@@ -73,11 +73,15 @@ def edit_watch(request, watch_id):
 
 @login_required(login_url='accounts/login')
 def purchase_watch(request, watch_id):
-    watch = get_object_or_404(Watch, id=watch_id)
-    collection_list = get_object_or_404(WatchList, list_name='Collection')
-    watch.list_name = collection_list
-    messages.success(request, f'{watch.make} watch moved to Collection.')
-    watch.save()
+    try:
+        watch = get_object_or_404(Watch, id=watch_id)
+        collection_list = get_object_or_404(WatchList, list_name='Collection')
+        watch.list_name = collection_list
+        messages.success(request, f'{watch.make} watch moved to Collection.')
+        watch.save()
+    except Exception as e:
+        messages.error(request, f'Error occured while moving watch to Colletction: {str(e)}')
+    
     return redirect('watch_list', 'Collection')
 
 
@@ -85,7 +89,7 @@ def purchase_watch(request, watch_id):
 def delete_watch(request, watch_id):
     return_url = request.META.get('HTTP_REFERER', '/')
     watch = get_object_or_404(Watch, id=watch_id)
-    messages.warning(request, f'{watch.make} watch deleted from {watch.list_name}.')
+    messages.info(request, f'{watch.make} watch deleted from {watch.list_name}.')
     watch.delete()
     return redirect(return_url)
 
@@ -218,6 +222,6 @@ def delete_list(request, list_id):
         return render(request, 'watches/staff_settings.html', context)
 
 @login_required(login_url='accounts/login')
-def cancelProcess(request, content, cancel_url):
+def cancelProcess(request, content, cancel_url='home'):
     messages.info(request, f'{content} cancelled.')
     return redirect(cancel_url)

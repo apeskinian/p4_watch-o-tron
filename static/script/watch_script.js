@@ -7,6 +7,7 @@ const watchModal = new bootstrap.Modal(document.getElementById('watch-modal'));
 const watchModalTitle = document.getElementById('watch-modal-title');
 const watchModalBody = document.getElementById('watch-modal-body');
 const watchModalConfirm = document.getElementById('watch-modal-confirm');
+const watchModalCancel = document.getElementById('watch-modal-cancel');
 
 
 for (let button of deleteButtons) {
@@ -32,6 +33,9 @@ for (let button of purchasedButtons) {
         watchModalTitle.innerHTML = `Confirm purchase of <strong>${watchName}</strong>?`;
         watchModalBody.innerHTML = `
             <p>This will move this watch to your collection.</p>`;
+        let returnTo = 'home';
+        let content = 'Watch purchase';
+        watchModalCancel.href = `/cancel_process/${content}/${returnTo}`;
         watchModalConfirm.href = `/purchase/${watchId}`;
         watchModalConfirm.innerText = 'Confirm';
         watchModalConfirm.classList.add('btn-success');
