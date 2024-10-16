@@ -24,8 +24,8 @@ main {
 #top-nav-mobile {
     height: 46px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
     box-shadow: 0 0.5px 0.5px 0.5px lightgray;
 }
 
@@ -114,7 +114,20 @@ main {
     z-index: 1000;
 }
 
+.account-header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 46px;
+    box-shadow: 0px 0.5px 0.5px 0.5px lightgray;
+}
+
 /* signin/up pages */
+#logo {
+    height: 35px;
+}
+
 .login-container {
     margin-top: 75px;
     width: 100%;
@@ -142,10 +155,7 @@ main {
     margin-top: 10px;
 }
 
-#logo {
-    margin: 20px;
-    width: 250px;
-}
+
 
 /* watch display */
 .watch-container {
@@ -190,8 +200,25 @@ main {
     object-fit: cover;
 }
 
+.footer-signature {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 46px;
+    box-shadow: 0px -0.5px 0.5px 0.5px lightgray;
+}
+
 /* RESPONSIVE LAYOUT CHANGES TO TABLETS 768PX */
 @media screen and (min-width: 768px) {
+
+    .account-header {
+        height: 56px;
+    }
+
+    #logo {
+        height: 40px;
+    }
 
     .watch-container {
         margin: 76px 0px 74px 0px;
@@ -227,7 +254,19 @@ main {
         display: none;
     }
 
+    .login-messages {
+        margin-top: 25px;
+    }
+
     .alert-box {
         top: 56px;
+    }
+
+    .account-header {
+        height: 56px;
+    }
+
+    .footer-signature {
+        height: 54px;
     }
 }

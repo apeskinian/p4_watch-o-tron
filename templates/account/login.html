@@ -12,11 +12,12 @@
 {% block content %}
 <header>
     <h1 class="hidden">Sign In</h1>
-    <div class="text-center">
-        <img id="logo" src="{% static 'images/watch-o-tron_logo.png' %}" alt="watch-o-tron logo">
+    <div class="account-header text-center">
+        <img id="logo" src="{% static 'images/watch-o-tron_logo.png' %}" alt="watch-o-tron logo" height="35">
     </div>
 </header>
 <main>
+    {% include 'messages.html' %}
     <div class="login-container">
         <div class="account-box bg-secondary-subtle">
             <form method="POST" action="{% url 'account_login' %}">
@@ -33,8 +34,10 @@
         </div>
     </div>
 </main>
-<footer class="text-center">
-    <p><strong>apeskinian|</strong></p>
+<footer>
+    <div class="footer-signature">
+        <div><strong>apeskinian|</strong></div>
+    </div>
 </footer>
 {% endblock content %}
 
