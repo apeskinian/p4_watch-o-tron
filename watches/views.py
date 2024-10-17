@@ -93,10 +93,14 @@ def purchase_watch(request, watch_id):
 
 @login_required(login_url='accounts/login')
 def delete_watch(request, watch_id):
-    return_url = request.META.get('HTTP_REFERER', '/')
-    watch = get_object_or_404(Watch, id=watch_id)
-    messages.info(request, f'{watch.make} watch deleted from {watch.list_name}.')
-    watch.delete()
+    try:
+        return_url = request.META.get('HTTP_REFERER', '/')
+        watch = get_object_or_404(Watch, id=watch_id)
+        messages.info(request, f'{watch.make} watch deleted from {watch.list_name}.')
+        watch.delete()
+    except Exception as e:
+        messages.error(request, f'Error occured while deleting watch: {str(e)}')
+    
     return redirect(return_url)
 
 
@@ -110,13 +114,27 @@ def staff_settings(request):
                 movement = form.instance.movement_name
                 messages.success(request, f'{movement} movement created.')
                 return redirect('staff_settings')
+            else:
+                errors = form.errors
+                error_message = ''
+                for field, error_list in errors.items():
+                    error_message += f'{field}: {', '.join(error_list)}.'
+                    messages.error(request, f'Failed to create movement. {error_message}.')
+
         elif 'list-form' in request.POST:
             form = ListForm(request.POST)
             if form.is_valid():
                 form.save()
                 list_name = form.instance.list_name
                 messages.success(request, f'{list_name} list created.')
-                return redirect('staff_settings') 
+                return redirect('staff_settings')
+            else:
+                errors = form.errors
+                error_message = ''
+                for field, error_list in errors.items():
+                    error_message += f'{field}: {', '.join(error_list)}.'
+                    messages.error(request, f'Failed to create list. {error_message}.')
+
     movements = WatchMovement.objects.all()
     lists = WatchList.objects.values_list('list_name', flat=True)
     list_names = WatchList.objects.all()   
@@ -203,9 +221,12 @@ def delete_movement(request, movement_id):
     movement = get_object_or_404(WatchMovement, id=movement_id)
     associated = movement.watch_movement.count()
     if request.method == 'POST':
-        movement.delete()
-        messages.success(request, f'{movement} movement deleted.')
-        return redirect('staff_settings')
+        try:
+            movement.delete()
+            messages.success(request, f'{movement} movement deleted.')
+            return redirect('staff_settings')
+        except Exception as e:
+            messages.error(request, f'Error occured while deleting movement: {str(e)}')
     else:
         movements = WatchMovement.objects.all()
         lists = WatchList.objects.values_list('list_name', flat=True)
@@ -227,9 +248,12 @@ def delete_list(request, list_id):
     list_name = get_object_or_404(WatchList, id=list_id)
     associated = list_name.watch_list.count()
     if request.method == 'POST':
-        list_name.delete()
-        messages.success(request, f'{list_name} list deleted.')
-        return redirect('staff_settings')
+        try:
+            list_name.delete()
+            messages.success(request, f'{list_name} list deleted.')
+            return redirect('staff_settings')
+        except Exception as e:
+            messages.error(request, f'Error occured while deleting list: {str(e)}')
     else:
         movements = WatchMovement.objects.all()
         lists = WatchList.objects.values_list('list_name', flat=True)
