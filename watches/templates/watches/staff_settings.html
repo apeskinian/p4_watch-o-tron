@@ -64,7 +64,6 @@
                         <td>
                             <a
                             href="{% url 'edit_movement' movement.id %}"
-                            name="edit-movement"
                             class="btn-edit-movement btn btn-sm btn-warning"
                             >Edit
                             </a>
@@ -112,14 +111,13 @@
                         {% if forloop.counter > 2 %}
                         <td>
                             <a
-                            href="edit/list/{{ list.id }}"
-                            name="edit-list"
+                            href="{% url 'edit_list' list.id %}"
                             class="btn-edit-movement btn btn-sm btn-warning"
                             >Edit
                             </a>
                         </td>
                         <td><a 
-                            href="/delete/list/{{ list.id }}" 
+                            href="{% url 'delete_list' list.id %}" 
                             class="btn-delete-list btn btn-sm btn-danger" 
                             >Delete
                             </a>

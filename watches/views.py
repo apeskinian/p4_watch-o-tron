@@ -139,7 +139,14 @@ def edit_movement(request, movement_id):
         form = MovementForm(request.POST, instance=movement)
         if form.is_valid():
             form.save()
+            messages.success(request, f'Changes saved.')
             return redirect('staff_settings')
+        else:
+            errors = form.errors
+            error_message = ''
+            for field, error_list in errors.items():
+                error_message += f'{field}: {', '.join(error_list)}.'
+            messages.error(request, f'Failed to edit movement. {error_message}.')
     else:
         movements = WatchMovement.objects.all()
         lists = WatchList.objects.values_list('list_name', flat=True)
@@ -166,7 +173,14 @@ def edit_list(request, list_id):
         form = ListForm(request.POST, instance=list_name)
         if form.is_valid():
             form.save()
+            messages.success(request, f'Changes saved.')
             return redirect('staff_settings')
+        else:
+            errors = form.errors
+            error_message = ''
+            for field, error_list in errors.items():
+                error_message += f'{field}: {', '.join(error_list)}.'
+            messages.error(request, f'Failed to edit list. {error_message}.')
     else:
         movements = WatchMovement.objects.all()
         lists = WatchList.objects.values_list('list_name', flat=True)
