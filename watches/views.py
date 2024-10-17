@@ -107,11 +107,15 @@ def staff_settings(request):
             form = MovementForm(request.POST)
             if form.is_valid():
                 form.save()
+                movement = form.instance.movement_name
+                messages.success(request, f'{movement} movement created.')
                 return redirect('staff_settings')
         elif 'list-form' in request.POST:
             form = ListForm(request.POST)
             if form.is_valid():
                 form.save()
+                list_name = form.instance.list_name
+                messages.success(request, f'{list_name} list created.')
                 return redirect('staff_settings') 
     movements = WatchMovement.objects.all()
     lists = WatchList.objects.values_list('list_name', flat=True)
@@ -186,7 +190,7 @@ def delete_movement(request, movement_id):
     associated = movement.watch_movement.count()
     if request.method == 'POST':
         movement.delete()
-        messages.success(request, f'Movement "{movement}" has been deleted.')
+        messages.success(request, f'{movement} movement deleted.')
         return redirect('staff_settings')
     else:
         movements = WatchMovement.objects.all()
@@ -210,7 +214,7 @@ def delete_list(request, list_id):
     associated = list_name.watch_list.count()
     if request.method == 'POST':
         list_name.delete()
-        messages.success(request, f'The list "{list_name}" has been deleted.')
+        messages.success(request, f'{list_name} list deleted.')
         return redirect('staff_settings')
     else:
         movements = WatchMovement.objects.all()

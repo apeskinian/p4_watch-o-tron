@@ -28,6 +28,9 @@ class MovementForm(forms.ModelForm):
         model = WatchMovement
         fields = ['movement_name']
 
+    movement_name = forms.CharField(max_length=200, label=False)
+
+
     def clean_name(self):
         movement_name = self.cleaned_data.get('movement_name')
         if WatchMovement.objects.filter(movement_name=movement_name).exists():
@@ -39,6 +42,8 @@ class ListForm(forms.ModelForm):
     class Meta:
         model = WatchList
         fields = ['list_name']
+
+    list_name = forms.CharField(max_length=200, label=False)
 
     def clean_name(self):
         list_name = self.cleaned_data.get('list_name')

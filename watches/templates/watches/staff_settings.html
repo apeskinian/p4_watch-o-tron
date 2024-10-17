@@ -47,32 +47,32 @@
         <div class="row"></div>
             <div class="col">  
                 <h2>Settings</h2>
-                <br>
-                <h3>Movement Types</h3>
-                <table>
+                <table class="table caption-top">
+                    <caption class="hidden">List of movemente</caption>
+                    <thead class="table-light">
                     <tr>
                         <th>Movements</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     {% for movement in movements %}
                     <tr>
                         <td>{{ movement }}</td>
                         {% if forloop.counter > 5 %}
                         <td>
                             <a
-                            href="/edit/movement/{{ movement.id }}"
+                            href="{% url 'edit_movement' movement.id %}"
                             name="edit-movement"
-                            class="btn-edit-movement btn btn-warning"
+                            class="btn-edit-movement btn btn-sm btn-warning"
                             >Edit
                             </a>
                         </td>
                         <td>
                             <a 
-                            href="/delete/movement/{{ movement.id }}" 
-                            class="btn-delete-movement btn btn-danger" 
-                            data-id="{{ movement.id }}" 
-                            data-name="{{ movement }}"
+                            href="{% url 'delete_movement' movement.id %}" 
+                            class="btn-delete-movement btn btn-sm btn-danger" 
                             >Delete
                             </a>
                         </td>
@@ -83,43 +83,44 @@
                     </tr>
                     {% endfor %}
                     <tr>
-                        <td>
-                            <button 
-                            type="button" 
-                            class="btn btn-success" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#new-entry-modal" 
-                            data-mode="new-movement"
-                            >Add
-                            </button>
-                        </td>
-                        <td></td>
-                        <td></td>
+                        <form id="movement-form" method="POST">
+                            <td>
+                                {% csrf_token %}
+                                {{ movement_form | crispy }}
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-sm btn-success" name="movement-form">Add</button>
+                            </td>
+                            <td></td>
+                        </form>
                     </tr>
+                    </tbody>
                 </table>
-                <br>
-                <h3>Lists</h3>
-                <table>
+                <table class="table caption-top">
+                    <caption class="hidden">Lists</caption>
+                    <thead class="table-light">
                     <tr>
                         <th>List Name</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     {% for list in list_names %}
                     <tr>
                         <td>{{ list }}</td>
                         {% if forloop.counter > 2 %}
                         <td>
                             <a
-                            href="/edit/list/{{ list.id }}"
+                            href="edit/list/{{ list.id }}"
                             name="edit-list"
-                            class="btn-edit-movement btn btn-warning"
+                            class="btn-edit-movement btn btn-sm btn-warning"
                             >Edit
                             </a>
                         </td>
                         <td><a 
                             href="/delete/list/{{ list.id }}" 
-                            class="btn-delete-list btn btn-danger" 
+                            class="btn-delete-list btn btn-sm btn-danger" 
                             >Delete
                             </a>
                         </td>
@@ -130,44 +131,23 @@
                     </tr>
                     {% endfor %}
                     <tr>
-                        <td>
-                            <button 
-                            type="button" 
-                            class="btn btn-success" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#new-entry-modal" 
-                            data-mode="new-list"
-                            >Add
-                            </button>
-                        </td>
-                        <td></td>
-                        <td></td>
+                        <form id="list-form" method="POST">
+                            <td>
+                                {% csrf_token %}
+                                {{ list_form | crispy }}
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-sm btn-success" name="list-form">Add</button>
+                            </td>
+                            <td></td>
+                        </form>
                     </tr>
+                </tbody>
                 </table>
             </div>
         </div>
     </div>
     <!-- Rendering the forms for the modal -->
-    <div id="movement-form-wrapper" class="hidden">
-        <form id="movement-form" method="POST">
-            {% csrf_token %}
-            {{ movement_form | crispy }}
-            <div>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" name="movement-form" class="btn btn-success">Add</button>
-            </div>
-        </form>
-    </div>
-    <div id="list-form-wrapper" class="hidden">
-        <form id="list-form" method="POST">
-            {% csrf_token %}
-            {{ list_form | crispy }}
-            <div>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" name="list-form" class="btn btn-success">Add</button>
-            </div>
-        </form>
-    </div>
     {% if edit_form %}
     <div class="container">
         <div class="row">
@@ -215,26 +195,10 @@
     </div>
     {% endif %}
     <!-- End of forms -->
-    <!-- Modal for adding movements or lists -->
-    <div id="new-entry-modal" class="modal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="new-entry-modal-title" class="modal-title">Title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div id="new-entry-modal-body" class="modal-body"></div>
-            </div>
-        </div>
-    </div>
 </main>
 <footer class="d-none d-md-block">
     <div class="footer-signature">
         <div><strong>apeskinian|</strong></div>
     </div>
 </footer>
-{% endblock %}
-{% block script %}
-<!-- Custom Script -->
-<script src="{% static 'script/staff_settings_script.js' %}"></script>
 {% endblock %}
