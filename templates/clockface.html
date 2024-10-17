@@ -1,8 +1,17 @@
 {% load static %}
 
-<canvas id="canvas" width="40" height="40" style="background-color:white">
-    Sorry, your browser does not support canvas.
-</canvas>
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static 'css/clockface.css' %}">
+
+<div class="clock-container">
+    <div class="clock">
+        <div class="wrap">
+            <span class="hour"></span>
+            <span class="minute"></span>ß
+            <span class="dot"></span>
+        </div>
+    </div>
+</div>
 
 <!-- Custom Script -->
 <script src="{% static 'script/clockface.js' %}"></script>
