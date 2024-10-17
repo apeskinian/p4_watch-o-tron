@@ -146,28 +146,32 @@
         </div>
     </div>
 
-    <!-- Rendering the forms for the modal -->
-    {% if edit_form %}
-    <div class="modal fade" id="edit-modal" tabindex="-1" aria-hidden="true">
+    <!-- Modal for editing and deleting -->
+    {% if edit_form or to_delete %}
+    <div class="modal fade" id="settings-modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Please enter new name:</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id="settings-modal-label">{% if edit_form %}Please enter new name:{% elif to_delete %}Confirm deletion of {{ to_delete }}?{% endif %}</h1>
+                    {% with content=edit_form|yesno:'Edit,Delete' %}
+                    <a href="{% url 'cancel_process' content 'staff_settings' %}" class="btn-close" aria-label="Close"></a>
+                    {% endwith %}
                 </div>
                 <div class="modal-body">
-                    <form id="edit-form" method="POST">
+                    <form method="POST">
                         {% csrf_token %}
-                        {{ edit_form | crispy }}
+                        {% if edit_form %}{{ edit_form | crispy }}{% endif %}
                         <div>
                             <p><strong>Note:</strong>
                                 {% if associated == 0 %} No watches
                                 {% elif associated == 1 %} {{ associated }} watch
                                 {% else %} {{ associated }} watches
-                                {% endif %} will be affected by this change.
+                                {% endif %} will be {% if edit_form %}affected{% elif to_delete %}deleted{% endif %} by this change.
                             </p>
-                            <a href="{% url 'cancel_process' 'Edit' 'staff_settings' %}" class="btn btn-danger">Cancel</a>
-                            <button type="submit" name="edit-form" class="btn btn-success">Amend</button>
+                            {% with content=edit_form|yesno:'Edit,Delete' %}
+                                <a href="{% url 'cancel_process' content 'staff_settings' %}" class="btn btn-danger" aria-label="Close">Cancel</a>
+                            {% endwith %}
+                            <button type="submit" class="btn btn-success">{% if edit_form %}Amend{% elif to_delete %}Delete{% endif %}</button>
                         </div>
                     </form>
                 </div>
@@ -175,34 +179,6 @@
         </div>
     </div>
     {% endif %}
-    {% if to_delete %}
-    <div class="modal fade" id="delete-modal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm deletion of {{ to_delete }}?</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="confirm-delete" method="POST">
-                        {% csrf_token %}
-                        <p><strong>Note:</strong>
-                            {% if associated == 0 %} No watches
-                            {% elif associated == 1 %} {{ associated }} watch
-                            {% else %} {{ associated }} watches
-                            {% endif %} will be deleted by this change.
-                        </p>
-                        <div>
-                            <a href="{% url 'cancel_process' 'Delete' 'staff_settings' %}" class="btn btn-secondary">Cancel</a>
-                            <button type="submit" name="confirm-delete" class="btn btn-danger">Delete</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    <!-- End of forms -->
 </main>
 <footer class="d-none d-md-block">
     <div class="footer-signature">
