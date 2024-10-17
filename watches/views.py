@@ -252,7 +252,7 @@ def cancelProcess(request, content, cancel_url='home'):
         possible_lists = WatchList.objects.values_list('list_name', flat=True)
         if cancel_url in possible_lists:
             return redirect(reverse('watch_list', kwargs={'list_name': cancel_url}))
-        return redirect('home')
+        return redirect(cancel_url)
     except Exception as e:
         messages.error(request, f'Error occured while cancelling: {str(e)}')
         return redirect('home')

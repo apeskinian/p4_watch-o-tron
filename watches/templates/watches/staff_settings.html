@@ -145,12 +145,17 @@
             </div>
         </div>
     </div>
+
     <!-- Rendering the forms for the modal -->
     {% if edit_form %}
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div id="edit-form-wrapper">
+    <div class="modal fade" id="edit-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Please enter new name:</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
                     <form id="edit-form" method="POST">
                         {% csrf_token %}
                         {{ edit_form | crispy }}
@@ -161,7 +166,7 @@
                                 {% else %} {{ associated }} watches
                                 {% endif %} will be affected by this change.
                             </p>
-                            <a href="{% url 'staff_settings' %}" class="btn btn-danger">Cancel</a>
+                            <a href="{% url 'cancel_process' 'Edit' 'staff_settings' %}" class="btn btn-danger">Cancel</a>
                             <button type="submit" name="edit-form" class="btn btn-success">Amend</button>
                         </div>
                     </form>
@@ -171,23 +176,28 @@
     </div>
     {% endif %}
     {% if to_delete %}
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <form id="confirm-delete" method="POST">
-                    {% csrf_token %}
-                    <h5>Confirm deletion of {{ to_delete }}?</h5>
-                    <p><strong>Note:</strong>
-                        {% if associated == 0 %} No watches
-                        {% elif associated == 1 %} {{ associated }} watch
-                        {% else %} {{ associated }} watches
-                        {% endif %} will be deleted by this change.
-                    </p>
-                    <div>
-                        <a href="{% url 'staff_settings' %}" class="btn btn-secondary">Cancel</a>
-                        <button type="submit" name="confirm-delete" class="btn btn-danger">Delete</button>
-                    </div>
-                </form>
+    <div class="modal fade" id="delete-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm deletion of {{ to_delete }}?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="confirm-delete" method="POST">
+                        {% csrf_token %}
+                        <p><strong>Note:</strong>
+                            {% if associated == 0 %} No watches
+                            {% elif associated == 1 %} {{ associated }} watch
+                            {% else %} {{ associated }} watches
+                            {% endif %} will be deleted by this change.
+                        </p>
+                        <div>
+                            <a href="{% url 'cancel_process' 'Delete' 'staff_settings' %}" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" name="confirm-delete" class="btn btn-danger">Delete</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -199,4 +209,8 @@
         <div><strong>apeskinian|</strong></div>
     </div>
 </footer>
+{% endblock %}
+{% block script %}
+<!-- Custom Script -->
+<script src="{% static 'script/staff_settings_script.js' %}"></script>
 {% endblock %}
