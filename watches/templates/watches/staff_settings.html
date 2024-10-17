@@ -53,107 +53,87 @@
 </header>
 <main>
     {% include 'messages.html' %}
-    <div class="container">
-        <div class="row"></div>
-            <div class="col">  
-                <h2>Settings</h2>
-                <table class="table caption-top">
-                    <caption class="hidden">List of movemente</caption>
-                    <thead class="table-light">
-                    <tr>
-                        <th>Movements</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for movement in movements %}
-                    <tr>
-                        <td>{{ movement }}</td>
-                        {% if forloop.counter > 5 %}
-                        <td>
-                            <a
-                            href="{% url 'edit_movement' movement.id %}"
-                            class="btn-edit-movement btn btn-sm btn-warning"
-                            >Edit
-                            </a>
-                        </td>
-                        <td>
-                            <a 
-                            href="{% url 'delete_movement' movement.id %}" 
-                            class="btn-delete-movement btn btn-sm btn-danger" 
-                            >Delete
-                            </a>
-                        </td>
-                        {% else %}
-                        <td></td>
-                        <td></td>
-                        {% endif %}
-                    </tr>
-                    {% endfor %}
-                    <tr>
-                        <form id="movement-form" method="POST">
-                            <td>
-                                {% csrf_token %}
-                                {{ movement_form | crispy }}
-                            </td>
-                            <td>
-                                <button type="submit" class="btn btn-sm btn-success" name="movement-form">Add</button>
-                            </td>
-                            <td></td>
-                        </form>
-                    </tr>
-                    </tbody>
-                </table>
-                <table class="table caption-top">
-                    <caption class="hidden">Lists</caption>
-                    <thead class="table-light">
-                    <tr>
-                        <th>List Name</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for list in list_names %}
-                    <tr>
-                        <td>{{ list }}</td>
+    <div class="container table-container">
+        <table class="table caption-top">
+            <caption class="hidden">List of movemente</caption>
+            <thead class="table-light">
+                <tr>
+                    <th class="settings-table-main">Movements</th>
+                    <th class="settings-table-edit text-center">Edit</th>
+                    <th class="settings-table-delete text-center">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for movement in movements %}
+            <tr>
+                <td>{{ movement }}</td>
+                {% if forloop.counter > 5 %}
+                    <td class="text-center">
+                        <a href="{% url 'edit_movement' movement.id %}" class="btn-staff-setting-table btn btn-sm btn-warning">Edit</a>
+                    </td>
+                    <td class="text-center">
+                        <a href="{% url 'delete_movement' movement.id %}" class="btn-staff-setting-table btn btn-sm btn-danger">Delete</a>
+                    </td>
+                {% else %}
+                    <td></td>
+                    <td></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+            <tr>
+                <form id="movement-form" method="POST">
+                    <td>
+                        {% csrf_token %}
+                        {{ movement_form | crispy }}
+                    </td>
+                    <td>
+                        <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success" name="movement-form">Add</button>
+                    </td>
+                    <td></td>
+                </form>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table caption-top">
+            <caption class="hidden">Lists</caption>
+            <thead class="table-light">
+                <tr>
+                    <th class="settings-table-main">List Name</th>
+                    <th class="settings-table-edit text-center">Edit</th>
+                    <th class="settings-table-delete text-center">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for list in list_names %}
+                <tr>
+                    <td>{{ list }}</td>
                         {% if forloop.counter > 2 %}
+                    <td class="text-center">
+                        <a href="{% url 'edit_list' list.id %}" class="btn-staff-setting-table btn btn-sm btn-warning">Edit</a>
+                    </td>
+                    <td class="text-center">
+                        <a href="{% url 'delete_list' list.id %}" class="btn-staff-setting-table btn btn-sm btn-danger" >Delete</a>
+                    </td>
+                    {% else %}
+                    <td></td>
+                    <td></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                <tr>
+                    <form id="list-form" method="POST">
                         <td>
-                            <a
-                            href="{% url 'edit_list' list.id %}"
-                            class="btn-edit-movement btn btn-sm btn-warning"
-                            >Edit
-                            </a>
+                            {% csrf_token %}
+                            {{ list_form | crispy }}
                         </td>
-                        <td><a 
-                            href="{% url 'delete_list' list.id %}" 
-                            class="btn-delete-list btn btn-sm btn-danger" 
-                            >Delete
-                            </a>
+                        <td>
+                            <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success" name="list-form">Add</button>
                         </td>
-                        {% else %}
                         <td></td>
-                        <td></td>
-                        {% endif %}
-                    </tr>
-                    {% endfor %}
-                    <tr>
-                        <form id="list-form" method="POST">
-                            <td>
-                                {% csrf_token %}
-                                {{ list_form | crispy }}
-                            </td>
-                            <td>
-                                <button type="submit" class="btn btn-sm btn-success" name="list-form">Add</button>
-                            </td>
-                            <td></td>
-                        </form>
-                    </tr>
-                </tbody>
-                </table>
-            </div>
-        </div>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- Modal for editing and deleting -->

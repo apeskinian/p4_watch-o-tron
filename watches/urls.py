@@ -13,6 +13,6 @@ urlpatterns = [
     path('edit/movement/<int:movement_id>', views.edit_movement, name='edit_movement'),
     path('edit/watch/<watch_id>/<str:origin>', views.edit_watch, name='edit_watch'),
     path('purchase/<watch_id>', views.purchase_watch, name='purchase'),
-    path('staff_settings', views.staff_settings, name='staff_settings'),
+    path('staff_settings/', views.staff_settings, name='staff_settings'),
     path('<str:list_name>', views.home, name='watch_list'),
 ]
