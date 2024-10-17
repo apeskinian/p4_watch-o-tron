@@ -15,6 +15,13 @@
                     <i class="fa-solid fa-bars"></i>
                 </div>
                 <div class="collapse navbar-collapse" id="wot-navbar-mobile">
+                    <ul class="mobile-nav-list navbar-nav text-center">
+                        <div class="mobile-nav-buttons">
+                        <li class="nav-item">
+                            <a href="{% url 'home' %}" class="btn btn-sm btn-primary mobile-nav-button">Back</a>
+                        </li>
+                        </div>
+                    </ul>
                     <div class="session-id-mobile">
                         <span>logged in as <strong>{{ user.username }}</strong></span>
                         <a href="{{ logout_url }}" class="btn btn-sm btn-danger session-button-mobile">Logout</a>
@@ -30,6 +37,9 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
+                <div>
+                    <a href="{% url 'home' %}" class="btn btn-sm btn-primary">Back</a>
+                </div>
                 <div class="position-absolute top-50 start-50 translate-middle">
                     <a href="#"><img src="{% static 'images/watch-o-tron_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top"></a>
                 </div>
