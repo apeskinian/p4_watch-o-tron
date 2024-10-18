@@ -14,6 +14,15 @@ function validateForm() {
     return watchForm.checkValidity();
 }
 
+function getComplications(comp) {
+    if (watchForm.elements[comp].checked) {
+        return ''
+    } else {
+        return 'not-complicated'
+    }
+
+}
+
 editButton.addEventListener('click', (e) => {
     if (validateForm()) {
         
@@ -32,7 +41,7 @@ editButton.addEventListener('click', (e) => {
         var selectedMovementText = selectedMovement.options[selectedMovement.selectedIndex].text;
         var selectedList = watchForm.elements['list_name'];
         var selectedListText = selectedList.options[selectedList.selectedIndex].text;
-        watchModalTitle.innerText = 'Add new watch?';
+        watchModalTitle.innerText = 'Confirm details:';
         watchModalBody.innerHTML = `
             <p><strong>Make:</strong> ${watchForm.elements['make'].value}</p>
             <p><strong>Collection:</strong> ${watchForm.elements['collection'].value}</p>
