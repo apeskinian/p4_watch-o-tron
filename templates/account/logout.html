@@ -9,10 +9,14 @@
 {% endblock head_title %}
 
 {% block content %}
-<header></header>
-    <h1 class="hidden">Sign In</h1>
-    <div class="account-header text-center">
-        <img id="logo" src="{% static 'images/watch-o-tron_logo.png' %}" alt="watch-o-tron logo">
+<header>
+    <div class="account-header">
+        <h1 class="hidden">Sign In</h1>
+        <div class="d-flex align-items-center gap-1">
+            <a href="#"><img src="{% static 'images/watch-_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top"></a>
+            {% include 'clockface.html' %}
+            <a href="#"><img src="{% static 'images/-tron_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top"></a>
+        </div>
     </div>
 </header>
 <main>

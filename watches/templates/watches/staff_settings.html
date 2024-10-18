@@ -4,52 +4,55 @@
 
 {% block content %}
 <header>
-<!-- mobile navbars -->
-    <div id="mobile-nav-bar" class="d-md-none">
-        <nav id="top-nav-mobile" class="navbar bg-white fixed-top">
-            <a href="#"><img src="{% static 'images/watch-o-tron_logo.png' %}" alt="watch-o-tron logo" height="35"></a>
-        </nav>
-        <nav id="bottom-nav-mobile" class="navbar bg-white fixed-bottom">
-            <div class="container-fluid">
-                <div class="navbar-toggler mx-auto " data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
+    <!-- top navbar -->
+    <nav class="top-nav navbar navbar-expand bg-white fixed-top">
+        <div class="container-fluid">
+            <div class="d-none d-md-block">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" class="btn btn-sm btn-primary">Back</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-nav position-absolute top-50 start-50 translate-middle">
+                <div class="d-flex align-items-center gap-1">
+                    <a href="#"><img src="{% static 'images/watch-_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top"></a>
+                    {% include 'clockface.html' %}
+                    <a href="#"><img src="{% static 'images/-tron_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top"></a>
                 </div>
-                <div class="collapse navbar-collapse" id="wot-navbar-mobile">
-                    <ul class="mobile-nav-list navbar-nav text-center">
-                        <div class="mobile-nav-buttons">
-                        <li class="nav-item">
-                            <a href="{% url 'home' %}" class="btn btn-sm btn-primary mobile-nav-button">Back</a>
-                        </li>
-                        </div>
-                    </ul>
-                    <div class="session-id-mobile">
-                        <span>logged in as <strong>{{ user.username }}</strong></span>
-                        <a href="{{ logout_url }}" class="btn btn-sm btn-danger session-button-mobile">Logout</a>
+            </div>
+            <div class="navbar-nav d-none d-md-flex align-items-center">
+                <div class="d-none d-lg-block"><span>logged in as <strong>{{ user.username }}</strong></span></div>
+                <div class="ms-2"><a href="{{ logout_url }}" class="btn btn-sm btn-danger">Logout</a></div>
+            </div>
+        </div>
+    </nav>
+    <!-- mobile navbar -->
+    <nav id="bottom-nav-mobile" class="d-md-none navbar bg-white fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-toggler mx-auto " data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="burger-menu-button fa-solid fa-bars"></i>
+            </div>
+            <div class="collapse navbar-collapse" id="wot-navbar-mobile">
+                <ul class="mobile-nav-list navbar-nav text-center">
+                    <div class="mobile-nav-buttons">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" class="btn btn-sm btn-primary mobile-nav-button">Back</a>
+                    </li>
                     </div>
+                </ul>
+                <div class="session-id-mobile">
+                    <span>logged in as <strong>{{ user.username }}</strong></span>
+                    <a href="{{ logout_url }}" class="btn btn-sm btn-danger session-button-mobile">Logout</a>
                 </div>
             </div>
-        </nav>
-    </div>
-    <!-- normal navbars take over on bigger than medium -->
-    <div id="standard-nav-bar" class="d-none d-md-block">
-        <nav id="top-nav" class="navbar navbar-expand-md bg-white fixed-top">
-            <div class="container-fluid position-relative">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div>
-                    <a href="{% url 'home' %}" class="btn btn-sm btn-primary">Back</a>
-                </div>
-                <div class="position-absolute top-50 start-50 translate-middle">
-                    <a href="#"><img src="{% static 'images/watch-o-tron_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top"></a>
-                </div>
-                <div class=" d-flex align-items-center ms-auto">
-                    <div class="d-none d-lg-block"><span>logged in as <strong>{{ user.username }}</strong></span></div>
-                    <div class="ms-2"><a href="{{ logout_url }}" class="btn btn-sm btn-danger">Logout</a></div>
-                </div>
-            </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
+
+
+
+
+
 </header>
 <main>
     {% include 'messages.html' %}
