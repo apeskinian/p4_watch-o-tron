@@ -137,10 +137,10 @@
         <!-- Modal for editing and deleting -->
         {% if edit_form or to_delete %}
         <div class="modal fade" id="settings-modal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="settings-modal-label">{% if edit_form %}Please enter new name:{% elif to_delete %}Confirm deletion of {{ to_delete }}?{% endif %}</h1>
+                        <h4 class="modal-title" id="settings-modal-label">{% if edit_form %}Please enter new name:{% elif to_delete %}Confirm deletion of {{ to_delete }}?{% endif %}</h4>
                         {% with content=edit_form|yesno:'Edit,Delete' %}
                         <a href="{% url 'cancel_process' content 'staff_settings' %}" class="btn-close" aria-label="Close"></a>
                         {% endwith %}
@@ -149,7 +149,7 @@
                         <form method="POST">
                             {% csrf_token %}
                             {% if edit_form %}{{ edit_form | crispy }}{% endif %}
-                            <div>
+                            <div class="text-center">
                                 <p><strong>Note:</strong>
                                     {% if associated == 0 %} No watches
                                     {% elif associated == 1 %} {{ associated }} watch
