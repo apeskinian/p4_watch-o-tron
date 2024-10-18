@@ -3,17 +3,35 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div class="container">
+<header>
+    <!-- top navbar -->
+    <nav class="top-nav navbar navbar-expand bg-white fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-nav"></div>
+            <div class="navbar-nav position-absolute top-50 start-50 translate-middle">
+                <div class="d-flex align-items-center gap-1">
+                    <a href="#"><img src="{% static 'images/watch-_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top"></a>
+                    {% include 'clockface.html' %}
+                    <a href="#"><img src="{% static 'images/-tron_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top"></a>
+                </div>
+            </div>
+            <div class="navbar-nav d-none d-md-flex align-items-center">
+                <div class="d-none d-lg-block"><span>logged in as <strong>{{ user.username }}</strong></span></div>
+                <div class="ms-2"><a href="{{ logout_url }}" class="btn btn-sm btn-danger">Logout</a></div>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="watch-edit-container container">
         <div class="row"></div>
             <div class="col">  
-                <h1>Welcome {{ user.username }}!</h1>
-                <p>Not {{ user.username }}? <a href="{{ logout_url }}">logout</a></p>
                 <form id="watch-form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ watch_form | crispy }}
-                    <div>
-                        <a href="{% url 'cancel_process' 'Watch addition' origin %}" class="btn btn-primary">Cancel</a>
-                        <button type="button" id="btn-edit" class="btn btn-success">Add Watch</button>
+                    <div class="text-center">
+                        <a href="{% url 'cancel_process' 'Watch addition' origin %}" class="btn-watch-edit btn btn-primary">Cancel</a>
+                        <button type="button" id="btn-edit" class="btn-watch-edit btn btn-success">Add Watch</button>
                     </div>
                 </form>
             </div>
@@ -40,6 +58,16 @@
             </div>
         </div>
     </div>
+</main>
+<footer>
+    <div class="footer-signature">
+        <div class="d-none d-md-block"><strong>apeskinian|</strong></div>
+        <div class="d-flex d-md-none align-items-center">
+            <div><span>logged in as <strong>{{ user.username }}</strong></span></div>
+            <div class="ms-2"><a href="{{ logout_url }}" class="btn btn-sm btn-danger">Logout</a></div>
+        </div>
+    </div>
+</footer>
 {% endblock %}
 {% block script %}
 <!-- Custom Script -->
