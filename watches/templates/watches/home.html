@@ -53,9 +53,9 @@
                 <div class="session-id-mobile">
                     <span>logged in as <strong>{{ user.username }}</strong></span>
                     {% if user.is_staff %}
-                    <a href="{% url 'staff_settings' %}" class="btn btn-sm btn-primary session-button-mobile">Settings</a>
+                    <a href="{% url 'staff_settings' %}" class="btn btn-primary session-button-mobile">Settings</a>
                     {% endif %}
-                    <a href="{{ logout_url }}" class="btn btn-sm btn-danger session-button-mobile">Logout</a>
+                    <a href="{{ logout_url }}" class="btn btn-danger session-button-mobile">Logout</a>
                 </div>
             </div>
         </div>

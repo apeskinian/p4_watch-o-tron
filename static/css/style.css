@@ -34,15 +34,22 @@ main {
     box-shadow: 0 -0.5px 0.5px 0.5px lightgray;
 }
 
+.burger-menu-button {
+    font-size: 1.8rem;
+}
+
 .mobile-nav-list {
     margin-top: 10px;
 }
 
 .mobile-nav-item {
-    padding: 5px;
-    background-color: rgb(250, 250, 250);
+    font-size: 1.2rem;
+    height: 50px;
+    padding-top: 10px;
+    background-color: rgb(245, 245, 245);
     border-radius: 5px;
     margin: 3px;
+
 }
 
 .mobile-nav-buttons {
@@ -50,13 +57,21 @@ main {
 }
 
 .mobile-nav-button {
+    height: 50px;
+    font-size: 1.2rem;
+    padding-top: 10px;
     border-radius: 5px;
     margin: 3px;
     width: 100%;
 }
 
-.burger-menu-button {
-    font-size: 1.8rem;
+
+
+.session-id-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
 }
 
 .session-button-mobile {
@@ -65,12 +80,6 @@ main {
     width: fit-content;
 }
 
-.session-id-mobile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
-}
 
 .top-nav {
     height: 56px;
