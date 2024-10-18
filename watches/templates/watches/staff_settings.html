@@ -48,129 +48,131 @@
             </div>
         </div>
     </nav>
-
-
-
-
-
 </header>
 <main>
-    {% include 'messages.html' %}
-    <div class="container table-container">
-        <table class="table caption-top">
-            <caption class="hidden">List of movemente</caption>
-            <thead class="table-light">
+    {% if user.is_staff %}
+        {% include 'messages.html' %}
+        <div class="container table-container">
+            <table class="table caption-top">
+                <caption class="hidden">List of movemente</caption>
+                <thead class="table-light">
+                    <tr>
+                        <th class="settings-table-main">Movements</th>
+                        <th class="settings-table-edit text-center">Edit</th>
+                        <th class="settings-table-delete text-center">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for movement in movements %}
                 <tr>
-                    <th class="settings-table-main">Movements</th>
-                    <th class="settings-table-edit text-center">Edit</th>
-                    <th class="settings-table-delete text-center">Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for movement in movements %}
-            <tr>
-                <td>{{ movement }}</td>
-                {% if forloop.counter > 5 %}
-                    <td class="text-center">
-                        <a href="{% url 'edit_movement' movement.id %}" class="btn-staff-setting-table btn btn-sm btn-warning">Edit</a>
-                    </td>
-                    <td class="text-center">
-                        <a href="{% url 'delete_movement' movement.id %}" class="btn-staff-setting-table btn btn-sm btn-danger">Delete</a>
-                    </td>
-                {% else %}
-                    <td></td>
-                    <td></td>
-                {% endif %}
-            </tr>
-            {% endfor %}
-            <tr>
-                <form id="movement-form" method="POST">
-                    <td>
-                        {% csrf_token %}
-                        {{ movement_form | crispy }}
-                    </td>
-                    <td>
-                        <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success" name="movement-form">Add</button>
-                    </td>
-                    <td></td>
-                </form>
-            </tr>
-            </tbody>
-        </table>
-        <table class="table caption-top">
-            <caption class="hidden">Lists</caption>
-            <thead class="table-light">
-                <tr>
-                    <th class="settings-table-main">List Name</th>
-                    <th class="settings-table-edit text-center">Edit</th>
-                    <th class="settings-table-delete text-center">Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for list in list_names %}
-                <tr>
-                    <td>{{ list }}</td>
-                        {% if forloop.counter > 2 %}
-                    <td class="text-center">
-                        <a href="{% url 'edit_list' list.id %}" class="btn-staff-setting-table btn btn-sm btn-warning">Edit</a>
-                    </td>
-                    <td class="text-center">
-                        <a href="{% url 'delete_list' list.id %}" class="btn-staff-setting-table btn btn-sm btn-danger" >Delete</a>
-                    </td>
+                    <td>{{ movement }}</td>
+                    {% if forloop.counter > 5 %}
+                        <td class="text-center">
+                            <a href="{% url 'edit_movement' movement.id %}" class="btn-staff-setting-table btn btn-sm btn-warning">Edit</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="{% url 'delete_movement' movement.id %}" class="btn-staff-setting-table btn btn-sm btn-danger">Delete</a>
+                        </td>
                     {% else %}
-                    <td></td>
-                    <td></td>
+                        <td></td>
+                        <td></td>
                     {% endif %}
                 </tr>
                 {% endfor %}
                 <tr>
-                    <form id="list-form" method="POST">
+                    <form id="movement-form" method="POST">
                         <td>
                             {% csrf_token %}
-                            {{ list_form | crispy }}
+                            {{ movement_form | crispy }}
                         </td>
                         <td>
-                            <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success" name="list-form">Add</button>
+                            <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success" name="movement-form">Add</button>
                         </td>
                         <td></td>
                     </form>
                 </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Modal for editing and deleting -->
-    {% if edit_form or to_delete %}
-    <div class="modal fade" id="settings-modal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="settings-modal-label">{% if edit_form %}Please enter new name:{% elif to_delete %}Confirm deletion of {{ to_delete }}?{% endif %}</h1>
-                    {% with content=edit_form|yesno:'Edit,Delete' %}
-                    <a href="{% url 'cancel_process' content 'staff_settings' %}" class="btn-close" aria-label="Close"></a>
-                    {% endwith %}
-                </div>
-                <div class="modal-body">
-                    <form method="POST">
-                        {% csrf_token %}
-                        {% if edit_form %}{{ edit_form | crispy }}{% endif %}
-                        <div>
-                            <p><strong>Note:</strong>
-                                {% if associated == 0 %} No watches
-                                {% elif associated == 1 %} {{ associated }} watch
-                                {% else %} {{ associated }} watches
-                                {% endif %} will be {% if edit_form %}affected{% elif to_delete %}deleted{% endif %} by this change.
-                            </p>
-                            {% with content=edit_form|yesno:'Edit,Delete' %}
-                                <a href="{% url 'cancel_process' content 'staff_settings' %}" class="btn btn-primary" aria-label="Close">Cancel</a>
-                            {% endwith %}
-                            <button type="submit" class="btn {% if edit_form %}btn-success{% elif to_delete %}btn-danger{% endif %}">{% if edit_form %}Amend{% elif to_delete %}Delete{% endif %}</button>
-                        </div>
-                    </form>
+                </tbody>
+            </table>
+            <table class="table caption-top">
+                <caption class="hidden">Lists</caption>
+                <thead class="table-light">
+                    <tr>
+                        <th class="settings-table-main">List Name</th>
+                        <th class="settings-table-edit text-center">Edit</th>
+                        <th class="settings-table-delete text-center">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for list in list_names %}
+                    <tr>
+                        <td>{{ list }}</td>
+                            {% if forloop.counter > 2 %}
+                        <td class="text-center">
+                            <a href="{% url 'edit_list' list.id %}" class="btn-staff-setting-table btn btn-sm btn-warning">Edit</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="{% url 'delete_list' list.id %}" class="btn-staff-setting-table btn btn-sm btn-danger" >Delete</a>
+                        </td>
+                        {% else %}
+                        <td></td>
+                        <td></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <form id="list-form" method="POST">
+                            <td>
+                                {% csrf_token %}
+                                {{ list_form | crispy }}
+                            </td>
+                            <td>
+                                <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success" name="list-form">Add</button>
+                            </td>
+                            <td></td>
+                        </form>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Modal for editing and deleting -->
+        {% if edit_form or to_delete %}
+        <div class="modal fade" id="settings-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="settings-modal-label">{% if edit_form %}Please enter new name:{% elif to_delete %}Confirm deletion of {{ to_delete }}?{% endif %}</h1>
+                        {% with content=edit_form|yesno:'Edit,Delete' %}
+                        <a href="{% url 'cancel_process' content 'staff_settings' %}" class="btn-close" aria-label="Close"></a>
+                        {% endwith %}
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {% if edit_form %}{{ edit_form | crispy }}{% endif %}
+                            <div>
+                                <p><strong>Note:</strong>
+                                    {% if associated == 0 %} No watches
+                                    {% elif associated == 1 %} {{ associated }} watch
+                                    {% else %} {{ associated }} watches
+                                    {% endif %} will be {% if edit_form %}affected{% elif to_delete %}deleted{% endif %} by this change.
+                                </p>
+                                {% with content=edit_form|yesno:'Edit,Delete' %}
+                                    <a href="{% url 'cancel_process' content 'staff_settings' %}" class="btn btn-primary" aria-label="Close">Cancel</a>
+                                {% endwith %}
+                                <button type="submit" class="btn {% if edit_form %}btn-success{% elif to_delete %}btn-danger{% endif %}">{% if edit_form %}Amend{% elif to_delete %}Delete{% endif %}</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        {% endif %}
+    {% else %}
+        <div class="no-watch-message text-center">
+            <h5>Sorry {{ user.username }} but you should not be here.</h5>
+            <p>Click <a href="{% url 'home' %}">here</a> to return home.</p>
+            </p>
+        </div>
     {% endif %}
 </main>
 <footer class="d-none d-md-block">
