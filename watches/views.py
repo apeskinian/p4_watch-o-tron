@@ -11,18 +11,26 @@ import datetime
 def home(request, list_name='Collection'):
     lists = WatchList.objects.values_list('list_name', flat=True)
     if list_name in lists:
+        # showing only collection, wish list and lists that are used by the user
+        users_lists = ['Collection','Wish List']
+        for list_check in WatchList.objects.all():
+            if list_check.list_name not in users_lists:
+                user_watches = Watch.objects.filter(owner=request.user, list_name=list_check)
+                watch_count = user_watches.count()
+                if watch_count > 0:
+                    users_lists.append(list_check)
+
         watches = Watch.objects.filter(
             owner=request.user,
             list_name__list_name=list_name
         )
-        lists = WatchList.objects.values_list('list_name', flat=True)
         current_list = list_name
         day = datetime.datetime.now()
         context = {
             'day': day.strftime('%w'),
             'date': day.strftime('%d'),
             'watches': watches,
-            'lists': lists,
+            'lists': users_lists,
             'current_list': current_list
         }
         return render(request, 'watches/home.html', context)
