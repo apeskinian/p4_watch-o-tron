@@ -22,6 +22,12 @@ class WatchForm(forms.ModelForm):
             'image',
             'list_name',
         ]
+        widgets = {
+            'complication_chronograph': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+                'role': 'switch',
+            }),
+        }
 
 class MovementForm(forms.ModelForm):    
     class Meta:
