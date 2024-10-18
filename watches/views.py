@@ -254,10 +254,10 @@ def delete_list(request, list_id):
     if request.method == 'POST':
         try:
             list_name.delete()
-            messages.success(request, f'{list_name} list deleted.')
+            messages.success(request, f'{list_name} deleted.')
             return redirect('staff_settings')
         except Exception as e:
-            messages.error(request, f'Error occured while deleting list: {str(e)}')
+            messages.error(request, f'Error occured while deleting: {str(e)}')
     else:
         movements = WatchMovement.objects.all()
         lists = WatchList.objects.values_list('list_name', flat=True)
