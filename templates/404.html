@@ -6,13 +6,7 @@
     <!-- top navbar -->
     <nav class="top-nav navbar navbar-expand bg-white fixed-top">
         <div class="container-fluid">
-            <div class="d-none d-md-block">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="{% url 'home' %}" class="btn btn-sm btn-primary">Back</a>
-                    </li>
-                </ul>
-            </div>
+            <div class="navbar-nav"></div>
             <div class="navbar-nav position-absolute top-50 start-50 translate-middle">
                 <div class="d-flex align-items-center gap-1">
                     <a href="#"><img src="{% static 'images/watch-_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top"></a>
@@ -26,27 +20,6 @@
             </div>
         </div>
     </nav>
-    <!-- mobile navbar -->
-    <nav id="bottom-nav-mobile" class="d-md-none navbar bg-white fixed-bottom">
-        <div class="container-fluid">
-            <div class="navbar-toggler mx-auto " data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="burger-menu-button fa-solid fa-bars"></i>
-            </div>
-            <div class="collapse navbar-collapse" id="wot-navbar-mobile">
-                <ul class="mobile-nav-list navbar-nav text-center">
-                    <div class="mobile-nav-buttons">
-                    <li class="nav-item">
-                        <a href="{% url 'home' %}" class="btn btn-sm btn-primary mobile-nav-button">Back</a>
-                    </li>
-                    </div>
-                </ul>
-                <div class="session-id-mobile">
-                    <span>logged in as <strong>{{ user.username }}</strong></span>
-                    <a href="{{ logout_url }}" class="btn btn-sm btn-danger session-button-mobile">Logout</a>
-                </div>
-            </div>
-        </div>
-    </nav>
 </header>
 <main>
     <div class="wrong-turn-message text-center">
@@ -55,9 +28,13 @@
         </p>
     </div>
 </main>
-<footer class="d-none d-md-block">
+<footer></footer>
     <div class="footer-signature">
-        <div><strong>apeskinian|</strong></div>
+        <div class="d-none d-md-block"><strong>apeskinian|</strong></div>
+        <div class="d-flex d-md-none align-items-center">
+            <div><span>logged in as <strong>{{ user.username }}</strong></span></div>
+            <div class="ms-2"><a href="{{ logout_url }}" class="btn btn-sm btn-danger">Logout</a></div>
+        </div>
     </div>
 </footer>
 {% endblock %}
