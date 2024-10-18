@@ -112,7 +112,7 @@
             {% endfor %}
         </div>
         {% else %}
-        <div class="no-watch-message text-center">
+        <div class="wrong-turn-message text-center">
             <h5>No watches found in your {{ current_list }}.</h5>
             <p>Get started by clicking <a href="{% url 'add_watch' current_list %}">here</a> or on the button below!</p>
             </p>

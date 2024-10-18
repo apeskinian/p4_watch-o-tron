@@ -9,21 +9,25 @@ import datetime
 
 @login_required(login_url='accounts/login')
 def home(request, list_name='Collection'):
-    watches = Watch.objects.filter(
-        owner=request.user,
-        list_name__list_name=list_name
-    )
     lists = WatchList.objects.values_list('list_name', flat=True)
-    current_list = list_name
-    day = datetime.datetime.now()
-    context = {
-        'day': day.strftime('%w'),
-        'date': day.strftime('%d'),
-        'watches': watches,
-        'lists': lists,
-        'current_list': current_list
-    }
-    return render(request, 'watches/home.html', context)
+    if list_name in lists:
+        watches = Watch.objects.filter(
+            owner=request.user,
+            list_name__list_name=list_name
+        )
+        lists = WatchList.objects.values_list('list_name', flat=True)
+        current_list = list_name
+        day = datetime.datetime.now()
+        context = {
+            'day': day.strftime('%w'),
+            'date': day.strftime('%d'),
+            'watches': watches,
+            'lists': lists,
+            'current_list': current_list
+        }
+        return render(request, 'watches/home.html', context)
+    else:
+        return render(request, '404.html')
 
 
 @login_required(login_url='accounts/login')
