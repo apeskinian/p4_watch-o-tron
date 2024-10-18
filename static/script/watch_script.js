@@ -5,7 +5,7 @@ const purchasedButtons = document.getElementsByClassName('btn-purchased');
 // getting modal elements for deleting and purchasing
 const watchModal = new bootstrap.Modal(document.getElementById('watch-modal'));
 const watchModalTitle = document.getElementById('watch-modal-title');
-const watchModalBody = document.getElementById('watch-modal-body');
+const watchModalBody = document.getElementById('watch-modal-body-content');
 const watchModalConfirm = document.getElementById('watch-modal-confirm');
 const watchModalCancel = document.getElementById('watch-modal-cancel');
 
