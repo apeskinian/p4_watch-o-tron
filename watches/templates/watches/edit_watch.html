@@ -7,7 +7,13 @@
     <!-- top navbar -->
     <nav class="top-nav navbar navbar-expand bg-white fixed-top">
         <div class="container-fluid">
-            <div class="navbar-nav"></div>
+            <div class="d-none d-md-block">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="{% url 'cancel_process' 'Watch editing' origin %}" class="btn btn-sm btn-danger">Back</a>
+                    </li>
+                </ul>
+            </div>
             <div class="navbar-nav position-absolute top-50 start-50 translate-middle">
                 <div class="d-flex align-items-center gap-1">
                     <a href="#"><img src="{% static 'images/watch-_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top"></a>
@@ -30,7 +36,7 @@
                     {% csrf_token %}
                     {{ watch_form | crispy }}
                     <div class="text-center">
-                        <a href="{% url 'cancel_process' 'Watch editing' origin %}" class="btn-watch-edit btn btn-primary">Cancel</a>
+                        <a href="{% url 'cancel_process' 'Watch editing' origin %}" class="btn-watch-edit btn btn-danger">Cancel</a>
                         <button type="button" id="btn-edit" class="btn-watch-edit btn btn-success">Update Watch</button>
                     </div>
                 </form>
