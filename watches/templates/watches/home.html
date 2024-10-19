@@ -85,16 +85,40 @@
                         <p class="card-text">{{ watch.movement_type }}{% if watch.movement_model %} ({{ watch.movement_model }}){% endif %}</p>
                         <div class="complications class=card-text">
                             <div>
-                                <img src="{% static 'images/complications/chronograph.png' %}" alt="Chronograph" class="complication {% if not watch.complication_chronograph %}not-complicated{% endif %}">
-                                <img src="{% static 'images/complications/' %}date_{{ date }}.png" alt="Date" class="date-complication complication {% if not watch.complication_date %}not-complicated{% endif %}">
-                                <img src="{% static 'images/complications/' %}day_{{ day }}.png" alt="Day" class="day-complication complication {% if not watch.complication_day %}not-complicated{% endif %}">
-                                <img src="{% static 'images/complications/gmt.png' %}" alt="GMT" class="complication {% if not watch.complication_gmt %}not-complicated{% endif %}">
+                                <img src="{% static 'images/complications/chronograph.png' %}" alt="Chronograph" class="complication {% if not watch.complication_chronograph %}not-complicated{% endif %}"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                data-bs-title="Chronograph">
+                                <img src="{% static 'images/complications/' %}date_{{ date }}.png" alt="Date" class="date-complication complication {% if not watch.complication_date %}not-complicated{% endif %}"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                data-bs-title="Date">
+                                <img src="{% static 'images/complications/' %}day_{{ day }}.png" alt="Day" class="day-complication complication {% if not watch.complication_day %}not-complicated{% endif %}"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                data-bs-title="Day">
+                                <img src="{% static 'images/complications/gmt.png' %}" alt="GMT" class="complication {% if not watch.complication_gmt %}not-complicated{% endif %}"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                data-bs-title="GMT">
                             </div>
                             <div>
-                                <img src="{% static 'images/complications/world_timer.png' %}" alt="World Timer" class="complication {% if not watch.complication_world_timer %}not-complicated{% endif %}">
-                                <img src="{% static 'images/complications/moonphase.png' %}" alt="Moonphase" class="complication {% if not watch.complication_moonphase %}not-complicated{% endif %}">
-                                <img src="{% static 'images/complications/power_reserve.png' %}" alt="Power Reserve" class="complication {% if not watch.complication_power_reserve %}not-complicated{% endif %}">
-                                <img src="{% static 'images/complications/tourbillon.png' %}" alt="Tourbillon" class="complication {% if not watch.complication_tourbillon %}not-complicated{% endif %}">
+                                <img src="{% static 'images/complications/world_timer.png' %}" alt="World Timer" class="complication {% if not watch.complication_world_timer %}not-complicated{% endif %}"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                data-bs-title="World Timer">
+                                <img src="{% static 'images/complications/moonphase.png' %}" alt="Moonphase" class="complication {% if not watch.complication_moonphase %}not-complicated{% endif %}"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                data-bs-title="Moonphase">
+                                <img src="{% static 'images/complications/power_reserve.png' %}" alt="Power Reserve" class="complication {% if not watch.complication_power_reserve %}not-complicated{% endif %}"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                data-bs-title="Power Reserve">
+                                <img src="{% static 'images/complications/tourbillon.png' %}" alt="Tourbillon" class="complication {% if not watch.complication_tourbillon %}not-complicated{% endif %}"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                data-bs-title="Tourbillon">
                             </div>
                         </div>
                     </div>
