@@ -3,6 +3,15 @@
 const watchForm = document.getElementById('watch-form')
 // get button
 const editButton = document.getElementById('btn-edit');
+// get complication icons
+const compChronograph = document.getElementById('complication-chronograph')
+const compDate = document.getElementById('complication-date')
+const compDay = document.getElementById('complication-day')
+const compGmt = document.getElementById('complication-gmt')
+const compWorldTimer = document.getElementById('complication-world-timer')
+const compMoonphase = document.getElementById('complication-moonphase')
+const compPowerReserve = document.getElementById('complication-power-reserve')
+const compTourbillon = document.getElementById('complication-tourbillon')
 // getting modal elements for deleting and purchasing
 const watchModal = new bootstrap.Modal(document.getElementById('watch-modal'));
 const watchModalTitle = document.getElementById('watch-modal-title');
@@ -20,7 +29,6 @@ function getComplications(comp) {
     } else {
         return 'not-complicated'
     }
-
 }
 
 editButton.addEventListener('click', (e) => {
