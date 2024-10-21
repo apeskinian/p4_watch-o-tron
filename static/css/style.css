@@ -231,6 +231,12 @@ main {
     align-items: center;
 }
 
+.existing-image {
+    aspect-ratio: 1/1;
+    width: 50%;
+    object-fit: cover;
+}
+
 /* settings */
 .table-container {
     margin-top: 10px;
