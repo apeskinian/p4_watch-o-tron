@@ -225,7 +225,7 @@ main {
     width: 150px;
 }
 
-.complication-column {
+.form-switch {
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -39,26 +39,26 @@
                 <div class="text-muted">{{ watch_form.model.label_tag }}</div><div class="mb-2">{{ watch_form.model }}</div>
                 <div class="text-muted">{{ watch_form.movement_type.label_tag }}</div><div class="mb-2">{{ watch_form.movement_type }}</div>
                 <div class="text-muted">{{ watch_form.movement_model.label_tag }}</div><div class="mb-2">{{ watch_form.movement_model }}</div>
+                <div class="text-muted">{{ watch_form.list_name.label_tag }}</div><div class="mb-2">{{ watch_form.list_name }}</div>
+                <div class="text-muted">{{ watch_form.image.label_tag }}</div><div class="mb-4">{{ watch_form.image }}</div>
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-6 complication-column">
+            <div class="mb-4">
+                <div class="row text-center"><p>Complications</p>
+                    <div class="d-none d-lg-block col-lg-2"></div>
+                    <div class="col-6 col-lg-4">
                         <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_chronograph.label_tag }}{{ watch_form.complication_chronograph }}</div>
                         <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_date.label_tag }}{{ watch_form.complication_date }}</div>
                         <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_day.label_tag }}{{ watch_form.complication_day }}</div>
                         <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_gmt.label_tag }}{{ watch_form.complication_gmt }}</div>
                     </div>
-                    <div class="col-6 complication-column">
+                    <div class="col-6 col-lg-4">
                         <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_world_timer.label_tag }}{{ watch_form.complication_world_timer }}</div>
                         <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_moonphase.label_tag }}{{ watch_form.complication_moonphase }}</div>
                         <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_power_reserve.label_tag }}{{ watch_form.complication_power_reserve }}</div>
                         <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_tourbillon.label_tag }}{{ watch_form.complication_tourbillon }}</div>
                     </div>
+                    <div class="d-none d-lg-block col-lg-2"></div>
                 </div>
-            </div>
-            <div>
-                <div class="text-muted">{{ watch_form.image.label_tag }}</div><div class="mb-2">{{ watch_form.image }}</div>
-                <div class="text-muted">{{ watch_form.list_name.label_tag }}</div><div class="mb-4">{{ watch_form.list_name }}</div>
             </div>
                 <!-- end of watch form -->
             <div class="text-center">
