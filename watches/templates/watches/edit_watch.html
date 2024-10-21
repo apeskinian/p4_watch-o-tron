@@ -91,6 +91,20 @@
                         {% endif %}
                     </div>
                     <div id="watch-modal-body"></div>
+                    <div class="complications">
+                        <div>
+                            <img id="complication-chronograph" src="{% static 'images/complications/chronograph.png' %}" alt="Chronograph" class="complication">
+                            <img id="complication-date" src="{% static 'images/complications/' %}date_{{ date }}.png" alt="Date" class="complication">
+                            <img id="complication-day" src="{% static 'images/complications/' %}day_{{ day }}.png" alt="Day" class="complication">
+                            <img id="complication-gmt" src="{% static 'images/complications/gmt.png' %}" alt="GMT" class="complication">
+                        </div>
+                        <div>
+                            <img id="complication-world-timer" src="{% static 'images/complications/world_timer.png' %}" alt="World Timer" class="complication">
+                            <img id="complication-moonphase" src="{% static 'images/complications/moonphase.png' %}" alt="Moonphase" class="complication">
+                            <img id="complication-power-reserve" src="{% static 'images/complications/power_reserve.png' %}" alt="Power Reserve" class="complication">
+                            <img id="complication-tourbillon" src="{% static 'images/complications/tourbillon.png' %}" alt="Tourbillon" class="complication">
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <a href="{% url 'cancel_process' 'Watch editing' origin %}" class="btn btn-primary">Cancel</a>

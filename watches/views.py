@@ -56,7 +56,10 @@ def add_watch(request, origin):
                 error_message += f'{field}: {', '.join(error_list)}.'
             messages.error(request, f'Failed to add watch. {error_message}.')
     else:
+        day = datetime.datetime.now()
         context = {
+            'day': day.strftime('%w'),
+            'date': day.strftime('%d'),
             "origin": origin,
             "watch_form": WatchForm(),
         }
@@ -82,7 +85,10 @@ def edit_watch(request, watch_id, origin):
                 error_message += f'{field}: {', '.join(error_list)}.'
             messages.error(request, f'Failed to edit watch. {error_message}.')
     else:
+        day = datetime.datetime.now()
         context = {
+            'day': day.strftime('%w'),
+            'date': day.strftime('%d'),
             "origin": origin,
             "watch_form": WatchForm(instance=watch),
             "watch": watch
