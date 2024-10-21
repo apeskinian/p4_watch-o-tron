@@ -23,10 +23,84 @@ class WatchForm(forms.ModelForm):
             'list_name',
         ]
         widgets = {
+            'make': forms.TextInput(attrs={
+                'style': 'width: 100%;',
+                'class': 'form-control',
+            }),
+            'collection': forms.TextInput(attrs={
+                'style': 'width: 100%;',
+                'class': 'form-control',
+            }),
+            'model': forms.TextInput(attrs={
+                'style': 'width: 100%;',
+                'class': 'form-control',
+            }),
+            'movement_type': forms.Select(attrs={
+                'style': 'width: 100%;',
+                'class': 'form-control',
+            }),
+            'movement_model': forms.TextInput(attrs={
+                'style': 'width: 100%;',
+                'class': 'form-control',
+            }),
             'complication_chronograph': forms.CheckboxInput(attrs={
+                'style': 'height: 25px; width: 40px;',
                 'class': 'form-check-input',
                 'role': 'switch',
             }),
+            'complication_date': forms.CheckboxInput(attrs={
+                'style': 'height: 25px; width: 40px;',
+                'class': 'form-check-input',
+                'role': 'switch',
+            }),
+            'complication_day': forms.CheckboxInput(attrs={
+                'style': 'height: 25px; width: 40px;',
+                'class': 'form-check-input',
+                'role': 'switch',
+            }),
+            'complication_gmt': forms.CheckboxInput(attrs={
+                'style': 'height: 25px; width: 40px;',
+                'class': 'form-check-input',
+                'role': 'switch',
+            }),
+            'complication_world_timer': forms.CheckboxInput(attrs={
+                'style': 'height: 25px; width: 40px;',
+                'class': 'form-check-input',
+                'role': 'switch',
+            }),
+            'complication_moonphase': forms.CheckboxInput(attrs={
+                'style': 'height: 25px; width: 40px;',
+                'class': 'form-check-input',
+                'role': 'switch',
+            }),
+            'complication_power_reserve': forms.CheckboxInput(attrs={
+                'style': 'height: 25px; width: 40px;',
+                'class': 'form-check-input',
+                'role': 'switch',
+            }),
+            'complication_tourbillon': forms.CheckboxInput(attrs={
+                'style': 'height: 25px; width: 40px;',
+                'class': 'form-check-input',
+                'role': 'switch',
+            }),
+            'image': forms.FileInput(attrs={
+                'style': 'width: 100%;',
+                'class': 'form-control',
+            }),
+            'list_name': forms.Select(attrs={
+                'style': 'width: 100%;',
+                'class': 'form-control',
+            }),
+        }
+        labels = {
+            'complication_chronograph': 'Chronograph',
+            'complication_date': 'Date',
+            'complication_day': 'Day',
+            'complication_gmt': 'GMT',
+            'complication_world_timer': 'World Timer',
+            'complication_moonphase': 'Moonphase',
+            'complication_power_reserve': 'Power Reserve',
+            'complication_tourbillon': 'Tourbillon',
         }
 
 class MovementForm(forms.ModelForm):    

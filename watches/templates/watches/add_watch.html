@@ -30,18 +30,38 @@
 </header>
 <main>
     <div class="watch-edit-container container">
-        <div class="row"></div>
-            <div class="col">  
-                <form id="watch-form" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ watch_form | crispy }}
-                    <div class="text-center">
-                        <a href="{% url 'cancel_process' 'Watch addition' origin %}" class="btn-watch-edit btn btn-danger">Cancel</a>
-                        <button type="button" id="btn-edit" class="btn-watch-edit btn btn-success">Add Watch</button>
-                    </div>
-                </form>
+        <form id="watch-form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- watch form -->
+            <div>
+                <div class="text-muted">{{ watch_form.make.label_tag }}</div><div class="mb-2">{{ watch_form.make }}</div>
+                <div class="text-muted">{{ watch_form.collection.label_tag }}</div><div class="mb-2">{{ watch_form.collection }}</div>
+                <div class="text-muted">{{ watch_form.model.label_tag }}</div><div class="mb-2">{{ watch_form.model }}</div>
+                <div class="text-muted">{{ watch_form.movement_type.label_tag }}</div><div class="mb-2">{{ watch_form.movement_type }}</div>
+                <div class="text-muted">{{ watch_form.movement_model.label_tag }}</div><div class="mb-2">{{ watch_form.movement_model }}</div>
             </div>
-        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 mb-2 text-muted form-check-reverse form-switch">{{ watch_form.complication_chronograph.label_tag }}{{ watch_form.complication_chronograph }}</div>
+                    <div class="col-6 mb-2 text-muted form-check-reverse form-switch">&nbsp{{ watch_form.complication_date.label_tag }}{{ watch_form.complication_date }}</div>
+                    <div class="col-6 mb-2 text-muted form-check-reverse form-switch">{{ watch_form.complication_day.label_tag }}{{ watch_form.complication_day }}</div>
+                    <div class="col-6 mb-2 text-muted form-check-reverse form-switch">&nbsp{{ watch_form.complication_gmt.label_tag }}{{ watch_form.complication_gmt }}</div>
+                    <div class="col-6 mb-2 text-muted form-check-reverse form-switch">{{ watch_form.complication_world_timer.label_tag }}{{ watch_form.complication_world_timer }}</div>
+                    <div class="col-6 mb-2 text-muted form-check-reverse form-switch">&nbsp{{ watch_form.complication_moonphase.label_tag }}{{ watch_form.complication_moonphase }}</div>
+                    <div class="col-6 mb-2 text-muted form-check-reverse form-switch">{{ watch_form.complication_power_reserve.label_tag }}{{ watch_form.complication_power_reserve }}</div>
+                    <div class="col-6 mb-2 text-muted form-check-reverse form-switch">&nbsp{{ watch_form.complication_tourbillon.label_tag }}{{ watch_form.complication_tourbillon }}</div>
+                </div>
+            </div>
+            <div>
+                <div class="text-muted">{{ watch_form.image.label_tag }}</div><div class="mb-2">{{ watch_form.image }}</div>
+                <div class="text-muted">{{ watch_form.list_name.label_tag }}</div><div class="mb-4">{{ watch_form.list_name }}</div>
+            </div>
+                <!-- end of watch form -->
+            <div class="text-center">
+                <a href="{% url 'cancel_process' 'Watch addition' origin %}" class="btn-watch-edit btn btn-danger">Cancel</a>
+                <button type="button" id="btn-edit" class="btn-watch-edit btn btn-success">Add Watch</button>
+            </div>
+        </form>
     </div>
     <div class="modal" id="watch-modal" tabindex="-1">
         <div class="modal-dialog">
