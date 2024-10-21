@@ -34,7 +34,7 @@
             <div class="col">  
                 <form id="watch-form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div>
+                    <div></div>
                         <div class="text-muted">{{ watch_form.make.label_tag }}</div><div class="mb-2">{{ watch_form.make }}</div>
                         <div class="text-muted">{{ watch_form.collection.label_tag }}</div><div class="mb-2">{{ watch_form.collection }}</div>
                         <div class="text-muted">{{ watch_form.model.label_tag }}</div><div class="mb-2">{{ watch_form.model }}</div>

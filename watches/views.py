@@ -33,6 +33,7 @@ def home(request, list_name='Collection'):
             'lists': users_lists,
             'current_list': current_list
         }
+        messages.success(request, f'Now viewing {current_list}.')
         return render(request, 'watches/home.html', context)
     else:
         return render(request, '404.html')
