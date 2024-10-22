@@ -8,35 +8,23 @@ import datetime
 
 
 @login_required(login_url='accounts/login')
-def home(request, list_name='Collection'):
-    lists = WatchList.objects.values_list('list_name', flat=True)
-    if list_name in lists:
-        # showing only collection, wish list and lists that are used by the user
-        users_lists = ['Collection','Wish List']
-        for list_check in WatchList.objects.all():
-            if list_check.list_name not in users_lists:
-                user_watches = Watch.objects.filter(owner=request.user, list_name=list_check)
-                watch_count = user_watches.count()
-                if watch_count > 0:
-                    users_lists.append(list_check)
-
-        watches = Watch.objects.filter(
-            owner=request.user,
-            list_name__list_name=list_name
-        ).order_by('make', 'collection','model')
-        current_list = list_name
-        day = datetime.datetime.now()
-        context = {
-            'day': day.strftime('%w'),
-            'date': day.strftime('%d'),
-            'watches': watches,
-            'lists': users_lists,
-            'current_list': current_list
-        }
-        messages.success(request, f'Now viewing {current_list}.')
-        return render(request, 'watches/home.html', context)
-    else:
-        return render(request, '404.html')
+def home(request, list_name='collection'):
+    lists = WatchList.objects.all()
+    watches = Watch.objects.filter(
+        owner=request.user,
+        list_name__list_name=list_name
+    ).order_by('make', 'collection','model')
+    current_list = list_name
+    day = datetime.datetime.now()
+    context = {
+        'day': day.strftime('%w'),
+        'date': day.strftime('%d'),
+        'watches': watches,
+        'lists': lists,
+        'current_list': current_list
+    }
+    messages.success(request, f'Now viewing {current_list}.')
+    return render(request, 'watches/home.html', context)
 
 
 @login_required(login_url='accounts/login')
@@ -100,14 +88,14 @@ def edit_watch(request, watch_id, origin):
 def purchase_watch(request, watch_id):
     try:
         watch = get_object_or_404(Watch, id=watch_id)
-        collection_list = get_object_or_404(WatchList, list_name='Collection')
+        collection_list = get_object_or_404(WatchList, list_name='collection')
         watch.list_name = collection_list
         messages.success(request, f'{watch.make} watch moved to Collection.')
         watch.save()
     except Exception as e:
-        messages.error(request, f'Error occured while moving watch to Colletction: {str(e)}')
+        messages.error(request, f'Error occured while moving watch to Collection: {str(e)}')
     
-    return redirect('watch_list', 'Collection')
+    return redirect('watch_list', 'collection')
 
 
 @login_required(login_url='accounts/login')

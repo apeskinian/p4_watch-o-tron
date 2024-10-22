@@ -6,9 +6,14 @@ from cloudinary.models import CloudinaryField
 
 class WatchList(models.Model):
     list_name = models.CharField(max_length=100, unique=True, blank=True, null=True)
+    friendly_name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.list_name
+
+    def save(self, *args, **kwargs):
+        self.list_name = slugify(self.friendly_name)
+        super().save(*args, **kwargs)
     
 
 class WatchMovement(models.Model):

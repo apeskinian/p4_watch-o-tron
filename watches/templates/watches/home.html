@@ -10,7 +10,7 @@
                 <ul class="navbar-nav">
                     {% for thing in lists %}
                     <li class="nav-item">
-                        <a href="{% url 'watch_list' thing %}" class="nav-link {% if thing == current_list %}active{% endif %}">{{ thing }}</a>
+                        <a href="{% url 'watch_list' thing.list_name %}" class="nav-link {% if thing == current_list %}active{% endif %}">{{ thing.friendly_name }}</a>
                     </li>
                     {% endfor %}
                 </ul>
@@ -124,7 +124,7 @@
                     </div>
                     <div id="collapse{{ watch.id }}" class="collapse" data-bs-parent="#watch-options">
                         <div class="d-flex justify-content-center gap-2">
-                        {% if current_list == 'Wish List' %}
+                        {% if current_list == 'wish-list' %}
                             <button class="mb-3 btn btn-primary btn-purchased" data-watch_id="{{ watch.id }}" data-watch_name="{{ watch.make }}{% if watch.model %} {{ watch.model }}{% endif %}" data-current_list="{{ current_list }}">Purchased</button>
                         {% endif %}
                         <a href="{% url 'edit_watch' watch_id=watch.id origin=current_list %}" class="mb-3 btn btn-warning btn-edit">Edit</a>
