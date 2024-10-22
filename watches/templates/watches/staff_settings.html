@@ -105,7 +105,7 @@
                 <tbody>
                     {% for list in list_names %}
                     <tr>
-                        <td>{{ list }}</td>
+                        <td>{{ list.friendly_name }}</td>
                             {% if forloop.counter > 2 %}
                         <td class="text-center">
                             <a href="{% url 'edit_list' list.id %}" class="btn-staff-setting-table btn btn-sm btn-warning">Edit</a>
