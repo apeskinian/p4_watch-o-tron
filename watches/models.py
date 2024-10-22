@@ -5,6 +5,9 @@ import cloudinary.uploader
 from cloudinary.models import CloudinaryField
 
 class WatchList(models.Model):
+    class Meta:
+        ordering = ['friendly_name']
+
     list_name = models.CharField(max_length=100, unique=True, blank=True, null=True)
     friendly_name = models.CharField(max_length=100, unique=True)
 
