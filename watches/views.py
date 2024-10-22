@@ -23,7 +23,7 @@ def home(request, list_name='Collection'):
         watches = Watch.objects.filter(
             owner=request.user,
             list_name__list_name=list_name
-        )
+        ).order_by('make', 'collection','model')
         current_list = list_name
         day = datetime.datetime.now()
         context = {
