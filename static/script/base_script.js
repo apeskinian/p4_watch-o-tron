@@ -4,8 +4,10 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 
 // set timeout of messages
 setTimeout(function() {
-    let messages = document.getElementById('msg');
-    let alert = new bootstrap.Alert(messages);
-    alert.close();
+    let messages = document.querySelectorAll('#msg');
+    messages.forEach(function(message) {
+        let alert = new bootstrap.Alert(message);
+        alert.close();
+    });
 }, 3000);
 
