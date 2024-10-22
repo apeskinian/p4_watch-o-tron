@@ -237,6 +237,10 @@ main {
     object-fit: cover;
 }
 
+#watch-edit-modal {
+    background-color: rgb(240, 240, 240);
+}
+
 /* settings */
 .table-container {
     margin-top: 10px;

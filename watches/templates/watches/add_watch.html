@@ -71,33 +71,64 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h4 id="watch-modal-title" class="modal-title"></h4>
+                <h4 id="watch-modal-title" class="modal-title">Confirm watch details:</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div>
-                        <img id="confirmImage" src="{% static 'images/placeholder.png' %}" alt="image preview" style="max-width: 100%; height: auto;">
-                    </div>
-                    <div id="watch-modal-body"></div>
-                    <div class="complications">
+                <div id="watch-edit-modal" class="modal-body">
+                    <div class="card">
                         <div>
-                            <img id="complication-chronograph" src="{% static 'images/complications/chronograph.png' %}" alt="Chronograph" class="complication">
-                            <img id="complication-date" src="{% static 'images/complications/' %}date_{{ date }}.png" alt="Date" class="complication">
-                            <img id="complication-day" src="{% static 'images/complications/' %}day_{{ day }}.png" alt="Day" class="complication">
-                            <img id="complication-gmt" src="{% static 'images/complications/gmt.png' %}" alt="GMT" class="complication">
+                            <img id="confirmImage" src="{% static 'images/placeholder.png' %}" alt="image preview" class="card-img-top" style="max-width: 100%; height: auto;">
                         </div>
-                        <div>
-                            <img id="complication-world-timer" src="{% static 'images/complications/world_timer.png' %}" alt="World Timer" class="complication">
-                            <img id="complication-moonphase" src="{% static 'images/complications/moonphase.png' %}" alt="Moonphase" class="complication">
-                            <img id="complication-power-reserve" src="{% static 'images/complications/power_reserve.png' %}" alt="Power Reserve" class="complication">
-                            <img id="complication-tourbillon" src="{% static 'images/complications/tourbillon.png' %}" alt="Tourbillon" class="complication">
+                        <div class="card-body  d-flex flex-column align-items-center">
+                            <h5 id="watch-modal-make" class="card-title"></h5>
+                            <h6 id="watch-modal-collection-model" class="card-title"></h6>
+                            <p id="watch-modal-movement" ></p>
+                            <p id="watch-modal-list"></p>
+                            <div class="complications">
+                                <div>
+                                    <img id="complication-chronograph" src="{% static 'images/complications/chronograph.png' %}" alt="Chronograph" class="complication not-complicated"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    data-bs-title="Chronograph">
+                                    <img id="complication-date" src="{% static 'images/complications/' %}date_{{ date }}.png" alt="Date" class="complication not-complicated"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    data-bs-title="Date">
+                                    <img id="complication-day" src="{% static 'images/complications/' %}day_{{ day }}.png" alt="Day" class="complication not-complicated"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    data-bs-title="Day">
+                                    <img id="complication-gmt" src="{% static 'images/complications/gmt.png' %}" alt="GMT" class="complication not-complicated"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    data-bs-title="GMT">
+                                </div>
+                                <div>
+                                    <img id="complication-world-timer" src="{% static 'images/complications/world_timer.png' %}" alt="World Timer" class="complication not-complicated"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    data-bs-title="World Timer">
+                                    <img id="complication-moonphase" src="{% static 'images/complications/moonphase.png' %}" alt="Moonphase" class="complication not-complicated"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    data-bs-title="Moonphase">
+                                    <img id="complication-power-reserve" src="{% static 'images/complications/power_reserve.png' %}" alt="Power Reserve" class="complication not-complicated"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    data-bs-title="Power Reserve">
+                                    <img id="complication-tourbillon" src="{% static 'images/complications/tourbillon.png' %}" alt="Tourbillon" class="complication not-complicated"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    data-bs-title="Tourbillon">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                <a href="{% url 'cancel_process' 'Watch addition' origin %}" class="btn btn-primary">Cancel</a>
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Edit</button>
-                <button type="button" class="btn btn-success" id="watch-modal-confirm">Confirm</a>
+                <div class="modal-footer d-flex justify-content-center">
+                    <a href="{% url 'cancel_process' 'Watch addition' origin %}" class="btn btn-danger">Cancel</a>
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Edit</button>
+                    <button type="button" class="btn btn-success" id="watch-modal-confirm">Confirm</a>
                 </div>
             </div>
         </div>
