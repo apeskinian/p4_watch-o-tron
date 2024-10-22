@@ -6,10 +6,11 @@ from cloudinary.models import CloudinaryField
 
 class WatchList(models.Model):
     class Meta:
-        ordering = ['friendly_name']
+        ordering = ['list_order','friendly_name']
 
     list_name = models.CharField(max_length=100, unique=True, blank=True, null=True)
     friendly_name = models.CharField(max_length=100, unique=True)
+    list_order = models.IntegerField(default=2)
 
     def __str__(self):
         return self.friendly_name
