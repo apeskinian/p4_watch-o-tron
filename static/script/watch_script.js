@@ -14,7 +14,7 @@ for (let button of deleteButtons) {
     button.addEventListener('click', (e) => {
         let watchId = e.target.getAttribute('data-watch_id');
         let watchName = e.target.getAttribute('data-watch_name');
-        let watchList = e.target.getAttribute('data-current_list');
+        let watchList = e.target.getAttribute('data-friendly');
         watchModalTitle.innerHTML = `Delete <strong>${watchName}</strong>?`;
         watchModalBody.innerHTML = `
             <p>This will delete this watch from your ${watchList}.</p>
