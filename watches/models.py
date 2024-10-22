@@ -9,7 +9,7 @@ class WatchList(models.Model):
     friendly_name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
-        return self.list_name
+        return self.friendly_name
 
     def save(self, *args, **kwargs):
         self.list_name = slugify(self.friendly_name)
