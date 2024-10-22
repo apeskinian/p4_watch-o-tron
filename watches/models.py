@@ -23,6 +23,9 @@ class WatchMovement(models.Model):
         return self.movement_name
 
 class Watch(models.Model):
+    class Meta:
+        verbose_name_plural = 'Watches'
+
     # general watch details
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='watch_owner')
     list_name = models.ForeignKey(WatchList, on_delete=models.CASCADE, related_name='watch_list')
