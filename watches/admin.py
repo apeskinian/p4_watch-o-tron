@@ -6,7 +6,7 @@ from .models import WatchList, WatchMovement, Watch
 
 @admin.register(WatchList)
 class WatchListAdmin(admin.ModelAdmin):
-    list_display = ('list_name',)
+    list_display = ('friendly_name',)
 
 @admin.register(WatchMovement)
 class WatchMovementAdmin(admin.ModelAdmin):
