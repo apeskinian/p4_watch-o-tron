@@ -85,5 +85,8 @@ editButton.addEventListener('click', (e) => {
 
 // make modal button submit the form
 watchModalConfirm.addEventListener('click', function () {
+    watchModalConfirm.innerHTML = `
+        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+        <span role="status">Working...</span>`
     watchForm.submit();
 });

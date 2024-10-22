@@ -173,6 +173,10 @@ main {
     flex-direction: column;
 }
 
+.watch-card {
+    cursor: pointer;
+}
+
 .wrong-turn-message {
     align-self: center;
     width: 90%;
@@ -257,6 +261,7 @@ main {
 .btn-staff-setting-table {
     width: 60px;
 }
+
 
 /* RESPONSIVE LAYOUT CHANGES TO TABLETS 768PX */
 @media screen and (min-width: 768px) {
