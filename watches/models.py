@@ -5,15 +5,10 @@ import cloudinary.uploader
 from cloudinary.models import CloudinaryField
 
 class WatchList(models.Model):
-    list_name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(max_length=120, unique=True, null=True, blank=True)
+    list_name = models.CharField(max_length=100, unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.list_name
-
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.list_name)
-        super().save(*args, **kwargs)
     
 
 class WatchMovement(models.Model):
