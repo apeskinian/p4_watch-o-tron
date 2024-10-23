@@ -149,6 +149,7 @@ main {
 
 /* signin/up pages */
 
+
 .login-container {
     margin-top: 75px;
     width: 100%;
@@ -186,6 +187,7 @@ main {
 .watch-card {
     cursor: pointer;
 }
+
 
 .wrong-turn-message {
     align-self: center;

@@ -77,12 +77,12 @@
                         {% endif %}
                     </div>
                     <div class="card-body d-flex flex-column align-items-center" data-bs-toggle="collapse" data-bs-target="#collapse{{ watch.id }}" aria-expanded="false">
-                        <h3 class="card-title">{{ watch.make }}</h3>
-                        <h5 class="card-title">
+                        <h3 class="card-title text-center">{{ watch.make }}</h3>
+                        <h5 class="card-title text-center">
                             {% if watch.collection %}{{ watch.collection }}&nbsp{% endif %}{% if watch.model %}{{ watch.model }}{% endif %}
                             {% if not watch.collection or not watch.model %}<br>{% endif %}
                         </h5>
-                        <p class="card-text">{{ watch.movement_type }}{% if watch.movement_model %} ({{ watch.movement_model }}){% endif %}</p>
+                        <p class="card-text text-center">{{ watch.movement_type }}{% if watch.movement_model %} ({{ watch.movement_model }}){% endif %}</p>
                         <div class="complications class=card-text">
                             <div>
                                 <img src="{% static 'images/complications/chronograph.png' %}" alt="Chronograph" class="complication {% if not watch.complication_chronograph %}not-complicated{% endif %}"
