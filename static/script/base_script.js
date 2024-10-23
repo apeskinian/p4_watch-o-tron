@@ -4,9 +4,9 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 
 // set timeout of messages
 setTimeout(function() {
-    let messages = document.querySelectorAll('#msg');
+    let messages = document.querySelectorAll('.alert');
     messages.forEach(function(message) {
-        if (!message,classList.contains('alert-danger')) {
+        if (!message.classList.contains('alert-danger')) {
             let alert = new bootstrap.Alert(message);
             alert.close();
         }
