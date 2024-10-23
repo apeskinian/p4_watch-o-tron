@@ -10,7 +10,7 @@ class WatchList(models.Model):
 
     list_name = models.CharField(max_length=100, unique=True, blank=True, null=True)
     friendly_name = models.CharField(max_length=100, unique=True)
-    list_order = models.IntegerField(default=2)
+    list_order = models.IntegerField(default=1000)
 
     def __str__(self):
         return self.friendly_name
