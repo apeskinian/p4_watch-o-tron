@@ -14,16 +14,16 @@ def home(request, list_name='collection'):
         owner=request.user,
         list_name__list_name=list_name
     ).order_by('make', 'collection','model')
-    current_list = list_name
+    current_list = get_object_or_404(WatchList, list_name=list_name)
     day = datetime.datetime.now()
     context = {
         'day': day.strftime('%w'),
         'date': day.strftime('%d'),
         'watches': watches,
         'lists': lists,
-        'current_list': current_list
+        'current_list': current_list.list_name
     }
-    messages.success(request, f'Now viewing {current_list}.')
+    messages.success(request, f'Now viewing {current_list.friendly_name}.')
     return render(request, 'watches/home.html', context)
 
 
