@@ -131,8 +131,8 @@ def staff_settings(request):
             form = ListForm(request.POST)
             if form.is_valid():
                 form.save()
-                list_name = form.instance.list_name
-                messages.success(request, f'{list_name} list created.')
+                list_name = form.instance.friendly_name
+                messages.success(request, f'{list_name} created.')
                 return redirect('staff_settings')
             else:
                 errors = form.errors
