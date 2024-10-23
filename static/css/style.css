@@ -35,6 +35,11 @@ main {
 }
 
 /* navigation bars */
+.help-button {
+    color: inherit;
+    text-transform: none;
+}
+
 .active {
     font-weight: 600;
 }
@@ -188,6 +193,21 @@ main {
     cursor: pointer;
 }
 
+.overlay-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10%;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    opacity: 0.5;
+}
 
 .wrong-turn-message {
     align-self: center;

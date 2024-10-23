@@ -45,9 +45,9 @@
                     </li>
                     {% endfor %}
                     <div class="mobile-nav-buttons">
-                    <li class="nav-item">
-                        <a href="{% url 'add_watch' current_list %}" class="btn btn-success mobile-nav-button">Add a Watch</a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="{% url 'add_watch' current_list %}" class="btn btn-success mobile-nav-button">Add a Watch</a>
+                        </li>
                     </div>
                 </ul>
                 <div class="session-id-mobile">
@@ -69,12 +69,13 @@
             {% for watch in watches %}
             <div class="col">
                 <div class="watch-card card">
-                    <div data-bs-toggle="collapse" data-bs-target="#collapse{{ watch.id }}" aria-expanded="false">
+                    <div class="position-relative" data-bs-toggle="collapse" data-bs-target="#collapse{{ watch.id }}" aria-expanded="false">
                         {% if 'placeholder' in watch.image.url %}
                         <img src="{% static 'images/placeholder.png' %}" alt="default watch image" class="card-img-top">
                         {% else %}
                         <img src="{{ watch.image.url }}" alt="{{ watch.make}}" class="card-img-top">
                         {% endif %}
+                        <div class="overlay-text d-flex align-items-center justify-content-center"><i class="fa-solid fa-pen-to-square"></i></div>
                     </div>
                     <div class="card-body d-flex flex-column align-items-center" data-bs-toggle="collapse" data-bs-target="#collapse{{ watch.id }}" aria-expanded="false">
                         <h3 class="card-title text-center">{{ watch.make }}</h3>
@@ -143,7 +144,7 @@
         </div>
         {% endif %}
     </div>
-    <!-- modal -->
+    <!-- edit/delete modal -->
     <div class="modal" id="watch-modal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
