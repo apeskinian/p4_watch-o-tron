@@ -52,7 +52,7 @@ editButton.addEventListener('click', (e) => {
         if (watchForm.elements['movement_model'].value != '') {
             watchModalWatchMovement.innerText += ` (${watchForm.elements['movement_model'].value})`
         }
-        watchModalList.innerHTML += `<strong>${selectedList.options[selectedList.selectedIndex].text}</strong>`;
+        watchModalList.innerHTML = `<p>Watch will be in your: <strong>${selectedList.options[selectedList.selectedIndex].text}</strong></p>`;
         if (watchForm.elements['complication_chronograph'].checked) {
             compChronograph.classList.remove('not-complicated')
         }
