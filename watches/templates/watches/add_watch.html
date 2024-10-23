@@ -14,13 +14,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="navbar-nav position-absolute top-50 start-50 translate-middle">
+            <a href="{% url 'cancel_process' 'Watch addition' origin %}" class="navbar-nav position-absolute top-50 start-50 translate-middle">
                 <div class="d-flex align-items-center gap-1">
                     <img src="{% static 'images/watch-_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top">
                     {% include 'clockface.html' %}
                     <img src="{% static 'images/-tron_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top">
                 </div>
-            </div>
+            </a>
             <div class="navbar-nav d-none d-md-flex align-items-center">
                 <div class="d-none d-lg-block"><span>logged in as <strong>{{ user.username }}</strong></span></div>
                 <div class="ms-2"><a href="{{ logout_url }}" class="btn btn-sm btn-danger">Logout</a></div>
