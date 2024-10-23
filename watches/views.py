@@ -23,7 +23,7 @@ def home(request, list_name='collection'):
         'lists': lists,
         'current_list': current_list.list_name
     }
-    messages.success(request, f'Now viewing {current_list.friendly_name}.')
+    messages.success(request, f'Switched to {current_list.friendly_name}')
     return render(request, 'watches/home.html', context)
 
 
@@ -124,8 +124,9 @@ def staff_settings(request):
                 errors = form.errors
                 error_message = ''
                 for field, error_list in errors.items():
-                    error_message += f'{field}: {', '.join(error_list)}.'
-                    messages.error(request, f'Failed to create movement. {error_message}.')
+                    for error in error_list:
+                        error_message += f'{error}\n'
+                messages.error(request, error_message)
 
         elif 'list-form' in request.POST:
             form = ListForm(request.POST)
@@ -138,8 +139,9 @@ def staff_settings(request):
                 errors = form.errors
                 error_message = ''
                 for field, error_list in errors.items():
-                    error_message += f'{field}: {', '.join(error_list)}.'
-                    messages.error(request, f'Failed to create list. {error_message}.')
+                    for error in error_list:
+                        error_message += f'{error}\n'
+                messages.error(request, error_message)
 
     movements = WatchMovement.objects.all()
     lists = WatchList.objects.values_list('list_name', flat=True)

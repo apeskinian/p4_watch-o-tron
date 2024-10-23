@@ -9,7 +9,7 @@ class WatchList(models.Model):
         ordering = ['list_order','friendly_name']
 
     list_name = models.CharField(max_length=100, unique=True, blank=True, null=True)
-    friendly_name = models.CharField(max_length=100, unique=True)
+    friendly_name = models.CharField(max_length=100, unique=True, verbose_name=' name')
     list_order = models.IntegerField(default=1000)
 
     def __str__(self):
@@ -21,7 +21,7 @@ class WatchList(models.Model):
     
 
 class WatchMovement(models.Model):
-    movement_name = models.CharField(max_length=100, unique=True)
+    movement_name = models.CharField(max_length=100, unique=True, verbose_name=' name')
 
     def __str__(self):
         return self.movement_name
