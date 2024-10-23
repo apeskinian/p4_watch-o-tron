@@ -62,10 +62,9 @@ def edit_watch(request, watch_id, origin):
         if form.is_valid():
             form.instance.owner = request.user
             form.save()
-
-            new_list = form.instance.list_name.list_name
+            new_list = form.instance.list_name
             messages.success(request, f'{watch.make} watch editted successfully.')
-            return redirect('watch_list', list_name=new_list)
+            return redirect('watch_list', list_name=new_list.list_name)
         else:
             errors = form.errors
             error_message = ''
