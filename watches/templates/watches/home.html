@@ -10,7 +10,7 @@
                 <ul class="navbar-nav">
                     {% for thing in lists %}
                     <li class="nav-item">
-                        <a href="{% url 'watch_list' thing.list_name %}" class="nav-link {% if thing == current_list %}active{% endif %}">{{ thing.friendly_name }}</a>
+                        <a href="{% url 'watch_list' thing.list_name %}" class="nav-link {% if thing.list_name == current_list %}active{% endif %}">{{ thing.friendly_name }}</a>
                     </li>
                     {% endfor %}
                 </ul>
@@ -41,7 +41,7 @@
                 <ul class="mobile-nav-list navbar-nav text-center">
                     {% for thing in lists %}
                     <li class="nav-item">
-                        <a href="{% url 'watch_list' thing.list_name %}" class="nav-link mobile-nav-item {% if thing == current_list %}mobile-active{% endif %}">{{ thing.friendly_name }}</a>
+                        <a href="{% url 'watch_list' thing.list_name %}" class="nav-link mobile-nav-item {% if thing.list_name == current_list %}mobile-active{% endif %}">{{ thing.friendly_name }}</a>
                     </li>
                     {% endfor %}
                     <div class="mobile-nav-buttons">
@@ -77,11 +77,11 @@
                         {% endif %}
                     </div>
                     <div class="card-body d-flex flex-column align-items-center" data-bs-toggle="collapse" data-bs-target="#collapse{{ watch.id }}" aria-expanded="false">
-                        <h5 class="card-title">{{ watch.make }}</h5>
-                        <h6 class="card-title">
+                        <h3 class="card-title">{{ watch.make }}</h3>
+                        <h5 class="card-title">
                             {% if watch.collection %}{{ watch.collection }}&nbsp{% endif %}{% if watch.model %}{{ watch.model }}{% endif %}
                             {% if not watch.collection or not watch.model %}<br>{% endif %}
-                        </h6>
+                        </h5>
                         <p class="card-text">{{ watch.movement_type }}{% if watch.movement_model %} ({{ watch.movement_model }}){% endif %}</p>
                         <div class="complications class=card-text">
                             <div>

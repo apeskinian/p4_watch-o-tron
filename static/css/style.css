@@ -1,3 +1,6 @@
+/* import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 /* OVERRIDE BROWSER DEFAULTS */
 * {
     padding: 0;
@@ -7,6 +10,7 @@
 }
 
 body {
+    font-family: 'Source Sans 3', sans-serif;
     background-color: rgb(240, 240, 240);
     display: flex;
     flex-direction: column;
@@ -14,6 +18,7 @@ body {
 }
 
 header {
+    font-size: 1.2rem;
     height: 56px;
 }
 
@@ -24,11 +29,16 @@ main {
     align-items: center;
 }
 
+
 .hidden {
     display: none;
 }
 
 /* navigation bars */
+.active {
+    font-weight: 700;
+}
+
 #bottom-nav-mobile {
     min-height: 56px;
     box-shadow: 0 -0.5px 0.5px 0.5px lightgray;
