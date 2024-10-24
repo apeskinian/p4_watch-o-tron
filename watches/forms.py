@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import Watch, WatchList, WatchMovement
 
+
 class WatchForm(forms.ModelForm):
     class Meta:
         model = Watch
@@ -103,18 +104,18 @@ class WatchForm(forms.ModelForm):
             'complication_tourbillon': 'Tourbillon',
         }
 
-class MovementForm(forms.ModelForm):    
+
+class MovementForm(forms.ModelForm):
     class Meta:
         model = WatchMovement
         fields = ['movement_name']
 
     movement_name = forms.CharField(max_length=100, label=False)
 
-
     def clean_name(self):
         movement_name = self.cleaned_data.get('movement_name')
         if WatchMovement.objects.filter(movement_name=movement_name).exists():
-            raise forms.ValidationError(f"The movement '{movement_name}' already exists.")
+            raise forms.ValidationError()
         return movement_name
 
 
@@ -128,6 +129,5 @@ class ListForm(forms.ModelForm):
     def clean_name(self):
         friendly_name = self.cleaned_data.get('friendly_name')
         if WatchList.objects.filter(friendly_name=friendly_name).exists():
-            raise forms.ValidationError(f"The list '{friendly_name}' already exists.")
+            raise forms.ValidationError()
         return friendly_name
-
