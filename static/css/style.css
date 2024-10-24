@@ -1,4 +1,4 @@
-/* import fonts and clockface */
+/* IMPORT FONTS AND CLOCKFACE.CSS */
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "clockface.css";
 
@@ -10,6 +10,7 @@
     overscroll-behavior: none;
 }
 
+/* SET GENERAL STYLING */
 body {
     font-family: 'Source Sans 3', sans-serif;
     background-color: rgb(240, 240, 240);
@@ -30,21 +31,12 @@ main {
     align-items: center;
 }
 
-
 .hidden {
     display: none;
 }
 
-/* navigation bars */
-.help-button {
-    color: inherit;
-    text-transform: none;
-}
-
-.active {
-    font-weight: 600;
-}
-
+/* NAVBARS */
+/* mobile navbar shown at the bottom */
 #bottom-nav-mobile {
     min-height: 56px;
     box-shadow: 0 -0.5px 0.5px 0.5px lightgray;
@@ -65,7 +57,12 @@ main {
     background-color: rgb(245, 245, 245);
     border-radius: 5px;
     margin: 3px;
+}
 
+.mobile-active {
+    text-decoration: solid;
+    background-color: rgb(220, 220, 220);
+    border-radius: 5px;
 }
 
 .mobile-nav-buttons {
@@ -81,8 +78,6 @@ main {
     width: 100%;
 }
 
-
-
 .session-id-mobile {
     display: flex;
     justify-content: center;
@@ -96,11 +91,16 @@ main {
     width: fit-content;
 }
 
+/* navigation bar for larger displays */
+.active {
+    font-weight: 600;
+}
 
 .top-nav {
     height: 56px;
     box-shadow: 0px 0.5px 0.5px 0.5px lightgray;
 }
+/* NAVBARS-END */
 
 #main-footer {
     height: 56px;
@@ -112,11 +112,7 @@ main {
     box-shadow: 0 -0.5px 0.5px 0.5px lightgray;
 }
 
-.mobile-active {
-    text-decoration: solid;
-    background-color: rgb(220, 220, 220);
-    border-radius: 5px;
-}
+
 
 .menu-add-watch {
     text-decoration: solid;
