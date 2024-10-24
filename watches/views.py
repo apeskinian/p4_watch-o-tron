@@ -9,6 +9,24 @@ import datetime
 
 @login_required(login_url='accounts/login')
 def home(request, list_name='collection'):
+    """
+    Displays a users watches in the requested list :model:`watches.Watch`.
+    **Context**
+    ``day``
+        The current day as an integer (range 0-6).
+        Used for setting complication icons.
+    ``date``
+        The current date as an integer (range 1-31).
+        Used for setting complication icons.
+    ``watches``
+        A queryset of watch objects filtered by user and chosen list type.
+    ``lists``
+        A queryset of all the lists.
+    ``current_list``
+        Name of the currently viewed list (from the `list_name` field, string).
+    **Template:**
+    :template:`watches/home.html`
+    """
     lists = WatchList.objects.all()
     watches = Watch.objects.filter(
         owner=request.user,
