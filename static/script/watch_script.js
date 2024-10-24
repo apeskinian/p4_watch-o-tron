@@ -1,4 +1,6 @@
-// SETTING CONSTANTS
+/*jshint esversion: 11 */
+// USED IN MAIN VIEWS
+
 // getting buttons for deleting and purchasing
 const deleteButtons = document.getElementsByClassName('btn-delete');
 const purchasedButtons = document.getElementsByClassName('btn-purchased');
@@ -9,7 +11,7 @@ const watchModalBody = document.getElementById('watch-modal-body-content');
 const watchModalConfirm = document.getElementById('watch-modal-confirm');
 const watchModalCancel = document.getElementById('watch-modal-cancel');
 
-
+// getting target info and setting modal content for deleting a watch
 for (let button of deleteButtons) {
     button.addEventListener('click', (e) => {
         let watchId = e.target.getAttribute('data-watch_id');
@@ -29,6 +31,7 @@ for (let button of deleteButtons) {
     });
 }
 
+// getting target info and setting modal content for editing a watch
 for (let button of purchasedButtons) {
     button.addEventListener('click', (e) => {
         let watchId = e.target.getAttribute('data-watch_id');

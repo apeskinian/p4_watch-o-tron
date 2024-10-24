@@ -1,4 +1,6 @@
-// EDITING
+/*jshint esversion: 11 */
+// EDITING WATCH SCRIPT USED WHEN ADDING AND EDITING WATCHES
+
 // get form
 const watchForm = document.getElementById('watch-form');
 // get button
@@ -17,21 +19,16 @@ const compWorldTimer = document.getElementById('complication-world-timer');
 const compMoonphase = document.getElementById('complication-moonphase');
 const compPowerReserve = document.getElementById('complication-power-reserve');
 const compTourbillon = document.getElementById('complication-tourbillon');
-// getting modal elements for deleting and purchasing
+// getting modal elements for deleting and editing
 const watchModal = new bootstrap.Modal(document.getElementById('watch-modal'));
 const watchModalConfirm = document.getElementById('watch-modal-confirm');
 
-// validating form
-function validateForm() {
-    return watchForm.checkValidity();
-}
-
+// event listener to get form data and present in the modal for confirmation
 editButton.addEventListener('click', (e) => {
-    if (validateForm()) {
-        
+    if (watchForm.checkValidity()) {
+        // checking for an image from the gorm to show in the preview modal
         var imageInput = watchForm.elements['image'];
         var confirmImage = document.getElementById('confirmImage');
-        
         if (imageInput.files && imageInput.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -40,9 +37,11 @@ editButton.addEventListener('click', (e) => {
             reader.readAsDataURL(imageInput.files[0]);
         }
 
+        // getting the selected movement and list choices
         var selectedMovement = watchForm.elements['movement_type'];
         var selectedList = watchForm.elements['list_name'];
 
+        // setting the modal content
         watchModalMake.innerText = watchForm.elements['make'].value;
         watchModalCollectionModel.innerText = watchForm.elements['collection'].value;
         if (watchForm.elements['model'].value != '') {
@@ -83,7 +82,7 @@ editButton.addEventListener('click', (e) => {
     }
 });
 
-// make modal button submit the form
+// make modal button submit the form and show working spinner
 watchModalConfirm.addEventListener('click', function () {
     watchModalConfirm.innerHTML = `
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
