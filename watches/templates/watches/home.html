@@ -34,7 +34,7 @@
     <!-- mobile navbar -->
     <nav id="bottom-nav-mobile" class="d-md-none navbar bg-white fixed-bottom">
         <div class="container-fluid">
-            <div class="navbar-toggler mx-auto " data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="navbar-toggler mx-auto " data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="wot-navbar-mobile" aria-expanded="false" aria-label="Toggle navigation" role="button">
                 <i class="burger-menu-button fa-solid fa-bars"></i>
             </div>
             <div class="collapse navbar-collapse" id="wot-navbar-mobile">
@@ -44,11 +44,9 @@
                         <a href="{% url 'watch_list' thing.list_name %}" class="nav-link mobile-nav-item {% if thing.list_name == current_list %}mobile-active{% endif %}">{{ thing.friendly_name }}</a>
                     </li>
                     {% endfor %}
-                    <div class="mobile-nav-buttons">
-                        <li class="nav-item">
-                            <a href="{% url 'add_watch' current_list %}" class="btn btn-success mobile-nav-button">Add a Watch</a>
-                        </li>
-                    </div>
+                    <li class="nav-item mobile-nav-buttons">
+                        <a href="{% url 'add_watch' current_list %}" class="btn btn-success mobile-nav-button">Add a Watch</a>
+                    </li>
                 </ul>
                 <div class="session-id-mobile">
                     <span>logged in as <strong>{{ user.username }}</strong></span>
@@ -69,7 +67,7 @@
             {% for watch in watches %}
             <div class="col">
                 <div class="watch-card card">
-                    <div class="position-relative" data-bs-toggle="collapse" data-bs-target="#collapse{{ watch.id }}" aria-expanded="false">
+                    <div class="position-relative" data-bs-toggle="collapse" data-bs-target="#collapse{{ watch.id }}" role="button" aria-expanded="false">
                         {% if 'placeholder' in watch.image.url %}
                         <img src="{% static 'images/placeholder.png' %}" alt="default watch image" class="card-img-top">
                         {% else %}
@@ -77,10 +75,10 @@
                         {% endif %}
                         <div class="overlay-text d-flex align-items-center justify-content-center"><i class="fa-solid fa-pen-to-square"></i></div>
                     </div>
-                    <div class="card-body d-flex flex-column align-items-center" data-bs-toggle="collapse" data-bs-target="#collapse{{ watch.id }}" aria-expanded="false">
+                    <div class="card-body d-flex flex-column align-items-center" data-bs-toggle="collapse" data-bs-target="#collapse{{ watch.id }}" role="button" aria-expanded="false">
                         <h3 class="card-title text-center">{{ watch.make }}</h3>
                         <h5 class="card-title text-center">
-                            {% if watch.collection %}{{ watch.collection }}&nbsp{% endif %}{% if watch.model %}{{ watch.model }}{% endif %}
+                            {% if watch.collection %}{{ watch.collection }}&nbsp;{% endif %}{% if watch.model %}{{ watch.model }}{% endif %}
                             {% if not watch.collection or not watch.model %}<br>{% endif %}
                         </h5>
                         <p class="card-text text-center">{{ watch.movement_type }}{% if watch.movement_model %} ({{ watch.movement_model }}){% endif %}</p>
@@ -149,7 +147,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 id="watch-modal-title" class="modal-title"></h4>
+                    <h4 id="watch-modal-title" class="modal-title">[content-placeholder]</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div id="watch-modal-body" class="modal-body text-center">

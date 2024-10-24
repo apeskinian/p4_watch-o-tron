@@ -30,16 +30,14 @@
     <!-- mobile navbar -->
     <nav id="bottom-nav-mobile" class="d-md-none navbar bg-white fixed-bottom">
         <div class="container-fluid">
-            <div class="navbar-toggler mx-auto " data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="watch-o-tron-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="navbar-toggler mx-auto " data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="wot-navbar-mobile" aria-expanded="false" aria-label="Toggle navigation" role="button">
                 <i class="burger-menu-button fa-solid fa-bars"></i>
             </div>
             <div class="collapse navbar-collapse" id="wot-navbar-mobile">
                 <ul class="mobile-nav-list navbar-nav text-center">
-                    <div class="mobile-nav-buttons">
-                    <li class="nav-item">
+                    <li class="nav-item mobile-nav-buttons">
                         <a href="{% url 'home' %}" class="btn btn-sm btn-primary mobile-nav-button">Back</a>
                     </li>
-                    </div>
                 </ul>
                 <div class="session-id-mobile">
                     <span>logged in as <strong>{{ user.username }}</strong></span>
@@ -80,16 +78,17 @@
                 </tr>
                 {% endfor %}
                 <tr>
-                    <form id="movement-form" method="POST">
-                        <td>
+                    <td colspan="3">
+                        <form id="movement-form" method="POST">
                             {% csrf_token %}
-                            {{ movement_form | crispy }}
-                        </td>
-                        <td>
-                            <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success" name="movement-form">Add</button>
-                        </td>
-                        <td></td>
-                    </form>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="settings-form">
+                                    {{ movement_form | crispy }}
+                                </div>
+                                <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success mb-3" name="movement-form">Add</button>
+                            </div>
+                        </form>
+                    </td>
                 </tr>
                 </tbody>
             </table>
@@ -120,16 +119,17 @@
                     </tr>
                     {% endfor %}
                     <tr>
-                        <form id="list-form" method="POST">
-                            <td>
+                        <td colspan="3">
+                            <form id="list-form" method="POST">
                                 {% csrf_token %}
-                                {{ list_form | crispy }}
-                            </td>
-                            <td>
-                                <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success" name="list-form">Add</button>
-                            </td>
-                            <td></td>
-                        </form>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="settings-form">
+                                        {{ list_form | crispy }}
+                                    </div>
+                                    <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success mb-3" name="list-form">Add</button>
+                                </div>
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
             </table>

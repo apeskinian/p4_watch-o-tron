@@ -267,6 +267,11 @@ main {
 .btn-staff-setting-table {
     width: 60px;
 }
+
+.settings-form {
+    flex-grow: 1;
+}
+
 /* STAFF SETTINGS ->END<- */
 
 /* RESPONSIVE LAYOUT CHANGES TO TABLETS 768PX */
