@@ -2,8 +2,8 @@
 // SCRIPT FOR MAIN PAGES
 
 // initialise bootstrap tooltips
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
 // set timeout of messages with error messages not auto timing out
 setTimeout(function() {
@@ -35,8 +35,8 @@ function clock() {
   const minute = minutes * 6;
   const accurateHour = hour + minutes * 0.5;
   const accurateMinute = minute + seconds * 0.1;
-  document.querySelector('.hour').style.transform = `rotate(${accurateHour}deg)`
-  document.querySelector('.minute').style.transform = `rotate(${accurateMinute}deg)`
+  document.querySelector('.hour').style.transform = `rotate(${accurateHour}deg)`;
+  document.querySelector('.minute').style.transform = `rotate(${accurateMinute}deg)`;
 }
 
 // update the clock as per interval set

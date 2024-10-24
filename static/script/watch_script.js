@@ -21,7 +21,7 @@ for (let button of deleteButtons) {
         watchModalBody.innerHTML = `
             <p>This will delete this watch from your ${watchList}.</p>
             <p><strong>Note: this cannot be undone.</strong></p>`;
-        let returnTo = e.target.getAttribute('data-current_list');;
+        let returnTo = e.target.getAttribute('data-current_list');
         let content = 'Watch deletion';
         watchModalCancel.href = `/cancel_process/${content}/${returnTo}`;
         watchModalConfirm.href = `/delete/watch/${watchId}`;
@@ -39,7 +39,7 @@ for (let button of purchasedButtons) {
         watchModalTitle.innerHTML = `Confirm purchase of <strong>${watchName}</strong>?`;
         watchModalBody.innerHTML = `
             <p>This will move this watch to your collection.</p>`;
-        let returnTo = e.target.getAttribute('data-current_list');;
+        let returnTo = e.target.getAttribute('data-current_list');
         let content = 'Watch purchase';
         watchModalCancel.href = `/cancel_process/${content}/${returnTo}`;
         watchModalConfirm.href = `/purchase/${watchId}`;

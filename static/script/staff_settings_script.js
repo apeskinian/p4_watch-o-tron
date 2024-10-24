@@ -7,5 +7,5 @@ window.onload = () => {
     if (settingsModal) {
         settingsModal.show();
     }
-  }
+  };
 

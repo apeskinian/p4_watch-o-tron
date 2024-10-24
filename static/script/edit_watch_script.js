@@ -33,7 +33,7 @@ editButton.addEventListener('click', (e) => {
             var reader = new FileReader();
             reader.onload = function (e) {
                 confirmImage.src = e.target.result;
-            }
+            };
             reader.readAsDataURL(imageInput.files[0]);
         }
 
@@ -42,14 +42,14 @@ editButton.addEventListener('click', (e) => {
         var selectedList = watchForm.elements['list_name'];
 
         // setting the modal content
-        watchModalMake.innerText = watchForm.elements['make'].value;
+        watchModalMake.innerText = watchForm.elements.make.value;
         watchModalCollectionModel.innerText = watchForm.elements['collection'].value;
         if (watchForm.elements['model'].value != '') {
-            watchModalCollectionModel.innerText += ` ${watchForm.elements['model'].value}`
+            watchModalCollectionModel.innerText += ` ${watchForm.elements['model'].value}`;
         }
         watchModalWatchMovement.innerText = selectedMovement.options[selectedMovement.selectedIndex].text;
         if (watchForm.elements['movement_model'].value != '') {
-            watchModalWatchMovement.innerText += ` (${watchForm.elements['movement_model'].value})`
+            watchModalWatchMovement.innerText += ` (${watchForm.elements['movement_model'].value})`;
         }
         watchModalList.innerHTML = `<p>Watch will be in your: <strong>${selectedList.options[selectedList.selectedIndex].text}</strong></p>`;
         if (watchForm.elements['complication_chronograph'].checked) {
@@ -86,6 +86,6 @@ editButton.addEventListener('click', (e) => {
 watchModalConfirm.addEventListener('click', function () {
     watchModalConfirm.innerHTML = `
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-        <span role="status">Working...</span>`
+        <span role="status">Working...</span>`;
     watchForm.submit();
 });
