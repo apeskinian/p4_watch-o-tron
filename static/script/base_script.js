@@ -18,7 +18,7 @@ setTimeout(function() {
 
 // CLOCKFACE SCRIPT
 // clockface code sourced from https://codepen.io/dope/pen/KJYMZz
-// adapted to match style of site and accuracy of hands
+// adapted to improve accuracy of hands
 
 // update clock immediately
 clock();
