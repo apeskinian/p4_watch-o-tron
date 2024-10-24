@@ -27,7 +27,7 @@ const watchModalConfirm = document.getElementById('watch-modal-confirm');
 editButton.addEventListener('click', (e) => {
     if (watchForm.checkValidity()) {
         // checking for an image from the gorm to show in the preview modal
-        var imageInput = watchForm.elements['image'];
+        var imageInput = watchForm.elements.image;
         var confirmImage = document.getElementById('confirmImage');
         if (imageInput.files && imageInput.files[0]) {
             var reader = new FileReader();
@@ -38,42 +38,42 @@ editButton.addEventListener('click', (e) => {
         }
 
         // getting the selected movement and list choices
-        var selectedMovement = watchForm.elements['movement_type'];
-        var selectedList = watchForm.elements['list_name'];
+        var selectedMovement = watchForm.elements.movement_type;
+        var selectedList = watchForm.elements.list_name;
 
         // setting the modal content
         watchModalMake.innerText = watchForm.elements.make.value;
-        watchModalCollectionModel.innerText = watchForm.elements['collection'].value;
-        if (watchForm.elements['model'].value != '') {
-            watchModalCollectionModel.innerText += ` ${watchForm.elements['model'].value}`;
+        watchModalCollectionModel.innerText = watchForm.elements.collection.value;
+        if (watchForm.elements.model.value != '') {
+            watchModalCollectionModel.innerText += ` ${watchForm.elements.model.value}`;
         }
         watchModalWatchMovement.innerText = selectedMovement.options[selectedMovement.selectedIndex].text;
-        if (watchForm.elements['movement_model'].value != '') {
-            watchModalWatchMovement.innerText += ` (${watchForm.elements['movement_model'].value})`;
+        if (watchForm.elements.movement_model.value != '') {
+            watchModalWatchMovement.innerText += ` (${watchForm.elements.movement_model.value})`;
         }
         watchModalList.innerHTML = `<p>Watch will be in your: <strong>${selectedList.options[selectedList.selectedIndex].text}</strong></p>`;
-        if (watchForm.elements['complication_chronograph'].checked) {
+        if (watchForm.elements.complication_chronograph.checked) {
             compChronograph.classList.remove('not-complicated');
         }
-        if (watchForm.elements['complication_date'].checked) {
+        if (watchForm.elements.complication_date.checked) {
             compDate.classList.remove('not-complicated');
         }
-        if (watchForm.elements['complication_day'].checked) {
+        if (watchForm.elements.complication_day.checked) {
             compDay.classList.remove('not-complicated');
         }
-        if (watchForm.elements['complication_gmt'].checked) {
+        if (watchForm.elements.complication_gmt.checked) {
             compGmt.classList.remove('not-complicated');
         }
-        if (watchForm.elements['complication_world_timer'].checked) {
+        if (watchForm.elements.complication_world_timer.checked) {
             compWorldTimer.classList.remove('not-complicated');
         }
-        if (watchForm.elements['complication_moonphase'].checked) {
+        if (watchForm.elements.complication_moonphase.checked) {
             compMoonphase.classList.remove('not-complicated');
         }
-        if (watchForm.elements['complication_power_reserve'].checked) {
+        if (watchForm.elements.complication_power_reserve.checked) {
             compPowerReserve.classList.remove('not-complicated');
         }
-        if (watchForm.elements['complication_tourbillon'].checked) {
+        if (watchForm.elements.complication_tourbillon.checked) {
             compTourbillon.classList.remove('not-complicated');
         }
         watchModal.show();
