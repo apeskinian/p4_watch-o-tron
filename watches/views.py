@@ -13,7 +13,7 @@ def home(request, list_name='collection'):
     watches = Watch.objects.filter(
         owner=request.user,
         list_name__list_name=list_name
-    ).order_by('make', 'collection','model')
+    ).order_by('make', 'collection', 'model')
     current_list = get_object_or_404(WatchList, list_name=list_name)
     day = datetime.datetime.now()
     context = {
@@ -35,7 +35,10 @@ def add_watch(request, origin):
             form.instance.owner = request.user
             form.save()
             new_list = form.instance.list_name
-            messages.success(request, f'Added {form.instance.make} watch to {new_list.friendly_name}.')
+            messages.success(
+                request,
+                f'Added {form.instance.make} watch to {new_list.friendly_name}'
+            )
             return redirect('watch_list', list_name=new_list.list_name)
         else:
             errors = form.errors
@@ -63,7 +66,10 @@ def edit_watch(request, watch_id, origin):
             form.instance.owner = request.user
             form.save()
             new_list = form.instance.list_name
-            messages.success(request, f'{watch.make} watch editted successfully.')
+            messages.success(
+                request,
+                f'{watch.make} watch editted successfully'
+            )
             return redirect('watch_list', list_name=new_list.list_name)
         else:
             errors = form.errors
@@ -89,11 +95,13 @@ def purchase_watch(request, watch_id):
         watch = get_object_or_404(Watch, id=watch_id)
         collection_list = get_object_or_404(WatchList, list_name='collection')
         watch.list_name = collection_list
-        messages.success(request, f'{watch.make} watch moved to Collection.')
+        messages.success(request, f'{watch.make} watch moved to Collection')
         watch.save()
     except Exception as e:
-        messages.error(request, f'Error occured while moving watch to Collection: {str(e)}')
-    
+        messages.error(
+            request,
+            f'Error occured while moving watch to Collection: {str(e)}'
+        )
     return redirect('watch_list', 'collection')
 
 
@@ -102,11 +110,16 @@ def delete_watch(request, watch_id):
     try:
         return_url = request.META.get('HTTP_REFERER', '/')
         watch = get_object_or_404(Watch, id=watch_id)
-        messages.info(request, f'{watch.make} watch deleted from {watch.list_name}.')
+        messages.info(
+            request,
+            f'{watch.make} watch deleted from {watch.list_name}'
+        )
         watch.delete()
     except Exception as e:
-        messages.error(request, f'Error occured while deleting watch: {str(e)}')
-    
+        messages.error(
+            request,
+            f'Error occured while deleting watch: {str(e)}'
+        )
     return redirect(return_url)
 
 
@@ -127,7 +140,6 @@ def staff_settings(request):
                     for error in error_list:
                         error_message += f'{error}\n'
                 messages.error(request, error_message)
-
         elif 'list-form' in request.POST:
             form = ListForm(request.POST)
             if form.is_valid():
@@ -145,7 +157,7 @@ def staff_settings(request):
 
     movements = WatchMovement.objects.all()
     lists = WatchList.objects.values_list('list_name', flat=True)
-    list_names = WatchList.objects.all()   
+    list_names = WatchList.objects.all()
     context = {
         'movement_form': MovementForm(),
         'list_form': ListForm(),
@@ -171,12 +183,15 @@ def edit_movement(request, movement_id):
             errors = form.errors
             error_message = ''
             for field, error_list in errors.items():
-                error_message += f'{field}: {', '.join(error_list)}.'
-            messages.error(request, f'Failed to edit movement. {error_message}.')
+                error_message += f'{field}: {', '.join(error_list)}'
+            messages.error(
+                request,
+                f'Failed to edit movement. {error_message}'
+            )
     else:
         movements = WatchMovement.objects.all()
         lists = WatchList.objects.values_list('list_name', flat=True)
-        list_names = WatchList.objects.all()   
+        list_names = WatchList.objects.all()
         context = {
             'cancel_url': cancel_url,
             'associated': associated,
@@ -199,18 +214,18 @@ def edit_list(request, list_id):
         form = ListForm(request.POST, instance=list_name)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Changes saved.')
+            messages.success(request, f'Changes saved')
             return redirect('staff_settings')
         else:
             errors = form.errors
             error_message = ''
             for field, error_list in errors.items():
                 error_message += f'{field}: {', '.join(error_list)}.'
-            messages.error(request, f'Failed to edit list. {error_message}.')
+            messages.error(request, f'Failed to edit list. {error_message}')
     else:
         movements = WatchMovement.objects.all()
         lists = WatchList.objects.values_list('list_name', flat=True)
-        list_names = WatchList.objects.all()   
+        list_names = WatchList.objects.all()
         context = {
             'cancel_url': cancel_url,
             'associated': associated,
@@ -231,14 +246,17 @@ def delete_movement(request, movement_id):
     if request.method == 'POST':
         try:
             movement.delete()
-            messages.success(request, f'{movement} movement deleted.')
+            messages.success(request, f'{movement} movement deleted')
             return redirect('staff_settings')
         except Exception as e:
-            messages.error(request, f'Error occured while deleting movement: {str(e)}')
+            messages.error(
+                request,
+                f'Error occured while deleting movement: {str(e)}'
+            )
     else:
         movements = WatchMovement.objects.all()
         lists = WatchList.objects.values_list('list_name', flat=True)
-        list_names = WatchList.objects.all()   
+        list_names = WatchList.objects.all()
         context = {
             'associated': associated,
             'to_delete': movement,
@@ -258,14 +276,14 @@ def delete_list(request, list_id):
     if request.method == 'POST':
         try:
             list_name.delete()
-            messages.success(request, f'{list_name} deleted.')
+            messages.success(request, f'{list_name} deleted')
             return redirect('staff_settings')
         except Exception as e:
             messages.error(request, f'Error occured while deleting: {str(e)}')
     else:
         movements = WatchMovement.objects.all()
         lists = WatchList.objects.values_list('list_name', flat=True)
-        list_names = WatchList.objects.all()   
+        list_names = WatchList.objects.all()
         context = {
             'associated': associated,
             'to_delete': list_name,
@@ -277,13 +295,18 @@ def delete_list(request, list_id):
         }
         return render(request, 'watches/staff_settings.html', context)
 
+
 @login_required(login_url='accounts/login')
 def cancelProcess(request, content, cancel_url='home'):
     try:
         messages.info(request, f'{content} cancelled.')
         possible_lists = WatchList.objects.values_list('list_name', flat=True)
         if cancel_url in possible_lists:
-            return redirect(reverse('watch_list', kwargs={'list_name': cancel_url}))
+            return redirect(
+                reverse(
+                    'watch_list',
+                    kwargs={'list_name': cancel_url})
+            )
         return redirect(cancel_url)
     except Exception as e:
         messages.error(request, f'Error occured while cancelling: {str(e)}')
