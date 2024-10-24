@@ -53,7 +53,7 @@ main {
     height: 56px;
     box-shadow: 0px -0.5px 0.5px 0.5px lightgray;
 }
-/* GENERAL-END */
+/* GENERAL ->END<- */
 
 /* NAVBARS */
 /* mobile navbar shown at the bottom */
@@ -120,7 +120,7 @@ main {
     height: 56px;
     box-shadow: 0px 0.5px 0.5px 0.5px lightgray;
 }
-/* NAVBARS-END */
+/* NAVBARS ->END<- */
 
 /* MESSAGES */
 .alert-box {
@@ -129,7 +129,7 @@ main {
     width: fit-content;
     z-index: 1000;
 }
-/* MESSSAGES-END */
+/* MESSSAGES ->END<- */
 
 /* LOGIN-LOGOUT-SIGNUP */
 .account-header {
@@ -167,7 +167,7 @@ main {
 #signup-message {
     margin-top: 10px;
 }
-/* LOGIN-LOGOUT-SIGNUP-END */
+/* LOGIN-LOGOUT-SIGNUP ->END<- */
 
 /* HOMEPAGE */
 .watch-container {
@@ -218,12 +218,9 @@ main {
     width: 100%;
     object-fit: cover;
 }
-/* HOMEPAGE-END */
+/* HOMEPAGE ->END<- */
 
-
-
-
-/* watch editing */
+/* WATCH ADD-EDIT */
 .watch-edit-container {
     margin: 20px 0px;
     width: 90%;
@@ -248,8 +245,9 @@ main {
 #watch-edit-modal {
     background-color: rgb(240, 240, 240);
 }
+/* WATCH-EDIT ->END<- */
 
-/* settings */
+/* STAFF SETTINGS */
 .table-container {
     margin-top: 10px;
 }
@@ -265,21 +263,22 @@ main {
 .btn-staff-setting-table {
     width: 60px;
 }
-
+/* STAFF SETTINGS ->END<- */
 
 /* RESPONSIVE LAYOUT CHANGES TO TABLETS 768PX */
 @media screen and (min-width: 768px) {
 
-    .watch-container {
-        margin: 20px 0px 76px 0px;
-    }
-
-    .watch-edit-container {
-        width: 50%;
+    /* LOGIN-LOGOUT-SIGNUP */
+    .account-box {
+        border-radius: 15px;
     }
 
     .login-container {
         width: 40%;
+    }
+
+    .logout-container {
+        width: 30%;
     }
 
     .signup-container {
@@ -287,25 +286,25 @@ main {
         width: 50%;
     }
 
-    .logout-container {
-        width: 30%;
-    }
-
-    .account-box {
-        border-radius: 15px;
-    }
-
     .signup-box {
         padding: 30px;
         border-radius: 15px;
     }
-
-
-    .login-messages {
-        margin-top: 25px;
+    /* LOGIN-LOGOUT-SIGNUP ->END<- */
+    
+    /* HOMEPAGE */
+    .watch-container {
+        margin: 20px 0px 76px 0px;
     }
+    /* HOMEPAGE ->END<- */
 
+    /* WATCH-EDIT */
+    .watch-edit-container {
+        width: 50%;
+    }
+    /* WATCH-EDIT ->END<- */
 
+    /* STAFF SETTINGS */
     .table-container {
         margin-top: 20px;
     }
@@ -321,5 +320,5 @@ main {
     .btn-staff-setting-table {
         width: 80px;
     }
-
+    /* STAFF SETTINGS ->END<- */
 }
