@@ -114,24 +114,6 @@ main {
 
 
 
-.menu-add-watch {
-    text-decoration: solid;
-    color: white;
-    background-color: rgb(89, 147, 89);
-}
-
-.menu-settings {
-    text-decoration: solid;
-    color: white;
-    background-color: rgb(96, 128, 196);
-}
-
-.menu-logout {
-    text-decoration: solid;
-    color: white;
-    background-color: rgb(193, 82, 82);
-}
-
 
 .alert-box {
     position: fixed;
