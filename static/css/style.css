@@ -10,7 +10,11 @@
     overscroll-behavior: none;
 }
 
-/* SET GENERAL STYLING */
+/* GENERAL */
+.hidden {
+    display: none;
+}
+
 body {
     font-family: 'Source Sans 3', sans-serif;
     background-color: rgb(240, 240, 240);
@@ -31,9 +35,16 @@ main {
     align-items: center;
 }
 
-.hidden {
-    display: none;
+#main-footer {
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 0 -0.5px 0.5px 0.5px lightgray;
 }
+/* GENERAL-END */
 
 /* NAVBARS */
 /* mobile navbar shown at the bottom */
@@ -102,26 +113,16 @@ main {
 }
 /* NAVBARS-END */
 
-#main-footer {
-    height: 56px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    box-shadow: 0 -0.5px 0.5px 0.5px lightgray;
-}
-
-
-
-
+/* MESSAGES */
 .alert-box {
     position: fixed;
     top: 56px;
     width: fit-content;
     z-index: 1000;
 }
+/* MESSSAGES-END */
 
+/* LOGIN-LOGOUT-SIGNUP */
 .account-header {
     height: 56px;
     background-color: white;
@@ -131,15 +132,12 @@ main {
     box-shadow: 0px 0.5px 0.5px 0.5px lightgray;
 }
 
-/* signin/up pages */
-
+.account-box {
+    padding: 30px;
+}
 
 .login-container {
     margin-top: 75px;
-    width: 100%;
-}
-
-.signup-container {
     width: 100%;
 }
 
@@ -149,19 +147,20 @@ main {
     width: 100%;
 }
 
-.account-box {
-    padding: 30px;
+.signup-container {
+    width: 100%;
 }
 
 .signup-box {
     padding: 20px 30px 20px 30px;
 }
 
-#message {
+#signup-message {
     margin-top: 10px;
 }
+/* LOGIN-LOGOUT-SIGNUP-END */
 
-/* watch display */
+/* HOMEPAGE */
 .watch-container {
     margin: 10px 0px 66px 0px;
     display: flex;
@@ -194,14 +193,6 @@ main {
     margin-top: 200px;
 }
 
-.session-id {
-    display: none;
-}
-
-.logout-btn {
-    margin-left: 20px;
-}
-
 .complication {
     display: inline-block;
     margin: 4px;
@@ -213,13 +204,13 @@ main {
     opacity: 0.2;
 }
 
-
-
 .card-img-top {
     aspect-ratio: 1/1;
     width: 100%;
     object-fit: cover;
 }
+/* HOMEPAGE-END */
+
 
 .footer-signature {
     background-color: white;
@@ -307,14 +298,6 @@ main {
         border-radius: 15px;
     }
 
-    .session-id {
-        display: flex;
-        align-items: center;
-    }
-
-    .session-id-sm {
-        display: none;
-    }
 
     .login-messages {
         margin-top: 25px;
