@@ -13,9 +13,9 @@
     <div class="account-header">
         <h1 class="hidden">Sign In</h1>
         <div class="d-flex align-items-center gap-1">
-            <a href="#"><img src="{% static 'images/watch-_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top"></a>
+            <a href="#"><img src="{% static 'images/watch-_logo.png' %}" alt="Logo" class="d-inline-block align-text-top logo"></a>
             {% include 'clockface.html' %}
-            <a href="#"><img src="{% static 'images/-tron_logo.png' %}" alt="Logo" height="40px" class="d-inline-block align-text-top"></a>
+            <a href="#"><img src="{% static 'images/-tron_logo.png' %}" alt="Logo" class="d-inline-block align-text-top logo"></a>
         </div>
     </div>
 </header>
@@ -27,7 +27,7 @@
                 {% csrf_token %}
                 {{ form | crispy }}
                 {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
                 {% endif %}
                 <div class="text-center">
                     <button class="btn btn-danger" type="submit">{% trans "Sign Out" %}</button>
