@@ -4,12 +4,17 @@ from django.utils.text import slugify
 import cloudinary.uploader
 from cloudinary.models import CloudinaryField
 
+
 class WatchList(models.Model):
     class Meta:
-        ordering = ['list_order','friendly_name']
+        ordering = ['list_order', 'friendly_name']
 
-    list_name = models.CharField(max_length=100, unique=True, blank=True, null=True)
-    friendly_name = models.CharField(max_length=100, unique=True, verbose_name=' name')
+    list_name = models.CharField(
+        max_length=100, unique=True, blank=True, null=True
+    )
+    friendly_name = models.CharField(
+        max_length=100, unique=True, verbose_name=' name'
+    )
     list_order = models.IntegerField(default=1000)
 
     def __str__(self):
@@ -18,27 +23,38 @@ class WatchList(models.Model):
     def save(self, *args, **kwargs):
         self.list_name = slugify(self.friendly_name)
         super().save(*args, **kwargs)
-    
+
 
 class WatchMovement(models.Model):
-    movement_name = models.CharField(max_length=100, unique=True, verbose_name=' name')
+    movement_name = models.CharField(
+        max_length=100, unique=True, verbose_name=' name'
+    )
 
     def __str__(self):
         return self.movement_name
+
 
 class Watch(models.Model):
     class Meta:
         verbose_name_plural = 'Watches'
 
     # general watch details
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='watch_owner')
-    list_name = models.ForeignKey(WatchList, on_delete=models.CASCADE, related_name='watch_list')
-    movement_type = models.ForeignKey(WatchMovement, on_delete=models.CASCADE, related_name='watch_movement')
+    owner = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='watch_owner'
+    )
+    list_name = models.ForeignKey(
+        WatchList, on_delete=models.CASCADE, related_name='watch_list'
+    )
+    movement_type = models.ForeignKey(
+        WatchMovement, on_delete=models.CASCADE, related_name='watch_movement'
+    )
     make = models.CharField(max_length=100, null=False, blank=False)
     collection = models.CharField(max_length=100, blank=True)
     model = models.CharField(max_length=100, blank=True)
     movement_model = models.CharField(max_length=50, blank=True)
-    image = CloudinaryField('image', default='placeholder', asset_folder='/wot_watches/')
+    image = CloudinaryField(
+        'image', default='placeholder', asset_folder='/wot_watches/'
+    )
     # complications
     complication_chronograph = models.BooleanField(default=False)
     complication_date = models.BooleanField(default=False)
