@@ -80,8 +80,8 @@
                             <img id="confirmImage" src="{% static 'images/placeholder.png' %}" alt="image preview" class="card-img-top" style="max-width: 100%; height: auto;">
                         </div>
                         <div class="card-body  d-flex flex-column align-items-center">
-                            <h5 id="watch-modal-make" class="card-title"></h5>
-                            <h6 id="watch-modal-collection-model" class="card-title"></h6>
+                            <h5 id="watch-modal-make" class="card-title">[content-placeholder]</h5>
+                            <h6 id="watch-modal-collection-model" class="card-title">[content-placholder]</h6>
                             <p id="watch-modal-movement" ></p>
                             <div class="complications">
                                 <div>
@@ -128,7 +128,7 @@
                 <div class="modal-footer d-flex justify-content-center">
                     <a href="{% url 'cancel_process' 'Watch addition' origin %}" class="btn btn-danger">Cancel</a>
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Edit</button>
-                    <button type="button" class="btn btn-success" id="watch-modal-confirm">Confirm</a>
+                    <button type="button" class="btn btn-success" id="watch-modal-confirm">Confirm</button>
                 </div>
             </div>
         </div>
