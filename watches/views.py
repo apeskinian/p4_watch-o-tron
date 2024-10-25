@@ -144,6 +144,15 @@ def edit_watch(request, watch_id, origin):
 
 @login_required(login_url='accounts/login')
 def purchase_watch(request, watch_id):
+    """
+    Moves an instance of :model:`watches`Watch to the users collection from
+    their wish list.
+    **Context**
+    ``watch_list``
+        The URL name to redirect to.
+    ``collection``
+        The argument for the URL requesting to show the collection list.
+    """
     try:
         watch = get_object_or_404(Watch, id=watch_id)
         collection_list = get_object_or_404(WatchList, list_name='collection')
