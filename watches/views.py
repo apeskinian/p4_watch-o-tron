@@ -49,7 +49,7 @@ def home(request, list_name='collection'):
 @login_required(login_url='accounts/login')
 def add_watch(request, origin):
     """
-    Saves an instance :model:`watches.Watch` specified by the user.
+    Saves an instance of :model:`watches.Watch` specified by the user.
     **Context**
     ``day``
         The current day as an integer (range 0-6).
@@ -94,6 +94,24 @@ def add_watch(request, origin):
 
 @login_required(login_url='accounts/login')
 def edit_watch(request, watch_id, origin):
+    """
+    Edits an instance of :model:`watches.Watch` specified by the user.
+    **Context**
+    ``day``
+        The current day as an integer (range 0-6).
+        Used for setting complication icons.
+    ``date``
+        The current date as an integer (range 1-31).
+        Used for setting complication icons.
+    ``origin``
+        Name of the list that the user was viewing when they clicked add watch.
+    ``watch_form``
+        An instance of :form:`watches.WatchForm`
+    ``watch``
+        An instance of :model:`watches.Watch` chosen for editing.
+    **Template:**
+    :template:`watches/edit_watch.html`
+    """
     watch = get_object_or_404(Watch, id=watch_id)
     if request.method == 'POST':
         form = WatchForm(request.POST, request.FILES, instance=watch)
