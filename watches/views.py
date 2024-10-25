@@ -339,8 +339,21 @@ def edit_list(request, list_id):
 
 @staff_member_required(login_url='accounts/login')
 def delete_movement(request, movement_id):
+    """
+    Deletes a chosen movement and lets the staff member know how many related
+    watch objects will be affected by the change. Shared context is retrieved
+    from `def get_staff_settings_context():`
+    **Additional Context**
+    ``associated``
+        The number of watch objects that are related to this movement
+    ``to_delete``
+        An instance of :form:`Watches.MovementForm`
+    **Template:**
+    :template:`watches/staff_settings.html`
+    """
     movement = get_object_or_404(WatchMovement, id=movement_id)
     associated = movement.watch_movement.count()
+
     if request.method == 'POST':
         try:
             movement.delete()
@@ -351,19 +364,13 @@ def delete_movement(request, movement_id):
                 request,
                 f'Error occured while deleting movement: {str(e)}'
             )
+            return redirect('staff_settings')
     else:
-        movements = WatchMovement.objects.all()
-        lists = WatchList.objects.values_list('list_name', flat=True)
-        list_names = WatchList.objects.all()
-        context = {
+        context = get_staff_settings_context()
+        context.update({
             'associated': associated,
-            'to_delete': movement,
-            'movement_form': MovementForm(),
-            'list_form': ListForm(),
-            'movements': movements,
-            'lists': lists,
-            'list_names': list_names
-        }
+            'to_delete': movement
+        })
         return render(request, 'watches/staff_settings.html', context)
 
 
