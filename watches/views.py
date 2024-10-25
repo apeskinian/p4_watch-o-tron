@@ -169,6 +169,12 @@ def purchase_watch(request, watch_id):
 
 @login_required(login_url='accounts/login')
 def delete_watch(request, watch_id):
+    """
+    Deletes an instance of :model:`watches`Watch from a users list.
+    **Context**
+    ``return_url``
+        The URL path to redirect to, the referring page.
+    """
     try:
         return_url = request.META.get('HTTP_REFERER', '/')
         watch = get_object_or_404(Watch, id=watch_id)
