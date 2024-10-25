@@ -4,33 +4,6 @@
 {% block content %}
 <header>
     {% include 'standard_nav.html' %}
-    <!-- mobile navbar -->
-    <nav id="bottom-nav-mobile" class="d-md-none navbar bg-white fixed-bottom">
-        <div class="container-fluid">
-            <div class="navbar-toggler mx-auto " data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="wot-navbar-mobile" aria-expanded="false" aria-label="Toggle navigation" role="button">
-                <i class="burger-menu-button fa-solid fa-bars"></i>
-            </div>
-            <div class="collapse navbar-collapse" id="wot-navbar-mobile">
-                <ul class="mobile-nav-list navbar-nav text-center">
-                    {% for thing in lists %}
-                    <li class="nav-item">
-                        <a href="{% url 'watch_list' thing.list_name %}" class="nav-link mobile-nav-item {% if thing.list_name == current_list %}mobile-active{% endif %}">{{ thing.friendly_name }}</a>
-                    </li>
-                    {% endfor %}
-                    <li class="nav-item mobile-nav-buttons">
-                        <a href="{% url 'manage_watch' current_list %}" class="btn btn-success mobile-nav-button">Add a Watch</a>
-                    </li>
-                </ul>
-                <div class="session-id-mobile">
-                    <span>logged in as <strong>{{ user.username }}</strong></span>
-                    {% if user.is_staff %}
-                    <a href="{% url 'staff_settings' %}" class="btn btn-primary session-button-mobile">Settings</a>
-                    {% endif %}
-                    <a href="{{ logout_url }}" class="btn btn-danger session-button-mobile">Logout</a>
-                </div>
-            </div>
-        </div>
-    </nav>
 </header>
 <main>
     {% include 'messages.html' %}
