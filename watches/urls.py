@@ -4,7 +4,14 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('add_watch/<str:origin>', views.add_watch, name='add_watch'),
+    path(
+        'manage_watch/<str:origin>',
+        views.manage_watch, name='manage_watch'
+    ),
+    path(
+        'manage_watch/<str:origin>/<watch_id>',
+        views.manage_watch, name='manage_watch'
+    ),
     path(
         'cancel_process/<str:content>/<path:cancel_url>',
         views.cancel_process, name='cancel_process'
@@ -19,10 +26,6 @@ urlpatterns = [
     path(
         'edit/movement/<int:movement_id>',
         views.edit_movement, name='edit_movement'
-    ),
-    path(
-        'edit/watch/<watch_id>/<str:origin>',
-        views.edit_watch, name='edit_watch'
     ),
     path('purchase/<watch_id>', views.purchase_watch, name='purchase'),
     path('staff_settings/', views.staff_settings, name='staff_settings'),

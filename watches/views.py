@@ -50,12 +50,14 @@ def home(request, list_name='collection'):
 
 
 @login_required(login_url='accounts/login')
-def add_watch(request, origin):
+def manage_watch(request, origin, watch_id=None):
     """
-    Saves an instance of :model:`watches.Watch` specified by the user.
+    Adds or edits an instance of :model:`watches.Watch` specified by the user.
     **Arguments**
     ``origin`` (str):
-        The url name of the list that the edit action was called from.
+        The url name of the list that the action was called from.
+    ``watch_id`` (int, optional):
+        The primary key of the watch object to be edited.
     **Context**
     ``day``
         The current day as an integer (range 0-6)
@@ -64,29 +66,52 @@ def add_watch(request, origin):
         The current date as an integer (range 1-31)
         Used for setting complication icons.
     ``origin``
-        Name of the list that the user was viewing when they clicked add watch.
+        Name of the list that the user was viewing when the action was called.
+    **Conditional Context**
     ``watch_form``
-        An instance of :form:`watches.WatchForm`.
+        An instance of :form:`watches.WatchForm`. If adding this form will
+        be empty. If editing it will be prefilled with data from an
+        instance of :model:`watches.Watch`
+    ``watch``
+        An instance of :model:`watches.Watch` which is included if editing.
+    ``mode``
+        Used to control template logic according to whether the user is
+        adding a new watch or editing an existing watch.
     **Template:**
-    :template:`watches/add_watch.html`
+    :template:`watches/manage_watch.html`
     """
     if request.method == 'POST':
-        form = WatchForm(request.POST, request.FILES)
+        # check if a watch object was sent with request and create form
+        # accordingly
+        if watch_id:
+            watch = get_object_or_404(Watch, id=watch_id)
+            form = WatchForm(request.POST, request.FILES, instance=watch)
+        else:
+            form = WatchForm(request.POST, request.FILES)
         if form.is_valid():
             form.instance.owner = request.user
             form.save()
             new_list = form.instance.list_name
-            messages.success(
-                request,
-                f'Added {form.instance.make} watch to {new_list.friendly_name}'
-            )
+            # send the correct message based on whether a watch object was
+            # sent in the request as a parameter
+            if watch_id:
+                messages.success(
+                    request,
+                    f'{watch.make} watch editted successfully'
+                )
+            else:
+                messages.success(
+                    request,
+                    f'Added {form.instance.make} watch '
+                    f'to {new_list.friendly_name}'
+                )
             return redirect('watch_list', list_name=new_list.list_name)
         else:
             errors = form.errors
             error_message = ''
             for field, error_list in errors.items():
                 error_message += f'{field}: {', '.join(error_list)}.'
-            messages.error(request, f'Failed to add watch. {error_message}.')
+            messages.error(request, f'An error occured. {error_message}.')
     else:
         day = datetime.datetime.now()
         context = {
@@ -94,63 +119,16 @@ def add_watch(request, origin):
             'date': day.strftime('%d'),
             "origin": origin,
             "watch_form": WatchForm(),
+            "mode": 'add',
         }
-        return render(request, 'watches/add_watch.html', context)
-
-
-@login_required(login_url='accounts/login')
-def edit_watch(request, watch_id, origin):
-    """
-    Edits an instance of :model:`watches.Watch` specified by the user.
-    **Arguments**
-    ``watch_id`` (int):
-        The primary key of the watch object to be edited.
-    ``origin`` (str):
-        The url name of the list that the edit action was called from.
-    **Context**
-    ``day``
-        The current day as an integer (range 0-6)
-        Used for setting complication icons.
-    ``date``
-        The current date as an integer (range 1-31)
-        Used for setting complication icons.
-    ``origin``
-        Name of the list that the user was viewing when they clicked add watch.
-    ``watch_form``
-        An instance of :form:`watches.WatchForm`.
-    ``watch``
-        An instance of :model:`watches.Watch` chosen for editing.
-    **Template:**
-    :template:`watches/edit_watch.html`
-    """
-    watch = get_object_or_404(Watch, id=watch_id)
-    if request.method == 'POST':
-        form = WatchForm(request.POST, request.FILES, instance=watch)
-        if form.is_valid():
-            form.instance.owner = request.user
-            form.save()
-            new_list = form.instance.list_name
-            messages.success(
-                request,
-                f'{watch.make} watch editted successfully'
-            )
-            return redirect('watch_list', list_name=new_list.list_name)
-        else:
-            errors = form.errors
-            error_message = ''
-            for field, error_list in errors.items():
-                error_message += f'{field}: {', '.join(error_list)}.'
-            messages.error(request, f'Failed to edit watch. {error_message}.')
-    else:
-        day = datetime.datetime.now()
-        context = {
-            'day': day.strftime('%w'),
-            'date': day.strftime('%d'),
-            "origin": origin,
-            "watch_form": WatchForm(instance=watch),
-            "watch": watch
-        }
-        return render(request, 'watches/edit_watch.html', context)
+        if watch_id:
+            watch = get_object_or_404(Watch, id=watch_id)
+            context.update({
+                "watch_form": WatchForm(instance=watch),
+                "watch": watch,
+                "mode": 'edit',
+            })
+        return render(request, 'watches/manage_watch.html', context)
 
 
 @login_required(login_url='accounts/login')

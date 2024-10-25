@@ -45,7 +45,7 @@
                     </li>
                     {% endfor %}
                     <li class="nav-item mobile-nav-buttons">
-                        <a href="{% url 'add_watch' current_list %}" class="btn btn-success mobile-nav-button">Add a Watch</a>
+                        <a href="{% url 'manage_watch' current_list %}" class="btn btn-success mobile-nav-button">Add a Watch</a>
                     </li>
                 </ul>
                 <div class="session-id-mobile">
@@ -126,7 +126,7 @@
                         {% if current_list == 'wish-list' %}
                             <button class="mb-3 btn btn-primary btn-purchased" data-watch_id="{{ watch.id }}" data-watch_name="{{ watch.make }}{% if watch.model %} {{ watch.model }}{% endif %}" data-current_list="{{ current_list }}">Purchased</button>
                         {% endif %}
-                        <a href="{% url 'edit_watch' watch_id=watch.id origin=current_list %}" class="mb-3 btn btn-warning btn-edit">Edit</a>
+                        <a href="{% url 'manage_watch' origin=current_list watch_id=watch.id %}" class="mb-3 btn btn-warning btn-edit">Edit</a>
                         <button class="mb-3 btn btn-danger btn-delete" data-watch_id="{{ watch.id }}" data-watch_name="{{ watch.make }}{% if watch.model %} {{ watch.model }}{% endif %}" data-current_list="{{ current_list }}" data-friendly="{{ watch.list_name.friendly_name }}">Delete</button>
                         </div>
                     </div>
@@ -161,7 +161,7 @@
 </main>
 <footer>
     <div id="main-footer" class="d-none d-md-flex fixed-bottom">
-        <a href="{% url 'add_watch' current_list %}" class="btn btn-success">Add a Watch</a>
+        <a href="{% url 'manage_watch' current_list %}" class="btn btn-success">Add a Watch</a>
     </div>
 </footer>
 {% endblock %}
