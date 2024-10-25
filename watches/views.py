@@ -252,7 +252,26 @@ def staff_settings(request):
 
 @staff_member_required(login_url='accounts/login')
 def edit_movement(request, movement_id):
-    cancel_url = request.META.get('HTTP_REFERER', '/')
+    """
+    Edits a chosen movement and lets the staff member know how many related
+    watch objects will be affected by the change
+    **Context**
+    ``associated``
+        The number of watch objects that are related to this movement
+    ``edit_form``
+        An instance of :form:`Watches.MovementForm` prefilled with movement
+        to edit.
+    ``movement_form``
+        An instance of :form:`watches.MovementForm`
+    ``list_form``
+        An instance of :form:`watches.ListForm`
+    ``movements``
+        A queryset of all current movement objects
+    ``list_names``
+        A queryset of all current list objects
+    **Template:**
+    :template:`watches/staff_settings.html`
+    """
     movement = get_object_or_404(WatchMovement, id=movement_id)
     associated = movement.watch_movement.count()
     if request.method == 'POST':
@@ -272,16 +291,13 @@ def edit_movement(request, movement_id):
             )
     else:
         movements = WatchMovement.objects.all()
-        lists = WatchList.objects.values_list('list_name', flat=True)
         list_names = WatchList.objects.all()
         context = {
-            'cancel_url': cancel_url,
             'associated': associated,
             'edit_form': MovementForm(instance=movement),
             'movement_form': MovementForm(),
             'list_form': ListForm(),
             'movements': movements,
-            'lists': lists,
             'list_names': list_names
         }
         return render(request, 'watches/staff_settings.html', context)
