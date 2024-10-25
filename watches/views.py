@@ -11,20 +11,23 @@ import datetime
 def home(request, list_name='collection'):
     """
     Displays a users watches in the requested list :model:`watches.Watch` and
-    retrieves the available lists :model:`watches.WatchList`
+    retrieves the available lists :model:`watches.WatchList`.
+    **Arguments**
+    ``list_name`` (str, optional):
+        The url path argument of the list that the user wishes to view.
     **Context**
     ``day``
         The current day as an integer (range 0-6)
-        Used for setting complication icons
+        Used for setting complication icons.
     ``date``
         The current date as an integer (range 1-31)
-        Used for setting complication icons
+        Used for setting complication icons.
     ``watches``
-        A queryset of watch objects filtered by user and chosen list type
+        A queryset of watch objects filtered by user and chosen list type.
     ``lists``
-        A queryset of all the lists
+        A queryset of all the lists.
     ``current_list``
-        Name of the currently viewed list (from the `list_name` field, string)
+        Name of the currently viewed list (from the `list_name` field, string).
     **Template:**
     :template:`watches/home.html`
     """
@@ -49,18 +52,21 @@ def home(request, list_name='collection'):
 @login_required(login_url='accounts/login')
 def add_watch(request, origin):
     """
-    Saves an instance of :model:`watches.Watch` specified by the user
+    Saves an instance of :model:`watches.Watch` specified by the user.
+    **Arguments**
+    ``origin`` (str):
+        The url name of the list that the edit action was called from.
     **Context**
     ``day``
         The current day as an integer (range 0-6)
-        Used for setting complication icons
+        Used for setting complication icons.
     ``date``
         The current date as an integer (range 1-31)
-        Used for setting complication icons
+        Used for setting complication icons.
     ``origin``
-        Name of the list that the user was viewing when they clicked add watch
+        Name of the list that the user was viewing when they clicked add watch.
     ``watch_form``
-        An instance of :form:`watches.WatchForm`
+        An instance of :form:`watches.WatchForm`.
     **Template:**
     :template:`watches/add_watch.html`
     """
@@ -95,20 +101,25 @@ def add_watch(request, origin):
 @login_required(login_url='accounts/login')
 def edit_watch(request, watch_id, origin):
     """
-    Edits an instance of :model:`watches.Watch` specified by the user
+    Edits an instance of :model:`watches.Watch` specified by the user.
+    **Arguments**
+    ``watch_id`` (int):
+        The primary key of the watch object to be edited.
+    ``origin`` (str):
+        The url name of the list that the edit action was called from.
     **Context**
     ``day``
         The current day as an integer (range 0-6)
-        Used for setting complication icons
+        Used for setting complication icons.
     ``date``
         The current date as an integer (range 1-31)
-        Used for setting complication icons
+        Used for setting complication icons.
     ``origin``
-        Name of the list that the user was viewing when they clicked add watch
+        Name of the list that the user was viewing when they clicked add watch.
     ``watch_form``
-        An instance of :form:`watches.WatchForm`
+        An instance of :form:`watches.WatchForm`.
     ``watch``
-        An instance of :model:`watches.Watch` chosen for editing
+        An instance of :model:`watches.Watch` chosen for editing.
     **Template:**
     :template:`watches/edit_watch.html`
     """
@@ -146,12 +157,15 @@ def edit_watch(request, watch_id, origin):
 def purchase_watch(request, watch_id):
     """
     Moves an instance of :model:`watches`Watch to the users collection from
-    their wish list
+    their wish list.
+    **Arguments**
+    ``watch_id`` (int):
+        The primary key of the watch object to be edited.
     **Context**
     ``watch_list``
-        The URL name to redirect to
+        The URL name to redirect to.
     ``collection``
-        The argument for the URL requesting to show the collection list
+        The argument for the URL requesting to show the collection list.
     """
     try:
         watch = get_object_or_404(Watch, id=watch_id)
@@ -170,10 +184,13 @@ def purchase_watch(request, watch_id):
 @login_required(login_url='accounts/login')
 def delete_watch(request, watch_id):
     """
-    Deletes an instance of :model:`watches`Watch from a users list
+    Deletes an instance of :model:`watches`Watch from a users list.
+    **Arguments**
+    ``watch_id`` (int):
+        The primary key of the watch object to be deleted.
     **Context**
     ``return_url``
-        The URL path to redirect to, the referring page
+        The URL path to redirect to, the referring page.
     """
     try:
         return_url = request.META.get('HTTP_REFERER', '/')
@@ -192,7 +209,17 @@ def delete_watch(request, watch_id):
 
 
 def get_staff_settings_context():
-    """Returns the shared context for staff settings views."""
+    """Returns the shared context for staff settings views.
+    **Returns**
+    ``movement_form``
+        An instance of :form:`watches.MovementForm`.
+    ``list_form``
+        An instance of :form:`watches.ListForm`.
+    ``movements``
+        A queryset of all current movement objects.
+    ``list_names``
+        A queryset of all current list objects.
+    """
     return {
         'movement_form': MovementForm(),
         'list_form': ListForm(),
@@ -206,17 +233,9 @@ def staff_settings(request):
     """
     Shows staff members a list of movement types from
     :model:`watches.WatchMovement` and list options from
-    :model:`Watches.WatchList`. Also allows creation of new instances
-    Shared context is retrieved from `def get_staff_settings_context():`
+    :model:`Watches.WatchList`. Also allows creation of new instances.
     **Context**
-    ``movement_form``
-        An instance of :form:`watches.MovementForm`
-    ``list_form``
-        An instance of :form:`watches.ListForm`
-    ``movements``
-        A queryset of all current movement objects
-    ``list_names``
-        A queryset of all current list objects
+    Shared context is retrieved from `def get_staff_settings_context():`.
     **Template:**
     :template:`watches/staff_settings.html`
     """
@@ -258,11 +277,15 @@ def staff_settings(request):
 def edit_movement(request, movement_id):
     """
     Edits a chosen movement and lets the staff member know how many related
-    watch objects will be affected by the change. Shared context is retrieved
-    from `def get_staff_settings_context():`
+    watch objects will be affected by the change.
+    **Arguments**
+    ``movement_id`` (int):
+        The primary key of the movement object to be edited.
+    **Context**
+        Shared context is retrieved from `def get_staff_settings_context():`.
     **Additional Context**
     ``associated``
-        The number of watch objects that are related to this movement
+        The number of watch objects that are related to this movement.
     ``edit_form``
         An instance of :form:`Watches.MovementForm` prefilled with movement
         to edit.
@@ -301,11 +324,15 @@ def edit_movement(request, movement_id):
 def edit_list(request, list_id):
     """
     Edits a chosen movement and lets the staff member know how many related
-    watch objects will be affected by the change. Shared context is retrieved
-    from `def get_staff_settings_context():`
+    watch objects will be affected by the change.
+    **Arguments**
+    ``list_id`` (int):
+        The primary key of the list object to be edited.
+    **Context**
+        Shared context is retrieved from `def get_staff_settings_context():`.
     **Additional Context**
     ``associated``
-        The number of watch objects that are related to this movement
+        The number of watch objects that are related to this movement.
     ``edit_form``
         An instance of :form:`Watches.MovementForm` prefilled with movement
         to edit.
@@ -341,13 +368,17 @@ def edit_list(request, list_id):
 def delete_movement(request, movement_id):
     """
     Deletes a chosen movement and lets the staff member know how many related
-    watch objects will be affected by the change. Shared context is retrieved
-    from `def get_staff_settings_context():`
+    watch objects will be affected by the change.
+    **Arguments**
+    ``movement_id`` (int):
+        The primary key of the movement object to be deleted.
+    **Context**
+        Shared context is retrieved from `def get_staff_settings_context():`.
     **Additional Context**
     ``associated``
-        The number of watch objects that are related to this movement
+        The number of watch objects that are related to this movement.
     ``to_delete``
-        An instance of :model:`Watches.WatchMovement`
+        An instance of :model:`Watches.WatchMovement`.
     **Template:**
     :template:`watches/staff_settings.html`
     """
@@ -378,13 +409,17 @@ def delete_movement(request, movement_id):
 def delete_list(request, list_id):
     """
     Deletes a chosen list and lets the staff member know how many related
-    watch objects will be affected by the change. Shared context is retrieved
-    from `def get_staff_settings_context():`
+    watch objects will be affected by the change.
+    **Arguments**
+    ``list_id`` (int):
+        The primary key of the list object to be deleted.
+    **Context**
+        Shared context is retrieved from `def get_staff_settings_context():`.
     **Additional Context**
     ``associated``
-        The number of watch objects that are related to this movement
+        The number of watch objects that are related to this movement.
     ``to_delete``
-        An instance of :model:`Watches.WatchList`
+        An instance of :model:`Watches.WatchList`.
     **Template:**
     :template:`watches/staff_settings.html`
     """
