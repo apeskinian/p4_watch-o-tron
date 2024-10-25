@@ -10,7 +10,8 @@ import datetime
 @login_required(login_url='accounts/login')
 def home(request, list_name='collection'):
     """
-    Displays a users watches in the requested list :model:`watches.Watch`.
+    Displays a users watches in the requested list :model:`watches.Watch` and
+    retrieves the available lists :model:`watches.WatchList`.
     **Context**
     ``day``
         The current day as an integer (range 0-6).
@@ -47,6 +48,22 @@ def home(request, list_name='collection'):
 
 @login_required(login_url='accounts/login')
 def add_watch(request, origin):
+    """
+    Saves an instance :model:`watches.Watch` specified by the user.
+    **Context**
+    ``day``
+        The current day as an integer (range 0-6).
+        Used for setting complication icons.
+    ``date``
+        The current date as an integer (range 1-31).
+        Used for setting complication icons.
+    ``origin``
+        Name of the list that the user was viewing when they clicked add watch.
+    ``watch_form``
+        An instance of :form:`watches.WatchForm`
+    **Template:**
+    :template:`watches/add_watch.html`
+    """
     if request.method == 'POST':
         form = WatchForm(request.POST, request.FILES)
         if form.is_valid():
