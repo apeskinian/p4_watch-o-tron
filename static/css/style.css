@@ -120,6 +120,10 @@ main {
     font-weight: 600;
 }
 
+.session-id-nav {
+    display: none;
+}
+
 .top-nav {
     height: 56px;
     box-shadow: 0px 0.5px 0.5px 0.5px lightgray;
@@ -330,4 +334,12 @@ main {
         width: 80px;
     }
     /* STAFF SETTINGS ->END<- */
+}
+
+@media screen and (min-width: 1200px) {
+
+    .session-id-nav {
+        display: block;
+    }
+
 }

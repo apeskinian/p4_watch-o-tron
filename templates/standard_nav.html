@@ -19,7 +19,7 @@
             </div>
         </a>
         <div class="navbar-nav d-none d-md-flex align-items-center">
-            <div class="d-none d-lg-block"><span>logged in as <strong>{{ user.username }}</strong></span>
+            <div class="session-id-nav"><span>logged in as <strong>{{ user.username }}</strong></span>
                 {% if user.is_staff and not user.is_superuser %}<span class="text-muted"> [staff]</span>{% endif %}
                 {% if user.is_superuser %}<span class="text-muted"> [admin]</span>{% endif %}
             </div>
