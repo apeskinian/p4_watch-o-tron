@@ -347,7 +347,7 @@ def delete_movement(request, movement_id):
     ``associated``
         The number of watch objects that are related to this movement
     ``to_delete``
-        An instance of :form:`Watches.MovementForm`
+        An instance of :model:`Watches.WatchMovement`
     **Template:**
     :template:`watches/staff_settings.html`
     """
@@ -376,8 +376,21 @@ def delete_movement(request, movement_id):
 
 @staff_member_required(login_url='accounts/login')
 def delete_list(request, list_id):
+    """
+    Deletes a chosen list and lets the staff member know how many related
+    watch objects will be affected by the change. Shared context is retrieved
+    from `def get_staff_settings_context():`
+    **Additional Context**
+    ``associated``
+        The number of watch objects that are related to this movement
+    ``to_delete``
+        An instance of :model:`Watches.WatchList`
+    **Template:**
+    :template:`watches/staff_settings.html`
+    """
     list_name = get_object_or_404(WatchList, id=list_id)
     associated = list_name.watch_list.count()
+
     if request.method == 'POST':
         try:
             list_name.delete()
@@ -385,19 +398,13 @@ def delete_list(request, list_id):
             return redirect('staff_settings')
         except Exception as e:
             messages.error(request, f'Error occured while deleting: {str(e)}')
+            return redirect('staff_settings')
     else:
-        movements = WatchMovement.objects.all()
-        lists = WatchList.objects.values_list('list_name', flat=True)
-        list_names = WatchList.objects.all()
-        context = {
+        context = get_staff_settings_context()
+        context.update({
             'associated': associated,
-            'to_delete': list_name,
-            'movement_form': MovementForm(),
-            'list_form': ListForm(),
-            'movements': movements,
-            'lists': lists,
-            'list_names': list_names
-        }
+            'to_delete': list_name
+        })
         return render(request, 'watches/staff_settings.html', context)
 
 
