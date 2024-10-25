@@ -67,6 +67,8 @@ def manage_watch(request, origin, watch_id=None):
         Used for setting complication icons.
     ``origin``
         Name of the list that the user was viewing when the action was called.
+    ``lists``
+        Queryset of all lists in :model:`watches.WatchList` for navbar.
     **Conditional Context**
     ``watch_form``
         An instance of :form:`watches.WatchForm`. If adding this form will
@@ -114,10 +116,12 @@ def manage_watch(request, origin, watch_id=None):
             messages.error(request, f'An error occured. {error_message}.')
     else:
         day = datetime.datetime.now()
+        lists = WatchList.objects.all()
         context = {
             'day': day.strftime('%w'),
             'date': day.strftime('%d'),
             "origin": origin,
+            "lists": lists,
             "watch_form": WatchForm(),
             "mode": 'add',
         }
@@ -202,7 +206,7 @@ def get_staff_settings_context():
         'movement_form': MovementForm(),
         'list_form': ListForm(),
         'movements': WatchMovement.objects.all(),
-        'list_names': WatchList.objects.all()
+        'lists': WatchList.objects.all()
     }
 
 

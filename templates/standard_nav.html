@@ -1,0 +1,34 @@
+{% load static %}
+<nav class="top-nav navbar navbar-expand bg-white fixed-top">
+    <div class="container-fluid">
+        <div class="d-none d-md-block">
+            <ul class="navbar-nav">
+                {% for thing in lists %}
+                <li class="nav-item">
+                    <a href="{% url 'watch_list' thing.list_name %}" class="nav-link {% if thing.list_name == current_list %}active{% endif %}">{{ thing.friendly_name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <a href="{% url 'home' %}" class="navbar-nav position-absolute top-50 start-50 translate-middle">
+            <div class="d-flex align-items-center gap-1">
+                <img src="{% static 'images/watch-_logo.png' %}" alt="Logo" class="d-inline-block align-text-top logo">
+                {% include 'clockface.html' %}
+                <img src="{% static 'images/-tron_logo.png' %}" alt="Logo" class="d-inline-block align-text-top logo">
+            </div>
+        </a>
+        <div class="navbar-nav d-none d-md-flex align-items-center">
+            <div class="d-none d-lg-block"><span>logged in as <strong>{{ user.username }}</strong></span>
+                {% if user.is_staff and not user.is_superuser %}<span class="text-muted"> [staff]</span>{% endif %}
+                {% if user.is_superuser %}<span class="text-muted"> [admin]</span>{% endif %}
+            </div>
+            {% if user.is_staff %}
+            <div class="ms-2"><a href="{% url 'staff_settings' %}" class="btn btn-sm btn-primary">Staff Settings</a></div>
+            {% endif %}
+            {% if user.is_superuser %}
+            <div class="ms-2"><a href="{% url 'admin:index' %}" class="btn btn-sm btn-secondary">Admin Panel</a></div>
+            {% endif %}
+            <div class="ms-2"><a href="{{ logout_url }}" class="btn btn-sm btn-danger">Logout</a></div>
+        </div>
+    </div>
+</nav>
