@@ -410,6 +410,21 @@ def delete_list(request, list_id):
 
 @login_required(login_url='accounts/login')
 def cancelProcess(request, content, cancel_url='home'):
+    """
+    Called when an action is cancelled by the user.
+    **Arguments**
+    ``content`` (str):
+        Information regarding what action is being cancelled, this is used
+        in the provided messsage.
+    ``cancel_url`` (str, optional):
+        The url name that the action was taken from.
+    **Context**
+    ``cancel_url``
+        If an instance with 'list_name' matching 'cancel_url' is in
+        :model:`watches.WatchList`, the user is redirected to that list.
+    ``home``
+        If no matches are found user is redirected to 'home'.
+    """
     try:
         messages.info(request, f'{content} cancelled.')
         possible_lists = WatchList.objects.values_list('list_name', flat=True)
