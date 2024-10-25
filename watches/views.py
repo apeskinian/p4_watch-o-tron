@@ -191,12 +191,23 @@ def delete_watch(request, watch_id):
     return redirect(return_url)
 
 
+def get_staff_settings_context():
+    """Returns the shared context for staff settings views."""
+    return {
+        'movement_form': MovementForm(),
+        'list_form': ListForm(),
+        'movements': WatchMovement.objects.all(),
+        'list_names': WatchList.objects.all()
+    }
+
+
 @staff_member_required(login_url='accounts/login')
 def staff_settings(request):
     """
     Shows staff members a list of movement types from
     :model:`watches.WatchMovement` and list options from
     :model:`Watches.WatchList`. Also allows creation of new instances
+    Shared context is retrieved from `def get_staff_settings_context():`
     **Context**
     ``movement_form``
         An instance of :form:`watches.MovementForm`
@@ -239,14 +250,7 @@ def staff_settings(request):
                         error_message += f'{error}\n'
                 messages.error(request, error_message)
 
-    movements = WatchMovement.objects.all()
-    list_names = WatchList.objects.all()
-    context = {
-        'movement_form': MovementForm(),
-        'list_form': ListForm(),
-        'movements': movements,
-        'list_names': list_names
-    }
+    context = get_staff_settings_context()
     return render(request, 'watches/staff_settings.html', context)
 
 
@@ -254,26 +258,20 @@ def staff_settings(request):
 def edit_movement(request, movement_id):
     """
     Edits a chosen movement and lets the staff member know how many related
-    watch objects will be affected by the change
-    **Context**
+    watch objects will be affected by the change. Shared context is retrieved
+    from `def get_staff_settings_context():`
+    **Additional Context**
     ``associated``
         The number of watch objects that are related to this movement
     ``edit_form``
         An instance of :form:`Watches.MovementForm` prefilled with movement
         to edit.
-    ``movement_form``
-        An instance of :form:`watches.MovementForm`
-    ``list_form``
-        An instance of :form:`watches.ListForm`
-    ``movements``
-        A queryset of all current movement objects
-    ``list_names``
-        A queryset of all current list objects
     **Template:**
     :template:`watches/staff_settings.html`
     """
     movement = get_object_or_404(WatchMovement, id=movement_id)
     associated = movement.watch_movement.count()
+
     if request.method == 'POST':
         form = MovementForm(request.POST, instance=movement)
         if form.is_valid():
@@ -289,25 +287,34 @@ def edit_movement(request, movement_id):
                 request,
                 f'Failed to edit movement. {error_message}'
             )
+            return redirect('staff_settings')
     else:
-        movements = WatchMovement.objects.all()
-        list_names = WatchList.objects.all()
-        context = {
+        context = get_staff_settings_context()
+        context.update({
             'associated': associated,
-            'edit_form': MovementForm(instance=movement),
-            'movement_form': MovementForm(),
-            'list_form': ListForm(),
-            'movements': movements,
-            'list_names': list_names
-        }
+            'edit_form': MovementForm(instance=movement)
+        })
         return render(request, 'watches/staff_settings.html', context)
 
 
 @staff_member_required(login_url='accounts/login')
 def edit_list(request, list_id):
-    cancel_url = request.META.get('HTTP_REFERER', '/')
+    """
+    Edits a chosen movement and lets the staff member know how many related
+    watch objects will be affected by the change. Shared context is retrieved
+    from `def get_staff_settings_context():`
+    **Additional Context**
+    ``associated``
+        The number of watch objects that are related to this movement
+    ``edit_form``
+        An instance of :form:`Watches.MovementForm` prefilled with movement
+        to edit.
+    **Template:**
+    :template:`watches/staff_settings.html`
+    """
     list_name = get_object_or_404(WatchList, id=list_id)
     associated = list_name.watch_list.count()
+
     if request.method == 'POST':
         form = ListForm(request.POST, instance=list_name)
         if form.is_valid():
@@ -320,20 +327,13 @@ def edit_list(request, list_id):
             for field, error_list in errors.items():
                 error_message += f'{field}: {', '.join(error_list)}.'
             messages.error(request, f'Failed to edit list. {error_message}')
+            return redirect('staff_settings')
     else:
-        movements = WatchMovement.objects.all()
-        lists = WatchList.objects.values_list('list_name', flat=True)
-        list_names = WatchList.objects.all()
-        context = {
-            'cancel_url': cancel_url,
+        context = get_staff_settings_context()
+        context.update({
             'associated': associated,
-            'edit_form': ListForm(instance=list_name),
-            'movement_form': MovementForm(),
-            'list_form': ListForm(),
-            'movements': movements,
-            'lists': lists,
-            'list_names': list_names
-        }
+            'edit_form': ListForm(instance=list_name)
+        })
         return render(request, 'watches/staff_settings.html', context)
 
 
