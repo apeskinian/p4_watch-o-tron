@@ -5,25 +5,6 @@
 {% block content %}
 <header>
     {% include 'standard_nav.html' %}
-    <!-- mobile navbar -->
-    <nav id="bottom-nav-mobile" class="d-md-none navbar bg-white fixed-bottom">
-        <div class="container-fluid">
-            <div class="navbar-toggler mx-auto " data-bs-toggle="collapse" data-bs-target="#wot-navbar-mobile" aria-controls="wot-navbar-mobile" aria-expanded="false" aria-label="Toggle navigation" role="button">
-                <i class="burger-menu-button fa-solid fa-bars"></i>
-            </div>
-            <div class="collapse navbar-collapse" id="wot-navbar-mobile">
-                <ul class="mobile-nav-list navbar-nav text-center">
-                    <li class="nav-item mobile-nav-buttons">
-                        <a href="{% url 'home' %}" class="btn btn-sm btn-primary mobile-nav-button">Back</a>
-                    </li>
-                </ul>
-                <div class="session-id-mobile">
-                    <span>logged in as <strong>{{ user.username }}</strong></span>
-                    <a href="{{ logout_url }}" class="btn btn-sm btn-danger session-button-mobile">Logout</a>
-                </div>
-            </div>
-        </div>
-    </nav>
 </header>
 <main>
     {% if user.is_staff %}

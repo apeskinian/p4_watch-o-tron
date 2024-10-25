@@ -46,9 +46,11 @@
                     <a href="{% url 'watch_list' list_name.list_name %}" class="nav-link mobile-nav-item {% if list_name.list_name == current_list %}mobile-active{% endif %}">{{ list_name.friendly_name }}</a>
                 </li>
                 {% endfor %}
+                {% if current_list %}
                 <li class="nav-item mobile-nav-buttons">
                     <a href="{% url 'manage_watch' current_list %}" class="btn btn-success mobile-nav-button">Add a Watch</a>
                 </li>
+                {% endif %}
             </ul>
             <div>
                 <div class="session-id-mobile">
