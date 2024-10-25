@@ -11,20 +11,20 @@ import datetime
 def home(request, list_name='collection'):
     """
     Displays a users watches in the requested list :model:`watches.Watch` and
-    retrieves the available lists :model:`watches.WatchList`.
+    retrieves the available lists :model:`watches.WatchList`
     **Context**
     ``day``
-        The current day as an integer (range 0-6).
-        Used for setting complication icons.
+        The current day as an integer (range 0-6)
+        Used for setting complication icons
     ``date``
-        The current date as an integer (range 1-31).
-        Used for setting complication icons.
+        The current date as an integer (range 1-31)
+        Used for setting complication icons
     ``watches``
-        A queryset of watch objects filtered by user and chosen list type.
+        A queryset of watch objects filtered by user and chosen list type
     ``lists``
-        A queryset of all the lists.
+        A queryset of all the lists
     ``current_list``
-        Name of the currently viewed list (from the `list_name` field, string).
+        Name of the currently viewed list (from the `list_name` field, string)
     **Template:**
     :template:`watches/home.html`
     """
@@ -49,16 +49,16 @@ def home(request, list_name='collection'):
 @login_required(login_url='accounts/login')
 def add_watch(request, origin):
     """
-    Saves an instance of :model:`watches.Watch` specified by the user.
+    Saves an instance of :model:`watches.Watch` specified by the user
     **Context**
     ``day``
-        The current day as an integer (range 0-6).
-        Used for setting complication icons.
+        The current day as an integer (range 0-6)
+        Used for setting complication icons
     ``date``
-        The current date as an integer (range 1-31).
-        Used for setting complication icons.
+        The current date as an integer (range 1-31)
+        Used for setting complication icons
     ``origin``
-        Name of the list that the user was viewing when they clicked add watch.
+        Name of the list that the user was viewing when they clicked add watch
     ``watch_form``
         An instance of :form:`watches.WatchForm`
     **Template:**
@@ -95,20 +95,20 @@ def add_watch(request, origin):
 @login_required(login_url='accounts/login')
 def edit_watch(request, watch_id, origin):
     """
-    Edits an instance of :model:`watches.Watch` specified by the user.
+    Edits an instance of :model:`watches.Watch` specified by the user
     **Context**
     ``day``
-        The current day as an integer (range 0-6).
-        Used for setting complication icons.
+        The current day as an integer (range 0-6)
+        Used for setting complication icons
     ``date``
-        The current date as an integer (range 1-31).
-        Used for setting complication icons.
+        The current date as an integer (range 1-31)
+        Used for setting complication icons
     ``origin``
-        Name of the list that the user was viewing when they clicked add watch.
+        Name of the list that the user was viewing when they clicked add watch
     ``watch_form``
         An instance of :form:`watches.WatchForm`
     ``watch``
-        An instance of :model:`watches.Watch` chosen for editing.
+        An instance of :model:`watches.Watch` chosen for editing
     **Template:**
     :template:`watches/edit_watch.html`
     """
@@ -146,12 +146,12 @@ def edit_watch(request, watch_id, origin):
 def purchase_watch(request, watch_id):
     """
     Moves an instance of :model:`watches`Watch to the users collection from
-    their wish list.
+    their wish list
     **Context**
     ``watch_list``
-        The URL name to redirect to.
+        The URL name to redirect to
     ``collection``
-        The argument for the URL requesting to show the collection list.
+        The argument for the URL requesting to show the collection list
     """
     try:
         watch = get_object_or_404(Watch, id=watch_id)
@@ -170,10 +170,10 @@ def purchase_watch(request, watch_id):
 @login_required(login_url='accounts/login')
 def delete_watch(request, watch_id):
     """
-    Deletes an instance of :model:`watches`Watch from a users list.
+    Deletes an instance of :model:`watches`Watch from a users list
     **Context**
     ``return_url``
-        The URL path to redirect to, the referring page.
+        The URL path to redirect to, the referring page
     """
     try:
         return_url = request.META.get('HTTP_REFERER', '/')
@@ -193,6 +193,22 @@ def delete_watch(request, watch_id):
 
 @staff_member_required(login_url='accounts/login')
 def staff_settings(request):
+    """
+    Shows staff members a list of movement types from
+    :model:`watches.WatchMovement` and list options from
+    :model:`Watches.WatchList`. Also allows creation of new instances
+    **Context**
+    ``movement_form``
+        An instance of :form:`watches.MovementForm`
+    ``list_form``
+        An instance of :form:`watches.ListForm`
+    ``movements``
+        A queryset of all current movement objects
+    ``list_names``
+        A queryset of all current list objects
+    **Template:**
+    :template:`watches/staff_settings.html`
+    """
     if request.method == 'POST':
         if 'movement-form' in request.POST:
             form = MovementForm(request.POST)
@@ -224,13 +240,11 @@ def staff_settings(request):
                 messages.error(request, error_message)
 
     movements = WatchMovement.objects.all()
-    lists = WatchList.objects.values_list('list_name', flat=True)
     list_names = WatchList.objects.all()
     context = {
         'movement_form': MovementForm(),
         'list_form': ListForm(),
         'movements': movements,
-        'lists': lists,
         'list_names': list_names
     }
     return render(request, 'watches/staff_settings.html', context)
