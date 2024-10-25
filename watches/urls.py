@@ -7,7 +7,7 @@ urlpatterns = [
     path('add_watch/<str:origin>', views.add_watch, name='add_watch'),
     path(
         'cancel_process/<str:content>/<path:cancel_url>',
-        views.cancelProcess, name='cancel_process'
+        views.cancel_process, name='cancel_process'
     ),
     path('delete/watch/<watch_id>', views.delete_watch, name='delete_watch'),
     path(

@@ -409,7 +409,7 @@ def delete_list(request, list_id):
 
 
 @login_required(login_url='accounts/login')
-def cancelProcess(request, content, cancel_url='home'):
+def cancel_process(request, content, cancel_url='home'):
     """
     Called when an action is cancelled by the user.
     **Arguments**
