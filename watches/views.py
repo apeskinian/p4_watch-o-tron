@@ -4,6 +4,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
 from .models import Watch, WatchList, WatchMovement
 from .forms import WatchForm, MovementForm, ListForm
+from .utils.moons import moonphase
 import datetime
 
 
@@ -21,6 +22,9 @@ def home(request, list_name='collection'):
         Used for setting complication icons.
     ``date``
         The current date as an integer (range 1-31)
+        Used for setting complication icons.
+    ``moonphase``
+        The current moonphase as a stroing.
         Used for setting complication icons.
     ``watches``
         A queryset of watch objects filtered by user and chosen list type.
@@ -41,6 +45,7 @@ def home(request, list_name='collection'):
     context = {
         'day': day.strftime('%w'),
         'date': day.strftime('%d'),
+        'moonphase': moonphase(),
         'watches': watches,
         'lists': lists,
         'current_list': current_list.list_name
@@ -64,6 +69,9 @@ def manage_watch(request, origin, watch_id=None):
         Used for setting complication icons.
     ``date``
         The current date as an integer (range 1-31)
+        Used for setting complication icons.
+    ``moonphase``
+        The current moonphase as a stroing.
         Used for setting complication icons.
     ``origin``
         Name of the list that the user was viewing when the action was called.
@@ -120,6 +128,7 @@ def manage_watch(request, origin, watch_id=None):
         context = {
             'day': day.strftime('%w'),
             'date': day.strftime('%d'),
+            'moonphase': moonphase(),
             "origin": origin,
             "lists": lists,
             "watch_form": WatchForm(),
