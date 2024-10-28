@@ -133,7 +133,9 @@ main {
 /* MESSAGES */
 .alert-box {
     position: fixed;
-    top: 56px;
+    height: 50px;
+    top: 81px;
+    text-wrap: nowrap;
     width: fit-content;
     z-index: 1000;
 }
