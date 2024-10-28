@@ -35,7 +35,14 @@ def home(request, list_name='collection'):
     **Template:**
     :template:`watches/home.html`
     """
-    lists = WatchList.objects.all()
+    default_lists = WatchList.objects.filter(list_name__in=['collection', 'wish-list'])
+    user_watches = Watch.objects.filter(owner=request.user)
+    user_lists = WatchList.objects.filter(watch_list__in=user_watches).exclude(
+        list_name__in=['collection', 'wish-list']
+    )
+    combined_lists = default_lists | user_lists
+    lists = combined_lists.distinct()
+
     watches = Watch.objects.filter(
         owner=request.user,
         list_name__list_name=list_name
