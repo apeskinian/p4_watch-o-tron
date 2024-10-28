@@ -27,6 +27,10 @@ body {
     min-height: 100dvh;
 }
 
+.btn {
+    font-family: 'Ubuntu Mono', sans-serif;
+}
+
 header {
     font-size: 1.2rem;
     height: 56px;
@@ -60,6 +64,10 @@ main {
 /* GENERAL ->END<- */
 
 /* NAVBARS */
+.nav-link {
+    font-family: 'Ubuntu Mono', sans-serif;
+}
+
 /* mobile navbar shown at the bottom */
 #bottom-nav-mobile {
     min-height: 56px;
@@ -75,7 +83,7 @@ main {
 }
 
 .mobile-nav-item {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     height: 50px;
     padding-top: 10px;
     background-color: rgb(245, 245, 245);
@@ -84,6 +92,7 @@ main {
 }
 
 .mobile-active {
+    font-weight: 700;
     text-decoration: solid;
     background-color: rgb(220, 220, 220);
     border-radius: 5px;
