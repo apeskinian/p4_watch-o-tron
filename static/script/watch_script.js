@@ -54,7 +54,7 @@ for (let button of purchasedButtons) {
     });
 }
 
-// hide paginator selector when nav menu is toggled
+// hide paginator selector when mobile nav menu is toggled
 navbarToggler.addEventListener('click', function() {
     const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
     if (isExpanded) {

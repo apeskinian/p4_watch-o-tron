@@ -64,6 +64,7 @@ def home(request, list_name='collection'):
 
     paginator = Paginator(watches, 8)
     page = request.GET.get('page', 1)
+    pages = paginator.get_page(page)
     try:
         watches = paginator.page(page)
     except PageNotAnInteger:
@@ -77,7 +78,8 @@ def home(request, list_name='collection'):
         'moonphase': moonphase(),
         'watches': watches,
         'lists': lists,
-        'current_list': current_list.list_name
+        'current_list': current_list.list_name,
+        'pages': pages
     }
     messages.success(request, f'Switched to {current_list.friendly_name}')
     return render(request, 'watches/home.html', context)
