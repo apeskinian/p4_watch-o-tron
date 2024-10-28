@@ -64,10 +64,6 @@ main {
 /* GENERAL ->END<- */
 
 /* NAVBARS */
-/* .nav-link {
-    font-family: 'Ubuntu Mono', sans-serif;
-} */
-
 /* mobile navbar shown at the bottom */
 #bottom-nav-mobile {
     min-height: 56px;
@@ -268,7 +264,7 @@ main {
 
 /* STAFF SETTINGS */
 .table-container {
-    margin-top: 10px;
+    margin: 10px 0px 56px 0px;
 }
 
 .settings-table-edit {
