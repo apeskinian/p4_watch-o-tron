@@ -5,10 +5,28 @@
         <div class="d-none d-md-block">
             <ul class="navbar-nav">
                 {% for list_name in lists %}
-                <li class="nav-item">
-                    <a href="{% url 'watch_list' list_name.list_name %}" class="nav-link {% if list_name.list_name == current_list %}active{% endif %}">{{ list_name.friendly_name }}</a>
-                </li>
+                    {% if forloop.counter < 3 %}
+                    <li class="nav-item">
+                        <a href="{% url 'watch_list' list_name.list_name %}" class="nav-link {% if list_name.list_name == current_list %}active{% endif %}">{{ list_name.friendly_name }}</a>
+                    </li>
+                    {% endif %}
                 {% endfor %}
+                {% if lists.count > 2 %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      More Lists
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% for list_name in lists %}
+                            {% if forloop.counter > 2 %}
+                            <li class="nav-item">
+                                <a href="{% url 'watch_list' list_name.list_name %}" class="nav-link {% if list_name.list_name == current_list %}active{% endif %}">{{ list_name.friendly_name }}</a>
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endif %}
             </ul>
         </div>
         <a href="{% url 'home' %}" class="navbar-nav position-absolute top-50 start-50 translate-middle">
