@@ -8,6 +8,22 @@ from .utils.moons import moonphase
 import datetime
 
 
+def get_user_lists(user):
+    """Returns the lists that the user currently has watches in.
+    **Returns**
+    ``list``
+        A queryset of all list object that the user has watches in.
+    """
+    default_lists = WatchList.objects.filter(list_name__in=['collection', 'wish-list'])
+    user_watches = Watch.objects.filter(owner=user)
+    user_lists = WatchList.objects.filter(watch_list__in=user_watches).exclude(
+        list_name__in=['collection', 'wish-list']
+    )
+    combined_lists = default_lists | user_lists
+    lists = combined_lists.distinct()
+    return lists
+
+
 @login_required(login_url='accounts/login')
 def home(request, list_name='collection'):
     """
@@ -35,13 +51,7 @@ def home(request, list_name='collection'):
     **Template:**
     :template:`watches/home.html`
     """
-    default_lists = WatchList.objects.filter(list_name__in=['collection', 'wish-list'])
-    user_watches = Watch.objects.filter(owner=request.user)
-    user_lists = WatchList.objects.filter(watch_list__in=user_watches).exclude(
-        list_name__in=['collection', 'wish-list']
-    )
-    combined_lists = default_lists | user_lists
-    lists = combined_lists.distinct()
+    lists = get_user_lists(request.user)
 
     watches = Watch.objects.filter(
         owner=request.user,
@@ -132,7 +142,7 @@ def manage_watch(request, origin, watch_id=None):
             messages.error(request, f'An error occured. {error_message}.')
     else:
         day = datetime.datetime.now()
-        lists = WatchList.objects.all()
+        lists = lists = get_user_lists(request.user)
 
         # getting the list to preselect from the origin argument
         try:
@@ -215,7 +225,7 @@ def delete_watch(request, watch_id):
     return redirect(return_url)
 
 
-def get_staff_settings_context():
+def get_staff_settings_context(user):
     """Returns the shared context for staff settings views.
     **Returns**
     ``movement_form``
@@ -224,14 +234,17 @@ def get_staff_settings_context():
         An instance of :form:`watches.ListForm`.
     ``movements``
         A queryset of all current movement objects.
-    ``list_names``
+    ``lists``
+        A queryset of all currently used lists by the user.
+    ``all_lists``
         A queryset of all current list objects.
     """
     return {
         'movement_form': MovementForm(),
         'list_form': ListForm(),
         'movements': WatchMovement.objects.all(),
-        'lists': WatchList.objects.all()
+        'lists': get_user_lists(user),
+        'all_lists': WatchList.objects.all()
     }
 
 
@@ -276,7 +289,7 @@ def staff_settings(request):
                         error_message += f'{error}\n'
                 messages.error(request, error_message)
 
-    context = get_staff_settings_context()
+    context = get_staff_settings_context(request.user)
     return render(request, 'watches/staff_settings.html', context)
 
 
@@ -319,7 +332,7 @@ def edit_movement(request, movement_id):
             )
             return redirect('staff_settings')
     else:
-        context = get_staff_settings_context()
+        context = get_staff_settings_context(request.user)
         context.update({
             'associated': associated,
             'edit_form': MovementForm(instance=movement)
@@ -363,7 +376,7 @@ def edit_list(request, list_id):
             messages.error(request, f'Failed to edit list. {error_message}')
             return redirect('staff_settings')
     else:
-        context = get_staff_settings_context()
+        context = get_staff_settings_context(request.user)
         context.update({
             'associated': associated,
             'edit_form': ListForm(instance=list_name)
@@ -404,7 +417,7 @@ def delete_movement(request, movement_id):
             )
             return redirect('staff_settings')
     else:
-        context = get_staff_settings_context()
+        context = get_staff_settings_context(request.user)
         context.update({
             'associated': associated,
             'to_delete': movement
@@ -442,7 +455,7 @@ def delete_list(request, list_id):
             messages.error(request, f'Error occured while deleting: {str(e)}')
             return redirect('staff_settings')
     else:
-        context = get_staff_settings_context()
+        context = get_staff_settings_context(request.user)
         context.update({
             'associated': associated,
             'to_delete': list_name
