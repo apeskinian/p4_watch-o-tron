@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from .models import Watch, WatchList, WatchMovement
 from .forms import WatchForm, MovementForm, ListForm
@@ -60,6 +61,16 @@ def home(request, list_name='collection'):
 
     current_list = get_object_or_404(WatchList, list_name=list_name)
     day = datetime.datetime.now()
+
+    paginator = Paginator(watches, 8)
+    page = request.GET.get('page', 1)
+    try:
+        watches = paginator.page(page)
+    except PageNotAnInteger:
+        watches = paginator.page(1)
+    except EmptyPage:
+        watches = paginator.page(paginator.num_pages)
+
     context = {
         'day': day.strftime('%w'),
         'date': day.strftime('%d'),

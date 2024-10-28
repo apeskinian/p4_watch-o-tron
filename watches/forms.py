@@ -121,7 +121,7 @@ class MovementForm(forms.ModelForm):
     movement_name = forms.CharField(max_length=100, label=False)
 
     def clean_movement_name(self):
-        movement_name = self.cleaned_data.get('movement_name').strip().lower()
+        movement_name = self.cleaned_data.get('movement_name').strip()
         if WatchMovement.objects.filter(movement_name__iexact=movement_name).exists():
             raise forms.ValidationError("A movement with this name already exists.")
         return movement_name
@@ -135,7 +135,7 @@ class ListForm(forms.ModelForm):
     friendly_name = forms.CharField(max_length=100, label=False)
 
     def clean_friendly_name(self):
-        friendly_name = self.cleaned_data.get('friendly_name').strip().lower()
+        friendly_name = self.cleaned_data.get('friendly_name').strip()
         if WatchList.objects.filter(friendly_name__iexact=friendly_name).exists():
             raise forms.ValidationError("A list with this name already exists.")
         return friendly_name

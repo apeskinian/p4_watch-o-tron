@@ -10,6 +10,9 @@ const watchModalTitle = document.getElementById('watch-modal-title');
 const watchModalBody = document.getElementById('watch-modal-body-content');
 const watchModalConfirm = document.getElementById('watch-modal-confirm');
 const watchModalCancel = document.getElementById('watch-modal-cancel');
+// get toggler for mobile navbar and paginator
+const navbarToggler = document.querySelector('.navbar-toggler');
+const pages = document.getElementById('pages');
 
 // getting target info and setting modal content for deleting a watch
 for (let button of deleteButtons) {
@@ -50,3 +53,15 @@ for (let button of purchasedButtons) {
         watchModal.show();
     });
 }
+
+// hide paginator selector when nav menu is toggled
+navbarToggler.addEventListener('click', function() {
+    const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
+    if (isExpanded) {
+        pages.style.display = 'none';
+    } else {
+        setTimeout(function() {
+            pages.style.display = 'block';
+        }, 200);
+    }
+});
