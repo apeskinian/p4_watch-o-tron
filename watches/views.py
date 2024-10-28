@@ -125,13 +125,21 @@ def manage_watch(request, origin, watch_id=None):
     else:
         day = datetime.datetime.now()
         lists = WatchList.objects.all()
+
+        # getting the list to preselect from the origin argument
+        try:
+            initial_list = WatchList.objects.get(list_name=origin)
+            initial_data = {'list_name': initial_list}
+        except WatchList.DoesNotExist:
+            initial_data = {}
+
         context = {
             'day': day.strftime('%w'),
             'date': day.strftime('%d'),
             'moonphase': moonphase(),
             "origin": origin,
             "lists": lists,
-            "watch_form": WatchForm(),
+            "watch_form": WatchForm(initial=initial_data),
             "mode": 'add',
         }
         if watch_id:

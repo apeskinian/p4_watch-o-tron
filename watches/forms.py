@@ -103,6 +103,14 @@ class WatchForm(forms.ModelForm):
             'complication_power_reserve': 'Power Reserve',
             'complication_tourbillon': 'Tourbillon',
         }
+    
+    def __init__(self, *args, **kwargs):
+        initial = kwargs.get('initial', {})
+        super().__init__(*args, **kwargs)
+        
+        # Set the initial value for list_name if provided
+        if 'list_name' in initial:
+            self.fields['list_name'].initial = initial['list_name']
 
 
 class MovementForm(forms.ModelForm):
