@@ -81,7 +81,19 @@ def home(request, list_name='collection'):
         'current_list': current_list.list_name,
         'pages': pages
     }
-    messages.success(request, f'Switched to {current_list.friendly_name}')
+    
+    if paginator.num_pages > 1:
+        messages.success(
+            request,
+            f'Switched to {current_list.friendly_name} '
+            f'(Page {pages.number} of {paginator.num_pages})'
+        )
+    else:
+        messages.success(
+            request,
+            f'Switched to {current_list.friendly_name}'
+        )
+
     return render(request, 'watches/home.html', context)
 
 

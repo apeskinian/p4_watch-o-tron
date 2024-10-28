@@ -19,7 +19,7 @@
                     <ul class="dropdown-menu">
                         {% for list_name in lists %}
                             {% if forloop.counter > 2 %}
-                            <li class="nav-item">
+                            <li class="nav-item text-center">
                                 <a href="{% url 'watch_list' list_name.list_name %}" class="nav-link {% if list_name.list_name == current_list %}active{% endif %}">{{ list_name.friendly_name }}</a>
                             </li>
                             {% endif %}
