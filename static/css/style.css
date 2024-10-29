@@ -21,7 +21,7 @@
 
 body {
     font-family: 'Source Sans 3', sans-serif;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(220, 220, 220);
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
@@ -194,7 +194,7 @@ main {
 
 .pagination-container {
     position: fixed;
-    bottom: 55px;
+    bottom: 56px;
     padding: 12px;
     background-color: white;
     border-top-left-radius: 10px;
@@ -257,7 +257,10 @@ main {
 
 /* WATCH ADD-EDIT */
 .watch-edit-container {
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
     margin: 10px 0px 66px 0px;
+    padding: 10px;
     width: 90%;
 }
 
@@ -278,13 +281,17 @@ main {
 }
 
 #watch-edit-modal {
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(220, 220, 220);
 }
 /* WATCH-EDIT ->END<- */
 
 /* STAFF SETTINGS */
 .table-container {
-    margin: 10px 0px 56px 0px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    margin: 10px 0px 66px 0px;
+    padding: 10px;
+    width: 90%;
 }
 
 .settings-table-edit {
@@ -346,13 +353,17 @@ main {
 
     /* WATCH-EDIT */
     .watch-edit-container {
+        padding: 20px;
         width: 50%;
+        margin: 40px 0px 66px 0px;
     }
     /* WATCH-EDIT ->END<- */
 
     /* STAFF SETTINGS */
     .table-container {
-        margin-top: 20px;
+        padding: 20px;
+        width: 50%;
+        margin: 40px 0px 66px 0px;
     }
 
     .settings-table-edit {
