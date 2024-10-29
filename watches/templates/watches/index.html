@@ -33,14 +33,14 @@
                                 data-bs-toggle="tooltip"
                                 data-bs-placement="top"
                                 data-bs-title="Chronograph">
-                                <img src="{% static 'images/complications/' %}date_{{ date }}.png" alt="Date" class="date-complication complication {% if not watch.complication_date %}not-complicated{% endif %}"
-                                data-bs-toggle="tooltip"
-                                data-bs-placement="top"
-                                data-bs-title="Date">
                                 <img src="{% static 'images/complications/' %}day_{{ day }}.png" alt="Day" class="day-complication complication {% if not watch.complication_day %}not-complicated{% endif %}"
                                 data-bs-toggle="tooltip"
                                 data-bs-placement="top"
                                 data-bs-title="Day">
+                                <img src="{% static 'images/complications/' %}date_{{ date }}.png" alt="Date" class="date-complication complication {% if not watch.complication_date %}not-complicated{% endif %}"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                data-bs-title="Date">
                                 <img src="{% static 'images/complications/gmt.png' %}" alt="GMT" class="complication {% if not watch.complication_gmt %}not-complicated{% endif %}"
                                 data-bs-toggle="tooltip"
                                 data-bs-placement="top"

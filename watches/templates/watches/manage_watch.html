@@ -35,8 +35,8 @@
                             <div class="d-none d-lg-block col-lg-2"></div>
                             <div class="col-6 col-lg-4">
                                 <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_chronograph.label_tag }}{{ watch_form.complication_chronograph }}</div>
-                                <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_date.label_tag }}{{ watch_form.complication_date }}</div>
                                 <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_day.label_tag }}{{ watch_form.complication_day }}</div>
+                                <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_date.label_tag }}{{ watch_form.complication_date }}</div>
                                 <div class="text-muted form-check-reverse form-switch">{{ watch_form.complication_gmt.label_tag }}{{ watch_form.complication_gmt }}</div>
                             </div>
                             <div class="col-6 col-lg-4">
@@ -91,14 +91,14 @@
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="top"
                                     data-bs-title="Chronograph">
-                                    <img id="complication-date" src="{% static 'images/complications/' %}date_{{ date }}.png" alt="Date" class="complication not-complicated"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    data-bs-title="Date">
                                     <img id="complication-day" src="{% static 'images/complications/' %}day_{{ day }}.png" alt="Day" class="complication not-complicated"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="top"
                                     data-bs-title="Day">
+                                    <img id="complication-date" src="{% static 'images/complications/' %}date_{{ date }}.png" alt="Date" class="complication not-complicated"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    data-bs-title="Date">
                                     <img id="complication-gmt" src="{% static 'images/complications/gmt.png' %}" alt="GMT" class="complication not-complicated"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="top"

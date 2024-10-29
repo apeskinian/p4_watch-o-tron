@@ -55,11 +55,11 @@ editButton.addEventListener('click', (e) => {
         if (watchForm.elements.complication_chronograph.checked) {
             compChronograph.classList.remove('not-complicated');
         }
-        if (watchForm.elements.complication_date.checked) {
-            compDate.classList.remove('not-complicated');
-        }
         if (watchForm.elements.complication_day.checked) {
             compDay.classList.remove('not-complicated');
+        }
+        if (watchForm.elements.complication_date.checked) {
+            compDate.classList.remove('not-complicated');
         }
         if (watchForm.elements.complication_gmt.checked) {
             compGmt.classList.remove('not-complicated');
