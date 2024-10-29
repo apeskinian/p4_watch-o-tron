@@ -1,4 +1,4 @@
-# [P4 WATCH O TRON](https://apeskinian-watch-o-tron-f4512ce56f33.herokuapp.com)
+# [P4 WATCH-O-TRON](https://apeskinian-watch-o-tron-f4512ce56f33.herokuapp.com)
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/apeskinian/p4_watch-o-tron)](https://github.com/apeskinian/p4_watch-o-tron/commits/main)
 [![GitHub last commit](https://img.shields.io/github/last-commit/apeskinian/p4_watch-o-tron)](https://github.com/apeskinian/p4_watch-o-tron/commits/main)
@@ -129,10 +129,25 @@ Some icons from [Font Awesome](https://fontawesome.com) were used and some were 
 - As a site user I am notified after editing and deleting watches so that I know if the process was successful.
 - As a site user I am notified when I move a watch to the collection so that it is confirmed whether the process was successful.
 - As a site user I can see a spinner when I confirm a watch edit so that I know something is happening.
+- As a curious site user I can discover a hidden Easter egg in the site logo so that I experience an unexpected, delightful surprise within the application.
+- As a curious site user I can discover a hidden Easter egg in the date complication icon so that I experience an unexpected, delightful surprise within the application.
+- As a curious site user I can discover a hidden Easter egg in the day complication icon so that I experience an unexpected, delightful surprise within the application.
+- As a curious site user I can discover a hidden Easter egg in the moon phase complication icon so that I experience an unexpected, delightful surprise within the application.
+- As a site user I can post in a forum and comment on posts so that I can connect with other like minded users.
+- As a site user I can send direct messages to other users so that I can have private conversations with other users.
+- As a site user I can delete my account so that the app no longer stores any of my information.
 
 ### Staff Member
 
 - As a client I can login as a staff member so that I can add potential new important options for users.
+- As a site staff member I can add new watch movement types to the model so that users can add watches with any new movement types that may become available in the future.
+- As a site staff member I can add new list types so that users can expand their lists from collection and wish list to other types specified by the site staff member.
+- As a site staff member I can edit any movement types I have added so that I change them if needed.
+- As a site staff member I can delete any new movement types so that I can keep the list relevant.
+- As a site staff membe I can edit any added list types so that keep the app up to date.
+- As a site staff member I can delete custom added lists so that remove any unwanted list types.
+- As a staff member I am notified about edits and deletes I make for custom movements so that I know if the change was successful.
+- As a staff member I am notified of successful list edits and deletions so that I know the process was successful.
 
 ### Site Admin
 
