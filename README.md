@@ -51,7 +51,6 @@ The staff settings page will have tables to show the current movements and lists
 In the wireframing process I decided the navigation should be simple and remain constant throughout the site where possible. Having navigation on the bottom for mobile devices makes it easier for the user to interact with while keeping the screen visible. The navigation would move to the top for larger screens for a more traditional layout. Clicking on a watch will present you with the action buttons for each watch. An edit logo on the image and cursor change will indicate that this can be done.
 
 ### Colour Scheme
-
 Because watches come in a multitude of colours and patterns, I decided to go with a neutral monochrome scheme for the site with only the action buttons and main logo having colour. This in turn creates a personal colour scheme for each user as the images of the watches they upload will influence the colour scheme of the site.
 
 For the action buttons I used the Bootstrap 5 standard colour schemes trying keeping each colour to a specific type of action. This would lead the user naturally to each button when presented, depending on what they wanted to do.
@@ -131,92 +130,26 @@ In this section, list all of your user stories for the project.
 
 ## Wireframes
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-In this section, display your wireframe screenshots using a Markdown `table`.
-Instructions on how to do Markdown `tables` start on line #213 on this site: https://pandao.github.io/editor.md/en.html
-
-Alternatively, dropdowns are a way to condense several wireframes into a collapsible menu to save space.
-Dropdowns in Markdown are considered some of the only acceptable HTML components that are allowed for assessment purposes.
-
-⚠️ **IMPORTANT**! ⚠️ **IMPORTANT**! ⚠️ **IMPORTANT**! ⚠️
-The example below uses the `details` and `summary` code elements.
-However, for these scripts to work, I've had to add spaces within the `< >` elements.
-
-You MUST remove these spaces for it to work properly on your own README/TESTING files.
-Remove the spaces within the `< >` brackets for the `details` and `summary` code elements,
-for the Mobile, Tablet, and Desktop wireframes.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
 I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
 ### Mobile Wireframes
 
-< details >
-< summary > Click here to see the Mobile Wireframes < / summary >
-
-Home
-  - ![screenshot](documentation/wireframes/mobile-home.png)
-
-About
-  - ![screenshot](documentation/wireframes/mobile-about.png)
-
-Contact
-  - ![screenshot](documentation/wireframes/mobile-contact.png)
-
-Gallery
-  - ![screenshot](documentation/wireframes/mobile-gallery.png)
-
-etc.
-  - repeat for any remaining mobile wireframes
-
-< / details >
+| Log In / Register | Homepage | Homepage Showing Detail | Homepage Expanded Menu | Wish List Showing Detail | Add/Edit | Add/Edit Expanded Menu | Add/Edit Confirmation | Staff Member Homepage Expanded Menu | Staff Member Add/Edit | Staff Member Add/Edit Expanded Menu |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| ![wireframe](documentation/wireframes/mobile/mobile_login_register.png "Log In / Register") | ![wireframe](documentation/wireframes/mobile/mobile_userhomepage.png "Homepage") | ![wireframe](documentation/wireframes/mobile/mobile_userhomepage_collection_showing_detail.png "Homepage Showing Detail") | ![wireframe](documentation/wireframes/mobile/mobile_userhomepage_fab_tapped.png "Expanded Menu") | ![wireframe](documentation/wireframes/mobile/mobile_userhomepage_wishlist_showing_detail.png "Wish List Showing Detail") | ![wireframe](documentation/wireframes/mobile/mobile_add_edit.png "Add/Edit") | ![wireframe](documentation/wireframes/mobile/mobile_add_edit_fab_tapped.png "Add/Edit Expanded Menu") | ![wireframe](documentation/wireframes/mobile/mobile_add_edit_confirmation.png "Add/Edit Confirmation") | ![wireframe](documentation/wireframes/mobile/mobile_superuserhomepage_fab_tapped.png "Staff Member Homepage Expanded Menu") | ![wireframe](documentation/wireframes/mobile/mobile_add_superuserfeatures.png "Staff Member Add/Edit") | ![wireframe](documentation/wireframes/mobile/mobile_add_superuserfeatures_fab_tapped.png "Staff Member Add/Edit Expanded Menu") |
 
 ### Tablet Wireframes
 
-< details >
-< summary > Click here to see the Tablet Wireframes < / summary >
-
-Home
-  - ![screenshot](documentation/wireframes/tablet-home.png)
-
-About
-  - ![screenshot](documentation/wireframes/tablet-about.png)
-
-Contact
-  - ![screenshot](documentation/wireframes/tablet-contact.png)
-
-Gallery
-  - ![screenshot](documentation/wireframes/tablet-gallery.png)
-
-etc.
-  - repeat for any remaining tablet wireframes
-
-< / details >
+| Log In / Register | Homepage | Homepage Showing Detail | Homepage Expanded Menu | Wish List Showing Detail | Add/Edit | Add/Edit Expanded Menu | Add/Edit Confirmation | Staff Member Homepage Expanded Menu | Staff Member Add/Edit | Staff Member Add/Edit Expanded Menu |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| ![wireframe](documentation/wireframes/tablet/tablet_login_register.png "Log In / Register") | ![wireframe](documentation/wireframes/tablet/tablet_userhomepage.png "Homepage") | ![wireframe](documentation/wireframes/tablet/tablet_userhomepage_collection_showing_detail.png "Homepage Showing Detail") | ![wireframe](documentation/wireframes/tablet/tablet_userhomepage_fab_tapped.png "Expanded Menu") | ![wireframe](documentation/wireframes/tablet/tablet_userhomepage_wishlist_showing_detail.png "Wish List Showing Detail") | ![wireframe](documentation/wireframes/tablet/tablet_add_edit.png "Add/Edit") | ![wireframe](documentation/wireframes/tablet/tablet_add_edit_fab_tapped.png "Add/Edit Expanded Menu") | ![wireframe](documentation/wireframes/tablet/tablet_add_edit_confirmation.png "Add/Edit Confirmation") | ![wireframe](documentation/wireframes/tablet/tablet_superuserhomepage_fab_tapped.png "Staff Member Homepage Expanded Menu") | ![wireframe](documentation/wireframes/tablet/tablet_add_superuserfeatures.png "Staff Member Add/Edit") | ![wireframe](documentation/wireframes/tablet/tablet_add_superuserfeatures_fab_tapped.png "Staff Member Add/Edit Expanded Menu") |
 
 ### Desktop Wireframes
 
-< details >
-< summary > Click here to see the Desktop Wireframes < / summary >
-
-Home
-  - ![screenshot](documentation/wireframes/desktop-home.png)
-
-About
-  - ![screenshot](documentation/wireframes/desktop-about.png)
-
-Contact
-  - ![screenshot](documentation/wireframes/desktop-contact.png)
-
-Gallery
-  - ![screenshot](documentation/wireframes/desktop-gallery.png)
-
-etc.
-  - repeat for any remaining desktop wireframes
-
-< / details >
+| Log In / Register | Homepage | Homepage Showing Detail | Homepage Expanded Menu | Wish List Showing Detail | Add/Edit | Add/Edit Expanded Menu | Add/Edit Confirmation | Staff Member Homepage Expanded Menu | Staff Member Add/Edit | Staff Member Add/Edit Expanded Menu |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| ![wireframe](documentation/wireframes/browser/browser_login_register.png "Log In / Register") | ![wireframe](documentation/wireframes/browser/browser_userhomepage.png "Homepage") | ![wireframe](documentation/wireframes/browser/browser_userhomepage_collection_showing_detail.png "Homepage Showing Detail") | ![wireframe](documentation/wireframes/browser/browser_userhomepage_fab_tapped.png "Expanded Menu") | ![wireframe](documentation/wireframes/browser/browser_userhomepage_wishlist_showing_detail.png "Wish List Showing Detail") | ![wireframe](documentation/wireframes/browser/browser_add_edit.png "Add/Edit") | ![wireframe](documentation/wireframes/browser/browser_add_edit_fab_tapped.png "Add/Edit Expanded Menu") | ![wireframe](documentation/wireframes/browser/browser_add_edit_confirmation.png "Add/Edit Confirmation") | ![wireframe](documentation/wireframes/browser/browser_superuserhomepage_fab_tapped.png "Staff Member Homepage Expanded Menu") | ![wireframe](documentation/wireframes/browser/browser_add_superuserfeatures.png "Staff Member Add/Edit") | ![wireframe](documentation/wireframes/browser/browser_add_superuserfeatures_fab_tapped.png "Staff Member Add/Edit Expanded Menu") |
 
 ## Features
 
