@@ -4,13 +4,17 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/apeskinian/p4_watch-o-tron)](https://github.com/apeskinian/p4_watch-o-tron/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/apeskinian/p4_watch-o-tron)](https://github.com/apeskinian/p4_watch-o-tron)
 
-Watch-O-Tron is a handy tool to manage your watch collection. You can keep track of all the watches you have with details for each watch including make, model and if it's part of a particular brands collection. Movement details can also be stored with type and specific movement model details. If your watches have particular complications these can also be noted and are highlighted via handy icons when viewing your watches. An image can also be uploaded. Don't worry if you don't have all this information to hand for each watch! The only details required to store a watch are the make and movement type.
+**Watch-O-Tron: A Comprehensive Watch Collection Management Tool**
 
-You can also come back and edit watch details later as well as delete them and move them from one list to another.
+Watch-O-Tron is a versatile tool designed to efficiently manage your watch collection. It enables you to meticulously track all your watches, including detailed information such as make, model, and brand collection. Additionally, movement details can be stored, encompassing type and specific movement model information. For watches with intricate complications, these can be noted and highlighted with user-friendly icons during watch viewing. Furthermore, an image can be uploaded for each watch.
 
-As watch enthusiast's collection is never complete, you can keep track of watches you want to get in a wish list as well! Then when you finally make that purchase you can easily move the watch over to your collection with one button.
+While it is recommended to have all watch details readily available, the only essential information required to store a watch is it's make and movement type.
 
-Staff members also have access to the staff settings area which allows them to add edit and remove custom movements and list types. The default movements and lists cannot be edited though.
+Watch-O-Tron offers the flexibility to revisit and edit watch details at your convenience. You can also delete watches and transfer them between different lists.
+
+As watch enthusiasts often acquire new watches, Watch-O-Tron provides a convenient feature to add watches to a wish list for desired watches. Upon making a purchase, you can effortlessly transfer the watch to your collection by using the purchased button.
+
+Staff members also have access to the staff settings area, which grants them the ability to add, edit, and remove custom movements and list types. However, default movements and lists cannot be modified.
 
 ![screenshot](documentation/wot-mockup.png)
 
