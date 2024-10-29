@@ -27,7 +27,7 @@ def get_user_lists(user):
     return lists
 
 
-@login_required(login_url='accounts/login')
+# @login_required(login_url='accounts/login')
 def home(request, list_name='collection'):
     """
     Displays a users watches in the requested list :model:`watches.Watch` and
