@@ -21,7 +21,7 @@
 </header>
 <main>
     <div class="signup-container">
-        <div class="signup-box bg-secondary-subtle">
+        <div class="signup-box">
             <form method="POST" action="{% url 'account_signup' %}">
                 {% csrf_token%}
                 {{ form | crispy }}

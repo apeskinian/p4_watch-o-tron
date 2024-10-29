@@ -21,8 +21,8 @@
 </header>
 <main>
     <div class="logout-container">
-        <div class="account-box bg-secondary-subtle">
-            <p>{% trans "Are you sure you want to log out?" %}</p>
+        <div class="account-box">
+            <p>{% trans "Are you sure you want to sign out?" %}</p>
             <form method="POST" action="{% url 'account_logout' %}">
                 {% csrf_token %}
                 {{ form | crispy }}

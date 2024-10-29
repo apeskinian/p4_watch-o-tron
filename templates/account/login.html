@@ -22,7 +22,7 @@
 </header>
 <main>
     <div class="login-container">
-        <div class="account-box bg-secondary-subtle">
+        <div class="account-box">
             <form method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form | crispy }}
