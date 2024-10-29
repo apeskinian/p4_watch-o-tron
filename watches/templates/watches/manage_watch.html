@@ -51,7 +51,7 @@
                     <!-- end of watch form -->
                     <div class="d-flex justify-content-center gap-2">
                         {% with mode_content=mode|yesno:'Watch addition,Watch editing' %}
-                        <a href="{% url 'cancel_process' mode_content origin %}" class="btn-watch-edit btn btn-danger">Cancel</a>
+                        <a href="{% url 'cancel_process' mode_content origin %}" class="btn-watch-edit btn btn-primary">Cancel</a>
                         {% endwith %}
                         <button type="button" id="btn-edit" class="btn-watch-edit btn btn-success">
                             {% if mode == 'edit' %}Update Watch{% else %}Add Watch{% endif %}
@@ -129,7 +129,7 @@
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     {% with mode_content=mode|yesno:'Watch addition,Watch editing' %}
-                    <a href="{% url 'cancel_process' mode_content origin %}" class="btn btn-danger">Cancel</a>
+                    <a href="{% url 'cancel_process' mode_content origin %}" class="btn btn-primary">Cancel</a>
                     {% endwith %}
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Edit</button>
                     <button type="button" class="btn btn-success" id="watch-modal-confirm">Confirm</button>

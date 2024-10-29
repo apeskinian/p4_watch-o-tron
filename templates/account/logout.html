@@ -29,7 +29,7 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
                 {% endif %}
-                <div class="text-center">
+                <div class="d-flex justify-content-center gap-2">
                     <button class="btn btn-danger" type="submit">{% trans "Sign Out" %}</button>
                     <a href="{% url 'cancel_process' 'Logout' 'home' %}" class="btn btn-primary">{% trans "Cancel" %}</a>
                 </div>

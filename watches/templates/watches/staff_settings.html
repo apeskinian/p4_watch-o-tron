@@ -114,10 +114,12 @@
                                     {% else %} {{ associated }} watches
                                     {% endif %} will be {% if edit_form %}affected{% elif to_delete %}deleted{% endif %} by this change.
                                 </p>
-                                {% with content=edit_form|yesno:'Edit,Delete' %}
-                                    <a href="{% url 'cancel_process' content 'staff_settings' %}" class="btn btn-primary" aria-label="Close">Cancel</a>
-                                {% endwith %}
-                                <button type="submit" class="btn {% if edit_form %}btn-success{% elif to_delete %}btn-danger{% endif %}">{% if edit_form %}Amend{% elif to_delete %}Delete{% endif %}</button>
+                                <div class="d-flex justify-content-center gap-2">
+                                    {% with content=edit_form|yesno:'Edit,Delete' %}
+                                        <a href="{% url 'cancel_process' content 'staff_settings' %}" class="btn btn-primary" aria-label="Close">Cancel</a>
+                                    {% endwith %}
+                                    <button type="submit" class="btn {% if edit_form %}btn-success{% elif to_delete %}btn-danger{% endif %}">{% if edit_form %}Amend{% elif to_delete %}Delete{% endif %}</button>
+                                </div>
                             </div>
                         </form>
                     </div>
