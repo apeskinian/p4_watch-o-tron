@@ -98,35 +98,45 @@ Some icons from [Font Awesome](https://fontawesome.com) were used and some were 
 
 ## User Stories
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-In this section, list all of your user stories for the project.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ### New Site Users
 
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
+- As a new site user I can sign up for an account so that I can login and use the app.
 
 ### Returning Site Users
 
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
+- As a site user I can log in so that I can use the app.
+- As a site user I can logout so that I can keep my data private.
+- As a site user I am notified on successful login and logout so that I know that I know that I am logged in or out.
+- As a site user I can view my watch collection so that I can view images and details of the watches I own.
+- As a site user I can view my wish list so that I can see what watches I want or plan my next purchase.
+- As a site user I can view watches that I have placed in potentially added new list types so that see the watch details for this list.
+- As a site user I can see the details of each watch so that I can find out more information about them.
+- As a site user I am notified when I have switched views to a new list so that I know which list I am viewing.
+- As a site user I can add a new watch so that I ca see it in my collection or wish list.
+- As a site user I am asked to confirm new watch details I entered are correct so that no accidental erroneous data is saved.
+- As a site user I am notified when a watch has been added successfully so that I know the addition was successful or not.
+- As a site user I can see a spinner when I click add watch so that I know something is happening.
+- As a site user I should be prompted to confirm watch deletions so that I do not delete watches by accident.
+- As a site user I can edit stored watches in my collection so that I can add more detail or update existing information.
+- As a site user I can move a watch in my wish list to my collection so that I know that I have purchased it.
+- As a site user I can delete a watch from the wish list so that I can update my wish list should I no longer want a particular watch.
+- As a site user I can delete a watch from a new list type so that I can update this list when I no longer want the watch to appear in it.
+- As a site user I can edit stored watches in my wish list so that I can add more detail or update existing information.
+- As a site user I can edit stored watches in a new list type so that I can add more detail or update existing information.
+- As a site user I can delete a watch from a my collection so that update my lists if I no longer own a particular watch.
+- As a site user I should be prompted to confirm alterations so that edits are correct.
+- As a site user I should be asked to confirm when I set a watch as purchased so that I don't accidentally move a watch to my collection if I haven't bought it.
+- As a site user I am notified after editing and deleting watches so that I know if the process was successful.
+- As a site user I am notified when I move a watch to the collection so that it is confirmed whether the process was successful.
+- As a site user I can see a spinner when I confirm a watch edit so that I know something is happening.
+
+### Staff Member
+
+- As a client I can login as a staff member so that I can add potential new important options for users.
 
 ### Site Admin
 
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
+- As a site admin I can log in as a super user so that I can access the admin panel.
 
 ## Wireframes
 
