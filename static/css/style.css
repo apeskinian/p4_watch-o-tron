@@ -49,18 +49,18 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: #FFF;
     box-shadow: 0 -0.5px 0.5px 0.5px lightgray;
 }
 
 .signature-footer {
     font-size: 1.2rem;
-    background-color: white;
+    background-color: #FFF;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 56px;
-    box-shadow: 0px -0.5px 0.5px 0.5px lightgray;
+    box-shadow: 0px -0.5px 0.5px 0.5px #d3d3d3;
 }
 /* GENERAL ->END<- */
 
@@ -68,7 +68,7 @@ main {
 /* mobile navbar shown at the bottom */
 #bottom-nav-mobile {
     min-height: 56px;
-    box-shadow: 0 -0.5px 0.5px 0.5px lightgray;
+    box-shadow: 0 -0.5px 0.5px 0.5px #d3d3d3;
 }
 
 .burger-menu-button {
@@ -132,7 +132,7 @@ main {
 
 .top-nav {
     height: 56px;
-    box-shadow: 0px 0.5px 0.5px 0.5px lightgray;
+    box-shadow: 0px 0.5px 0.5px 0.5px #d3d3d3;
 }
 /* NAVBARS ->END<- */
 
@@ -150,11 +150,11 @@ main {
 /* LOGIN-LOGOUT-SIGNUP */
 .account-header {
     height: 56px;
-    background-color: white;
+    background-color: #FFF;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 0.5px 0.5px 0.5px lightgray;
+    box-shadow: 0px 0.5px 0.5px 0.5px #d3d3d3;
 }
 
 .account-box {
@@ -198,10 +198,10 @@ main {
     position: fixed;
     bottom: 56px;
     padding: 12px;
-    background-color: white;
+    background-color: #FFF;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    box-shadow: 0px -0.5px 0.5px 0.5px lightgray;
+    box-shadow: 0px -0.5px 0.5px 0.5px #d3d3d3;
     z-index: 10000;
 }
 

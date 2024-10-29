@@ -22,78 +22,80 @@ Template source: [mockupworld](https://www.mockupworld.co/free/set-of-clean-appl
 
 ## UX
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
+#### Strategy
+Create a feature rich web app for watch enthusiasts which enables them to manage and track their collections.
 
-In this section, you will briefly explain your design processes.
+#### Scope
+Features I wanted to include were:
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+  - Separate accounts for every user so their collection remains private.
+  - The ability for a user to add watches to the app with accompanying details.
+  - Have a collection and wish list section to enable grouping of watches.
+  - The ability to edit and delete watches.
+  - Be able to move watches from a wish list to a collection in a simple step.
+  - Have a staff level user which gives them access to a settings page to add, edit and remove custom movements and lists.
+  - Some Easter eggs for users to find.
+
+#### Structure
+The site would be based around a main home page that displays a users watches. Mobile users will navigate the site via a pop up menu situated at the bottom of the screen for easier access. When viewed on larger screens the navigation will move to the top. Available lists will be clickable with the current list being highlighted. When a user selects a new list the page will update and display the watches in the newly selected list. The default lists are "Collection" and 'Wish List", these will always be available to view. Any other lists created by staff will only be available to view if the user has added watches to them.
+
+The button to add a watch will be easily accessible via the menu on mobile devices and at the bottom of screen larger devices. Adding and editing a watch will present a new page to the user specifically for data input. When they submit the new watch info it is presented back to them for confirmation before being added to a chosen list.
+
+The user will also have confirmation of their login displayed along with a button to logout.
+
+If the user is staff level or super user they will be informed and also have extra navigation options. Staff members will have access to the staff settings page and super users will have access to the staff settings and additionally the Django admin panel for the site.
+
+The staff settings page will have tables to show the current movements and lists available for users. Staff members can add, edit and delete any new movements or lists created. The default lists "Collection" and "Wish List" cannot be changed or deleted. Also the default movement types cannot be changed or deleted. The staff settings page enables a client to update the app in response to users requests.
+
+#### Skeleton
+In the wireframing process I decided the navigation should be simple and remain constant throughout the site where possible. Having navigation on the bottom for mobile devices makes it easier for the user to interact with while keeping the screen visible. The navigation would move to the top for larger screens for a more traditional layout. Clicking on a watch will present you with the action buttons for each watch. An edit logo on the image and cursor change will indicate that this can be done.
 
 ### Colour Scheme
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
+Because watches come in a multitude of colours and patterns, I decided to go with a neutral monochrome scheme for the site with only the action buttons and main logo having colour. This in turn creates a personal colour scheme for each user as the images of the watches they upload will influence the colour scheme of the site.
 
-Explain your colours and the colour scheme.
+For the action buttons I used the Bootstrap 5 standard colour schemes trying keeping each colour to a specific type of action. This would lead the user naturally to each button when presented, depending on what they wanted to do.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+| Colour Ref | Site Elements |
+| --- | --- |
+| `rgb(220, 220, 220)` | Main site background |
+| `#FFF` | Navigation background |
+| `rgb(240, 240, 240)` | Mobile nav item backgrounds |
+| `rgb(220, 220, 220)` | Mobile active nav item background |
+| `rgb(220, 220, 220)` | Edit modal background |
+| `rgb(240, 240, 240)` | Login / Logout / Signup content background |
+| `rgb(240, 240, 240)` | Staff settings content background |
+| `#CC0000` | Main logo clock hands |
 
-- `#000000` used for primary text.
-- `#E84610` used for primary highlights.
-- `#4A4A4F` used for secondary text.
-- `#009FE3` used for secondary highlights.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
-
-Consider adding a link and screenshot for your colour scheme using "coolors".
-https://coolors.co/generate
-
-When you add a colour to the palette, the URL is dynamically updated, making it easier for you to return back to your colour palette later if needed.
-
-Example:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-I used [coolors.co](https://coolors.co/e84610-009fe3-4a4a4f-445261-d63649-e6ecf0-000000) to generate my colour palette.
-
-![screenshot](documentation/coolors.png)
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
-
-⚠️ ONLY IF YOU ACTUALLY ADDED `:root` variables in CSS! ⚠️
-If you've used CSS `:root` variables, consider also including a code snippet here!
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-I've used CSS `:root` variables to easily update the global colour scheme by changing only one value, instead of everywhere in the CSS file.
-
-```css
-:root {
-    /* P = Primary | S = Secondary */
-    --p-text: #000000;
-    --p-highlight: #E84610;
-    --s-text: #4A4A4F;
-    --s-highlight: #009FE3;
-    --white: #FFFFFF;
-    --black: #000000;
-}
-```
+| Colour Ref | Buttons | Action Type |
+| --- | --- | --- |
+| bootstrap `danger` | Sign Out / Delete buttons | Destructive |
+| bootstrap `success` | Sign In / Add a Watch / Add / Confirm / Amend buttons | Constructive |
+| bootstrap `primary` | Sign Up / Staff Settings / Purchased / Cancel buttons | Progress |
+| bootstrap `warning` | Edit buttons | Alteration |
+| bootstrap `secondary` | Admin Panel button | Admin |
 
 ### Typography
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
+- [Ubuntu Mono](https://fonts.google.com/specimen/Ubuntu+Mono) was used for the main logo and buttons.
 
-Explain any fonts and icon libraries used, like Google Fonts and/or Font Awesome.
+- [Source Sans 3](https://fonts.google.com/specimen/Source+Sans+3) was used for all other text.
 
-Consider adding a link to each font used, and the Font Awesome site if used (or similar icon library).
+- [Font Awesome](https://fontawesome.com) icons were used for the mobile navigation menu icon, pagination icons and watch edit indicator.
 
-Example:
+#### Complication Icons
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
-
-- [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
-
-- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
+Some icons from [Font Awesome](https://fontawesome.com) were used and some were create by myself.
+| Complication | Source |
+| --- | --- |
+| Chronograph | [Font Awesome](https://fontawesome.com/icons/stopwatch?f=classic&s=solid) |
+| Day | Custom |
+| Date | Custom |
+| GMT | [Font Awesome](https://fontawesome.com/icons/plane?f=classic&s=solid) |
+| World Timer | [Font Awesome](https://fontawesome.com/icons/earth-americas?f=classic&s=solid) |
+| Moonphase | Custom |
+| Power Reserve | Custom |
+| Tourbillon | Custom |
 
 ## User Stories
 
