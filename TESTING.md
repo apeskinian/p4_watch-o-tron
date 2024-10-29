@@ -59,6 +59,55 @@ You are not required to validate external libraries/frameworks, such as imported
 
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
+### HTML
+
+I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
+
+| Directory | File | Screenshot | Notes |
+| --- | --- | --- | --- |
+| templates | 404.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| templates | base_manage.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| templates | usersession_list.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watches | index.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watches | manage_watch.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watches | staff_settings.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+
+### CSS
+
+I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
+
+| Directory | File | Screenshot | Notes |
+| --- | --- | --- | --- |
+| static | clockface.css | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| static | style.css | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+
+### JavaScript
+
+I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JS files.
+
+| Directory | File | Screenshot | Notes |
+| --- | --- | --- | --- |
+| static | base_script.js | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| static | edit_watch_script.js | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| static | staff_settings_script.js | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| static | watch_script.js | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+
+### Python
+
+I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files.
+
+| Directory | File | CI URL | Screenshot | Notes |
+| --- | --- | --- | --- | --- |
+|  | manage.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/manage.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watches | admin.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/admin.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watches | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/forms.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watches | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/models.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watches | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/urls.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watches | moons.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/utils/moons.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watches | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/views.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watchotron | settings.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watchotron/settings.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watchotron | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watchotron/urls.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+
 ## Browser Compatibility
 
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
