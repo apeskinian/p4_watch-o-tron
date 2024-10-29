@@ -7,6 +7,7 @@ from .models import Watch, WatchList, WatchMovement
 from .forms import WatchForm, MovementForm, ListForm
 from .utils.moons import moonphase
 import datetime
+from django.contrib.auth.models import User
 
 
 def get_user_lists(user):
@@ -54,7 +55,8 @@ def home(request, list_name='collection'):
     **Template:**
     :template:`watches/home.html`
     """
-    lists = get_user_lists(request.user)
+    user = User.objects.get(username='Matthew')
+    lists = get_user_lists(user)
 
     watches = Watch.objects.filter(
         owner=request.user,
