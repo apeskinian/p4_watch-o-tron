@@ -15,7 +15,9 @@ def get_user_lists(user):
     ``list``
         A queryset of all list object that the user has watches in.
     """
-    default_lists = WatchList.objects.filter(list_name__in=['collection', 'wish-list'])
+    default_lists = WatchList.objects.filter(
+        list_name__in=['collection', 'wish-list']
+    )
     user_watches = Watch.objects.filter(owner=user)
     user_lists = WatchList.objects.filter(watch_list__in=user_watches).exclude(
         list_name__in=['collection', 'wish-list']
@@ -94,7 +96,7 @@ def home(request, list_name='collection'):
             f'Switched to {current_list.friendly_name}'
         )
 
-    return render(request, 'watches/home.html', context)
+    return render(request, 'watches/index.html', context)
 
 
 @login_required(login_url='accounts/login')
