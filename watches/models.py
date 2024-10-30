@@ -21,6 +21,7 @@ class WatchList(models.Model):
         return self.friendly_name
 
     def save(self, *args, **kwargs):
+        # creating url friendly name from user entered friendly_name
         self.list_name = slugify(self.friendly_name)
         super().save(*args, **kwargs)
 
