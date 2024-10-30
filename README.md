@@ -683,71 +683,44 @@ There are no differences between the local and deployed version of the site.
 
 ## Credits
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-In this section you need to reference where you got your content, media, and extra help from.
-It is common practice to use code from other repositories and tutorials,
-however, it is important to be very specific about these sources to avoid plagiarism.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ### Content
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to provide attribution links to any borrowed code snippets, elements, or resources.
-A few examples have been provided below to give you some ideas.
-
-Ideally, you should provide an actual link to every resource used, not just a generic link to the main site!
-
-⚠️⚠️ EXAMPLE LINKS - REPLACE WITH YOUR OWN ⚠️⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 | Source | Location | Notes |
 | --- | --- | --- |
 | [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
-| [Chris Beams](https://chris.beams.io/posts/git-commit) | version control | "How to Write a Git Commit Message" |
-| [W3Schools](https://www.w3schools.com/howto/howto_js_topnav_responsive.asp) | entire site | responsive HTML/CSS/JS navbar |
-| [W3Schools](https://www.w3schools.com/howto/howto_css_modals.asp) | contact page | interactive pop-up (modal) |
-| [W3Schools](https://www.w3schools.com/css/css3_variables.asp) | entire site | how to use CSS :root variables |
-| [Flexbox Froggy](https://flexboxfroggy.com/) | entire site | modern responsive layouts |
-| [Grid Garden](https://cssgridgarden.com) | entire site | modern responsive layouts |
-| [StackOverflow](https://stackoverflow.com/a/2450976) | quiz page | Fisher-Yates/Knuth shuffle in JS |
-| [YouTube](https://www.youtube.com/watch?v=YL1F4dCUlLc) | leaderboard | using `localStorage()` in JS for high scores |
-| [YouTube](https://www.youtube.com/watch?v=u51Zjlnui4Y) | PP3 terminal | tutorial for adding color to the Python terminal |
-| [strftime](https://strftime.org) | CRUD functionality | helpful tool to format date/time from string |
+| [Bootrap Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) | entire site | using bootstrap |
+| [Medium - How to Style Your Django Forms](https://medium.com/swlh/how-to-style-your-django-forms-7e8463aae4fa) | manage watch forms | help on manually styling Django forms |
+| [Stack Overflow](https://stackoverflow.com/questions/52803129/how-to-add-django-template-variable-in-img-src) | entire site | adding django template variable to <img src> |
+| [Codepen](https://codepen.io/dope/pen/KJYMZz) | clock in main logo | base code for working clock |
+| [PyPI](https://pypi.org/project/ephem/) | watch object moonphase icons | package that provides current moonphase angle |
+| [Cloudinary](https://cloudinary.com/) | entire site | hosting user uploaded images |
 | [WhiteNoise](http://whitenoise.evans.io) | entire site | hosting static files on Heroku temporarily |
 
 ### Media
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to provide attribution links to any images, videos, or audio files borrowed from online.
-A few examples have been provided below to give you some ideas.
-
-If you're the owner (or a close acquaintance) of all media files, then make sure to specify this.
-Let the assessors know that you have explicit rights to use the media files within your project.
-
-Ideally, you should provide an actual link to every media file used, not just a generic link to the main site!
-The list below is by no means exhaustive. Within the Code Institute Slack community, you can find more "free media" links
-by sending yourself the following command: `!freemedia`.
-
-⚠️⚠️ EXAMPLE LINKS - REPLACE WITH YOUR OWN ⚠️⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 | Source | Location | Type | Notes |
 | --- | --- | --- | --- |
-| [Pexels](https://www.pexels.com) | entire site | image | favicon on all pages |
-| [Lorem Picsum](https://picsum.photos) | home page | image | hero image background |
-| [Unsplash](https://unsplash.com) | product page | image | sample of fake products |
-| [Pixabay](https://pixabay.com) | gallery page | image | group of photos for gallery |
-| [Wallhere](https://wallhere.com) | footer | image | background wallpaper image in the footer |
-| [This Person Does Not Exist](https://thispersondoesnotexist.com) | testimonials | image | headshots of fake testimonial images |
-| [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
-| [Videvo](https://www.videvo.net/) | home page | video | background video on the hero section |
-| [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
+| [Favicon Generator](https://favicon.io/favicon-converter/) | entire site | favicon | icon generated from my own png |
+| [Vecteezy](https://www.vecteezy.com/vector-art/25751307-wrist-watch-vector-silhouette-illustration) | watch objects | image | placeholder image for watches |
+| [Font Awesome](https://fontawesome.com/icons/stopwatch?f=classic&s=solid) | watch objects | image | chronograph complication icon |
+| [Font Awesome](https://fontawesome.com/icons/plane?f=classic&s=solid) | watch objects | image | gmt complication icon |
+| [Font Awesome](https://fontawesome.com/icons/earth-americas?f=classic&s=solid) | watch objects | image | world timer complication icon |
+| [Clop Image Optimization](https://lowtechguys.com/clop/) | entire site | software | used to optimise all media |
+| [Cleanshot X](https://cleanshot.com/) | README and TESTING | software | used for screenshots and video capture |
+
+#### Custom Media
+
+The following elements were created by myself.
+
+| Element | Location | Notes |
+| --- | --- | --- |
+| Favicon | favicon for all pages | I created the png that was uploaded to [Favicon Generator](https://favicon.io/favicon-converter/) |
+| Day Complication icon | watch objects | 31 variants that change dynamically based on the current day |
+| Date Complication icon | watch objects | 7 variants that change dynamically based on the current date |
+| Moonphase Complication icon | watch objects | 8 variants that change dynamically based on the current moonphase |
+| Power Reserve Complication icon | watch objects |  |
+| Tourbillon Complication icon | watch objects |  |
+
 
 ### Acknowledgements
 
