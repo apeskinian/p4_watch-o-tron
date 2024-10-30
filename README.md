@@ -466,8 +466,6 @@ git
 source: [medium.com](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
 
 
-
-
 ## Agile Development Process
 
 ### GitHub Projects
