@@ -196,9 +196,9 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     | :---: | :---: | :---: |
     | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_in.png "watch-o-tron sign in") | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_up.png "watch-o-tron sign up") | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out.png "watch-o-tron sign out") |
 
-    | Sign Out Button Desktop | Sign Out Button Mobile |
+    | Sign Out Button Mobile | Sign Out Button Desktop |
     | :---: | :---: |
-    | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_desktop.png "watch-o-tron sign out button desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_mobile.png "watch-o-tron sign out button mobile") |
+    | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_mobile.png "watch-o-tron sign out button mobile") | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_desktop.png "watch-o-tron sign out button desktop") |
 
     #### Different Account Levels
 
@@ -229,8 +229,41 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     |  | User | Staff Member | Super User |
     | :---: | :---: | :---: | :---: |
-    | **Desktop** | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_desktop.png "watch-o-tron user logged in desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_staff_logged_in_desktop.png "watch-o-tron staff member logged in desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_admin_logged_in_desktop.png "watch-o-tron admin logged in desktop") |
     | **Mobile** | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_mobile.png "watch-o-tron user logged in mobile") | ![screenshot](documentation/features/accounts/wot_feature_accounts_staff_logged_in_mobile.png "watch-o-tron staff member logged in mobile") | ![screenshot](documentation/features/accounts/wot_feature_accounts_admin_logged_in_mobile.png "watch-o-tron admin logged in mobile") |
+    | **Desktop** | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_desktop.png "watch-o-tron user logged in desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_staff_logged_in_desktop.png "watch-o-tron staff member logged in desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_admin_logged_in_desktop.png "watch-o-tron admin logged in desktop") |
+
+- ### Site Navigation
+
+    **Note:** tapping/clicking on the main logo will bring you back to the home page on both mobile and desktop versions.
+
+    #### Mobile
+    Most navigation of the site on a mobile device is done through the collapsing navbar at the bottom of the screen, from here you can:
+    - View all the lists you currently have watched stored in.
+    - Add a new watch.
+    - Logout.
+    - Access any user level specific pages.
+
+    If the current list of watches you are viewing contains more than 8 watches you will get a pagination navigation bar appear just above the menu.
+
+    To edit any watch you can tap anywhere on the watch to reveal the edit or delete buttons from which you can perform each action from. If the watch is in the wish list you will also get a 'purchase' option button.
+
+    | Mobile Navbar | Mobile Navbar Expanded | Mobile Pagination | Watch Edit Hidden | Watch Edit Revealed |
+    | :---: | :---: | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/nav/wot_features_nav_mobile_menu.png "watch-o-tron mobile navbar") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_menu_expanded.png "watch-o-tron mobile navbar expanded") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_pagination.png "watch-o-tron mobile pagination") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_edit_hidden.png "watch-o-tron mobile watch edit hidden") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_edit_shown.png "watch-o-tron watch edit revealed") |
+
+    #### Desktop
+    The main navigation for desktop devices is located at the top of the screen, from here you can:
+    - View all the lists you currently have watched stored in. Collection and Wish List are always visible, any extra custom lists are shown in the dropdown menu.
+    - Logout.
+    - Access any user level specific pages.
+
+    To add a watch, the button is located at the bottom of the screen in a prominant central position. If the current list of watches you are viewing contains more than 8 watches you will get a pagination navigation bar appear just above this button.
+
+    To edit any watch you can click anywhere on the watch to reveal the edit or delete buttons from which you can perform each action from. If the watch is in the wish list you will also get a 'purchase' option button.
+
+    | Desktop Navbar | Desktop Navbar Expanded | Desktop Add Watch | Desktop Pagination | Watch Edit Hidden | Watch Edit Revealed |
+    | :---: | :---: | :---: | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/nav/wot_features_nav_desktop_menu.png "watch-o-tron desktop navbar") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_menu_expanded.png "watch-o-tron desktop navbar expanded") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_add_watch.png "watch-o-tron desktop add watch") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_pagination.png "watch-o-tron desktop pagination") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_edit_hidden.png "watch-o-tron desktop watch edit hidden") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_edit_shown.png "watch-o-tron desktop watch edit revealed") |
 
 
 
