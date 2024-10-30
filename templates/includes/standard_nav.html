@@ -42,10 +42,10 @@
                 {% if user.is_superuser %}<span class="text-muted"> [admin]</span>{% endif %}
             </div>
             {% if user.is_staff %}
-            <div class="ms-2"><a href="{% url 'staff_settings' %}" class="btn btn-sm btn-primary">Staff Settings</a></div>
+            <div class="ms-2"><a href="{% url 'staff_settings' %}" class="btn btn-sm btn-primary" id="staff-btn"></a></div>
             {% endif %}
             {% if user.is_superuser %}
-            <div class="ms-2"><a href="{% url 'admin:index' %}" class="btn btn-sm btn-secondary">Admin Panel</a></div>
+            <div class="ms-2"><a href="{% url 'admin:index' %}" class="btn btn-sm btn-secondary" id="admin-btn"></a></div>
             {% endif %}
             <div class="ms-2"><a href="{{ logout_url }}" class="btn btn-sm btn-danger">Sign Out</a></div>
         </div>

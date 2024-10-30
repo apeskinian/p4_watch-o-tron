@@ -126,6 +126,14 @@ main {
     font-weight: 600;
 }
 
+#staff-btn::after {
+    content: "Settings";
+}
+
+#admin-btn::after {
+    content: "Admin";
+}
+
 .session-id-nav {
     display: none;
 }
@@ -382,7 +390,15 @@ main {
     /* STAFF SETTINGS ->END<- */
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1400px) {
+
+    #staff-btn::after {
+        content: "Staff Settings";
+    }
+    
+    #admin-btn::after {
+        content: "Admin Panel";
+    }
 
     .session-id-nav {
         display: block;
