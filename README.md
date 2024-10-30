@@ -265,7 +265,25 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     | :---: | :---: | :---: | :---: | :---: | :---: |
     | ![screenshot](documentation/features/nav/wot_features_nav_desktop_menu.png "watch-o-tron desktop navbar") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_menu_expanded.png "watch-o-tron desktop navbar expanded") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_add_watch.png "watch-o-tron desktop add watch") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_pagination.png "watch-o-tron desktop pagination") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_edit_hidden.png "watch-o-tron desktop watch edit hidden") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_edit_shown.png "watch-o-tron desktop watch edit revealed") |
 
+- ### Viewing Watches
 
+- ### Adding Watches
+
+- ### Purchased Watches
+
+- ### Editing Watches
+
+- ### Deleting Watches
+
+- ### Staff Member Access Privileges
+
+- ### Super User Access Privileges
+
+- ### Communication to User
+    #### Messaging
+    #### Working Spinner
+
+- ### Tooltips
 
 - ### Easter Eggs
 
