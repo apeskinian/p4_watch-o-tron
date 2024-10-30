@@ -190,7 +190,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     #### Individual Accounts
 
     - When you first navigate to the Watch-O-Tron you are required to log in or create an account. This is because every user needs their own account to use the site. This keeps their information private and stops anyone without authorisation editing their data. When logged in your username is displayed so that you know you are logged in to the correct account. Every page also has the log out button.
-
+    <br>
 
     | Sign In | Sign Up | Sign Out |
     | :---: | :---: | :---: |
