@@ -180,24 +180,60 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ### Existing Features
 
-- **YOUR-TITLE-FOR-FEATURE-#1**
+- ### Title and Logo
+    The title and logo remain in the same place throughout the site. Curious users may notice it is not always the same...
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    ![screenshot](documentation/features/logo/wot_feature_logo.png "watch-o-tron logo")
 
-![screenshot](documentation/features/feature01.png)
+- ### User Accounts
 
-- **YOUR-TITLE-FOR-FEATURE-#2**
+    #### Individual Accounts
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - When you first navigate to the Watch-O-Tron you are required to log in or create an account. This is because every user needs their own account to use the site. This keeps their information private and stops anyone without authorisation editing their data. When logged in your username is displayed so that you know you are logged in to the correct account. Every page also has the log out button.
 
-![screenshot](documentation/features/feature02.png)
+    | Sign In | Sign Up | Sign Out |
+    | --- | --- | --- |
+    | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_in.png "watch-o-tron sign in") | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_up.png "watch-o-tron sign up") | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out.png "watch-o-tron sign out") |
 
-- **YOUR-TITLE-FOR-FEATURE-#3**
+    | Sign Out Button Desktop | Sign Out Button Mobile |
+    | --- | --- |
+    | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_desktop.png "watch-o-tron sign out button desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_mobile.png "watch-o-tron sign out button mobile") |
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    #### Different Account Levels
 
-![screenshot](documentation/features/feature03.png)
+    - There are three levels of user each with different levels of access:
+        - **User**: this is the default level with the following privileges:
+            - Access their account.
+            - View their watches.
+            - Add a watch to any available list.
+            - Edit any of their watches.
+            - Delete any of their watches.
+        - **Staff Member**: this is the standard level that would be given to a client user. They have all the same privileges as User with the additions:
+            - Access to the staff settings page.
+            - Add a new custom movement type and list.
+            - Edit any custom movements or lists.
+            - Delete any custom movements or lists.
 
+            **Note:** staff members cannot edit or delete the default types of movement or list.
+        - **Super User**: this is the highest level and only for site administrators. In addition to User and Staff Member privileges they can:
+            - Access the Django Admin Panel.
+            - Create any type of user.
+            - Edit any user.
+            - Delete any user.
+            - Create new default movements or lists.
+            - Edit **any** movement or list.
+            - Delet **any** movement or list.
+    
+    If you are a staff member or super user (admin) it will be displayed next your username and you will be presented with extra buttons to access the appropriate settings given to you.
+
+    |  | User | Staff Member | Super User |
+    | --- | --- | --- | --- |
+    | Desktop | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_desktop.png "watch-o-tron user logged in desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_staff_logged_in_desktop.png "watch-o-tron staff member logged in desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_admin_logged_in_desktop.png "watch-o-tron admin logged in desktop") |
+    | Mobile | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_mobile.png "watch-o-tron user logged in mobile") | ![screenshot](documentation/features/accounts/wot_feature_accounts_staff_logged_in_mobile.png "watch-o-tron staff member logged in mobile") | ![screenshot](documentation/features/accounts/wot_feature_accounts_admin_logged_in_mobile.png "watch-o-tron admin logged in mobile") |
+
+
+
+- ### Easter Eggs
 
 ### Future Features
 
