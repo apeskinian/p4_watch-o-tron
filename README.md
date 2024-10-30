@@ -517,16 +517,6 @@ The GitHub projects helped keep track of this with the creation of a graph.
 
 ## Deployment
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-**IMPORTANT:**
-
-- ⚠️ DO NOT update the environment variables to your own! These should NOT be included in this file; just demo values! ⚠️
-- ⚠️ DO NOT update the environment variables to your own! These should NOT be included in this file; just demo values! ⚠️
-- ⚠️ DO NOT update the environment variables to your own! These should NOT be included in this file; just demo values! ⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 The live deployed application can be found deployed on [Heroku](https://apeskinian-watch-o-tron-f4512ce56f33.herokuapp.com).
 
 ### PostgreSQL Database
@@ -571,10 +561,13 @@ Deployment steps are as follows, after account setup:
 
 | Key | Value |
 | --- | --- |
-| `CLOUDINARY_URL` | user's own value |
 | `DATABASE_URL` | user's own value |
-| `DISABLE_COLLECTSTATIC` | 1 (*this is temporary, and can be removed for the final deployment*) |
 | `SECRET_KEY` | user's own value |
+| `CLOUDINARY_URL` | user's own value |
+| `CLOUDINARY_NAME` | user's own value |
+| `CLOUDINARY_API` | user's own value |
+| `CLOUDINARY_SECRET` | user's own value |
+| `DISABLE_COLLECTSTATIC` | 1 (*this is temporary, and can be removed for the final deployment*) |
 
 Heroku needs three additional files in order to deploy properly.
 
@@ -634,12 +627,15 @@ Sample `env.py` file:
 ```python
 import os
 
-os.environ.setdefault("CLOUDINARY_URL", "user's own value")
 os.environ.setdefault("DATABASE_URL", "user's own value")
 os.environ.setdefault("SECRET_KEY", "user's own value")
+os.environ.setdefault("CLOUDINARY_URL", "user's own value")
+os.environ.setdefault("CLOUDINARY_NAME", "user's own value")
+os.environ.setdefault("CLOUDINARY_API", "user's own value")
+os.environ.setdefault("CLOUDINARY_SECRET", "user's own value")
 
 # local environment only (do not include these in production/deployment!)
-os.environ.setdefault("DEBUG", "True")
+os.environ.setdefault("DEVELOPMENT", "True")
 ```
 
 Once the project is cloned or forked, in order to run it locally, you'll need to follow these steps:
@@ -683,11 +679,7 @@ You can fork this repository by using the following steps:
 
 ### Local VS Deployment
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to discuss any differences between the local version you've developed, and the live deployment site on Heroku.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+There are no differences between the local and deployed version of the site.
 
 ## Credits
 
