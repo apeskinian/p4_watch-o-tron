@@ -461,7 +461,7 @@ INSTALLED_APPS = [
 - dragged the new `erd.png` file into my `documentation/` folder
 - removed `'django_extensions',` from my `INSTALLED_APPS`
 - finally, in the terminal: `pip3 uninstall django-extensions pygraphviz -y`
-
+git
 ![erd](documentation/erd/generated_erd.png)
 source: [medium.com](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
 
@@ -477,13 +477,11 @@ It isn't a specialized tool, but with the right tags and project creation/issue 
 
 Through it, user stories, issues, and milestone tasks were planned, then tracked on a weekly basis using the basic Kanban board.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
+![screenshot](documentation/agile/wot_kanban.png "watch-o-tron kanban tracker")
 
-Consider adding a basic screenshot of your Projects Board.
+I also created an overview page where I could easily see at a glance the current progress in development. This allowed me to track start and finish dates along with adding prioritisation for bugs.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-![screenshot](documentation/gh-projects.png)
+![screenshot](documentation/agile/wot_overview.png)
 
 ### GitHub Issues
 
@@ -515,6 +513,10 @@ Using this approach, I was able to apply the MoSCow prioritization and labels to
 - **Should Have**: adds significant value, but not vital (*the rest ~20% of stories*)
 - **Could Have**: has small impact if left out (*20% of stories*)
 - **Won't Have**: not a priority for this iteration
+
+The GitHub projects helped keep track of this with the creation of a graph.
+
+![screenshot](documentation/agile/wot_moscow_graph.png "watch-o-tron moscow graph")
 
 ## Testing
 
