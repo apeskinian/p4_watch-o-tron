@@ -241,58 +241,123 @@ Consider adding any helpful links or notes to help remind you in the future, if 
 
 ## Tools & Technologies Used
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
+> [!NOTE]  
+> I have listed both Materialize and Bootstrap as CSS frameworks used. This is because my initial design used materialize as I wanted to use features such as card reveals and floating action buttons (seen in the wireframes). However it soon became apparent that using materialize was causing more issues as I got further into development. I therefore made the decision to switch over to Bootstrap for my CSS framework.
 
-In this section, you should explain the various tools and technologies used to develop the project.
-Make sure to put a link (where applicable) to the source, and explain what each was used for.
-Some examples have been provided, but this is just a sample only, your project might've used others.
-Feel free to delete any unused items below as necessary.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- ⚠️⚠️ REQUIRED <-- delete me ⚠️⚠️
 - [![Markdown Builder](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://tim.2bn.dev/markdown-builder) used to generate README and TESTING templates.
 - [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
 - [![GitHub](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) used for secure online code storage.
-- ⚠️⚠️ IDE: CHOOSE ONLY ONE <-- delete me ⚠️⚠️
 - [![Gitpod](https://img.shields.io/badge/Gitpod-grey?logo=gitpod&logoColor=FFAE33)](https://gitpod.io) used as a cloud-based IDE for development.
-- [![Codeanywhere](https://img.shields.io/badge/Codeanywhere-grey?logo=ebox&logoColor=7F3F98)](https://codeanywhere.com) used as a cloud-based IDE for development.
-- [![VSCode](https://img.shields.io/badge/VSCode-grey?logo=visualstudiocode&logoColor=007ACC)](https://code.visualstudio.com) used as my local IDE for development.
-- ⚠️⚠️ LANGUAGES: CHOOSE ALL APPLICABLE <-- delete me ⚠️⚠️
 - [![HTML](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) used for the main site content.
 - [![CSS](https://img.shields.io/badge/CSS-grey?logo=css3&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
 - [![JavaScript](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com) used for user interaction on the site.
-- [![jQuery](https://img.shields.io/badge/jQuery-grey?logo=jquery&logoColor=0769AD)](https://jquery.com) used for user interaction on the site.
 - [![Python](https://img.shields.io/badge/Python-grey?logo=python&logoColor=3776AB)](https://www.python.org) used as the back-end programming language.
-- ⚠️⚠️ DEPLOYMENT: CHOOSE ONLY ONE <-- delete me ⚠️⚠️
-- [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-grey?logo=githubpages&logoColor=222222)](https://pages.github.com) used for hosting the deployed front-end site.
 - [![Heroku](https://img.shields.io/badge/Heroku-grey?logo=heroku&logoColor=430098)](https://www.heroku.com) used for hosting the deployed back-end site.
-- ⚠️⚠️ CSS FRAMEWORKS: CHOOSE ONLY ONE (if applicable) <-- delete me ⚠️⚠️
 - [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
 - [![Materialize](https://img.shields.io/badge/Materialize-grey?logo=materialdesign&logoColor=F5A5A8)](https://materializecss.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
-- ⚠️⚠️ MISCELLANEOUS: CHOOSE ALL APPLICABLE <-- delete me ⚠️⚠️
-- [![Google Sheets](https://img.shields.io/badge/Google_Sheets-grey?logo=googlesheets&logoColor=34A853)](https://docs.google.com/spreadsheets) used for storing data from my Python app.
-- [![Jest](https://img.shields.io/badge/Jest-grey?logo=jest&logoColor=c21325)](https://jestjs.io) used for automated JavaScript testing.
-- [![Flask](https://img.shields.io/badge/Flask-grey?logo=flask&logoColor=000000)](https://flask.palletsprojects.com) used as the Python framework for the site.
-- [![MongoDB](https://img.shields.io/badge/MongoDB-grey?logo=mongodb&logoColor=47A248)](https://www.mongodb.com) used as the non-relational database management with Flask.
-- [![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-grey?logo=sqlalchemy&logoColor=D71F00)](https://www.sqlalchemy.org) used as the relational database management with Flask.
 - [![Django](https://img.shields.io/badge/Django-grey?logo=django&logoColor=092E20)](https://www.djangoproject.com) used as the Python framework for the site.
-- [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-grey?logo=postgresql&logoColor=4169E1)](https://www.postgresql.org) used as the relational database management.
 - [![PostgreSQL by Code Institute](https://img.shields.io/badge/PostgreSQL_by_Code_Institute-grey?logo=okta&logoColor=F05223)](https://dbs.ci-dbs.net) used as the Postgres database from Code Institute.
-- [![ElephantSQL](https://img.shields.io/badge/ElephantSQL-grey?logo=postgresql&logoColor=36A6E2)](https://www.elephantsql.com) used as the Postgres database.
 - [![Cloudinary](https://img.shields.io/badge/Cloudinary-grey?logo=cloudinary&logoColor=3448C5)](https://cloudinary.com) used for online static file storage.
 - [![WhiteNoise](https://img.shields.io/badge/WhiteNoise-grey?logo=python&logoColor=FFFFFF)](https://whitenoise.readthedocs.io) used for serving static files with Heroku.
-- [![Stripe](https://img.shields.io/badge/Stripe-grey?logo=stripe&logoColor=008CDD)](https://stripe.com) used for online secure payments of ecommerce products/services.
-- [![Gmail API](https://img.shields.io/badge/Gmail_API-grey?logo=gmail&logoColor=EA4335)](https://mail.google.com) used for sending emails in my application.
-- [![MailChimp](https://img.shields.io/badge/MailChimp-grey?logo=mailchimp&logoColor=FFE01B)](https://mailchimp.com) used for sending newsletter subscriptions.
-- [![AWS S3](https://img.shields.io/badge/AWS_S3-grey?logo=amazons3&logoColor=569A31)](https://aws.amazon.com/s3) used for online static file storage.
 - [![Balsamiq](https://img.shields.io/badge/Balsamiq-grey?logo=barmenia&logoColor=CE0908)](https://balsamiq.com/wireframes) used for creating wireframes.
-- [![Figma](https://img.shields.io/badge/Figma-grey?logo=figma&logoColor=F24E1E)](https://www.figma.com) used for creating wireframes.
-- [![Canva](https://img.shields.io/badge/Canva-grey?logo=canva&logoColor=00C4CC)](https://www.canva.com/p/canvawireframes) used for creating wireframes.
-- [![Google Maps API](https://img.shields.io/badge/Google_Maps_API-grey?logo=googlemaps&logoColor=4285F4)](https://developers.google.com/maps) used as an interactive map on my site.
-- [![Leaflet](https://img.shields.io/badge/Leaflet-grey?logo=leaflet&logoColor=199900)](https://leafletjs.com) used as a free open-source interactive map on my site.
+- [![Lucid](https://img.shields.io/badge/Lucidchart-grey?logo=lucid&logoColor=FF9E0F)](https://www.lucidchart.com/pages) used for creating an erd for the database models.
+- [![Mermaid](https://img.shields.io/badge/Mermaid-grey?logo=mermaid&logoColor=FF3670)](https://www.mermaidchart.com/) used for creating a flowchart for the apps logic.
 - [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) used for the icons.
 - [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=chromatic&logoColor=75A99C)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.
+
+## App Logic
+
+To follow best practice, a flowchart was created for the app's logic. This was mapped out before coding began using a free version of [Mermaid](https://www.mermaidchart.com/)
+
+Below is the mermaid flowchart of the showing the main processes of Wath-O-Tron:
+
+```mermaid
+---
+config:
+  theme: default
+---
+flowchart TD
+    n1["watch-o-tron initialises"] --> n2["is user logged in?"]
+    n2 -- no --> n3["login/register screen"]
+    n3 --> n2
+    n2 -- yes --> n4["user homepage"]
+    n4 --> n11(["switch views collection/wishlist"]) & n10(["add new watch button"]) & n14["show collection on login"] & n16(["logout"])
+    n5["retrieve collection data.<br>is watch collection empty?"] <-- query database --> n6["database"]
+    n7["retrieve wishlist data.<br>is watch wishlist empty?"] <-- query database --> n6
+    n5 -- no --> n8["showing watch collection<br>(card views)"]
+    n9["suggest to add watch"] -- yes --> n12["new watch form"]
+    n10 --> n12
+    n11 -- switch to wishlist --> n7
+    n11 -- switch to collection --> n5
+    n7 -- no --> n13["showing wishlist<br>(card views)"]
+    n7 -- yes --> n9
+    n13 --> n4 & n19(["transfer watch to collection"]) & n20(["delete watch"]) & n21(["edit watch"])
+    n8 --> n4 & n25(["edit watch"]) & n26(["delete watch"])
+    n14 --> n5
+    n5 -- yes --> n15["has user just logged in?"]
+    n15 -- no --> n9
+    n15 -- yes --> n7
+    n16 --> n1
+    n17["-Owner<br>-Slug<br>-Make<br>-Collection<br>-Model<br>-Movement Type<br>-Image<br>-Chronograph?<br>-Date?<br>-Day?<br>-GMT?<br>-World?<br>-Moon?<br>-Pwr Reserve?<br>-Tourbillon?<br>-Collection or Wishlist?"] -- User input --> n12
+    n12 --> n18["confirmation"]
+    n18 -- confirm addition and update database --> n6
+    n18 -- edit details --> n12
+    n19 --> n23["confirmation"]
+    n23 -- yes update database --> n6
+    n23 -- yes/no --> n13
+    n20 --> n24["confirmation"]
+    n24 -- yes update database --> n6
+    n24 -- yes/no --> n13
+    n21 <-- retrieve watch details --> n6
+    n21 -- prefill data --> n22["watch edit form"]
+    n22 -- confirm edits and update database --> n6
+    n25 -- prefill data --> n27["watch edit form"]
+    n26 --> n28["confirmation"]
+    n28 -- yes/no --> n8
+    n28 -- yes update database --> n6
+    n27 -- confirm edits and update databse --> n6
+    n25 <-- retrieve watch details --> n6
+    n29["user input"] --> n27
+    n30["user input"] --> n22
+    n18 -- cancel and return --> n13 & n8
+    n22 -- return --> n13
+    n27 -- return --> n8
+    n6@{ shape: db}
+
+
+
+    style n1 stroke-width:4px,stroke-dasharray: 5,fill:#FFF9C4,color:#000000,stroke:#000000
+    style n2 fill:#FFF9C4,stroke-width:4px,stroke-dasharray: 5,stroke:#000000
+    style n3 fill:#FFFFFF,stroke:#000000,stroke-width:4px,stroke-dasharray: 0
+    style n4 fill:#FFFFFF,stroke-width:4px,stroke-dasharray: 0,stroke:#000000
+    style n11 color:#000000,fill:#FFD600,stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style n10 fill:#FFD600,stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style n14 fill:#FFF9C4,stroke-width:4px,stroke-dasharray: 5,stroke:#000000
+    style n16 stroke:#000000,fill:#D50000,color:#FFFFFF,stroke-width:4px,stroke-dasharray: 0
+    style n5 fill:#FFF9C4,stroke-width:4px,stroke-dasharray: 5,stroke:#000000
+    style n7 fill:#FFF9C4,stroke:#000000,stroke-width:4px,stroke-dasharray: 5
+    style n8 stroke:#000000,fill:#FFFFFF,stroke-width:4px,stroke-dasharray: 0
+    style n9 color:#FFFFFF,fill:#2962FF,stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style n12 fill:#2962FF,color:#FFFFFF,stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style n13 stroke:#000000,fill:#FFFFFF,stroke-width:4px,stroke-dasharray: 0
+    style n19 fill:#FFD600,stroke:#000000,stroke-width:2px,stroke-dasharray: 0
+    style n20 color:#FFFFFF,fill:#D50000,stroke:#000000,stroke-width:2px,stroke-dasharray: 0
+    style n21 fill:#FFD600,stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style n25 stroke:#000000,fill:#FFD600,stroke-width:2px,stroke-dasharray: 0
+    style n26 fill:#D50000,color:#FFFFFF,stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style n15 fill:#FFF9C4,stroke:#000000,stroke-width:4px,stroke-dasharray: 5
+    style n17 color:#000000,stroke-width:2px,stroke-dasharray: 0,stroke:#000000,fill:#BBDEFB
+    style n18 fill:#00C853,color:#FFFFFF,stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style n23 fill:#00C853,color:#FFFFFF,stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style n24 color:#FFFFFF,fill:#00C853,stroke:#000000,stroke-width:2px,stroke-dasharray: 0
+    style n22 stroke:#000000,fill:#2962FF,color:#FFFFFF,stroke-width:2px,stroke-dasharray: 0
+    style n27 fill:#2962FF,color:#FFFFFF,stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style n28 color:#FFFFFF,fill:#00C853,stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style n29 fill:#BBDEFB,stroke-width:2px,stroke-dasharray: 0,stroke:#000000
+    style n30 fill:#BBDEFB,stroke:#000000,stroke-width:2px,stroke-dasharray: 0
+```
+
+Source in live editor: [Watch-O-Tron Mermaid flowchart](https://mermaid.live/edit#pako:eNq1WFtv2zYU_iuECgwpYCcWdbEkFM2QZBn2EGxYMxTYvAfGoi2tMulRVFwvyH_fIUVakis7juM6eaDI73znfij7yZnylDqJMxwOJ2zK2SyfJxOGkMzogiYopTNSFXLC9Pms4KtpRoRE9zcKhBBz_5o4KyKn2ZAPpeAM5SyXOSnykpYT5280HH5EDAMoL1FVUoEKPp_TFGCXcGxIMMAQ4zXYAzCAcnYh6DwvJciUU0Epa_CeoW2Lr2lZ7_ogrzVlfEGXZE4bOb9GuO4ZYMpVDmajx5yuSjTlRUGnMufsYpWXGZgvQew9-gHQI4UmaYoYXSHtK3qopORsg1Aqy4yvWjQI_rUXKggKE57VfvFKMxuLAtgUVIqcPtK2dEokOf_wID5C2GqVrUO6WMq1Ch_6AI7_W1Gx1gIPpKS1hyHQ2p3G_XFbmXWzR9Xm6ABF1o92BiMTjpzNvzFeKTqbEpHWgX_fWBcrqQqKAxRLjlTAtXBdRU1-XVVNTSpmXCwaEndkQXbDVcIm10C78U3DxjtQrWBrXGAj2HbT9dp-Gt7d_o07XsRWs6llXxdJrIpECsLKGRRw7WDHHFtyWBdlSgsq6SZM9Ykubprmstk3uqKWKhx8C9P7YR-xNdbvhiPoJkYVc0ZMn_9TQZD7mt3t1Erc2d1wbRITGm77rGp4-OuKUaEiPfxUVHO9uCNfqF5cd0pteAfjrTCrRxhpDGbXellDf1nAdKiFMhhdfC7IMrvUGzdEUrta14uf7-7rxWcuivTScHJWr35bCfQ7Bccfjdw9r8RDXhQWcN0aDQJ9NuVyaar7DxWynC0ruV2_2GyoptLzWSyIqQQLUXlF5kz1Ta61EJaiagntSnf0bC2nSyClkuRFua07NnPW26kbezZte1VtYBdN89gj07HY363EP0yJv1uJqydYM_x0Z3W8DhsoIJeCziB5WpOxD9ubrg5Zd-5g3M6BApQvJwAHO1SN96oyLYF3VwSOtiMRbZ-8YNn4ZXd6vDk4xrG9o3XJN-8Jtu290Q4A7tY8YVNaaMtAbSWYTbuaZFEnNd3zjpvtIysU_viEyows1SvQw_OE1X_qqJTrggIHLAT_QoerPJVZ4i-_DsxGSkBQCLJOUDBQmU3e3d7extf-AMY4F8m7kf4YuH3skGPUkTtI0x46r6GDzxbyEPYund9Ht19-n3Vw93YDY9lvwm3r8BHsI3RaPv-0uYELbisfNf1NoB9MZF4R6g57cFpjx310rymkoEMX9bt-rLMx6karZsNxiLfZjsm77UnDtycxx7B7pw0F3Nw9Vd-fKXwAH1zSfbE1Rfpmdve0PQo30Y5oHkzf5QvRoU15TO6D03aVO0Z9F82rDDQBu7q6-en2qsseGWtHo-so8E4cC-x9V3a_t4qNrjdXMe6vuqMHRpd9_D3nD7wWvhiZN7DbaVTX05v5vFEf36sy5wycBYX35jx1EudJscP3bvWT18RJkPr-W__s5UzYM0BJJfmnNZs6iRQVHTiCV_PMSWakKOGpfim-yQl8f1xYyJIwJ3lyvjqJ63rnIy_EUTAOYxx5OBg4aycJRufuOIhwFMZj2I2fB85_nIP86Dx2MfZGQeBiHwPA12x_6kNF_vw_WasukQ)
 
 ## Database Design
 
@@ -358,6 +423,8 @@ INSTALLED_APPS = [
 
 ![erd](documentation/erd.png)
 source: [medium.com](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
+
+
 
 
 ## Agile Development Process
