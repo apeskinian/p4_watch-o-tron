@@ -191,12 +191,13 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     - When you first navigate to the Watch-O-Tron you are required to log in or create an account. This is because every user needs their own account to use the site. This keeps their information private and stops anyone without authorisation editing their data. When logged in your username is displayed so that you know you are logged in to the correct account. Every page also has the log out button.
 
+
     | Sign In | Sign Up | Sign Out |
-    | --- | --- | --- |
+    | :---: | :---: | :---: |
     | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_in.png "watch-o-tron sign in") | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_up.png "watch-o-tron sign up") | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out.png "watch-o-tron sign out") |
 
     | Sign Out Button Desktop | Sign Out Button Mobile |
-    | --- | --- |
+    | :---: | :---: |
     | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_desktop.png "watch-o-tron sign out button desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_mobile.png "watch-o-tron sign out button mobile") |
 
     #### Different Account Levels
@@ -227,9 +228,9 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     If you are a staff member or super user (admin) it will be displayed next your username and you will be presented with extra buttons to access the appropriate settings given to you.
 
     |  | User | Staff Member | Super User |
-    | --- | --- | --- | --- |
-    | Desktop | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_desktop.png "watch-o-tron user logged in desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_staff_logged_in_desktop.png "watch-o-tron staff member logged in desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_admin_logged_in_desktop.png "watch-o-tron admin logged in desktop") |
-    | Mobile | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_mobile.png "watch-o-tron user logged in mobile") | ![screenshot](documentation/features/accounts/wot_feature_accounts_staff_logged_in_mobile.png "watch-o-tron staff member logged in mobile") | ![screenshot](documentation/features/accounts/wot_feature_accounts_admin_logged_in_mobile.png "watch-o-tron admin logged in mobile") |
+    | :---: | :---: | :---: | :---: |
+    | **Desktop** | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_desktop.png "watch-o-tron user logged in desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_staff_logged_in_desktop.png "watch-o-tron staff member logged in desktop") | ![screenshot](documentation/features/accounts/wot_feature_accounts_admin_logged_in_desktop.png "watch-o-tron admin logged in desktop") |
+    | **Mobile** | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_mobile.png "watch-o-tron user logged in mobile") | ![screenshot](documentation/features/accounts/wot_feature_accounts_staff_logged_in_mobile.png "watch-o-tron staff member logged in mobile") | ![screenshot](documentation/features/accounts/wot_feature_accounts_admin_logged_in_mobile.png "watch-o-tron admin logged in mobile") |
 
 
 
