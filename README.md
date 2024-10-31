@@ -267,6 +267,19 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Viewing Watches
 
+    The main page in Watch-O-Tron is where you can see your watches. When you first visit the site the default view is your Collection. You can then navigate to different lists to see all your watches in each list. If a list contains more than 8 watches, the view will be paginated to maintain good site performance.
+
+    If a list is empty you will be notified and prompted to add a watch.
+    <br>
+
+    | Viewing on mobile | Viewing on tablet | Viewing on desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/viewing/wot_feature_viewing_mobile.png "viewing on mobile") | ![screenshot](documentation/features/viewing/wot_feature_viewing_tablet.png "viewing on tablet") | ![screenshot](documentation/features/viewing/wot_feature_viewing_desktop.png "viewing on desktop") |
+
+    | Empty list mobile | Empty list tablet | Empty list desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/viewing/wot_feature_viewing_mobile_empty.png "empty list mobile") | ![screenshot](documentation/features/viewing/wot_feature_viewing_tablet_empty.png "empty list tablet") | ![screenshot](documentation/features/viewing/wot_feature_viewing_desktop_empty.png "empty list desktop") |
+
 - ### Adding Watches
 
 - ### Purchased Watches
