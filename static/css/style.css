@@ -285,13 +285,14 @@ main {
 
 .existing-image {
     aspect-ratio: 1/1;
-    width: 50%;
+    width: 30%;
     object-fit: cover;
 }
 
 #watch-edit-modal {
     background-color: rgb(220, 220, 220);
 }
+
 /* WATCH-EDIT ->END<- */
 
 /* STAFF SETTINGS */
