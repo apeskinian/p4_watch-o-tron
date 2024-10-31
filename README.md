@@ -282,6 +282,44 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Adding Watches
 
+    When you click on the Add Watch button you are presented with a form to fill out with the following details about the watch:
+
+    - Make (required)
+    - Collection
+    - Model
+    - Movement Type (required selectable from dropdown)
+    - Movement Model
+    - Image (placeholder image used if none uploaded)
+    - List (required selectable from dropdown)
+
+    Then you can select which of the following most common watch complications it has (if any):
+
+    - Chronohraph
+    - Day
+    - Date
+    - GMT
+    - World Timer
+    - Moonphase
+    - Power Reserve
+    - Tourbillon
+
+    | Watch input mobile | Watch input tablet | Watch input desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_mobile.png "watch-o-tron add watch mobile") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_tablet.png "watch-o-tron add watch tablet") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_desktop.png "watch-o-tron add watch desktop") |
+
+    Once you have entered the info and clicked on Add Watch you are presented with the details for confirmation including any image uploaded. If no image was chosen a placeholder is used. Only the Make, Movement Type and List are required when entering a watch. You can add more later if required. If you decide you no longer wish to add this watch you can click on cancel to return to the list you were viewing.
+
+    | Watch confirmation mobile | Watch confirmation tablet | Watch confirmation desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_mobile_confirm.png "watch-o-tron add watch confirmation mobile") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_tablet_confirm.png "watch-o-tron add watch confirmation tablet") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_desktop_confirm.png "watch-o-tron add watch confirmation desktop") |
+
+    | Watch placeholder mobile | Watch placeholder tablet | Watch placeholder desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_mobile_placeholder.png "watch-o-tron add watch placeholder mobile") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_tablet_placeholder.png "watch-o-tron add watch placeholder tablet") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_desktop_placeholder.png "watch-o-tron add watch placeholder desktop") |
+
+    When you have confirmed the details are correct the watch is added to the chosen list and you are redirected to that list. If you notice a mistake you can click on edit to return to the input form where you can make changes. Also if you decide that you no longer wish to add this watch at the confirmation stage you can click on cancel to return to the list you were previsouly viewing.
+
+
 - ### Purchased Watches
 
 - ### Editing Watches
