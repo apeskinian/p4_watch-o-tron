@@ -27,7 +27,6 @@ for (let button of deleteButtons) {
         let returnTo = e.target.getAttribute('data-current_list');
         let content = 'Watch deletion';
         watchModalCancel.href = `/cancel_process/${content}/${returnTo}`;
-        watchModalCancel.classList.add('btn-primary');
         watchModalConfirm.href = `/delete/watch/${watchId}`;
         watchModalConfirm.innerText = 'Delete';
         watchModalConfirm.classList.add('btn-danger');
@@ -46,7 +45,6 @@ for (let button of purchasedButtons) {
         let returnTo = e.target.getAttribute('data-current_list');
         let content = 'Watch purchase';
         watchModalCancel.href = `/cancel_process/${content}/${returnTo}`;
-        watchModalCancel.classList.add('btn-danger');
         watchModalConfirm.href = `/purchase/${watchId}`;
         watchModalConfirm.innerText = 'Confirm';
         watchModalConfirm.classList.add('btn-success');

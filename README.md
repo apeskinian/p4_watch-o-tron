@@ -322,6 +322,16 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Purchased Watches
 
+    Watches that are stored in your wish list have an extra action you can perform when you click on them. The button 'Purchased' will prompt you to confirm the purchase of the watch before moving it to your Collection. This feature facilitates the seamless transition of watches from the Wish List to the Collection. When confirmed the user it taken to the Collection page.
+
+    | Purchase Action Button Mobile | Purchase Action Button Tablet | Purchase Action Button Desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/purchased/wot_feature_purchased_mobile.png "watch-o-tron purchase button mobile") | ![screenshot](documentation/features/purchased/wot_feature_purchased_tablet.png "watch-o-tron purchase button tablet") | ![screenshot](documentation/features/purchased/wot_feature_purchased_desktop.png "watch-o-tron purchase button desktop") |
+
+    | Purchase Confirmation Mobile | Purchase Confirmation Tablet | Purchase Confirmation Desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/purchased/wot_feature_purchased_mobile_confirm.png "watch-o-tron purchase confirmation mobile") | ![screenshot](documentation/features/purchased/wot_feature_purchased_tablet_confirm.png "watch-o-tron purchase confirmation tablet") | ![screenshot](documentation/features/purchased/wot_feature_purchased_desktop_confirm.png "watch-o-tron purchase confirmation desktop") |
+
 - ### Editing Watches
 
 - ### Deleting Watches
