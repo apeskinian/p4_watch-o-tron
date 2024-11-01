@@ -319,14 +319,21 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     When you have confirmed the details are correct the watch is added to the chosen list and you are redirected to that list. If you notice a mistake you can click on edit to return to the input form where you can make changes. Also if you decide that you no longer wish to add this watch at the confirmation stage you can click on cancel to return to the list you were previsouly viewing.
 
+- ### Watch Action Buttons
+
+    Each watch has it's own action buttons which allow the user to manage each watch individually. To access these buttons they simply click anywhere on the watch they wish to update. There are two default action buttons which are 'Edit' and 'Delete'. If the watch is located in the **Wish List** then there is an extra action button labelled 'Purchased' that they can use to quickly move the watch to the Collection without going into the edit function.
+
+    | Standard action buttons mobile | Standard action buttons tablet | Standard action buttons desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/action_buttons/wot_feature_ab_edit_delete_mobile.png "watch-o-tron action buttons mobile") | ![screenshot](documentation/features/action_buttons/wot_feature_ab_edit_delete_tablet.png "watch-o-tron action buttons tablet") | ![screenshot](documentation/features/action_buttons/wot_feature_ab_edit_delete_desktop.png "watch-o-tron action buttons desktop") |
+
+    | Wish List action buttons mobile | Wish List action buttons tablet | Wish List action buttons desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/action_buttons/wot_feature_ab_purchased_mobile.png "watch-o-tron purchase button mobile") | ![screenshot](documentation/features/action_buttons/wot_feature_ab_purchased_tablet.png "watch-o-tron purchase button tablet") | ![screenshot](documentation/features/action_buttons/wot_feature_ab_purchased_desktop.png "watch-o-tron purchase button desktop") |
 
 - ### Purchased Watches
 
-    Watches that are stored in your wish list have an extra action you can perform when you click on them. The button 'Purchased' will prompt you to confirm the purchase of the watch before moving it to your Collection. This feature facilitates the seamless transition of watches from the Wish List to the Collection. When confirmed the user it taken to the Collection page.
-
-    | Purchase Action Button Mobile | Purchase Action Button Tablet | Purchase Action Button Desktop |
-    | :---: | :---: | :---: |
-    | ![screenshot](documentation/features/purchased/wot_feature_purchased_mobile.png "watch-o-tron purchase button mobile") | ![screenshot](documentation/features/purchased/wot_feature_purchased_tablet.png "watch-o-tron purchase button tablet") | ![screenshot](documentation/features/purchased/wot_feature_purchased_desktop.png "watch-o-tron purchase button desktop") |
+    When viewing watches in the Wish List, the 'Purchased' action button facilitates the seamless transition of watches from the Wish List to the Collection. When confirmed the user it taken to the Collection page.
 
     | Purchase Confirmation Mobile | Purchase Confirmation Tablet | Purchase Confirmation Desktop |
     | :---: | :---: | :---: |
@@ -334,13 +341,9 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Editing Watches
 
-    If a user needs to edit a watch they can do so via the watch's edit button. This is accessed by clicking on the watch to reveal the actions available for the specific page. The edit process is very similar to the add watch process except this time any information that was already stored for the watch is prefilled into the data input form. If the watch had an image uploaded this is also shown. Here you can change any information, add new information or delete some information. The only fields that are required remain the Make, Movement Type and user List.
+    If a user needs to edit a watch they can do so via the watch's edit action button. The edit process is very similar to the add watch process except this time any information that was already stored for the watch is prefilled into the data input form. If the watch had an image uploaded this is also shown. Here you can change any information, add new information or delete some information. The only fields that are required remain the Make, Movement Type and user List.
     
     When the user is happy with the changes they can click on 'Update Watch' where they will be presented with the updated details to confirm. As with adding a watch, the user can also click on 'Edit' to go back and amend more info, or 'Cancel' to return to the previous watch list they were viewing without making any changes.
-
-    | Watch edit button mobile | Watch edit button tablet | Watch edit button desktop |
-    | :---: | :---: | :---: |
-    | ![screenshot](documentation/features/editing/wot_feature_edit_button_mobile.png "watch-o-tron edit button mobile") | ![screenshot](documentation/features/editing/wot_feature_edit_button_tablet.png "watch-o-tron edit button tablet") | ![screenshot](documentation/features/editing/wot_feature_edit_button_desktop.png "watch-o-tron edit button desktop") |
 
     | Watch editing mobile | Watch editing tablet | Watch editing desktop |
     | :---: | :---: | :---: |
@@ -353,6 +356,10 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     | ![screenshot](documentation/features/editing/wot_feature_edit_confirm_mobile.png "watch-o-tron edit confirm mobile") | ![screenshot](documentation/features/editing/wot_feature_edit_confirm_tablet.png "watch-o-tron edit confirm tablet") | ![screenshot](documentation/features/editing/wot_feature_edit_confirm_desktop.png "watch-o-tron edit confirm desktop") |
 
 - ### Deleting Watches
+
+
+
+
 
 - ### Staff Member Access Privileges
 
