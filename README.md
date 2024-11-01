@@ -249,18 +249,16 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     #### Mobile
     Most navigation of the site on a mobile device is done through the collapsing navbar at the bottom of the screen. From here, you can:
-    - View all the lists you currently have watched stored in.
+    - View all the lists you currently have watches stored in.
     - Add a new watch.
     - Log out.
     - Access any user-level-specific pages.
 
     If the current list of watches you are viewing contains more than 8 watches, you will get a pagination navigation bar appear just above the menu.
 
-    To edit any watch, you can tap anywhere on the watch to reveal the edit or delete buttons from which you can perform each action. If the watch is in the wish list, you will also get a 'purchase' option button.
-
-    | Mobile Navbar | Mobile Navbar Expanded | Mobile Pagination | Watch Edit Hidden | Watch Edit Revealed |
-    | :---: | :---: | :---: | :---: | :---: |
-    | ![screenshot](documentation/features/nav/wot_features_nav_mobile_menu.png "watch-o-tron mobile navbar") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_menu_expanded.png "watch-o-tron mobile navbar expanded") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_pagination.png "watch-o-tron mobile pagination") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_edit_hidden.png "watch-o-tron mobile watch edit hidden") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_edit_shown.png "watch-o-tron watch edit revealed") |
+    | Mobile Navbar | Mobile Navbar Expanded | Mobile Pagination |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/nav/wot_features_nav_mobile_menu.png "watch-o-tron mobile navbar") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_menu_expanded.png "watch-o-tron mobile navbar expanded") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_pagination.png "watch-o-tron mobile pagination") |
 
     #### Desktop
     The main navigation for desktop devices is located at the top of the screen. From here, you can:
@@ -270,11 +268,9 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     To add a watch, the button is located at the bottom of the screen in a prominent central position. If the current list of watches you are viewing contains more than 8 watches, you will get a pagination navigation bar appear just above this button.
 
-    To edit any watch, you can click anywhere on the watch to reveal the edit or delete buttons from which you can perform each action. If the watch is in the wish list, you will also get a 'purchase' option button.
-
-    | Desktop Navbar | Desktop Navbar Expanded | Desktop Add Watch | Desktop Pagination | Watch Edit Hidden | Watch Edit Revealed |
-    | :---: | :---: | :---: | :---: | :---: | :---: |
-    | ![screenshot](documentation/features/nav/wot_features_nav_desktop_menu.png "watch-o-tron desktop navbar") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_menu_expanded.png "watch-o-tron desktop navbar expanded") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_add_watch.png "watch-o-tron desktop add watch") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_pagination.png "watch-o-tron desktop pagination") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_edit_hidden.png "watch-o-tron desktop watch edit hidden") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_edit_shown.png "watch-o-tron desktop watch edit revealed") |
+    | Desktop Navbar | Desktop Navbar Expanded | Desktop Add Watch | Desktop Pagination |
+    | :---: | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/nav/wot_features_nav_desktop_menu.png "watch-o-tron desktop navbar") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_menu_expanded.png "watch-o-tron desktop navbar expanded") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_add_watch.png "watch-o-tron desktop add watch") | ![screenshot](documentation/features/nav/wot_features_nav_desktop_pagination.png "watch-o-tron desktop pagination") |
 
 - ### Viewing Watches
 
@@ -282,7 +278,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     - #### Typical Watch Display
 
-        Each watch has its own card which displays the information added by the user. An image (placeholder if no image uploaded) is the main focus of each card with the particular watch details underneath. Complications are shown as icons with them in prominent black if the watch has it and a faded grey if not. A curious user may notice something about some of these icons...
+        Each watch has its own card which displays the information added by the user. An image is the main focus of each card with the particular watch details underneath (if no image is provided, a placeholder is used). Complications are shown as icons with them in prominent black if the watch has it and a faded grey if not. A curious user may notice something about some of these icons...
 
         | Typical watch with uploaded image | Typical watch with placeholder |
         | :---: | :---: |
@@ -306,10 +302,10 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     - Make (required)
     - Collection
     - Model
-    - Movement Type (required, selectable from dropdown)
-    - Movement Model
+    - Movement type (required, selectable from dropdown)
+    - Movement model
+    - List name (required, selectable from dropdown)
     - Image (placeholder image used if none uploaded)
-    - List (required, selectable from dropdown)
 
     Then you can select which of the following most common watch complications it has (if any):
 
@@ -323,11 +319,13 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     - Tourbillon
     <br>
 
+    Only the Make, Movement Type, and user list are required when entering a watch. You can add more later if required. If you decide you no longer wish to add this watch, you can click on cancel to return to the list you were viewing.
+
     | Watch input mobile | Watch input tablet | Watch input desktop |
     | :---: | :---: | :---: |
     | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_mobile.png "watch-o-tron add watch mobile") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_tablet.png "watch-o-tron add watch tablet") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_desktop.png "watch-o-tron add watch desktop") |
 
-    Once you have entered the info and clicked on Add Watch, you are presented with the details for confirmation, including any image uploaded. If no image was chosen, a placeholder is used. Only the Make, Movement Type, and user list are required when entering a watch. You can add more later if required. If you decide you no longer wish to add this watch, you can click on cancel to return to the list you were viewing.
+    Once you have entered the info and clicked on Add Watch, you are presented with the details for confirmation, including any image uploaded. If no image was chosen, a placeholder is used.
 
     | Watch confirmation mobile | Watch confirmation tablet | Watch confirmation desktop |
     | :---: | :---: | :---: |
@@ -337,7 +335,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     | :---: | :---: | :---: |
     | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_mobile_placeholder.png "watch-o-tron add watch placeholder mobile") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_tablet_placeholder.png "watch-o-tron add watch placeholder tablet") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_desktop_placeholder.png "watch-o-tron add watch placeholder desktop") |
 
-    When you have confirmed the details are correct, the watch is added to the chosen list, and you are redirected to that list. If you notice a mistake, you can click on edit to return to the input form where you can make changes. Also, if you decide that you no longer wish to add this watch at the confirmation stage, you can click on cancel to return to the list you were previously viewing.
+    When you have confirmed the details are correct, the watch is added to the chosen list and you are redirected to that list. If you notice a mistake, you can click on edit to return to the input form where you can make changes. Also, if you decide that you no longer wish to add this watch at the confirmation stage, you can click on cancel to return to the list you were previously viewing.
 
 - ### Watch Action Buttons
 
