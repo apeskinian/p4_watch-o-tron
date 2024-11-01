@@ -307,7 +307,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     | :---: | :---: | :---: |
     | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_mobile.png "watch-o-tron add watch mobile") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_tablet.png "watch-o-tron add watch tablet") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_desktop.png "watch-o-tron add watch desktop") |
 
-    Once you have entered the info and clicked on Add Watch you are presented with the details for confirmation including any image uploaded. If no image was chosen a placeholder is used. Only the Make, Movement Type and List are required when entering a watch. You can add more later if required. If you decide you no longer wish to add this watch you can click on cancel to return to the list you were viewing.
+    Once you have entered the info and clicked on Add Watch you are presented with the details for confirmation including any image uploaded. If no image was chosen a placeholder is used. Only the Make, Movement Type and user List are required when entering a watch. You can add more later if required. If you decide you no longer wish to add this watch you can click on cancel to return to the list you were viewing.
 
     | Watch confirmation mobile | Watch confirmation tablet | Watch confirmation desktop |
     | :---: | :---: | :---: |
@@ -333,6 +333,24 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     | ![screenshot](documentation/features/purchased/wot_feature_purchased_mobile_confirm.png "watch-o-tron purchase confirmation mobile") | ![screenshot](documentation/features/purchased/wot_feature_purchased_tablet_confirm.png "watch-o-tron purchase confirmation tablet") | ![screenshot](documentation/features/purchased/wot_feature_purchased_desktop_confirm.png "watch-o-tron purchase confirmation desktop") |
 
 - ### Editing Watches
+
+    If a user needs to edit a watch they can do so via the watch's edit button. This is accessed by clicking on the watch to reveal the actions available for the specific page. The edit process is very similar to the add watch process except this time any information that was already stored for the watch is prefilled into the data input form. If the watch had an image uploaded this is also shown. Here you can change any information, add new information or delete some information. The only fields that are required remain the Make, Movement Type and user List.
+    
+    When the user is happy with the changes they can click on 'Update Watch' where they will be presented with the updated details to confirm. As with adding a watch, the user can also click on 'Edit' to go back and amend more info, or 'Cancel' to return to the previous watch list they were viewing without making any changes.
+
+    | Watch edit button mobile | Watch edit button tablet | Watch edit button desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/editing/wot_feature_edit_button_mobile.png "watch-o-tron edit button mobile") | ![screenshot](documentation/features/editing/wot_feature_edit_button_tablet.png "watch-o-tron edit button tablet") | ![screenshot](documentation/features/editing/wot_feature_edit_button_desktop.png "watch-o-tron edit button desktop") |
+
+    | Watch editing mobile | Watch editing tablet | Watch editing desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/editing/wot_feature_editing_mobile.png "watch-o-tron editing mobile") | ![screenshot](documentation/features/editing/wot_feature_editing_tablet.png "watch-o-tron editing tablet") | ![screenshot](documentation/features/editing/wot_feature_editing_desktop.png "watch-o-tron editing desktop") |
+
+    When the details are confirmed, the watch is updated with the new information and the user is directed to the list in which the watch was saved to.
+
+    | Edit confirmation mobile | Watch confirmation tablet | Watch confirmation desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/editing/wot_feature_edit_confirm_mobile.png "watch-o-tron edit confirm mobile") | ![screenshot](documentation/features/editing/wot_feature_edit_confirm_tablet.png "watch-o-tron edit confirm tablet") | ![screenshot](documentation/features/editing/wot_feature_edit_confirm_desktop.png "watch-o-tron edit confirm desktop") |
 
 - ### Deleting Watches
 
