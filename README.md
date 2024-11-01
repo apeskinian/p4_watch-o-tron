@@ -276,16 +276,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     The main page in Watch-O-Tron is where you can see your watches. When you first visit the site, the default view is your Collection. You can then navigate to different lists to see all your watches in each list. If a list contains more than 8 watches, the view will be paginated to maintain good site performance.
 
-    - #### Typical Watch Display
-
-        Each watch has its own card which displays the information added by the user. An image is the main focus of each card with the particular watch details underneath (if no image is provided, a placeholder is used). Complications are shown as icons with them in prominent black if the watch has it and a faded grey if not. A curious user may notice something about some of these icons...
-
-        | Typical watch with uploaded image | Typical watch with placeholder |
-        | :---: | :---: |
-        | ![screenshot](documentation/features/viewing/wot_feature_viewing_card_image.png "watch-o-tron typical card with image") | ![screenshot](documentation/features/viewing/wot_feature_viewing_card_placeholder.png "watch-o-tron typical card with placeholder") |
-
     If a list is empty, you will be notified and prompted to add a watch.
-    <br>
 
     | Viewing on mobile | Viewing on tablet | Viewing on desktop |
     | :---: | :---: | :---: |
@@ -294,6 +285,29 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     | Empty list mobile | Empty list tablet | Empty list desktop |
     | :---: | :---: | :---: |
     | ![screenshot](documentation/features/viewing/wot_feature_viewing_mobile_empty.png "empty list mobile") | ![screenshot](documentation/features/viewing/wot_feature_viewing_tablet_empty.png "empty list tablet") | ![screenshot](documentation/features/viewing/wot_feature_viewing_desktop_empty.png "empty list desktop") |
+
+    - #### Typical Watch Display
+
+        Each watch has its own card which displays the information added by the user. An image is the main focus of each card with the particular watch details underneath (if no image is provided, a placeholder is used). Complications are shown as icons with them in prominent black if the watch has it and a faded grey if not. A curious user may notice something about some of these icons...
+
+        | Typical watch with uploaded image | Typical watch with placeholder |
+        | :---: | :---: |
+        | ![screenshot](documentation/features/viewing/wot_feature_viewing_card_image.png "watch-o-tron typical card with image") | ![screenshot](documentation/features/viewing/wot_feature_viewing_card_placeholder.png "watch-o-tron typical card with placeholder") |
+
+    - #### Tooltips
+
+        The watch displays use icons to depict the complications that each watch has. For new users, this may be a little confusing as to what each one is. Therefore, tooltips appear for each one.
+
+        | Complication | Tooltip |
+        | :---: | :---: |
+        | Chronograph | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_chronograph.png "watch-o-tron tooltips chronograph") |
+        | Day | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_day.png "watch-o-tron tooltips day") |
+        | Date | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_date.png "watch-o-tron tooltips date") |
+        | GMT | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_gmt.png "watch-o-tron tooltips gmt") |
+        | World Timer | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_world_timer.png "watch-o-tron tooltips world timer") |
+        | Moonphase | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_moonphase.png "watch-o-tron tooltips moonphase") |
+        | Power Reserve | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_power_reserve.png "watch-o-tron tooltips power reserve") |
+        | Tourbillon | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_tourbillon.png "watch-o-tron tooltips tourbillon") |
 
 - ### Adding Watches
 
@@ -464,20 +478,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     ![screenshot](documentation/features/messaging/wot_feature_spinner.png "watch-o-tron working... spinner")
 
-- ### Tooltips
 
-    The watch displays use icons to depict the complications that each watch has. For new users, this may be a little confusing as to what each one is. Therefore, tooltips will appear for each one.
-
-    | Complication | Tooltip |
-    | :---: | :---: |
-    | Chronograph | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_chronograph.png "watch-o-tron tooltips chronograph") |
-    | Day | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_day.png "watch-o-tron tooltips day") |
-    | Date | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_date.png "watch-o-tron tooltips date") |
-    | GMT | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_gmt.png "watch-o-tron tooltips gmt") |
-    | World Timer | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_world_timer.png "watch-o-tron tooltips world timer") |
-    | Moonphase | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_moonphase.png "watch-o-tron tooltips moonphase") |
-    | Power Reserve | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_power_reserve.png "watch-o-tron tooltips power reserve") |
-    | Tourbillon | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_tourbillon.png "watch-o-tron tooltips tourbillon") |
 
 - ### Easter Eggs
 
