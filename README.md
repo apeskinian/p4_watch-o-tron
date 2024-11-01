@@ -6,7 +6,7 @@
 
 **A Comprehensive Watch Collection Management Tool**
 
-Watch-O-Tron is a versatile tool designed to efficiently manage your watch collection. It enables you to track all your watches, including detailed information such as make, model, and brand collection. Additionally, movement details can be stored including type and model information. For watches with intricate complications, these can be noted and highlighted with user-friendly icons. An image can also be uploaded for each watch.
+Watch-O-Tron is a versatile tool designed to efficiently manage your watch collection. It enables you to track all your watches, including detailed information such as make, model, and brand collection. Additionally, movement details can be stored including type and calibre/module information. For watches with intricate complications, these can be noted and highlighted with user-friendly icons. An image can also be uploaded for each watch.
 
 While it is recommended to have all watch details readily available, the only essential information required to store a watch is it's make and movement type.
 
