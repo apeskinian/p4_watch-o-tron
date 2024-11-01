@@ -365,6 +365,36 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Staff Member Access Privileges
 
+    Staff members are client users who are given access to the staff settings page. This is where you can add, edit and delete custom movement types and lists for the users. As a staff member you will **not** have access to modify the default movement types or lists, this is setup by the site admin.
+
+    | Staff settings page mobile | Staff settings page tablet | Staff settings page desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/staff_settings/wot_feature_settings_mobile.png "watch-o-tron staff settings mobile") | ![screenshot](documentation/features/staff_settings/wot_feature_settings_tablet.png "watch-o-tron staff settings tablet") | ![screenshot](documentation/features/staff_settings/wot_feature_settings_desktop.png "watch-o-tron staff settings desktop") |
+
+    - #### Adding a movement type or list
+
+    To add a new movement type or list the staff member simply starts to type the new name in the required input box and click the 'Add' button. The new item will be added to the respective list.
+
+    | Add item mobile | Add item tablet | Add item desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/staff_settings/wot_feature_ss_add_mobile.png "watch-o-tron staff settings add mobile") | ![screenshot](documentation/features/staff_settings/wot_feature_ss_add_tablet.png "watch-o-tron staff settings add tablet") | ![screenshot](documentation/features/staff_settings/wot_feature_ss_add_desktop.png "watch-o-tron staff settings add desktop") |
+
+    - #### Editing a movement type or list
+
+    To edit an existing custom movement or list the staff member clicks on the edit button for the specific item they want to edit. A prompt appears prefilled with the current name ready for editing. The user can then either proceed with the edit by clicking 'Amend' or cancel with the 'Cancel' button. The user is also informed of any watches that would be affected by this change.
+
+    | Edit item mobile | Edit item tablet | Edit item desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/staff_settings/wot_feature_ss_edit_mobile.png "watch-o-tron staff settings edit mobile") | ![screenshot](documentation/features/staff_settings/wot_feature_ss_edit_tablet.png "watch-o-tron staff settings edit tablet") | ![screenshot](documentation/features/staff_settings/wot_feature_ss_edit_desktop.png "watch-o-tron staff settings edit desktop") |
+
+    - #### Deleting a movement type or list
+
+    To delete an existing custom movement or list the staff member clicks on the delete button for the specific item they want to edit. A prompt appears asking them to confirm. The user can then either proceed with the deletion by clicking 'Delete' or cancel with the 'Cancel' button. The user is also informed of any watches that would be affected by this change.
+
+    | Delete item mobile | Delete item tablet | EDeletedit item desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/staff_settings/wot_feature_ss_delete_mobile.png "watch-o-tron staff settings delete mobile") | ![screenshot](documentation/features/staff_settings/wot_feature_ss_delete_tablet.png "watch-o-tron staff settings delete tablet") | ![screenshot](documentation/features/staff_settings/wot_feature_ss_delete_desktop.png "watch-o-tron staff settings delete desktop") |
+
 - ### Super User Access Privileges
 
 - ### Communication to User
