@@ -91,9 +91,9 @@
     <div class="modal" id="watch-modal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 id="watch-modal-title" class="modal-title">[content-placeholder]</h4>
-                    <a href="{% url 'cancel_process' 'Action' current_list %}" class="btn-close" aria-label="Close"></a>
+                <div class="modal-header d-flex justify-content-center position-relative">
+                    <h5 id="watch-modal-title" class="modal-title mx-auto">[content-placeholder]</h5>
+                    <a href="{% url 'cancel_process' 'Action' current_list %}" class="btn-close position-absolute" aria-label="Close"></a>
                 </div>
                 <div id="watch-modal-body" class="modal-body text-center">
                     <div id="watch-modal-body-content"></div>

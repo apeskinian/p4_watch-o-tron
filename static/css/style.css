@@ -31,6 +31,10 @@ body {
     font-family: 'Ubuntu Mono', sans-serif;
 }
 
+.btn-close {
+    right: 20px;
+}
+
 header {
     font-size: 1.2rem;
     height: 56px;
