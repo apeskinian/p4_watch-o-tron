@@ -446,6 +446,9 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     #### Working Spinner
 
+    A spinner is used when a user confirms the addition or editing of a watch. This is when most data is being written to the database, especially if there is also an image to upload to Cloudinary. Therefore a spinner is shown in the button and 'Working...' replaces the button text to inform the user that something is happening.
+
+    ![screenshot](documentation/features/messaging/wot_feature_spinner.png "watch-o-tron working... spinner")
 
 - ### Tooltips
 
