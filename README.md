@@ -4,7 +4,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/apeskinian/p4_watch-o-tron)](https://github.com/apeskinian/p4_watch-o-tron/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/apeskinian/p4_watch-o-tron)](https://github.com/apeskinian/p4_watch-o-tron)
 
-**Watch-O-Tron: A Comprehensive Watch Collection Management Tool**
+**A Comprehensive Watch Collection Management Tool**
 
 Watch-O-Tron is a versatile tool designed to efficiently manage your watch collection. It enables you to track all your watches, including detailed information such as make, model, and brand collection. Additionally, movement details can be stored encompassing type and specific movement model information. For watches with intricate complications, these can be noted and highlighted with user-friendly icons. An image can also be uploaded for each watch.
 
