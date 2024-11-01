@@ -404,8 +404,48 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     | ![screenshot](documentation/features/super/wot_feature_admin_mobile.png "watch-o-tron admin panel mobile") | ![screenshot](documentation/features/super/wot_feature_admin_tablet.png "watch-o-tron admin panel tablet") | ![screenshot](documentation/features/super/wot_feature_admin_desktop.png "watch-o-tron admin panel desktop") |
 
 - ### Communication to User
+
+    Communication to the user while they are using the site is important. It helps to let them know actions have been performed correctly, update them on navigation and inform them if errors occur. It is also important to give a visual indication for background activity so that they do not think clicking on something did not work properly. Watch-O-Tron uses Django messages and Bootstrap spinners to fulfil this task.
+
     #### Messaging
+
+    Messages are displayed to the user in the following circumstances:
+    - All sign in and sign out processes
+    - Switching between watch lists and pagination
+    - Confirmation of add, edit and deletion of watches
+    - Confirmation of add, edit and deletion of custom movements and lists for staff members
+    - Cancellation of actions
+    - Form errors
+
+    Colour coded messages are used for clear understanding of what a message is about
+    - Green messages are confirmation of a process completing
+    - Blue messages are indicators that a process was stopped by the user (eg. cancelling the addition of a watch)
+    - Red messages indicate that there has been an error
+
+    All messages except errors are automatically dismissed after a few seconds. Error messages remain on screen and must be manually dismissed by the user so as to confirm that they have ackowledged it.
+
+    | Message | Screenshot |
+    | :---: | :---: |
+    | Sign in | ![screenshot](documentation/features/messaging/wot_feature_comms_message_sign_in.png "watch-o-tron messaging sign in") |
+    | Sign out | ![screenshot](documentation/features/messaging/wot_feature_comms_message_sign_out.png "watch-o-tron messaging sign out") |
+    | Switching lists to page 1 | ![screenshot](documentation/features/messaging/wot_feature_comms_message_switching_page_1.png "watch-o-tron messaging page 1") |
+    | Switching lists to page 4 | ![screenshot](documentation/features/messaging/wot_feature_comms_message_switching_page_4.png "watch-o-tron messaging page 4") |
+    | Switching lists with no pagination | ![screenshot](documentation/features/messaging/wot_feature_comms_message_switching.png "watch-o-tron messaging no pages") |
+    | Adding watch | ![screenshot](documentation/features/messaging/wot_feature_comms_message_confirm_add_watch.png "watch-o-tron messaging adding watch") |
+    | Editing watch | ![screenshot](documentation/features/messaging/wot_feature_comms_message_confirm_edit_watch.png "watch-o-tron messaging editing watch") |
+    | Deleting watch | ![screenshot](documentation/features/messaging/wot_feature_comms_message_confirm_delete_watch.png "watch-o-tron messaging deleting watch") |
+    | Adding staff member custom item | ![screenshot](documentation/features/messaging/wot_feature_comms_message_confirm_add_staff_item.png "watch-o-tron messaging adding staff item") |
+    | Editing staff member custom item | ![screenshot](documentation/features/messaging/wot_feature_comms_message_confirm_edit_staff_item.png "watch-o-tron messaging editing staff item") |
+    | Deleting staff member custom item | ![screenshot](documentation/features/messaging/wot_feature_comms_message_confirm_delete_staff_item.png "watch-o-tron messaging deleting staff item") |
+    | Cancel adding watch | ![screenshot](documentation/features/messaging/wot_feature_comms_message_cancel_add_watch.png "watch-o-tron messaging cancel adding watch") |
+    | Cancel editing watch | ![screenshot](documentation/features/messaging/wot_feature_comms_message_cancel_edit_watch.png "watch-o-tron messaging cancel editing watch") |
+    | Cancel deleting watch | ![screenshot](documentation/features/messaging/wot_feature_comms_message_cancel_delete_watch.png "watch-o-tron messaging cancel deleting watch") |
+    | Cancel editing staff member custom item | ![screenshot](documentation/features/messaging/wot_feature_comms_message_cancel_edit_staff_item.png "watch-o-tron messaging cancel editing staff item") |
+    | Cancel deleting staff member custom item | ![screenshot](documentation/features/messaging/wot_feature_comms_message_cancel_delete_staff_item.png "watch-o-tron messaging cancel deleting staff item") |
+    | Form error | ![screenshot](documentation/features/messaging/wot_feature_comms_message_error_list_staff_item.png "watch-o-tron messaging form error") |
+
     #### Working Spinner
+
 
 - ### Tooltips
 

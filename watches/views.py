@@ -239,7 +239,7 @@ def delete_watch(request, watch_id):
     try:
         return_url = request.META.get('HTTP_REFERER', '/')
         watch = get_object_or_404(Watch, id=watch_id)
-        messages.info(
+        messages.success(
             request,
             f'{watch.make} watch deleted from {watch.list_name}'
         )
