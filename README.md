@@ -485,11 +485,11 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ### Future Features
 
-- USER FORUM
+- #### User Forum
     - I would like to add a forum feature where users can communicate with each other, ask questions and post interesting things about their watches.
-- DIRECT MESSAGING
+- #### Direct Messaging
     - An addition to the forum feature would be the implementation of a direct messaging system for when privacy is required for conversations.
-- USER ACCOUNT DELETION
+- #### User Account Deletion
     - It would be good for a user to be able to delete their account which would in turn delete all info about them and their watches from the site.
 
 ## Tools & Technologies Used
