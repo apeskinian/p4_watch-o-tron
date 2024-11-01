@@ -457,13 +457,13 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     #### Working Spinner
 
-    A spinner is used when a user confirms the addition or editing of a watch. This is when most data is being written to the database, especially if there is also an image to upload to Cloudinary. Therefore a spinner is shown in the button and 'Working...' replaces the button text to inform the user that something is happening.
+    A spinner is used when a user confirms the addition or editing of a watch. This is when most data is being written to the database, especially if there is also an image to upload to Cloudinary. Therefore, a spinner is shown in the button, and 'Working...' replaces the button text to inform the user that something is happening.
 
     ![screenshot](documentation/features/messaging/wot_feature_spinner.png "watch-o-tron working... spinner")
 
 - ### Tooltips
 
-    The watch displays use icons to depict the complications that each watch has. For new users this may be a little confusing as to what each one is. Therefore tooltips will appear for each one.
+    The watch displays use icons to depict the complications that each watch has. For new users, this may be a little confusing as to what each one is. Therefore, tooltips will appear for each one.
 
     | Complication | Tooltip |
     | :---: | :---: |
@@ -479,9 +479,9 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 - ### Easter Eggs
 
     There's more than meets the eye in the Watch-O-Tron. I have implemented 4 Easter eggs into the site that curious users might notice.
-    - **Live clock:** the 'O' of the main logo hides a live clock which works to the user local time.
-    - **Day complication:** the icon for the day complication is dynamic so that it shows the current day. Their is also a little extra easter egg nod to a certain popular watch brand who use red text on Sundays.
-    - **Date complication:** the icon for the date complication is dynamic so that is shows the current date.
+    - **Live clock:** the 'O' of the main logo hides a live clock which works to the user’s local time.
+    - **Day complication:** the icon for the day complication is dynamic so that it shows the current day. There is also a little extra Easter egg nod to a certain popular watch brand who uses red text on Sundays.
+    - **Date complication:** the icon for the date complication is dynamic so that it shows the current date.
     - **Moonphase complication:** the icon is dynamic and shows the current phase of the moon. Data used for this is retrieved from [Ephem](https://pypi.org/project/ephem/)
 
 
