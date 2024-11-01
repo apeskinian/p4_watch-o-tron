@@ -501,7 +501,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 ## Tools & Technologies Used
 
 > [!NOTE]  
-> I have listed both Materialize and Bootstrap as CSS frameworks used. This is because my initial design used materialize as I wanted to use features such as card reveals and floating action buttons (seen in the wireframes). However it soon became apparent that using materialize was causing more issues as I got further into development. I therefore made the decision to switch over to Bootstrap for my CSS framework.
+> I have listed both Materialize and Bootstrap as CSS frameworks used. This is because my initial design used materialize as I wanted to use features such as card reveals and floating action buttons (seen in the wireframes). However it soon became apparent that using materialize was causing more compatibility issues as I got further into development. I therefore made the decision to switch over to Bootstrap for my CSS framework.
 
 - [![Markdown Builder](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://tim.2bn.dev/markdown-builder) used to generate README and TESTING templates.
 - [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
