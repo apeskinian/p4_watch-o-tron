@@ -357,9 +357,11 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Deleting Watches
 
+    If a user needs to delete a watch they can do this using the 'Delete' action button. The user is then asked to confirm this action and warned that it cannot be undone. The user can click confirm which will delete the watch and return them to the list they were viewing or, click cancel which will return them without deleting the watch.
 
-
-
+    | Watch delete mobile | Watch delete tablet | Watch delete desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/delete/wot_feature_delete_mobile.png "watch-o-tron delete mobile") | ![screenshot](documentation/features/delete/wot_feature_delete_tablet.png "watch-o-tron delete tablet") | ![screenshot](documentation/features/delete/wot_feature_delete_desktop.png "watch-o-tron delete desktop") |
 
 - ### Staff Member Access Privileges
 
