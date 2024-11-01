@@ -310,6 +310,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     - Moonphase
     - Power Reserve
     - Tourbillon
+    <br>
 
     | Watch input mobile | Watch input tablet | Watch input desktop |
     | :---: | :---: | :---: |
