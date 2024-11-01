@@ -94,7 +94,7 @@ For the action buttons, I used the Bootstrap 5 standard colour schemes, trying t
 
 #### Complication Icons
 
-Some icons from [Font Awesome](https://fontawesome.com) were used and some were create by myself.
+Some icons from [Font Awesome](https://fontawesome.com) were used and some were created by myself.
 | Complication | Source |
 | --- | --- |
 | Chronograph | [Font Awesome](https://fontawesome.com/icons/stopwatch?f=classic&s=solid) |
