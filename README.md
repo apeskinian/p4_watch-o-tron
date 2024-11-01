@@ -341,13 +341,9 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     Each watch has its own action buttons which allow the user to manage each watch individually. To access these buttons, they simply click anywhere on the watch they wish to update. There are two default action buttons which are 'Edit' and 'Delete'. If the watch is located in the **Wish List**, then there is an extra action button labelled 'Purchased' that they can use to quickly move the watch to the Collection without going into the edit function.
 
-    | Standard action buttons mobile | Standard action buttons tablet | Standard action buttons desktop |
-    | :---: | :---: | :---: |
-    | ![screenshot](documentation/features/action_buttons/wot_feature_ab_edit_delete_mobile.png "watch-o-tron action buttons mobile") | ![screenshot](documentation/features/action_buttons/wot_feature_ab_edit_delete_tablet.png "watch-o-tron action buttons tablet") | ![screenshot](documentation/features/action_buttons/wot_feature_ab_edit_delete_desktop.png "watch-o-tron action buttons desktop") |
-
-    | Wish List action buttons mobile | Wish List action buttons tablet | Wish List action buttons desktop |
-    | :---: | :---: | :---: |
-    | ![screenshot](documentation/features/action_buttons/wot_feature_ab_purchased_mobile.png "watch-o-tron purchase button mobile") | ![screenshot](documentation/features/action_buttons/wot_feature_ab_purchased_tablet.png "watch-o-tron purchase button tablet") | ![screenshot](documentation/features/action_buttons/wot_feature_ab_purchased_desktop.png "watch-o-tron purchase button desktop") |
+    | Standard action buttons | Wish List action buttons |
+    | :---: | :---: |
+    | ![screenshot](documentation/features/action_buttons/wot_feature_ab_standard.png "watch-o-tron standard action buttons") | ![screenshot](documentation/features/action_buttons/wot_feature_ab_wish_list.png "watch-o-tron wish list action buttons") |
 
 - ### Purchased Watches
 
