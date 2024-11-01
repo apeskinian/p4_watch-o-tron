@@ -67,11 +67,11 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                <h4 id="watch-modal-title" class="modal-title">Confirm watch details:</h4>
+                <h6 id="watch-modal-title" class="modal-title">Please confirm:</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div id="watch-edit-modal" class="modal-body">
-                    <div class="card">
+                <div id="watch-edit-modal" class="modal-body d-flex justify-content-center">
+                    <div class="card confirm-card">
                         <div>
                             {% if mode == 'edit' %}
                                 {% if 'placeholder' in watch.image.url %}
