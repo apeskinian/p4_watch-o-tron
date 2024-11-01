@@ -404,6 +404,7 @@ main {
 
 @media screen and (min-width: 1400px) {
 
+    /* NAVBARS */
     #staff-btn::after {
         content: "Staff Settings";
     }
@@ -415,5 +416,6 @@ main {
     .session-id-nav {
         display: block;
     }
+    /* NAVBARS ->END<- */
 
 }
