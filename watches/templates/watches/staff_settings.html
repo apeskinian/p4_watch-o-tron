@@ -98,7 +98,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header d-flex justify-content-center position-relative">
-                        <h5 class="modal-title mx-auto" id="settings-modal-label">{% if edit_form %}Please enter new name:{% elif to_delete %}Confirm deletion of {{ to_delete }}?{% endif %}</h5>
+                        <h5 class="modal-title mx-auto" id="settings-modal-label">{% if edit_form %}Please enter new name:{% elif to_delete %}Delete <strong>{{ to_delete }}</strong>?{% endif %}</h5>
                         {% with content=edit_form|yesno:'Edit,Delete' %}
                         <a href="{% url 'cancel_process' content 'staff_settings' %}" class="btn-close position-absolute" aria-label="Close"></a>
                         {% endwith %}
