@@ -269,6 +269,14 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     The main page in Watch-O-Tron is where you can see your watches. When you first visit the site the default view is your Collection. You can then navigate to different lists to see all your watches in each list. If a list contains more than 8 watches, the view will be paginated to maintain good site performance.
 
+    - #### Typical Watch Display
+
+    Each watch has it's own card which displays the information added by the user. An image (placeholder if no image uploaded) is the main focus of each card with the particular watch details underneath. Complications are shown as icons with them in prominant black if the watch has it and a faded grey if not. A curious user may notice something about some of these icons...
+
+    | Typical watch with uploaded image | Typical watch with placeholder |
+    | :---: | :---: |
+    | ![screenshot](documentation/features/viewing/wot_feature_viewing_card_image.png "watch-o-tron typical card with image") | ![screenshot](documentation/features/viewing/wot_feature_viewing_card_placeholder.png "watch-o-tron typical card with placeholder") |
+
     If a list is empty you will be notified and prompted to add a watch.
     <br>
 
@@ -451,6 +459,8 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     ![screenshot](documentation/features/messaging/wot_feature_spinner.png "watch-o-tron working... spinner")
 
 - ### Tooltips
+
+    
 
 - ### Easter Eggs
 
