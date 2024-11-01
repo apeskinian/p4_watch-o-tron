@@ -23,7 +23,7 @@ Template source: [mockupworld](https://www.mockupworld.co/free/set-of-clean-appl
 ## UX
 
 #### Strategy
-Create a feature rich web app for watch enthusiasts which enables them to manage and track their collections.
+Create a feature-rich web app for watch enthusiasts which enables them to manage and track their collections.
 
 #### Scope
 Features I wanted to include were:
@@ -33,27 +33,28 @@ Features I wanted to include were:
   - Have a collection and wish list section to enable grouping of watches.
   - The ability to edit and delete watches.
   - Be able to move watches from a wish list to a collection in a simple step.
-  - Have a staff level user which gives them access to a settings page to add, edit and remove custom movements and lists.
+  - Have a staff-level user which gives them access to a settings page to add, edit, and remove custom movements and lists.
   - Some Easter eggs for users to find.
 
 #### Structure
-The site would be based around a main home page that displays a users watches. Mobile users will navigate the site via a pop up menu situated at the bottom of the screen for easier access. When viewed on larger screens the navigation will move to the top. Available lists will be clickable with the current list being highlighted. When a user selects a new list the page will update and display the watches in the newly selected list. The default lists are "Collection" and 'Wish List", these will always be available to view. Any other lists created by staff will only be available to view if the user has added watches to them.
+The site would be based around a main home page that displays a user's watches. Mobile users will navigate the site via a pop-up menu situated at the bottom of the screen for easier access. When viewed on larger screens, the navigation will move to the top. Available lists will be clickable with the current list being highlighted. When a user selects a new list, the page will update and display the watches in the newly selected list. The default lists are "Collection" and 'Wish List", these will always be available to view. Any other lists created by staff will only be available to view if the user has added watches to them.
 
-The button to add a watch will be easily accessible via the menu on mobile devices and at the bottom of screen larger devices. Adding and editing a watch will present a new page to the user specifically for data input. When they submit the new watch info it is presented back to them for confirmation before being added to a chosen list.
+The button to add a watch will be easily accessible via the menu on mobile devices and at the bottom of the screen for larger devices. Adding and editing a watch will present a new page to the user specifically for data input. When they submit the new watch info, it is presented back to them for confirmation before being added to a chosen list.
 
-The user will also have confirmation of their login displayed along with a button to logout.
+The user will also have confirmation of their login displayed along with a button to log out.
 
-If the user is staff level or super user they will be informed and also have extra navigation options. Staff members will have access to the staff settings page and super users will have access to the staff settings and additionally the Django admin panel for the site.
+If the user is a staff member or a super user, they will be informed and also have extra navigation options. Staff members will have access to the staff settings page, and super users will have access to the staff settings and additionally the Django admin panel for the site.
 
-The staff settings page will have tables to show the current movements and lists available for users. Staff members can add, edit and delete any new movements or lists created. The default lists "Collection" and "Wish List" cannot be changed or deleted. Also the default movement types cannot be changed or deleted. The staff settings page enables a client to update the app in response to users requests.
+The staff settings page will have tables to show the current movements and lists available for users. Staff members can add, edit, and delete any new movements or lists created. The default lists "Collection" and "Wish List" cannot be changed or deleted. Also, the default movement types cannot be changed or deleted. The staff settings page enables a client to update the app in response to users’ requests.
+
 
 #### Skeleton
-In the wireframing process I decided the navigation should be simple and remain constant throughout the site where possible. Having navigation on the bottom for mobile devices makes it easier for the user to interact with while keeping the screen visible. The navigation would move to the top for larger screens for a more traditional layout. Clicking on a watch will present you with the action buttons for each watch. An edit logo on the image and cursor change will indicate that this can be done.
+In the wireframing process, I decided the navigation should be simple and remain constant throughout the site where possible. Having navigation on the bottom for mobile devices makes it easier for the user to interact with while keeping the screen visible. The navigation would move to the top for larger screens for a more traditional layout. Clicking on a watch will present you with the action buttons for each watch. An edit logo on the image and cursor change will indicate that this can be done.
 
 ### Colour Scheme
-Because watches come in a multitude of colours and patterns, I decided to go with a neutral monochrome scheme for the site with only the action buttons and main logo having colour. This in turn creates a personal colour scheme for each user as the images of the watches they upload will influence the colour scheme of the site.
+Because watches come in a multitude of colours and patterns, I decided to go with a neutral monochrome scheme for the site, with only the action buttons and main logo having colour. This in turn creates a personal colour scheme for each user, as the images of the watches they upload will influence the colour scheme of the site.
 
-For the action buttons I used the Bootstrap 5 standard colour schemes trying keeping each colour to a specific type of action. This would lead the user naturally to each button when presented, depending on what they wanted to do.
+For the action buttons, I used the Bootstrap 5 standard colour schemes, trying to keep each colour to a specific type of action. This would lead the user naturally to each button when presented, depending on what they wanted to do.
 
 | Colour Ref | Site Elements |
 | --- | --- |
@@ -100,58 +101,59 @@ Some icons from [Font Awesome](https://fontawesome.com) were used and some were 
 
 ### New Site Users
 
-- As a new site user I can sign up for an account so that I can login and use the app.
+- As a new site user, I can sign up for an account so that I can log in and use the app.
 
 ### Returning Site Users
 
-- As a site user I can log in so that I can use the app.
-- As a site user I can logout so that I can keep my data private.
-- As a site user I am notified on successful login and logout so that I know that I know that I am logged in or out.
-- As a site user I can view my watch collection so that I can view images and details of the watches I own.
-- As a site user I can view my wish list so that I can see what watches I want or plan my next purchase.
-- As a site user I can view watches that I have placed in potentially added new list types so that see the watch details for this list.
-- As a site user I can see the details of each watch so that I can find out more information about them.
-- As a site user I am notified when I have switched views to a new list so that I know which list I am viewing.
-- As a site user I can add a new watch so that I ca see it in my collection or wish list.
-- As a site user I am asked to confirm new watch details I entered are correct so that no accidental erroneous data is saved.
-- As a site user I am notified when a watch has been added successfully so that I know the addition was successful or not.
-- As a site user I can see a spinner when I click add watch so that I know something is happening.
-- As a site user I should be prompted to confirm watch deletions so that I do not delete watches by accident.
-- As a site user I can edit stored watches in my collection so that I can add more detail or update existing information.
-- As a site user I can move a watch in my wish list to my collection so that I know that I have purchased it.
-- As a site user I can delete a watch from the wish list so that I can update my wish list should I no longer want a particular watch.
-- As a site user I can delete a watch from a new list type so that I can update this list when I no longer want the watch to appear in it.
-- As a site user I can edit stored watches in my wish list so that I can add more detail or update existing information.
-- As a site user I can edit stored watches in a new list type so that I can add more detail or update existing information.
-- As a site user I can delete a watch from a my collection so that update my lists if I no longer own a particular watch.
-- As a site user I should be prompted to confirm alterations so that edits are correct.
-- As a site user I should be asked to confirm when I set a watch as purchased so that I don't accidentally move a watch to my collection if I haven't bought it.
-- As a site user I am notified after editing and deleting watches so that I know if the process was successful.
-- As a site user I am notified when I move a watch to the collection so that it is confirmed whether the process was successful.
-- As a site user I can see a spinner when I confirm a watch edit so that I know something is happening.
-- As a curious site user I can discover a hidden Easter egg in the site logo so that I experience an unexpected, delightful surprise within the application.
-- As a curious site user I can discover a hidden Easter egg in the date complication icon so that I experience an unexpected, delightful surprise within the application.
-- As a curious site user I can discover a hidden Easter egg in the day complication icon so that I experience an unexpected, delightful surprise within the application.
-- As a curious site user I can discover a hidden Easter egg in the moon phase complication icon so that I experience an unexpected, delightful surprise within the application.
-- As a site user I can post in a forum and comment on posts so that I can connect with other like minded users.
-- As a site user I can send direct messages to other users so that I can have private conversations with other users.
-- As a site user I can delete my account so that the app no longer stores any of my information.
+- As a site user, I can log in so that I can use the app.
+- As a site user, I can log out so that I can keep my data private.
+- As a site user, I am notified on successful login and logout so that I know that I am logged in or out.
+- As a site user, I can view my watch collection so that I can view images and details of the watches I own.
+- As a site user, I can view my wish list so that I can see what watches I want or plan my next purchase.
+- As a site user, I can view watches that I have placed in potentially added new list types so that I can see the watch details for this list.
+- As a site user, I can see the details of each watch so that I can find out more information about them.
+- As a site user, I am notified when I have switched views to a new list so that I know which list I am viewing.
+- As a site user, I can add a new watch so that I ca see it in my collection or wish list.
+- As a site user, I am asked to confirm new watch details I entered are correct so that no accidental erroneous data is saved.
+- As a site user, I am notified when a watch has been added successfully so that I know the addition was successful or not.
+- As a site user, I can see a spinner when I click add watch so that I know something is happening.
+- As a site user, I should be prompted to confirm watch deletions so that I do not delete watches by accident.
+- As a site user, I can edit stored watches in my collection so that I can add more detail or update existing information.
+- As a site user, I can move a watch in my wish list to my collection so that I know that I have purchased it.
+- As a site user, I can delete a watch from the wish list so that I can update my wish list should I no longer want a particular watch.
+- As a site user, I can delete a watch from a new list type so that I can update this list when I no longer want the watch to appear in it.
+- As a site user, I can edit stored watches in my wish list so that I can add more detail or update existing information.
+- As a site user, I can edit stored watches in a new list type so that I can add more detail or update existing information.
+- As a site user, I can delete a watch from my collection so that I can update my lists if I no longer own a particular watch.
+- As a site user, I should be prompted to confirm alterations so that edits are correct.
+- As a site user, I should be asked to confirm when I set a watch as purchased so that I don't accidentally move a watch to my collection if I haven't bought it.
+- As a site user, I am notified after editing and deleting watches so that I know if the process was successful.
+- As a site user, I am notified when I move a watch to the collection so that it is confirmed whether the process was successful.
+- As a site user, I can see a spinner when I confirm a watch edit so that I know something is happening.
+- As a curious site user, I can discover a hidden Easter egg in the site logo so that I experience an unexpected, delightful surprise within the application.
+- As a curious site user, I can discover a hidden Easter egg in the date complication icon so that I experience an unexpected, delightful surprise within the application.
+- As a curious site user, I can discover a hidden Easter egg in the day complication icon so that I experience an unexpected, delightful surprise within the application.
+- As a curious site user, I can discover a hidden Easter egg in the moon phase complication icon so that I experience an unexpected, delightful surprise within the application.
+- As a site user, I can post in a forum and comment on posts so that I can connect with other like-minded users.
+- As a site user, I can send direct messages to other users so that I can have private conversations with other users.
+- As a site user, I can delete my account so that the app no longer stores any of my information.
+
 
 ### Staff Member
 
-- As a client I can login as a staff member so that I can add potential new important options for users.
-- As a site staff member I can add new watch movement types to the model so that users can add watches with any new movement types that may become available in the future.
-- As a site staff member I can add new list types so that users can expand their lists from collection and wish list to other types specified by the site staff member.
-- As a site staff member I can edit any movement types I have added so that I change them if needed.
-- As a site staff member I can delete any new movement types so that I can keep the list relevant.
-- As a site staff membe I can edit any added list types so that keep the app up to date.
-- As a site staff member I can delete custom added lists so that remove any unwanted list types.
-- As a staff member I am notified about edits and deletes I make for custom movements so that I know if the change was successful.
-- As a staff member I am notified of successful list edits and deletions so that I know the process was successful.
+- As a client, I can log in as a staff member so that I can add potential new, important options for users.
+- As a site staff member, I can add new watch movement types to the model so that users can add watches with any new movement types that may become available in the future.
+- As a site staff member, I can add new list types so that users can expand their lists from collection and wish list to other types specified by the site staff member.
+- As a site staff member, I can edit any movement types I have added so that I can change them if needed.
+- As a site staff member, I can delete any new movement types so that I can keep the list relevant.
+- As a site staff member, I can edit any added list types so that I keep the app up to date.
+- As a site staff member, I can delete custom added lists so that I can remove any unwanted list types.
+- As a staff member, I am notified about edits and deletes I make for custom movements so that I know if the change was successful.
+- As a staff member, I am notified of successful list edits and deletions so that I know the process was successful.
 
 ### Site Admin
 
-- As a site admin I can log in as a super user so that I can access the admin panel.
+- As a site admin, I can log in as a super user so that I can access the admin panel.
 
 ## Wireframes
 
@@ -189,7 +191,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     #### Individual Accounts
 
-    - When you first navigate to the Watch-O-Tron you are required to log in or create an account. This is because every user needs their own account to use the site. This keeps their information private and stops anyone without authorisation editing their data. When logged in your username is displayed so that you know you are logged in to the correct account. Every page also has the log out button.
+    - When you first navigate to the Watch-O-Tron, you are required to log in or create an account. This is because every user needs their own account to use the site. This keeps their information private and stops anyone without authorisation from editing their data. When logged in, your username is displayed so that you know you are logged in to the correct account. Every page also has the log-out button.
     <br>
 
     | Sign In | Sign Up | Sign Out |
@@ -202,7 +204,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     #### Different Account Levels
 
-    - There are three levels of user each with different levels of access:
+    - There are three levels of user, each with different levels of access:
         - **User**: this is the default level with the following privileges:
             - Access their account.
             - View their watches.
@@ -216,16 +218,16 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
             - Delete any custom movements or lists.
 
             **Note:** staff members cannot edit or delete the default types of movement or list.
-        - **Super User**: this is the highest level and only for site administrators. In addition to User and Staff Member privileges they can:
+        - **Super User**: this is the highest level and only for site administrators. In addition to User and Staff Member privileges, they can:
             - Access the Django Admin Panel.
             - Create any type of user.
             - Edit any user.
             - Delete any user.
             - Create new default movements or lists.
             - Edit **any** movement or list.
-            - Delet **any** movement or list.
+            - Delete **any** movement or list.
     
-    If you are a staff member or super user (admin) it will be displayed next your username and you will be presented with extra buttons to access the appropriate settings given to you.
+    If you are a staff member or super user (admin), it will be displayed next to your username, and you will be presented with extra buttons to access the appropriate settings given to you.
 
     |  | User | Staff Member | Super User |
     | :---: | :---: | :---: | :---: |
@@ -234,32 +236,32 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Site Navigation
 
-    **Note:** tapping/clicking on the main logo will bring you back to the home page on both mobile and desktop versions.
+    **Note:** Tapping/clicking on the main logo will bring you back to the home page on both mobile and desktop versions.
 
     #### Mobile
-    Most navigation of the site on a mobile device is done through the collapsing navbar at the bottom of the screen, from here you can:
+    Most navigation of the site on a mobile device is done through the collapsing navbar at the bottom of the screen. From here, you can:
     - View all the lists you currently have watched stored in.
     - Add a new watch.
-    - Logout.
-    - Access any user level specific pages.
+    - Log out.
+    - Access any user-level-specific pages.
 
-    If the current list of watches you are viewing contains more than 8 watches you will get a pagination navigation bar appear just above the menu.
+    If the current list of watches you are viewing contains more than 8 watches, you will get a pagination navigation bar appear just above the menu.
 
-    To edit any watch you can tap anywhere on the watch to reveal the edit or delete buttons from which you can perform each action from. If the watch is in the wish list you will also get a 'purchase' option button.
+    To edit any watch, you can tap anywhere on the watch to reveal the edit or delete buttons from which you can perform each action. If the watch is in the wish list, you will also get a 'purchase' option button.
 
     | Mobile Navbar | Mobile Navbar Expanded | Mobile Pagination | Watch Edit Hidden | Watch Edit Revealed |
     | :---: | :---: | :---: | :---: | :---: |
     | ![screenshot](documentation/features/nav/wot_features_nav_mobile_menu.png "watch-o-tron mobile navbar") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_menu_expanded.png "watch-o-tron mobile navbar expanded") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_pagination.png "watch-o-tron mobile pagination") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_edit_hidden.png "watch-o-tron mobile watch edit hidden") | ![screenshot](documentation/features/nav/wot_features_nav_mobile_edit_shown.png "watch-o-tron watch edit revealed") |
 
     #### Desktop
-    The main navigation for desktop devices is located at the top of the screen, from here you can:
-    - View all the lists you currently have watched stored in. Collection and Wish List are always visible, any extra custom lists are shown in the dropdown menu.
-    - Logout.
-    - Access any user level specific pages.
+    The main navigation for desktop devices is located at the top of the screen. From here, you can:
+    - View all the lists you currently have watched stored in. Collection and Wish List are always visible. Any extra custom lists are shown in the dropdown menu.
+    - Log out.
+    - Access any user-level-specific pages.
 
-    To add a watch, the button is located at the bottom of the screen in a prominant central position. If the current list of watches you are viewing contains more than 8 watches you will get a pagination navigation bar appear just above this button.
+    To add a watch, the button is located at the bottom of the screen in a prominent central position. If the current list of watches you are viewing contains more than 8 watches, you will get a pagination navigation bar appear just above this button.
 
-    To edit any watch you can click anywhere on the watch to reveal the edit or delete buttons from which you can perform each action from. If the watch is in the wish list you will also get a 'purchase' option button.
+    To edit any watch, you can click anywhere on the watch to reveal the edit or delete buttons from which you can perform each action. If the watch is in the wish list, you will also get a 'purchase' option button.
 
     | Desktop Navbar | Desktop Navbar Expanded | Desktop Add Watch | Desktop Pagination | Watch Edit Hidden | Watch Edit Revealed |
     | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -267,17 +269,17 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Viewing Watches
 
-    The main page in Watch-O-Tron is where you can see your watches. When you first visit the site the default view is your Collection. You can then navigate to different lists to see all your watches in each list. If a list contains more than 8 watches, the view will be paginated to maintain good site performance.
+    The main page in Watch-O-Tron is where you can see your watches. When you first visit the site, the default view is your Collection. You can then navigate to different lists to see all your watches in each list. If a list contains more than 8 watches, the view will be paginated to maintain good site performance.
 
     - #### Typical Watch Display
 
-        Each watch has it's own card which displays the information added by the user. An image (placeholder if no image uploaded) is the main focus of each card with the particular watch details underneath. Complications are shown as icons with them in prominant black if the watch has it and a faded grey if not. A curious user may notice something about some of these icons...
+        Each watch has its own card which displays the information added by the user. An image (placeholder if no image uploaded) is the main focus of each card with the particular watch details underneath. Complications are shown as icons with them in prominent black if the watch has it and a faded grey if not. A curious user may notice something about some of these icons...
 
         | Typical watch with uploaded image | Typical watch with placeholder |
         | :---: | :---: |
         | ![screenshot](documentation/features/viewing/wot_feature_viewing_card_image.png "watch-o-tron typical card with image") | ![screenshot](documentation/features/viewing/wot_feature_viewing_card_placeholder.png "watch-o-tron typical card with placeholder") |
 
-    If a list is empty you will be notified and prompted to add a watch.
+    If a list is empty, you will be notified and prompted to add a watch.
     <br>
 
     | Viewing on mobile | Viewing on tablet | Viewing on desktop |
@@ -290,19 +292,19 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Adding Watches
 
-    When you click on the Add Watch button you are presented with a form to fill out with the following details about the watch:
+    When you click on the Add Watch button, you are presented with a form to fill out with the following details about the watch:
 
     - Make (required)
     - Collection
     - Model
-    - Movement Type (required selectable from dropdown)
+    - Movement Type (required, selectable from dropdown)
     - Movement Model
     - Image (placeholder image used if none uploaded)
-    - List (required selectable from dropdown)
+    - List (required, selectable from dropdown)
 
     Then you can select which of the following most common watch complications it has (if any):
 
-    - Chronohraph
+    - Chronograph
     - Day
     - Date
     - GMT
@@ -316,7 +318,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     | :---: | :---: | :---: |
     | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_mobile.png "watch-o-tron add watch mobile") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_tablet.png "watch-o-tron add watch tablet") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_desktop.png "watch-o-tron add watch desktop") |
 
-    Once you have entered the info and clicked on Add Watch you are presented with the details for confirmation including any image uploaded. If no image was chosen a placeholder is used. Only the Make, Movement Type and user List are required when entering a watch. You can add more later if required. If you decide you no longer wish to add this watch you can click on cancel to return to the list you were viewing.
+    Once you have entered the info and clicked on Add Watch, you are presented with the details for confirmation, including any image uploaded. If no image was chosen, a placeholder is used. Only the Make, Movement Type, and user list are required when entering a watch. You can add more later if required. If you decide you no longer wish to add this watch, you can click on cancel to return to the list you were viewing.
 
     | Watch confirmation mobile | Watch confirmation tablet | Watch confirmation desktop |
     | :---: | :---: | :---: |
@@ -326,11 +328,11 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     | :---: | :---: | :---: |
     | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_mobile_placeholder.png "watch-o-tron add watch placeholder mobile") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_tablet_placeholder.png "watch-o-tron add watch placeholder tablet") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_desktop_placeholder.png "watch-o-tron add watch placeholder desktop") |
 
-    When you have confirmed the details are correct the watch is added to the chosen list and you are redirected to that list. If you notice a mistake you can click on edit to return to the input form where you can make changes. Also if you decide that you no longer wish to add this watch at the confirmation stage you can click on cancel to return to the list you were previsouly viewing.
+    When you have confirmed the details are correct, the watch is added to the chosen list, and you are redirected to that list. If you notice a mistake, you can click on edit to return to the input form where you can make changes. Also, if you decide that you no longer wish to add this watch at the confirmation stage, you can click on cancel to return to the list you were previously viewing.
 
 - ### Watch Action Buttons
 
-    Each watch has it's own action buttons which allow the user to manage each watch individually. To access these buttons they simply click anywhere on the watch they wish to update. There are two default action buttons which are 'Edit' and 'Delete'. If the watch is located in the **Wish List** then there is an extra action button labelled 'Purchased' that they can use to quickly move the watch to the Collection without going into the edit function.
+    Each watch has its own action buttons which allow the user to manage each watch individually. To access these buttons, they simply click anywhere on the watch they wish to update. There are two default action buttons which are 'Edit' and 'Delete'. If the watch is located in the **Wish List**, then there is an extra action button labelled 'Purchased' that they can use to quickly move the watch to the Collection without going into the edit function.
 
     | Standard action buttons mobile | Standard action buttons tablet | Standard action buttons desktop |
     | :---: | :---: | :---: |
@@ -342,7 +344,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Purchased Watches
 
-    When viewing watches in the Wish List, the 'Purchased' action button facilitates the seamless transition of watches from the Wish List to the Collection. When confirmed the user it taken to the Collection page.
+    When viewing watches in the Wish List, the 'Purchased' action button facilitates the seamless transition of watches from the Wish List to the Collection. When confirmed, the user is taken to the Collection page.
 
     | Purchase Confirmation Mobile | Purchase Confirmation Tablet | Purchase Confirmation Desktop |
     | :---: | :---: | :---: |
@@ -350,9 +352,9 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Editing Watches
 
-    If a user needs to edit a watch they can do so via the watch's edit action button. The edit process is very similar to the add watch process except this time any information that was already stored for the watch is prefilled into the data input form. If the watch had an image uploaded this is also shown. Here you can change any information, add new information or delete some information. The only fields that are required remain the Make, Movement Type and user List.
+    If a user needs to edit a watch, they can do so via the watch's edit action button. The edit process is very similar to the add watch process, except this time any information that was already stored for the watch is prefilled into the data input form. If the watch had an image uploaded, this is also shown. Here you can change any information, add new information, or delete some information. The only fields that are required remain the Make, Movement Type, and user list.
     
-    When the user is happy with the changes they can click on 'Update Watch' where they will be presented with the updated details to confirm. As with adding a watch, the user can also click on 'Edit' to go back and amend more info, or 'Cancel' to return to the previous watch list they were viewing without making any changes.
+    When the user is happy with the changes, they can click on 'Update Watch,' where they will be presented with the updated details to confirm. As with adding a watch, the user can also click on 'Edit' to go back and amend more info or 'Cancel' to return to the previous watch list they were viewing without making any changes.
 
     | Watch editing mobile | Watch editing tablet | Watch editing desktop |
     | :---: | :---: | :---: |
@@ -366,7 +368,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Deleting Watches
 
-    If a user needs to delete a watch they can do this using the 'Delete' action button. The user is then asked to confirm this action and warned that it cannot be undone. The user can click confirm which will delete the watch and return them to the list they were viewing or, click cancel which will return them without deleting the watch.
+    If a user needs to delete a watch, they can do this using the 'Delete' action button. The user is then asked to confirm this action and warned that it cannot be undone. The user can click confirm, which will delete the watch and return them to the list they were viewing, or click cancel, which will return them without deleting the watch.
 
     | Watch delete mobile | Watch delete tablet | Watch delete desktop |
     | :---: | :---: | :---: |
@@ -374,7 +376,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Staff Member Access Privileges
 
-    Staff members are client users who are given access to the staff settings page. This is where you can add, edit and delete custom movement types and lists for the users. As a staff member you will **not** have access to modify the default movement types or lists, this is setup by the site admin.
+    Staff members are client users who are given access to the staff settings page. This is where you can add, edit, and delete custom movement types and lists for the users. As a staff member, you will **not** have access to modify the default movement types or lists; this is set up by the site admin.
 
     | Staff settings page mobile | Staff settings page tablet | Staff settings page desktop |
     | :---: | :---: | :---: |
@@ -382,7 +384,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     - #### Adding a movement type or list
 
-    To add a new movement type or list the staff member simply starts to type the new name in the required input box and click the 'Add' button. The new item will be added to the respective list.
+    To add a new movement type or list, the staff member simply starts to type the new name in the required input box and clicks the 'Add' button. The new item will be added to the respective list.
 
     | Add item mobile | Add item tablet | Add item desktop |
     | :---: | :---: | :---: |
@@ -390,7 +392,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     - #### Editing a movement type or list
 
-    To edit an existing custom movement or list the staff member clicks on the edit button for the specific item they want to edit. A prompt appears prefilled with the current name ready for editing. The user can then either proceed with the edit by clicking 'Amend' or cancel with the 'Cancel' button. The user is also informed of any watches that would be affected by this change.
+    To edit an existing custom movement or list, the staff member clicks on the edit button for the specific item they want to edit. A prompt appears prefilled with the current name ready for editing. The user can then either proceed with the edit by clicking 'Amend' or cancel with the 'Cancel' button. The user is also informed of any watches that would be affected by this change.
 
     | Edit item mobile | Edit item tablet | Edit item desktop |
     | :---: | :---: | :---: |
@@ -398,7 +400,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     - #### Deleting a movement type or list
 
-    To delete an existing custom movement or list the staff member clicks on the delete button for the specific item they want to edit. A prompt appears asking them to confirm. The user can then either proceed with the deletion by clicking 'Delete' or cancel with the 'Cancel' button. The user is also informed of any watches that would be affected by this change.
+    To delete an existing custom movement or list, the staff member clicks on the delete button for the specific item they want to edit. A prompt appears asking them to confirm. The user can then either proceed with the deletion by clicking 'Delete' or cancel with the 'Cancel' button. The user is also informed of any watches that would be affected by this change.
 
     | Delete item mobile | Delete item tablet | Deletedit item desktop |
     | :---: | :---: | :---: |
@@ -406,7 +408,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Super User Access Privileges
 
-    The only people with super user access are the site admin/s. They will be given access to the Django admin panel. From here they can setup up and edit the default lists and movements. They can also edit and delete users. As this is a very powerful panel, client users will not be able to access this.
+    The only people with super user access are the site admin/s. They will be given access to the Django admin panel. From here, they can set up and edit the default lists and movements. They can also edit and delete users. As this is a very powerful panel, client users will not be able to access this.
 
     | Admin panel mobile | Admin panel tablet | Admin panel item desktop |
     | :---: | :---: | :---: |
@@ -414,24 +416,24 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Communication to User
 
-    Communication to the user while they are using the site is important. It helps to let them know actions have been performed correctly, update them on navigation and inform them if errors occur. It is also important to give a visual indication for background activity so that they do not think clicking on something did not work properly. Watch-O-Tron uses Django messages and Bootstrap spinners to fulfil this task.
+    Communication to the user while they are using the site is important. It helps to let them know actions have been performed correctly, update them on navigation, and inform them if errors occur. It is also important to give a visual indication for background activity so that they do not think clicking on something did not work properly. Watch-O-Tron uses Django messages and Bootstrap spinners to fulfil this task.
 
     #### Messaging
 
     Messages are displayed to the user in the following circumstances:
-    - All sign in and sign out processes
+    - All sign-in and sign-out processes
     - Switching between watch lists and pagination
-    - Confirmation of add, edit and deletion of watches
-    - Confirmation of add, edit and deletion of custom movements and lists for staff members
+    - Confirmation of add, edit, and deletion of watches
+    - Confirmation of add, edit, and deletion of custom movements and lists for staff members
     - Cancellation of actions
     - Form errors
 
-    Colour coded messages are used for clear understanding of what a message is about
+    Colour-coded messages are used for clear understanding of what a message is about:
     - Green messages are confirmation of a process completing
     - Blue messages are indicators that a process was stopped by the user (eg. cancelling the addition of a watch)
     - Red messages indicate that there has been an error
 
-    All messages except errors are automatically dismissed after a few seconds. Error messages remain on screen and must be manually dismissed by the user so as to confirm that they have ackowledged it.
+    All messages except errors are automatically dismissed after a few seconds. Error messages remain on screen and must be manually dismissed by the user so as to confirm that they have acknowledged it.
 
     | Message | Screenshot |
     | :---: | :---: |
