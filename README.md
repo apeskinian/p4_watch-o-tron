@@ -6,13 +6,13 @@
 
 **Watch-O-Tron: A Comprehensive Watch Collection Management Tool**
 
-Watch-O-Tron is a versatile tool designed to efficiently manage your watch collection. It enables you to meticulously track all your watches, including detailed information such as make, model, and brand collection. Additionally, movement details can be stored, encompassing type and specific movement model information. For watches with intricate complications, these can be noted and highlighted with user-friendly icons during watch viewing. Furthermore, an image can be uploaded for each watch.
+Watch-O-Tron is a versatile tool designed to efficiently manage your watch collection. It enables you to track all your watches, including detailed information such as make, model, and brand collection. Additionally, movement details can be stored encompassing type and specific movement model information. For watches with intricate complications, these can be noted and highlighted with user-friendly icons. An image can also be uploaded for each watch.
 
 While it is recommended to have all watch details readily available, the only essential information required to store a watch is it's make and movement type.
 
-Watch-O-Tron offers the flexibility to revisit and edit watch details at your convenience. You can also delete watches and transfer them between different lists.
+Watch-O-Tron offers the flexibility to edit watch details at your convenience. You can also delete watches and transfer them between different lists.
 
-As watch enthusiasts often acquire new watches, Watch-O-Tron provides a convenient feature to add watches to a wish list for desired watches. Upon making a purchase, you can effortlessly transfer the watch to your collection by using the purchased button.
+As watch enthusiasts often acquire new watches, Watch-O-Tron provides a convenient feature to add watches to a wish list for desired watches. Upon making a purchase, you can effortlessly transfer the watch to your collection by using the purchased action button.
 
 Staff members also have access to the staff settings area, which grants them the ability to add, edit, and remove custom movements and list types. However, default movements and lists cannot be modified.
 
@@ -457,7 +457,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     #### Working Spinner
 
-    A spinner is used when a user confirms the addition or editing of a watch. This is when most data is being written to the database, especially if there is also an image to upload to Cloudinary. Therefore, a spinner is shown in the button, and 'Working...' replaces the button text to inform the user that something is happening.
+    A spinner is used when a user confirms the addition or editing of a watch. This is when most data is being written to the database, especially if there is also an image to upload to Cloudinary. Therefore, a spinner is shown in the button and 'Working...' replaces the button text to inform the user that something is happening.
 
     ![screenshot](documentation/features/messaging/wot_feature_spinner.png "watch-o-tron working... spinner")
 
