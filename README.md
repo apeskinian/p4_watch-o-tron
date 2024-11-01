@@ -271,11 +271,11 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     - #### Typical Watch Display
 
-    Each watch has it's own card which displays the information added by the user. An image (placeholder if no image uploaded) is the main focus of each card with the particular watch details underneath. Complications are shown as icons with them in prominant black if the watch has it and a faded grey if not. A curious user may notice something about some of these icons...
+        Each watch has it's own card which displays the information added by the user. An image (placeholder if no image uploaded) is the main focus of each card with the particular watch details underneath. Complications are shown as icons with them in prominant black if the watch has it and a faded grey if not. A curious user may notice something about some of these icons...
 
-    | Typical watch with uploaded image | Typical watch with placeholder |
-    | :---: | :---: |
-    | ![screenshot](documentation/features/viewing/wot_feature_viewing_card_image.png "watch-o-tron typical card with image") | ![screenshot](documentation/features/viewing/wot_feature_viewing_card_placeholder.png "watch-o-tron typical card with placeholder") |
+        | Typical watch with uploaded image | Typical watch with placeholder |
+        | :---: | :---: |
+        | ![screenshot](documentation/features/viewing/wot_feature_viewing_card_image.png "watch-o-tron typical card with image") | ![screenshot](documentation/features/viewing/wot_feature_viewing_card_placeholder.png "watch-o-tron typical card with placeholder") |
 
     If a list is empty you will be notified and prompted to add a watch.
     <br>
@@ -460,9 +460,27 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Tooltips
 
-    
+    The watch displays use icons to depict the complications that each watch has. For new users this may be a little confusing as to what each one is. Therefore tooltips will appear for each one.
+
+    | Complication | Tooltip |
+    | :---: | :---: |
+    | Chronograph | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_chronograph.png "watch-o-tron tooltips chronograph") |
+    | Day | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_day.png "watch-o-tron tooltips day") |
+    | Date | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_date.png "watch-o-tron tooltips date") |
+    | GMT | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_gmt.png "watch-o-tron tooltips gmt") |
+    | World Timer | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_world_timer.png "watch-o-tron tooltips world timer") |
+    | Moonphase | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_moonphase.png "watch-o-tron tooltips moonphase") |
+    | Power Reserve | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_power_reserve.png "watch-o-tron tooltips power reserve") |
+    | Tourbillon | ![screenshot](documentation/features/tooltips/wot_feature_tooltips_tourbillon.png "watch-o-tron tooltips tourbillon") |
 
 - ### Easter Eggs
+
+    There's more than meets the eye in the Watch-O-Tron. I have implemented 4 Easter eggs into the site that curious users might notice.
+    - Live clock: the 'O' of the main logo hides a live clock which works to the user local time.
+    - Day complication: the icon for the day complication is dynamic so that it shows the current day. Their is also a little extra easter egg nod to a certain popular watch brand who use red text on Sundays.
+    - Date complication: the icon for the date complication is dynamic so that is shows the current date.
+    - Moonphase complication: the icon is dynamic and shows the current phase of the moon. Data used for this is retrieved from [Ephem](https://pypi.org/project/ephem/)
+
 
 ### Future Features
 
