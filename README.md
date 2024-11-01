@@ -83,6 +83,15 @@ For the action buttons, I used the Bootstrap 5 standard colour schemes, trying t
 
 - [Font Awesome](https://fontawesome.com) icons were used for the mobile navigation menu icon, pagination icons and watch edit indicator.
 
+    | Icon | Use |
+    | --- | --- |
+    | [Bars](https://fontawesome.com/icons/bars?f=classic&s=solid "font awesome link") | Mobile navbar button |
+    | [Forward Step](https://fontawesome.com/icons/forward-step?f=classic&s=solid "font awesome link") | Pagination next page |
+    | [Forward Fast](https://fontawesome.com/icons/forward-fast?f=classic&s=solid "font awesome link") | Pagination last page |
+    | [Backward Step](https://fontawesome.com/icons/backward-step?f=classic&s=solid "font awesome link") | Pagination previous page |
+    | [Backward Fast](https://fontawesome.com/icons/backward-fast?f=classic&s=solid "font awesome link") | Pagination first page |
+    | [Pen to Square](https://fontawesome.com/icons/pen-to-square?f=classic&s=solid "font awesome link") | Watch edit indicator |
+
 #### Complication Icons
 
 Some icons from [Font Awesome](https://fontawesome.com) were used and some were create by myself.
