@@ -355,15 +355,15 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - ### Editing Watches
 
-    If a user needs to edit a watch, they can do so via the watch's edit action button. The edit process is very similar to the add watch process, except this time any information that was already stored for the watch is prefilled into the data input form. If the watch had an image uploaded, this is also shown. Here you can change any information, add new information, or delete some information. The only fields that are required remain the Make, Movement Type, and user list.
+    If a user needs to edit a watch, they can do so via the watch's edit action button. The edit process is very similar to the add watch process, except this time any information that was already stored for the watch is prefilled into the data input form. If the watch had an image uploaded, this is also shown. Here you can change any information, add new information, or delete some information. The only fields that are required remain the Make, Movement Type, and List name.
     
-    When the user is happy with the changes, they can click on 'Update Watch,' where they will be presented with the updated details to confirm. As with adding a watch, the user can also click on 'Edit' to go back and amend more info or 'Cancel' to return to the previous watch list they were viewing without making any changes.
+    When the user is happy with the changes, they can click on 'Update Watch,' where they will be presented with the updated details to confirm. They can also cancel at this stage and return to the list they were viewing.
 
     | Watch editing mobile | Watch editing tablet | Watch editing desktop |
     | :---: | :---: | :---: |
     | ![screenshot](documentation/features/editing/wot_feature_editing_mobile.png "watch-o-tron editing mobile") | ![screenshot](documentation/features/editing/wot_feature_editing_tablet.png "watch-o-tron editing tablet") | ![screenshot](documentation/features/editing/wot_feature_editing_desktop.png "watch-o-tron editing desktop") |
 
-    When the details are confirmed, the watch is updated with the new information and the user is directed to the list in which the watch was saved to.
+    When the details are confirmed, the watch is updated with the new information and the user is directed to the list in which the watch was saved to. As with adding a watch, the user can also click on 'Edit' to go back and amend more info or 'Cancel' to return to the previous watch list they were viewing without making any changes.
 
     | Edit confirmation mobile | Watch confirmation tablet | Watch confirmation desktop |
     | :---: | :---: | :---: |
