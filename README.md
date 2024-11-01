@@ -949,7 +949,7 @@ There are no differences between the local and deployed version of the site.
 | [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
 | [Bootrap Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) | entire site | using bootstrap |
 | [Medium - How to Style Your Django Forms](https://medium.com/swlh/how-to-style-your-django-forms-7e8463aae4fa) | manage watch forms | help on manually styling Django forms |
-| [Stack Overflow](https://stackoverflow.com/questions/52803129/how-to-add-django-template-variable-in-img-src) | entire site | adding django template variable to <img src> |
+| [Stack Overflow](https://stackoverflow.com/questions/52803129/how-to-add-django-template-variable-in-img-src) | entire site | adding django template variable to img src |
 | [Codepen](https://codepen.io/dope/pen/KJYMZz) | clock in main logo | base code for working clock |
 | [PyPI](https://pypi.org/project/ephem/) | watch object moonphase icons | package that provides current moonphase angle |
 | [Cloudinary](https://cloudinary.com/) | entire site | hosting user uploaded images |
