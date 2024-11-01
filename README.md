@@ -391,11 +391,17 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     To delete an existing custom movement or list the staff member clicks on the delete button for the specific item they want to edit. A prompt appears asking them to confirm. The user can then either proceed with the deletion by clicking 'Delete' or cancel with the 'Cancel' button. The user is also informed of any watches that would be affected by this change.
 
-    | Delete item mobile | Delete item tablet | EDeletedit item desktop |
+    | Delete item mobile | Delete item tablet | Deletedit item desktop |
     | :---: | :---: | :---: |
     | ![screenshot](documentation/features/staff_settings/wot_feature_ss_delete_mobile.png "watch-o-tron staff settings delete mobile") | ![screenshot](documentation/features/staff_settings/wot_feature_ss_delete_tablet.png "watch-o-tron staff settings delete tablet") | ![screenshot](documentation/features/staff_settings/wot_feature_ss_delete_desktop.png "watch-o-tron staff settings delete desktop") |
 
 - ### Super User Access Privileges
+
+    The only people with super user access are the site admin/s. They will be given access to the Django admin panel. From here they can setup up and edit the default lists and movements. They can also edit and delete users. As this is a very powerful panel, client users will not be able to access this.
+
+    | Admin panel mobile | Admin panel tablet | Admin panel item desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/super/wot_feature_admin_mobile.png "watch-o-tron admin panel mobile") | ![screenshot](documentation/features/super/wot_feature_admin_tablet.png "watch-o-tron admin panel tablet") | ![screenshot](documentation/features/super/wot_feature_admin_desktop.png "watch-o-tron admin panel desktop") |
 
 - ### Communication to User
     #### Messaging
