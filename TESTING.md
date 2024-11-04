@@ -12,11 +12,14 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
 | templates | 404.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| templates | base_manage.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| templates | usersession_list.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watches | index.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watches | manage_watch.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watches | staff_settings.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| templates/account | login.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| templates/account | logout.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| templates/account | signup.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watches/templates/watches | index.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watches/templates/watches | manage_watch.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| watches/templates/watches | staff_settings.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+
+
 
 ### CSS
 
