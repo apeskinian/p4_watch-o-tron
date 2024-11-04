@@ -27,16 +27,14 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | watches/templates/watches | manage_watch.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_manage_watch.png "watch-o-tron html validation manage_watch") | no errors or warnings |
 | watches/templates/watches | staff_settings.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_staff_settings.png "watch-o-tron html validation staff_settings") | no errors or warnings |
 
-
-
 ### CSS
 
 I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| static | clockface.css | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| static | style.css | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| static | clockface.css | ![screenshot](documentation/testing/validation/css/wot_testing_css_clockface.png "watch-o-tron css validation clockface") | no errors found |
+| static | style.css | ![screenshot](documentation/testing/validation/css/wot_testing_css_style.png "watch-o-tron css validation style") | no errors found |
 
 ### JavaScript
 
