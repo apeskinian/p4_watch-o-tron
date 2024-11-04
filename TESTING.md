@@ -9,15 +9,23 @@
 
 I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
 
+> [!NOTE]  
+> The main template and also other partial html files listed below were tested as part of the main site files as they include them.
+> - base.html
+> - clockface.html
+> - messages.html
+> - pagination.html
+> - standard_nav.html
+
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| templates | 404.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| templates/account | login.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| templates/account | logout.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| templates/account | signup.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watches/templates/watches | index.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watches/templates/watches | manage_watch.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watches/templates/watches | staff_settings.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| templates | 404.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_404.png "watch-o-tron html validation 404") | no errors or warnings |
+| templates/account | login.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_login.png "watch-o-tron html validation login") | no errors or warnings |
+| templates/account | logout.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_logout.png "watch-o-tron html validation logout") | no errors or warnings |
+| templates/account | signup.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_signup.png "watch-o-tron html validation signup") | no errors or warnings |
+| watches/templates/watches | index.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_index.png "watch-o-tron html validation index") | |
+| watches/templates/watches | manage_watch.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_manage_watch.png "watch-o-tron html validation manage_watch") | no errors or warnings |
+| watches/templates/watches | staff_settings.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_staff_settings.png "watch-o-tron html validation staff_settings") | no errors or warnings |
 
 
 
