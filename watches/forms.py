@@ -103,11 +103,11 @@ class WatchForm(forms.ModelForm):
             'complication_power_reserve': 'Power Reserve',
             'complication_tourbillon': 'Tourbillon',
         }
-    
+
     def __init__(self, *args, **kwargs):
         initial = kwargs.get('initial', {})
         super().__init__(*args, **kwargs)
-        
+
         # Set the initial value for list_name if provided
         if 'list_name' in initial:
             self.fields['list_name'].initial = initial['list_name']
@@ -122,8 +122,12 @@ class MovementForm(forms.ModelForm):
 
     def clean_movement_name(self):
         movement_name = self.cleaned_data.get('movement_name').strip()
-        if WatchMovement.objects.filter(movement_name__iexact=movement_name).exists():
-            raise forms.ValidationError("A movement with this name already exists.")
+        if WatchMovement.objects.filter(
+            movement_name__iexact=movement_name).exists(
+        ):
+            raise forms.ValidationError(
+                "A movement with this name already exists."
+            )
         return movement_name
 
 
@@ -136,6 +140,10 @@ class ListForm(forms.ModelForm):
 
     def clean_friendly_name(self):
         friendly_name = self.cleaned_data.get('friendly_name').strip()
-        if WatchList.objects.filter(friendly_name__iexact=friendly_name).exists():
-            raise forms.ValidationError("A list with this name already exists.")
+        if WatchList.objects.filter(
+            friendly_name__iexact=friendly_name).exists(
+        ):
+            raise forms.ValidationError(
+                "A list with this name already exists."
+            )
         return friendly_name

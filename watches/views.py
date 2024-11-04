@@ -83,7 +83,7 @@ def home(request, list_name='collection'):
         'current_list': current_list.list_name,
         'pages': pages
     }
-    
+
     if paginator.num_pages > 1:
         messages.success(
             request,
