@@ -1,0 +1,66 @@
+/* CLOCKFACE CSS */
+/* clockface code sourced from https://codepen.io/dope/pen/KJYMZz */
+/* adapted to match style of site */
+.clock-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+  }
+  
+  .clock {
+    border-radius: 100%;
+    background: #ffffff;
+    border: 5.5px solid black;
+  }
+  
+  .wrap {
+    overflow: hidden;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+  }
+  
+  .minute,
+  .hour {
+    position: absolute;
+    height: 8px;
+    width: 3px;
+    margin: auto;
+    top: 0px;
+    left: 0px;
+    bottom: 8px;
+    right: 0px;
+    background: #CC0000;
+    border-radius: 1.5px;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    z-index: 0;
+  }
+  
+  .minute {
+    position: absolute;
+    height: 12px;
+    width: 3px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 12px;
+    transform: rotate(90deg);
+    z-index: 0;
+  }
+  
+  .dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background: rgb(204, 0, 0);
+    margin: auto;
+    z-index: 1;
+  }

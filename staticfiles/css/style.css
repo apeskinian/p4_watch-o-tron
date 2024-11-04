@@ -1,0 +1,438 @@
+/* IMPORT FONTS AND CLOCKFACE.CSS */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "clockface.css";
+
+/* OVERRIDE BROWSER DEFAULTS */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overscroll-behavior: none;
+}
+
+/* GENERAL */
+.hidden {
+    display: none;
+}
+
+.logo {
+    height: 40px;
+}
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    background-color: rgb(220, 220, 220);
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+.btn {
+    font-family: 'Ubuntu Mono', sans-serif;
+}
+
+.btn-close {
+    right: 20px;
+}
+
+header {
+    font-size: 1.2rem;
+    height: 56px;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-footer {
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    box-shadow: 0 -0.5px 0.5px 0.5px lightgray;
+}
+
+.signature-footer {
+    font-size: 1.2rem;
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 56px;
+    box-shadow: 0px -0.5px 0.5px 0.5px #d3d3d3;
+}
+/* GENERAL ->END<- */
+
+/* NAVBARS */
+/* mobile navbar shown at the bottom */
+#bottom-nav-mobile {
+    min-height: 56px;
+    box-shadow: 0 -0.5px 0.5px 0.5px #d3d3d3;
+}
+
+.burger-menu-button {
+    font-size: 1.8rem;
+}
+
+.mobile-nav-list {
+    margin-top: 10px;
+}
+
+.mobile-nav-item {
+    font-size: 1.3rem;
+    height: 50px;
+    padding-top: 10px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.mobile-active {
+    font-weight: 700;
+    text-decoration: solid;
+    background-color: rgb(220, 220, 220);
+    border-radius: 5px;
+}
+
+.mobile-nav-buttons {
+    margin-top: 5px;
+}
+
+.mobile-nav-button {
+    height: 50px;
+    font-size: 1.2rem;
+    padding-top: 10px;
+    border-radius: 5px;
+    margin: 3px;
+    width: 100%;
+}
+
+.session-id-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.session-button-mobile {
+    text-decoration: solid;
+    margin-left: 10px;
+    width: fit-content;
+}
+
+/* navigation bar for larger displays */
+.active {
+    font-weight: 600;
+}
+
+#staff-btn::after {
+    content: "Settings";
+}
+
+#admin-btn::after {
+    content: "Admin";
+}
+
+.session-id-nav {
+    display: none;
+}
+
+.session-id-nav-bottom {
+    display: none;
+}
+
+.top-nav {
+    height: 56px;
+    box-shadow: 0px 0.5px 0.5px 0.5px #d3d3d3;
+}
+/* NAVBARS ->END<- */
+
+/* MESSAGES */
+.alert-box {
+    position: fixed;
+    height: 50px;
+    top: 81px;
+    text-wrap: nowrap;
+    width: fit-content;
+    z-index: 1000;
+}
+/* MESSSAGES ->END<- */
+
+/* LOGIN-LOGOUT-SIGNUP */
+.account-header {
+    height: 56px;
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0.5px 0.5px 0.5px #d3d3d3;
+}
+
+.account-box {
+    background-color: rgb(240, 240, 240);
+    padding: 30px;
+}
+
+.login-container {
+    margin-top: 75px;
+    width: 100%;
+}
+
+.logout-container {
+    margin-top: 100px;
+    text-align: center;
+    width: 100%;
+}
+
+.signup-container {
+    width: 100%;
+}
+
+.signup-box {
+    background-color: rgb(240, 240, 240);
+    padding: 20px 30px 20px 30px;
+}
+
+#signup-message {
+    margin-top: 10px;
+}
+/* LOGIN-LOGOUT-SIGNUP ->END<- */
+
+/* HOMEPAGE */
+.watch-container {
+    margin: 10px 0px 126px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pagination-container {
+    position: fixed;
+    bottom: 56px;
+    padding: 12px;
+    background-color: #FFF;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0px -0.5px 0.5px 0.5px #d3d3d3;
+    z-index: 10000;
+}
+
+.pagination {
+    margin: 0;
+}
+
+.page-link {
+    border: 0;
+}
+
+.watch-card {
+    cursor: pointer;
+}
+
+.overlay-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10%;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.wrong-turn-message {
+    align-self: center;
+    width: 90%;
+    margin-top: 200px;
+}
+
+.complication {
+    display: inline-block;
+    margin: 4px;
+    height: 30px;
+    width: 30px;
+}
+
+.not-complicated {
+    opacity: 0.2;
+}
+
+.card-img-top {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+/* HOMEPAGE ->END<- */
+
+/* WATCH ADD-EDIT */
+.watch-edit-container {
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    margin: 10px 0px 66px 0px;
+    padding: 10px;
+    width: 90%;
+}
+
+.btn-watch-edit {
+    width: 150px;
+}
+
+.form-switch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.existing-image {
+    aspect-ratio: 1/1;
+    width: 30%;
+    object-fit: cover;
+}
+
+#watch-edit-modal {
+    background-color: rgb(220, 220, 220);
+}
+
+.modal-sm {
+    max-width: 400px;
+}
+
+.confirm-card {
+    max-width: 300px;
+}
+
+/* WATCH-EDIT ->END<- */
+
+/* STAFF SETTINGS */
+.table-container {
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    margin: 10px 0px 66px 0px;
+    padding: 10px;
+    width: 90%;
+}
+
+.settings-table-edit {
+    width: 70px;
+}
+
+.settings-table-delete {
+    width: 70px;
+}
+
+.btn-staff-setting-table {
+    width: 60px;
+}
+
+.settings-form {
+    flex-grow: 1;
+}
+
+/* STAFF SETTINGS ->END<- */
+
+/* RESPONSIVE LAYOUT CHANGES TO TABLETS 768PX */
+@media screen and (min-width: 768px) {
+
+    /* GENERAL */
+    .signature-footer {
+        font-size: 1.5rem;
+    }
+    /* GENERAL ->END<- */
+
+    /* LOGIN-LOGOUT-SIGNUP */
+    .account-box {
+        border-radius: 15px;
+    }
+
+    .login-container {
+        width: 40%;
+    }
+
+    .logout-container {
+        width: 30%;
+    }
+
+    .signup-container {
+        margin-top: 1%;
+        width: 50%;
+    }
+
+    .signup-box {
+        padding: 30px;
+        border-radius: 15px;
+    }
+    /* LOGIN-LOGOUT-SIGNUP ->END<- */
+    
+    /* FOOTER */
+    .session-id-nav-bottom {
+        position: absolute;
+        right: 15px;
+        font-size: 1rem;
+        display: block;
+    }
+    /* FOOTER ->END<- */
+
+    /* HOMEPAGE */
+    .watch-container {
+        margin: 20px 0px 136px 0px;
+    }
+    /* HOMEPAGE ->END<- */
+
+    /* WATCH-EDIT */
+    .watch-edit-container {
+        padding: 20px;
+        width: 50%;
+        margin: 40px 0px 66px 0px;
+    }
+    /* WATCH-EDIT ->END<- */
+
+    /* STAFF SETTINGS */
+    .table-container {
+        padding: 20px;
+        width: 50%;
+        margin: 40px 0px 66px 0px;
+    }
+
+    .settings-table-edit {
+        width: 100px;
+    }
+    
+    .settings-table-delete {
+        width: 100px;
+    }
+    
+    .btn-staff-setting-table {
+        width: 80px;
+    }
+    /* STAFF SETTINGS ->END<- */
+}
+
+@media screen and (min-width: 1400px) {
+
+    /* NAVBARS */
+    #staff-btn::after {
+        content: "Staff Settings";
+    }
+    
+    #admin-btn::after {
+        content: "Admin Panel";
+    }
+
+    .session-id-nav {
+        display: block;
+    }
+
+    .session-id-nav-bottom {
+        display: none;
+    }
+    /* NAVBARS ->END<- */
+
+}
