@@ -76,39 +76,12 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 ## Responsiveness
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to discuss testing the live/deployed site on various device sizes.
-
-The minimum requirement is for the following 3 tests:
-- Mobile
-- Tablet
-- Desktop
-
-**IMPORTANT**: You must provide screenshots of the tested responsiveness, to "prove" that you've actually tested them.
-
-Using the "amiresponsive" mockup image (or similar) does not suffice the requirements.
-Consider using some of the built-in device sizes in the Developer Tools.
-
-If you have tested the project on your actual mobile phone or tablet, consider also including screenshots of these as well.
-It showcases a higher level of manual tests, and can be seen as a positive inclusion!
-
-Sample responsiveness testing documentation:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 I've tested my deployed project on multiple devices to check for responsiveness issues.
 
-| Device | Home | About | Contact | etc | Notes |
-| --- | --- | --- | --- | --- | --- |
-| Mobile (DevTools) | ![screenshot](documentation/responsiveness/responsive-mobile-home.png) | ![screenshot](documentation/responsiveness/responsive-mobile-about.png) | ![screenshot](documentation/responsiveness/responsive-mobile-contact.png) | ![screenshot](documentation/responsiveness/responsive-mobile-etc.png) | Works as expected |
-| Tablet (DevTools) | ![screenshot](documentation/responsiveness/responsive-tablet-home.png) | ![screenshot](documentation/responsiveness/responsive-tablet-about.png) | ![screenshot](documentation/responsiveness/responsive-tablet-contact.png) | ![screenshot](documentation/responsiveness/responsive-tablet-etc.png) | Works as expected |
-| Desktop | ![screenshot](documentation/responsiveness/responsive-desktop-home.png) | ![screenshot](documentation/responsiveness/responsive-desktop-about.png) | ![screenshot](documentation/responsiveness/responsive-desktop-contact.png) | ![screenshot](documentation/responsiveness/responsive-desktop-etc.png) | Works as expected |
-| XL Monitor | ![screenshot](documentation/responsiveness/responsive-xl-home.png) | ![screenshot](documentation/responsiveness/responsive-xl-about.png) | ![screenshot](documentation/responsiveness/responsive-xl-contact.png) | ![screenshot](documentation/responsiveness/responsive-xl-etc.png) | Scaling starts to have minor issues |
-| 4K Monitor | ![screenshot](documentation/responsiveness/responsive-4k-home.png) | ![screenshot](documentation/responsiveness/responsive-4k-about.png) | ![screenshot](documentation/responsiveness/responsive-4k-contact.png) | ![screenshot](documentation/responsiveness/responsive-4k-etc.png) | Noticeable scaling issues |
-| Google Pixel 7 Pro | ![screenshot](documentation/responsiveness/responsive-pixel-home.png) | ![screenshot](documentation/responsiveness/responsive-pixel-about.png) | ![screenshot](documentation/responsiveness/responsive-pixel-contact.png) | ![screenshot](documentation/responsiveness/responsive-pixel-etc.png) | Works as expected |
-| iPhone 14 | ![screenshot](documentation/responsiveness/responsive-iphone-home.png) | ![screenshot](documentation/responsiveness/responsive-iphone-about.png) | ![screenshot](documentation/responsiveness/responsive-iphone-contact.png) | ![screenshot](documentation/responsiveness/responsive-iphone-etc.png) | Works as expected |
-| repeat for any other tested devices | x | x | x | x | x |
+| Device | Login | Logout | Signup | Home | Home with expanded menu | Add/Edit Watch | Staff Settings | 404 | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Mobile (devtools) | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_login.png "watch-o-tron responsive mobile dev login") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_logout.png "watch-o-tron responsive mobile dev logout") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_signup.png "watch-o-tron responsive mobile dev signup") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_home.png "watch-o-tron responsive mobile dev home") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_home_menu.png "watch-o-tron responsive mobile dev home menu") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_add_edit.png "watch-o-tron responsive mobile dev add edit") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_staff_settings.png "watch-o-tron responsive mobile dev staff settings") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_404.png "watch-o-tron responsive mobile dev 404") | tooltips only show on tap with mobile device |
+| Tablet (devtools) |  |  |  |  |  |  |  |  |  |
 
 ## Lighthouse Audit
 
