@@ -136,8 +136,12 @@
     {% endif %}
 </main>
 <footer>
-    <div class="signature-footer d-none d-md-flex">
+    <div class="signature-footer d-none d-md-flex fixed-bottom">
         <div><strong>apeskinian|</strong></div>
+        <div class="session-id-nav-bottom"><span>logged in as <strong>{{ user.username }}</strong></span>
+            {% if user.is_staff and not user.is_superuser %}<span class="text-muted"> [staff]</span>{% endif %}
+            {% if user.is_superuser %}<span class="text-muted"> [admin]</span>{% endif %}
+        </div>
     </div>
 </footer>
 {% endblock %}

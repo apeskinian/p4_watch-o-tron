@@ -139,7 +139,6 @@ main {
 }
 
 .session-id-nav {
-    font-size: 1rem;
     display: none;
 }
 
@@ -376,6 +375,7 @@ main {
     
     /* FOOTER */
     .session-id-nav-bottom {
+        font-size: 1rem;
         display: block;
     }
     /* FOOTER ->END<- */
