@@ -144,8 +144,6 @@ main {
 
 .session-id-nav-bottom {
     display: none;
-    position: absolute;
-    right: 15px;
 }
 
 .top-nav {
@@ -375,6 +373,8 @@ main {
     
     /* FOOTER */
     .session-id-nav-bottom {
+        position: absolute;
+        right: 15px;
         font-size: 1rem;
         display: block;
     }
