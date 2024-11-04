@@ -69,7 +69,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 | Browser | Login | Logout | Signup | Home | Add/Edit Watch | Staff Settings | 404 | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Chrome |  |  |  |  |  |  |  |  |
+| Chrome | ![screenshot](documentation/testing/browsers/chrome/wot_testing_browsers_chrome_login.png "watch-o-tron chrome login") | ![screenshot](documentation/testing/browsers/chrome/wot_testing_browsers_chrome_logout.png "watch-o-tron chrome logout") | ![screenshot](documentation/testing/browsers/chrome/wot_testing_browsers_chrome_signup.png "watch-o-tron chrome signup") | ![screenshot](documentation/testing/browsers/chrome/wot_testing_browsers_chrome_home.png "watch-o-tron chrome home") | ![screenshot](documentation/testing/browsers/chrome/wot_testing_browsers_chrome_add_edit.png "watch-o-tron chrome add edit") | ![screenshot](documentation/testing/browsers/chrome/wot_testing_browsers_chrome_staff_settings.png "watch-o-tron chrome staff settings") | ![screenshot](documentation/testing/browsers/chrome/wot_testing_browsers_chrome_404.png "watch-o-tron chrome 404") | works as expected |
 | Firefox |  |  |  |  |  |  |  |  |
 | Edge |  |  |  |  |  |  |  |  |
 | Safari |  |  |  |  |  |  |  |  |
