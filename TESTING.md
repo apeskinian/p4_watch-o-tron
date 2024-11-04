@@ -53,15 +53,15 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 | Directory | File | CI URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-|  | manage.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/manage.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watches | admin.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/admin.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watches | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/forms.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watches | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/models.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watches | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/urls.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watches | moons.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/utils/moons.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watches | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/views.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watchotron | settings.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watchotron/settings.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| watchotron | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watchotron/urls.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+|  | manage.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/manage.py) | ![screenshot](documentation/testing/validation/py/wot_testing_py_manage.png "watch-o-tron py validation manage") | all clear, no errors found |
+| watches | admin.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/admin.py) | ![screenshot](documentation/testing/validation/py/wot_testing_py_admin.png "watch-o-tron py validation admin") | all clear, no errors found |
+| watches | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/forms.py) | ![screenshot](documentation/testing/validation/py/wot_testing_py_forms.png "watch-o-tron py validation forms") | all clear, no errors found |
+| watches | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/models.py) | ![screenshot](documentation/testing/validation/py/wot_testing_py_models.png "watch-o-tron py validation models") | all clear, no errors found |
+| watches | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/urls.py) | ![screenshot](documentation/testing/validation/py/wot_testing_py_watches_urls.png "watch-o-tron py validation watches urls") | all clear, no errors found |
+| watches | moons.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/utils/moons.py) | ![screenshot](documentation/testing/validation/py/wot_testing_py_moons.png "watch-o-tron py validation moons") | all clear, no errors found |
+| watches | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/views.py) | ![screenshot](documentation/testing/validation/py/wot_testing_py_views.png "watch-o-tron py validation views") | all clear, no errors found |
+| watchotron | settings.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watchotron/settings.py) | ![screenshot](documentation/testing/validation/py/wot_testing_py_settings.png "watch-o-tron py validation settings") | added # noqa to lines 141, 144, 147 and 150 to ignore Django's long lines then all clear, no errors found |
+| watchotron | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watchotron/urls.py) | ![screenshot](documentation/testing/validation/py/wot_testing_py__watch-o-tron_urls.png "watch-o-tron py validation watch-o-tron urls") | all clear, no errors found |
 
 ## Browser Compatibility
 
