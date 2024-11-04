@@ -139,7 +139,14 @@ main {
 }
 
 .session-id-nav {
+    font-size: 1rem;
     display: none;
+}
+
+.session-id-nav-bottom {
+    display: none;
+    position: absolute;
+    right: 15px;
 }
 
 .top-nav {
@@ -367,6 +374,12 @@ main {
     }
     /* LOGIN-LOGOUT-SIGNUP ->END<- */
     
+    /* FOOTER */
+    .session-id-nav-bottom {
+        display: block;
+    }
+    /* FOOTER ->END<- */
+
     /* HOMEPAGE */
     .watch-container {
         margin: 20px 0px 136px 0px;
@@ -415,6 +428,10 @@ main {
 
     .session-id-nav {
         display: block;
+    }
+
+    .session-id-nav-bottom {
+        display: none;
     }
     /* NAVBARS ->END<- */
 
