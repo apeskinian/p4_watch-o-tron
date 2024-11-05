@@ -42,10 +42,10 @@
                 {% if user.is_superuser %}<span class="text-muted"> [admin]</span>{% endif %}
             </div>
             {% if user.is_staff %}
-            <div class="ms-2"><a href="{% url 'staff_settings' %}" class="btn btn-sm btn-primary" id="staff-btn" alt="Settings page"></a></div>
+            <div class="ms-2"><a href="{% url 'staff_settings' %}" class="btn btn-sm btn-primary" id="staff-btn" aria-label="go to the settings page"></a></div>
             {% endif %}
             {% if user.is_superuser %}
-            <div class="ms-2"><a href="{% url 'admin:index' %}" class="btn btn-sm btn-secondary" id="admin-btn" alt="Admin page"></a></div>
+            <div class="ms-2"><a href="{% url 'admin:index' %}" class="btn btn-sm btn-secondary" id="admin-btn" aria-label="go to the admin page"></a></div>
             {% endif %}
             <div class="ms-2"><a href="{{ logout_url }}" class="btn btn-sm btn-danger">Sign Out</a></div>
         </div>
@@ -78,10 +78,10 @@
                 </div>
                 <div class="session-id-mobile">
                     {% if user.is_staff %}
-                        <a href="{% url 'staff_settings' %}" class="btn btn-primary session-button-mobile">Settings</a>
+                        <a href="{% url 'staff_settings' %}" class="btn btn-primary session-button-mobile" aria-label="go to the settings page">Settings</a>
                     {% endif %}
                     {% if user.is_superuser %}
-                        <a href="{% url 'admin:index' %}" class="btn btn-secondary session-button-mobile">Admin Panel</a>
+                        <a href="{% url 'admin:index' %}" class="btn btn-secondary session-button-mobile" aria-label="go to the admin page">Admin Panel</a>
                     {% endif %}
                     <a href="{{ logout_url }}" class="btn btn-danger session-button-mobile">Sign Out</a>
                 </div>
