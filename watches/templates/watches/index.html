@@ -16,7 +16,7 @@
                         {% if 'placeholder' in watch.image.url %}
                         <img src="{% static 'images/placeholder.png' %}" alt="default watch image" class="card-img-top">
                         {% else %}
-                        <img src="{{ watch.image.url }}" alt="{{ watch.make}}" class="card-img-top">
+                        <img src="{{ watch.get_optimized_image_url }}" alt="{{ watch.make}}" class="card-img-top">
                         {% endif %}
                         <div class="overlay-text d-flex align-items-center justify-content-center"><i class="fa-solid fa-pen-to-square"></i></div>
                     </div>

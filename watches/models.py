@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils.text import slugify
 import cloudinary.uploader
 from cloudinary.models import CloudinaryField
+from cloudinary.utils import cloudinary_url
 
 
 class WatchList(models.Model):
@@ -76,3 +77,9 @@ class Watch(models.Model):
             cloudinary.uploader.destroy(public_id)
         # proceed with normal deletion
         super().delete(*args, **kwargs)
+
+    def get_optimized_image_url(self):
+        return cloudinary_url(
+            self.image.public_id, secure=True,
+            fetch_format="auto", quality="auto"
+        )[0]
