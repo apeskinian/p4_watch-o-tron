@@ -250,8 +250,10 @@ main {
 }
 
 .wrong-turn-message {
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
     align-self: center;
-    width: 90%;
+    padding: 40px;
     margin-top: 200px;
 }
 
