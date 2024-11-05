@@ -90,34 +90,19 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | Macbook Air M3 | ![screenshot](documentation/testing/responsive/macbook/wot_testing_resposive_macbook_login.png "watch-o-tron responsive macbook login") | ![screenshot](documentation/testing/responsive/macbook/wot_testing_resposive_macbook_logout.png "watch-o-tron responsive macbook logout") | ![screenshot](documentation/testing/responsive/macbook/wot_testing_resposive_macbook_signup.png "watch-o-tron responsive macbook signup") | ![screenshot](documentation/testing/responsive/macbook/wot_testing_resposive_macbook_home.png "watch-o-tron responsive macbook home") | ![screenshot](documentation/testing/responsive/macbook/wot_testing_resposive_macbook_home_menu.png "watch-o-tron responsive macbook home menu") | ![screenshot](documentation/testing/responsive/macbook/wot_testing_resposive_macbook_add_edit.png "watch-o-tron responsive macbook add edit") | ![screenshot](documentation/testing/responsive/macbook/wot_testing_resposive_macbook_staff_settings.png "watch-o-tron responsive macbook staff settings") | ![screenshot](documentation/testing/responsive/macbook/wot_testing_resposive_macbook_404.png "watch-o-tron responsive macbook 404") | works as expected |
 | 2K Monitor | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_login.png "watch-o-tron responsive 2k monitor login") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_logout.png "watch-o-tron responsive 2k monitor logout") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_signup.png "watch-o-tron responsive 2k monitor signup") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_home.png "watch-o-tron responsive 2k monitor home") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_home_menu.png "watch-o-tron responsive 2k monitor home menu") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_add_edit.png "watch-o-tron responsive 2k monitor add edit") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_staff_settings.png "watch-o-tron responsive 2k monitor staff settings") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_404.png "watch-o-tron responsive 2k monitor 404") | works as expected |
 
-
 ## Lighthouse Audit
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to discuss testing the live/deployed site's Lighthouse Audit reports.
-Avoid testing the local version (especially if developing in Gitpod), as this can have knock-on effects of performance.
-
-If you don't have Lighthouse in your Developer Tools,
-it can be added as an [extension](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk).
-
-Don't just test the home page (unless it's a single-page application).
-Make sure to test the Lighthouse Audit results for all of your pages.
-
-**IMPORTANT**: You must provide screenshots of the results, to "prove" that you've actually tested them.
-
-Sample Lighthouse testing documentation:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
 
 | Page | Mobile | Desktop | Notes |
 | --- | --- | --- | --- |
-| Home | ![screenshot](documentation/lighthouse/lighthouse-home-mobile.png) | ![screenshot](documentation/lighthouse/lighthouse-home-desktop.png) | Some minor warnings |
-| About | ![screenshot](documentation/lighthouse/lighthouse-about-mobile.png) | ![screenshot](documentation/lighthouse/lighthouse-about-desktop.png) | Some minor warnings |
-| Gallery | ![screenshot](documentation/lighthouse/lighthouse-gallery-mobile.png) | ![screenshot](documentation/lighthouse/lighthouse-gallery-desktop.png) | Slow response time due to large images |
-| x | x | x | repeat for any other tested pages/sizes |
+| Login | ![screenshot](documentation/testing/lighthouse/mobile/wot_testing_lighthouse_mobile_login.png "watch-o-tron lighthouse mobile login") | ![screenshot](documentation/testing/lighthouse/desktop/wot_testing_lighthouse_desktop_login.png "watch-o-tron lighthouse desktop login") | Some minor warnings |
+| Signup | ![screenshot](documentation/testing/lighthouse/mobile/wot_testing_lighthouse_mobile_signup.png "watch-o-tron lighthouse mobile signup") | ![screenshot](documentation/testing/lighthouse/desktop/wot_testing_lighthouse_desktop_signup.png "watch-o-tron lighthouse desktop signup") | Some minor warnings |
+| Home | ![screenshot](documentation/testing/lighthouse/mobile/wot_testing_lighthouse_mobile_home.png "watch-o-tron lighthouse mobile home") | ![screenshot](documentation/testing/lighthouse/desktop/wot_testing_lighthouse_desktop_home.png "watch-o-tron lighthouse desktop home") | Slightly slower response time on mobile loading images |
+| Add/Edit | ![screenshot](documentation/testing/lighthouse/mobile/wot_testing_lighthouse_mobile_add_edit.png "watch-o-tron lighthouse mobile add edit") | ![screenshot](documentation/testing/lighthouse/desktop/wot_testing_lighthouse_desktop_add_edit.png "watch-o-tron lighthouse desktop add edit") | Slightly slower performance on mobile caused by render blocking resources |
+| Staff Settings | ![screenshot](documentation/testing/lighthouse/mobile/wot_testing_lighthouse_mobile_staff_settings.png "watch-o-tron lighthouse mobile staff settings") | ![screenshot](documentation/testing/lighthouse/desktop/wot_testing_lighthouse_desktop_staff_settings.png "watch-o-tron lighthouse desktop staff settings") | Some minor warnings |
+| Logout | ![screenshot](documentation/testing/lighthouse/mobile/wot_testing_lighthouse_mobile_logout.png "watch-o-tron lighthouse mobile logout") | ![screenshot](documentation/testing/lighthouse/desktop/wot_testing_lighthouse_desktop_logout.png "watch-o-tron lighthouse desktop logout") | Some minor warnings |
+| 404 |![screenshot](documentation/testing/lighthouse/mobile/wot_testing_lighthouse_mobile_404.png "watch-o-tron lighthouse mobile 404") | ![screenshot](documentation/testing/lighthouse/desktop/wot_testing_lighthouse_desktop_404.png "watch-o-tron lighthouse desktop 404") | Status code: 404 which is good for the 404 page plus some minor warnings |
 
 ## Defensive Programming
 
