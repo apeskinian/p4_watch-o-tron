@@ -80,6 +80,11 @@ class Watch(models.Model):
 
     def get_optimized_image_url(self):
         return cloudinary_url(
-            self.image.public_id, secure=True,
-            fetch_format="auto", quality="auto"
+            self.image.public_id,
+            secure=True,
+            fetch_format="auto",
+            quality="auto",
+            width=400,
+            height=400,
+            crop="fill"
         )[0]
