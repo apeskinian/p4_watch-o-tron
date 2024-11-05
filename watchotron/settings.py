@@ -117,8 +117,7 @@ WSGI_APPLICATION = 'watchotron.wsgi.application'
 cloudinary.config(
     cloud_name=os.environ.get('CLOUDINARY_NAME'),
     api_key=os.environ.get('CLOUDINARY_API'),
-    api_secret=os.environ.get('CLOUDINARY_SECRET'),
-    secure=True
+    api_secret=os.environ.get('CLOUDINARY_SECRET')
 )
 
 # Database
