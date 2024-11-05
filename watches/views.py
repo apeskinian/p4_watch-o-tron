@@ -152,7 +152,7 @@ def manage_watch(request, origin, watch_id=None):
             if watch_id:
                 messages.success(
                     request,
-                    f'{watch.make} watch editted successfully'
+                    f'{watch.make} watch edited successfully'
                 )
             else:
                 messages.success(

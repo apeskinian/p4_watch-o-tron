@@ -230,28 +230,48 @@ The aforementioned tests are just an example of a few different project scenario
 
 ## User Story Testing
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Testing user stories is actually quite simple, once you've already got the stories defined on your README.
-
-Most of your project's **features** should already align with the **user stories**,
-so this should as simple as creating a table with the user story, matching with the re-used screenshot
-from the respective feature.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 | User Story | Screenshot |
 | --- | --- |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature01.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature02.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature03.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature04.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature05.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature06.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature07.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature08.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature09.png) |
-| repeat for all remaining user stories | x |
+| As a new site user, I can sign up for an account so that I can log in and use the app. | ![screeshot](documentation/features/accounts/wot_feature_accounts_sign_up.png "watch-o-tron user story signup") |
+| As a site user, I can log in so that I can use the app. | ![screeshot](documentation/features/accounts/wot_feature_accounts_sign_in.png "watch-o-tron user story login") |
+| As a site user, I can log out so that I can keep my data private. | ![screeshot](documentation/features/accounts/wot_feature_accounts_sign_out.png "watch-o-tron user story logout") |
+| As a site user, I am notified on successful login and logout so that I know that I am logged in or out. | ![screeshot](documentation/features/messaging/wot_feature_comms_message_sign_in.png "watch-o-tron user story login message") ![screeshot](documentation/features/messaging/wot_feature_comms_message_sign_out.png "watch-o-tron user story logout message") |
+| As a site user, I can view my watch collection so that I can view images and details of the watches I own. | ![screeshot](documentation/features/viewing/wot_feature_viewing_desktop.png "watch-o-tron user story home") |
+| As a site user, I can view my wish list so that I can see what watches I want or plan my next purchase. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_wish_list.png "watch-o-tron user story wish list") |
+| As a site user, I can view watches that I have placed in potentially added new list types so that I can see the watch details for this list. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_other_lists.png "watch-o-tron user story custom lists") |
+| As a site user, I can see the details of each watch so that I can find out more information about them. | ![screeshot](documentation/features/viewing/wot_feature_viewing_card_image.png "watch-o-tron user story watch details") |
+| As a site user, I am notified when I have switched views to a new list so that I know which list I am viewing. | ![screeshot](documentation/features/messaging/wot_feature_comms_message_switching_page_1.png "watch-o-tron user story switched view message") ![screeshot](documentation/features/messaging/wot_feature_comms_message_switching.png "watch-o-tron user story switched view message") |
+| As a site user, I can add a new watch so that I ca see it in my collection or wish list. | ![screeshot](documentation/features/addwatch/wot_feature_add_watch_desktop.png "watch-o-tron user story add watch") |
+| As a site user, I am asked to confirm new watch details I entered are correct so that no accidental erroneous data is saved. | ![screeshot](documentation/features/addwatch/wot_feature_add_watch_desktop_confirm.png "watch-o-tron user story add watch confirm") |
+| As a site user, I am notified when a watch has been added successfully so that I know the addition was successful or not. | ![screeshot](documentation/features/messaging/wot_feature_comms_message_confirm_add_watch.png "watch-o-tron user story add watch message") |
+| As a site user, I can see a spinner when I click add watch so that I know something is happening. | ![screeshot](documentation/features/messaging/wot_feature_spinner.png "watch-o-tron user story spinner") |
+| As a site user, I should be prompted to confirm watch deletions so that I do not delete watches by accident. | ![screeshot](documentation/features/delete/wot_feature_delete_desktop.png "watch-o-tron user story delete confirm") |
+| As a site user, I can edit stored watches in my collection so that I can add more detail or update existing information. | ![screeshot](documentation/features/editing/wot_feature_editing_desktop.png "watch-o-tron user story watch edit") |
+| As a site user, I can move a watch in my wish list to my collection so that I know that I have purchased it. | ![screeshot](documentation/features/purchased/wot_feature_purchased_desktop_confirm.png "watch-o-tron user story watch purchase") |
+| As a site user, I can delete a watch from the wish list so that I can update my wish list should I no longer want a particular watch. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_delete_wish_list.png "watch-o-tron user story delete from wish list") |
+| As a site user, I can delete a watch from a new list type so that I can update this list when I no longer want the watch to appear in it. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_delete_other_list.png "watch-o-tron user story delete from other list") |
+| As a site user, I can edit stored watches in my wish list so that I can add more detail or update existing information. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_edit_wish_list.png "watch-o-tron user story edit in wish list") |
+| As a site user, I can edit stored watches in a new list type so that I can add more detail or update existing information. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_edit_other_list.png "watch-o-tron user story edit in other list") |
+| As a site user, I can delete a watch from my collection so that I can update my lists if I no longer own a particular watch. | ![screeshot](documentation/features/delete/wot_feature_delete_desktop.png "watch-o-tron user story delete watch") |
+| As a site user, I should be prompted to confirm alterations so that edits are correct. | ![screeshot](documentation/features/editing/wot_feature_edit_confirm_desktop.png "watch-o-tron user story edit confirm") |
+| As a site user, I should be asked to confirm when I set a watch as purchased so that I don't accidentally move a watch to my collection if I haven't bought it. | ![screeshot](documentation/features/purchased/wot_feature_purchased_desktop_confirm.png "watch-o-tron user story watch purchase") |
+| As a site user, I am notified after editing and deleting watches so that I know if the process was successful. | ![screeshot](documentation/features/messaging/wot_feature_comms_message_confirm_edit_watch.png "watch-o-tron user story edit message") ![screeshot](documentation/features/messaging/wot_feature_comms_message_confirm_delete_watch.png "watch-o-tron user story delete message") |
+| As a site user, I am notified when I move a watch to the collection so that it is confirmed whether the process was successful. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_message_moved_to_collection.png "watch-o-tron user story move to collection") |
+| As a site user, I can see a spinner when I confirm a watch edit so that I know something is happening. | ![screeshot](documentation/features/messaging/wot_feature_spinner.png "watch-o-tron user story spinner") |
+| As a curious site user, I can discover a hidden Easter egg in the site logo so that I experience an unexpected, delightful surprise within the application. |  |
+| As a curious site user, I can discover a hidden Easter egg in the date complication icon so that I experience an unexpected, delightful surprise within the application. |  |
+| As a curious site user, I can discover a hidden Easter egg in the day complication icon so that I experience an unexpected, delightful surprise within the application. |  |
+| As a curious site user, I can discover a hidden Easter egg in the moon phase complication icon so that I experience an unexpected, delightful surprise within the application. |  |
+| As a client, I can log in as a staff member so that I can add potential new, important options for users. | ![screeshot](documentation/features/accounts/wot_feature_accounts_staff_logged_in_desktop.png "watch-o-tron user story staff login") |
+| As a site staff member, I can add new watch movement types to the model so that users can add watches with any new movement types that may become available in the future. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_add_movement.png "watch-o-tron user story add movement") |
+| As a site staff member, I can add new list types so that users can expand their lists from collection and wish list to other types specified by the site staff member. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_add_list.png "watch-o-tron user story add list") |
+| As a site staff member, I can edit any movement types I have added so that I can change them if needed. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_edit_movement.png "watch-o-tron user story edit movement") |
+| As a site staff member, I can delete any new movement types so that I can keep the list relevant. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_delete_movement.png "watch-o-tron user story delete movement") |
+| As a site staff member, I can edit any added list types so that I keep the app up to date. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_edit_list.png "watch-o-tron user story edit list") |
+| As a site staff member, I can delete custom added lists so that I can remove any unwanted list types. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_delete_list.png "watch-o-tron user story delete list") |
+| As a staff member, I am notified about edits and deletes I make for custom movements so that I know if the change was successful. | ![screeshot](documentation/features/messaging/wot_feature_comms_message_confirm_edit_staff_item.png "watch-o-tron user story messages edit movement") ![screeshot](documentation/features/messaging/wot_feature_comms_message_confirm_delete_staff_item.png "watch-o-tron user story messages delete movement") |
+| As a staff member, I am notified of successful list edits and deletions so that I know the process was successful. | ![screeshot](documentation/features/messaging/wot_feature_comms_message_confirm_edit_staff_item.png "watch-o-tron user story messages edit list") ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_delete_list_message.png "watch-o-tron user story messages delete list") |
+| As a site admin, I can log in as a super user so that I can access the admin panel. | ![screeshot](documentation/features/accounts/wot_feature_accounts_admin_logged_in_desktop.png "watch-o-tron user story super user login") |
 
 ## Automated Testing
 
