@@ -117,6 +117,9 @@ class MovementForm(forms.ModelForm):
     class Meta:
         model = WatchMovement
         fields = ['movement_name']
+        labels = {
+            'movement_name': ''
+        }
         widgets = {
             'movement_name': forms.TextInput(attrs={
                 'style': 'width: 100%;',
@@ -140,6 +143,9 @@ class ListForm(forms.ModelForm):
     class Meta:
         model = WatchList
         fields = ['friendly_name']
+        labels = {
+            'friendly_name': ''
+        }
         widgets = {
             'friendly_name': forms.TextInput(attrs={
                 'style': 'width: 100%;',

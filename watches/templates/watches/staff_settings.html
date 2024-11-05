@@ -105,8 +105,10 @@
                     </div>
                     <div class="modal-body">
                         <form method="POST">
-                            {% csrf_token %}
-                            {% if edit_form %}{{ edit_form | crispy }}{% endif %}
+                            <div class="mb-2">
+                                {% csrf_token %}
+                                {% if edit_form %}{{ edit_form }}{% endif %}
+                            </div>
                             <div class="text-center">
                                 <p><strong>Note:</strong>
                                     {% if associated == 0 %} No watches
