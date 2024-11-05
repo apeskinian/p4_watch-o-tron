@@ -117,8 +117,13 @@ class MovementForm(forms.ModelForm):
     class Meta:
         model = WatchMovement
         fields = ['movement_name']
-
-    movement_name = forms.CharField(max_length=100, label=False)
+        widgets = {
+            'movement_name': forms.TextInput(attrs={
+                'style': 'width: 100%;',
+                'class': 'form-control',
+                'placeholder': "enter new movement...",
+            }),
+        }
 
     def clean_movement_name(self):
         movement_name = self.cleaned_data.get('movement_name').strip()
@@ -135,8 +140,13 @@ class ListForm(forms.ModelForm):
     class Meta:
         model = WatchList
         fields = ['friendly_name']
-
-    friendly_name = forms.CharField(max_length=100, label=False)
+        widgets = {
+            'friendly_name': forms.TextInput(attrs={
+                'style': 'width: 100%;',
+                'class': 'form-control',
+                'placeholder': "enter new list...",
+            }),
+        }
 
     def clean_friendly_name(self):
         friendly_name = self.cleaned_data.get('friendly_name').strip()

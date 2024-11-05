@@ -41,9 +41,9 @@
                             {% csrf_token %}
                             <div class="d-flex align-items-center gap-3">
                                 <div class="settings-form">
-                                    {{ movement_form | crispy }}
+                                    {{ movement_form.movement_name }}
                                 </div>
-                                <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success mb-3" name="movement-form">Add</button>
+                                <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success" name="movement-form">Add</button>
                             </div>
                         </form>
                     </td>
@@ -82,9 +82,9 @@
                                 {% csrf_token %}
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="settings-form">
-                                        {{ list_form | crispy }}
+                                        {{ list_form.friendly_name }}
                                     </div>
-                                    <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success mb-3" name="list-form">Add</button>
+                                    <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success" name="list-form">Add</button>
                                 </div>
                             </form>
                         </td>

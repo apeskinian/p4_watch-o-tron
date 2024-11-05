@@ -83,7 +83,7 @@ class Watch(models.Model):
             self.image.public_id,
             secure=True,
             fetch_format="auto",
-            quality="auto",
+            quality="auto:eco",
             width=400,
             height=400,
             crop="fill"
