@@ -1,0 +1,11 @@
+{% load static %}
+<div class="account-header">
+    <a href="{% url 'home' %}" aria-label="Click here to go back to the homepage or to log in">
+        <h1 class="hidden">Sign In</h1>
+        <div class="d-flex align-items-center gap-1">
+            <img src="{% static 'images/watch-_logo.webp' %}" alt="Logo" class="d-inline-block align-text-top logo">
+            {% include 'includes/clockface.html' %}
+            <img src="{% static 'images/-tron_logo.webp' %}" alt="Logo" class="d-inline-block align-text-top logo">
+        </div>
+    </a>
+</div>
