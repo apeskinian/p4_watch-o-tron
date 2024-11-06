@@ -116,6 +116,7 @@ Some icons from [Font Awesome](https://fontawesome.com) were used and some were 
 
 - As a site user, I can log in so that I can use the app.
 - As a site user, I can log out so that I can keep my data private.
+- As a site user, I can reset my password with an email link so that I can regain access to my account if I forgot the password without having to contact admin.
 - As a site user, I am notified on successful login and logout so that I know that I am logged in or out.
 - As a site user, I can view my watch collection so that I can view images and details of the watches I own.
 - As a site user, I can view my wish list so that I can see what watches I want or plan my next purchase.
@@ -210,6 +211,12 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     | Sign Out Button Mobile | Sign Out Button Desktop |
     | :---: | :---: |
     | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_mobile.png "watch-o-tron sign out button mobile") | ![screenshot](documentation/features/accounts/wot_feature_accounts_sign_out_button_desktop.png "watch-o-tron sign out button desktop") |
+
+    - If a user has entered an email during signup they can use the forgot password link on the login page to request an email to reset their password.
+
+    | Password reset request mobile | Password reset request desktop |
+    | :---: | :---: |
+    | ![screenshot](documentation/features/accounts/wot_feature_accounts_forgot_mobile.png "watch-o-tron password reset") | ![screenshot](documentation/features/accounts/wot_feature_accounts_forgot_desktop.png "watch-o-tron password reset") |
 
     #### Different Account Levels
 
