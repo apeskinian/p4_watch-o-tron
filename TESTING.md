@@ -20,9 +20,14 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
 | templates | 404.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_404.png "watch-o-tron html validation 404") | no errors or warnings |
+| templates | 500.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_500.png "watch-o-tron html validation 500") | no errors or warnings |
 | templates/account | login.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_login.png "watch-o-tron html validation login") | no errors or warnings |
 | templates/account | logout.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_logout.png "watch-o-tron html validation logout") | no errors or warnings |
 | templates/account | signup.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_signup.png "watch-o-tron html validation signup") | no errors or warnings |
+| templates/account | password_reset.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_password_reset.png "watch-o-tron html validation password reset") | no errors or warnings |
+| templates/account | password_reset_done.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_password_reset_done.png "watch-o-tron html validation password reset") | no errors or warnings |
+| templates/account | password_reset_from_key.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_password_reset_from_key.png "watch-o-tron html validation password reset") | no errors or warnings |
+| templates/account | password_reset_from_key_done.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_password_reset_from_key_done.png "watch-o-tron html validation password reset") | no errors or warnings |
 | watches/templates/watches | index.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_index.png "watch-o-tron html validation index") | |
 | watches/templates/watches | manage_watch.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_manage_watch.png "watch-o-tron html validation manage_watch") | no errors or warnings |
 | watches/templates/watches | staff_settings.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_staff_settings.png "watch-o-tron html validation staff_settings") | no errors or warnings |
@@ -195,7 +200,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | As a new site user, I can sign up for an account so that I can log in and use the app. | ![screeshot](documentation/features/accounts/wot_feature_accounts_sign_up.png "watch-o-tron user story signup") |
 | As a site user, I can log in so that I can use the app. | ![screeshot](documentation/features/accounts/wot_feature_accounts_sign_in.png "watch-o-tron user story login") |
 | As a site user, I can log out so that I can keep my data private. | ![screeshot](documentation/features/accounts/wot_feature_accounts_sign_out.png "watch-o-tron user story logout") |
-| As a site user, I can reset my password with an email link so that I can regain access to my account if I forgot the password without having to contact admin. |  |
+| As a site user, I can reset my password with an email link so that I can regain access to my account if I forgot the password without having to contact admin. | ![screeshot](documentation/features/accounts/wot_feature_accounts_forgot_desktop.png "watch-o-tron user story password reset") |
 | As a site user, I am notified on successful login and logout so that I know that I am logged in or out. | ![screeshot](documentation/features/messaging/wot_feature_comms_message_sign_in.png "watch-o-tron user story login message") ![screeshot](documentation/features/messaging/wot_feature_comms_message_sign_out.png "watch-o-tron user story logout message") |
 | As a site user, I can view my watch collection so that I can view images and details of the watches I own. | ![screeshot](documentation/features/viewing/wot_feature_viewing_desktop.png "watch-o-tron user story home") |
 | As a site user, I can view my wish list so that I can see what watches I want or plan my next purchase. | ![screeshot](documentation/testing/user_story_extras/wot_testing_user_story_wish_list.png "watch-o-tron user story wish list") |
