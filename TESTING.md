@@ -161,72 +161,23 @@ Use the table below as a basic start, and expand on it using the logic above.
 
 Defensive programming was manually tested with the below user acceptance testing:
 
+### Creating a new user account
+
 | Page | Expectation | Test | Result | Fix | Screenshot |
 | --- | --- | --- | --- | --- | --- |
-| Home | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature01.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature02.png) |
-| About | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature03.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature04.png) |
-| Gallery | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature05.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature06.png) |
-| Contact | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature07.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature08.png) |
-| repeat for all remaining pages | x | x | x | x | x |
+| Login | | | | | |
+| | New user clicks on sign up link and is taken to the sign up page | Tested by clicking on the signup link on the login page | SUCCESS - user is taken to signup page | n/a | ![screenrecording](documentation/testing/manual_testing/signup/wot_testing_manual_signup_link.gif "watch-o-tron testing signup link") |
+| Signup | | | | | |
+| | New user clicks signup without entering any info and is informed of required fields. | Clicking on the signup button without entering data | SUCCESS - user is informed that the form is not complete | n/a | ![screenrecording](documentation/testing/manual_testing/signup/wot_testing_manual_signup_no_info.gif "watch-o-tron testing signup process") |
+| | New user clicks signup after entering just a username and is informed of required fields. | Clicking on the signup button with just a username entered | SUCCESS - user is informed that the form is not complete | n/a | ![screenrecording](documentation/testing/manual_testing/signup/wot_testing_manual_signup_just_username.gif "watch-o-tron testing signup process") |
+| | New user clicks signup after entering just a password and is informed of required fields. | Clicking on the signup button with just a password entered | SUCCESS - user is informed that the form is not complete | n/a | ![screenrecording](documentation/testing/manual_testing/signup/wot_testing_manual_signup_just_password.gif "watch-o-tron testing signup process") |
+| | New user clicks signup after entering an invalid username and is informed of this. | Clicking on the signup button with an invalid username | SUCCESS - user is informed that the form is not valid | n/a | ![screenrecording](documentation/testing/manual_testing/signup/wot_testing_manual_signup_invalid_name.gif "watch-o-tron testing signup process") |
+| | New user clicks signup after entering an invalid password and is informed of this. | Clicking on the signup button with an invalid password | SUCCESS - user is informed that the form is not valid | n/a | ![screenrecording](documentation/testing/manual_testing/signup/wot_testing_manual_signup_invalid_password.gif "watch-o-tron testing signup process") |
+| | New user clicks signup after entering mismatching passwords and is informed of this. | Clicking on the signup button with mismatched passwords | SUCCESS - user is informed that the form is not valid | n/a | ![screenrecording](documentation/testing/manual_testing/signup/wot_testing_manual_signup_mismatched_passwords.gif "watch-o-tron testing signup process") |
+| | New user clicks signup after entering valid username and password. They are then logged in and taken to the homepage  | Clicking on the signup button with valid info | SUCCESS - user is created and logged in | n/a | ![screenrecording](documentation/testing/manual_testing/signup/wot_testing_manual_signup_success.gif "watch-o-tron testing signup process") |
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
 
-Another way of performing defensive testing is a simple Pass/Fail for each test.
-The assessors prefer the above method, with the full test explained, but this is also acceptable in most cases.
 
-When in doubt, use the above method instead, and delete the table below.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-| Page | User Action | Expected Result | Pass/Fail | Comments |
-| --- | --- | --- | --- | --- |
-| Home | | | | |
-| | Click on Logo | Redirection to Home page | Pass | |
-| | Click on Home link in navbar | Redirection to Home page | Pass | |
-| Gallery | | | | |
-| | Click on Gallery link in navbar | Redirection to Gallery page | Pass | |
-| | Load gallery images | All images load as expected | Pass | |
-| Contact | | | | |
-| | Click on Contact link in navbar | Redirection to Contact page | Pass | |
-| | Enter first/last name | Field will accept freeform text | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter message in textarea | Field will accept freeform text | Pass | |
-| | Click the Submit button | Redirects user to form-dump | Pass | User must click 'Back' button to return |
-| Sign Up | | | | |
-| | Click on Sign Up button | Redirection to Sign Up page | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter valid password (twice) | Field will only accept password format | Pass | |
-| | Click on Sign Up button | Asks user to confirm email page | Pass | Email sent to user |
-| | Confirm email | Redirects user to blank Sign In page | Pass | |
-| Log In | | | | |
-| | Click on the Login link | Redirection to Login page | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter valid password | Field will only accept password format | Pass | |
-| | Click Login button | Redirects user to home page | Pass | |
-| Log Out | | | | |
-| | Click Logout button | Redirects user to logout page | Pass | Confirms logout first |
-| | Click Confirm Logout button | Redirects user to home page | Pass | |
-| Profile | | | | |
-| | Click on Profile button | User will be redirected to the Profile page | Pass | |
-| | Click on the Edit button | User will be redirected to the edit profile page | Pass | |
-| | Click on the My Orders link | User will be redirected to the My Orders page | Pass | |
-| | Brute forcing the URL to get to another user's profile | User should be given an error | Pass | Redirects user back to own profile |
-| repeat for all remaining pages | x | x | x | x |
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Repeat for all other tests, as applicable to your own site.
-The aforementioned tests are just an example of a few different project scenarios.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ## User Story Testing
 
@@ -278,93 +229,6 @@ The aforementioned tests are just an example of a few different project scenario
 I have conducted a series of automated tests on my application.
 
 I fully acknowledge and understand that, in a real-world scenario, an extensive set of additional tests would be more comprehensive.
-
-### JavaScript (Jest Testing)
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Adjust the code below (file names, etc.) to match your own project files/folders.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-I have used the [Jest](https://jestjs.io) JavaScript testing framework to test the application functionality.
-
-In order to work with Jest, I first had to initialize NPM.
-
-- `npm init`
-- Hit `enter` for all options, except for **test command:**, just type `jest`.
-
-Add Jest to a list called **Dev Dependencies** in a dev environment:
-
-- `npm install --save-dev jest`
-
-**IMPORTANT**: Initial configurations
-
-When creating test files, the name of the file needs to be `file-name.test.js` in order for Jest to properly work.
-
-Without the following, Jest won't properly run the tests:
-
-- `npm install -D jest-environment-jsdom`
-
-Due to a change in Jest's default configuration, you'll need to add the following code to the top of the `.test.js` file:
-
-```js
-/**
- * @jest-environment jsdom
- */
-
-const { test, expect } = require("@jest/globals");
-const { function1, function2, function3, etc. } = require("../script-name");
-
-beforeAll(() => {
-    let fs = require("fs");
-    let fileContents = fs.readFileSync("index.html", "utf-8");
-    document.open();
-    document.write(fileContents);
-    document.close();
-});
-```
-
-Remember to adjust the `fs.readFileSync()` to the specific file you'd like you test.
-The example above is testing the `index.html` file.
-
-Finally, at the bottom of the script file where your primary scripts are written, include the following at the bottom of the file.
-Make sure to include the name of all of your functions that are being tested in the `.test.js` file.
-
-```js
-if (typeof module !== "undefined") module.exports = {
-    function1, function2, function3, etc.
-};
-```
-
-Now that these steps have been undertaken, further tests can be written, and be expected to fail initially.
-Write JS code that can get the tests to pass as part of the Red-Green refactor process.
-
-Once ready, to run the tests, use this command:
-
-- `npm test`
-
-**NOTE**: To obtain a coverage report, use the following command:
-
-- `npm test --coverage`
-
-Below are the results from the tests that I've written for this application:
-
-| Test Suites | Tests | Screenshot |
-| --- | --- | --- |
-| 1 passed | 16 passed | ![screenshot](documentation/tests/js-test-coverage.png) |
-| x | x | repeat for all remaining tests |
-
-#### Jest Test Issues
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this section to list any known issues you ran into while writing your Jest tests.
-Remember to include screenshots (where possible), and a solution to the issue (if known).
-
-This can be used for both "fixed" and "unresolved" issues.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ### Python (Unit Testing)
 
