@@ -834,6 +834,9 @@ Deployment steps are as follows, after account setup:
 | `CLOUDINARY_NAME` | user's own value |
 | `CLOUDINARY_API` | user's own value |
 | `CLOUDINARY_SECRET` | user's own value |
+| `SUPPORTEMAIL` | user's own value |
+| `SUPPORTEMAILPASSWORD` | user's own value |
+| `SUPPORTEMAILHOST` | user's own value |
 | `DISABLE_COLLECTSTATIC` | 1 (*this is temporary, and can be removed for the final deployment*) |
 
 Heroku needs three additional files in order to deploy properly.
@@ -900,6 +903,9 @@ os.environ.setdefault("CLOUDINARY_URL", "user's own value")
 os.environ.setdefault("CLOUDINARY_NAME", "user's own value")
 os.environ.setdefault("CLOUDINARY_API", "user's own value")
 os.environ.setdefault("CLOUDINARY_SECRET", "user's own value")
+os.environ.setdefault("SUPPORTEMAIL", "user's own value")
+os.environ.setdefault("SUPPORTEMAILPASSWORD", "user's own value")
+os.environ.setdefault("SUPPORTEMAILHOST", "user's own value")
 
 # local environment only (do not include these in production/deployment!)
 os.environ.setdefault("DEVELOPMENT", "True")
