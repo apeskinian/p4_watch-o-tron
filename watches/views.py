@@ -286,7 +286,6 @@ def staff_settings(request):
     **Template:**
     :template:`watches/staff_settings.html`
     """
-    raise Exception("This is a test 500 error")
     if request.method == 'POST':
         if 'movement-form' in request.POST:
             form = MovementForm(request.POST)
