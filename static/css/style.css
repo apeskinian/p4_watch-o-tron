@@ -249,14 +249,6 @@ main {
     opacity: 0.5;
 }
 
-.wrong-turn-message {
-    background-color: rgb(240, 240, 240);
-    align-self: center;
-    width: 100%;
-    padding: 40px;
-    margin-top: 200px;
-}
-
 .complication {
     display: inline-block;
     margin: 4px;
@@ -337,8 +329,17 @@ main {
 .settings-form {
     flex-grow: 1;
 }
-
 /* STAFF SETTINGS ->END<- */
+
+/* ERROR PAGES */
+.wrong-turn-message {
+    background-color: rgb(240, 240, 240);
+    align-self: center;
+    width: 100%;
+    padding: 40px;
+    margin-top: 200px;
+}
+/* ERROR PAGES <-END-> */
 
 /* RESPONSIVE LAYOUT CHANGES TO TABLETS 768PX */
 @media screen and (min-width: 768px) {
