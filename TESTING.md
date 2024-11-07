@@ -236,7 +236,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | --- | --- | --- | --- | --- |
 | User can scroll and view watches including navigating paginated lists. User is also notified of which page and list they are viewing via messages. | Scrolling the view and clicking on the pagination links. | SUCCESS - user can view all the watches clearly in a list including using pagination. They are also informed of current page and list via messages. | n/a | ![screenrecording](documentation/testing/manual_testing/viewing/wot_testing_viewing_list_viewing.gif "watch-o-tron testing viewing watches") |
 | User can switch between lists using the navigation links including custom links from the dropdown. They are also notified of which list and page (if needed) via messages. | Clicking on the different list links in the navbar including the dropdown. | SUCCESS - user can navigate through the lists using the links in the navbar and is notified of which list they are viewing via messages. | n/a | ![screenrecording](documentation/testing/manual_testing/viewing/wot_testing_viewing_list_navigation.gif "watch-o-tron testing viewing watches") |
-|  |  |  |  |  |
+| User can access a watch's action buttons by clicking on the watch, if in the wish list the purchased button is also available. | Click on watches to confirm action buttons are shown. Try this in the wish list as well as a normal list type. | SUCCESS - the watch's action buttons are shown upon clicking on the watch. Wish list watches show the additional purchased action button. | n/a | ![screenrecording](documentation/testing/manual_testing/viewing/wot_testing_viewing_list_action_buttons.gif "watch-o-tron testing viewing watches") |
 |  |  |  |  |  |
 
 ## User Story Testing
