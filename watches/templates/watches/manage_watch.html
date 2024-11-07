@@ -51,9 +51,9 @@
                     <!-- end of watch form input -->
                     <div class="d-flex justify-content-center gap-2">
                         {% if mode == 'edit' %}
-                            <a href="{% url 'cancel_process' 'Watch edit' origin %}" class="btn-watch-edit btn btn-primary">Cancel</a>
+                            <a href="{% url 'cancel_process' 'Watch edit' origin %}" id="btn-cancel-edit" class="btn-watch-edit btn btn-primary">Cancel</a>
                         {% else %}
-                            <a href="{% url 'cancel_process' 'Watch addition' origin %}" class="btn-watch-edit btn btn-primary">Cancel</a>
+                            <a href="{% url 'cancel_process' 'Watch addition' origin %}" id="btn-cancel-add" class="btn-watch-edit btn btn-primary">Cancel</a>
                         {% endif %}
                         <button type="button" id="btn-edit" class="btn-watch-edit btn btn-success">
                             {% if mode == 'edit' %}Update Watch{% else %}Add Watch{% endif %}
@@ -132,9 +132,9 @@
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     {% if mode == 'edit' %}
-                        <a href="{% url 'cancel_process' 'Watch edit' origin %}" class="btn btn-primary">Cancel</a>
+                        <a href="{% url 'cancel_process' 'Watch edit' origin %}" id="watch-modal-cancel" class="btn btn-primary">Cancel</a>
                     {% else %}
-                        <a href="{% url 'cancel_process' 'Watch addition' origin %}" class="btn btn-primary">Cancel</a>
+                        <a href="{% url 'cancel_process' 'Watch addition' origin %}" id="watch-modal-cancel" class="btn btn-primary">Cancel</a>
                     {% endif %}
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Edit</button>
                     <button type="button" class="btn btn-success" id="watch-modal-confirm">Confirm</button>
