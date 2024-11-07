@@ -249,6 +249,13 @@ Defensive programming was manually tested with the below user acceptance testing
 | User can sign out from the home screen and is taken back to the login screen. They are notified that they have been logged out. | Click on the sign out button and confirm choice in the next screen. | SUCCESS - user is successfully logged out. | n/a | ![screenrecording](documentation/testing/manual_testing/viewing/wot_testing_viewing_list_logout_confirm.gif "watch-o-tron testing viewing watches") |
 | User can cancel sign out choice from the home screen and is taken back home. They are notified of the cancellation. | Click on the sign out button and then cancel in the next screen. | SUCCESS - user is successfully returned back to the home screen. | n/a | ![screenrecording](documentation/testing/manual_testing/viewing/wot_testing_viewing_list_logout_cancel.gif "watch-o-tron testing viewing watches") |
 
+### Adding a watch
+| Expectation | Test | Result | Fix | Screenshot |
+| --- | --- | --- | --- | --- |
+| User can click on the 'Add Watch' button and is taken to the watch input page. | Click on the 'Add Watch' button. | SUCCESS - user is taken to the input page to add a new watch. | n/a | ![screenrecording](documentation/testing/manual_testing/adding/wot_testing_manual_adding_click_add.gif "watch-o-tron testing adding watches") |
+| Submitting the add form without entering a watch make informs users that field is required. | Click on Add Watch with nothing in the Make field. | SUCCESS - user is informed this field is required. | n/a |![screenrecording](documentation/testing/manual_testing/adding/wot_testing_manual_adding_no_make.gif "watch-o-tron testing adding watches")|
+| Submitting the add form without selecting a movement type informs users that field is required. | Click on Add Watch with nothing in the Make field. | SUCCESS - user is informed this field is required. | n/a | ![screenrecording](documentation/testing/manual_testing/adding/wot_testing_manual_adding_no_movement_type.gif "watch-o-tron testing adding watches") |
+
 
 ## User Story Testing
 
