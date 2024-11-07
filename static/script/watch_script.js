@@ -63,3 +63,15 @@ navbarToggler.addEventListener('click', function() {
         }, 200);
     }
 });
+
+watchModalConfirm.addEventListener('click', function () {
+    watchModalConfirm.innerHTML = `
+        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+        <span role="status">Working...</span>`;
+});
+
+watchModalCancel.addEventListener('click', function () {
+    watchModalCancel.innerHTML = `
+        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+        <span role="status">Working...</span>`;
+});

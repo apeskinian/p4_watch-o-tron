@@ -3,8 +3,14 @@
 
 // get form
 const watchForm = document.getElementById('watch-form');
-// get button
+// get buttons
 const editButton = document.getElementById('btn-edit');
+
+let cancelButton = document.getElementById('btn-cancel-edit');
+if (!cancelButton) {
+    cancelButton = document.getElementById('btn-cancel-add');
+}
+
 // get card elements
 const watchModalMake = document.getElementById('watch-modal-make');
 const watchModalCollectionModel = document.getElementById('watch-modal-collection-model');
@@ -22,6 +28,7 @@ const compTourbillon = document.getElementById('complication-tourbillon');
 // getting modal elements for deleting and editing
 const watchModal = new bootstrap.Modal(document.getElementById('watch-modal'));
 const watchModalConfirm = document.getElementById('watch-modal-confirm');
+const watchModalCancel = document.getElementById('watch-modal-cancel');
 
 // event listener to get form data and present in the modal for confirmation
 editButton.addEventListener('click', (e) => {
@@ -96,3 +103,16 @@ watchModalConfirm.addEventListener('click', function () {
         <span role="status">Working...</span>`;
     watchForm.submit();
 });
+
+watchModalCancel.addEventListener('click', function () {
+    watchModalCancel.innerHTML = `
+        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+        <span role="status">Working...</span>`;
+});
+
+cancelButton.addEventListener('click', function () {
+    cancelButton.innerHTML = `
+        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+        <span role="status">Working...</span>`;
+});
+
