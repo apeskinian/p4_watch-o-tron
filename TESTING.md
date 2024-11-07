@@ -255,6 +255,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | User can click on the 'Add Watch' button and is taken to the watch input page. | Click on the 'Add Watch' button. | SUCCESS - user is taken to the input page to add a new watch. | n/a | ![screenrecording](documentation/testing/manual_testing/adding/wot_testing_manual_adding_click_add.gif "watch-o-tron testing adding watches") |
 | Submitting the add form without entering a watch make informs users that field is required. | Click on Add Watch with nothing in the Make field. | SUCCESS - user is informed this field is required. | n/a |![screenrecording](documentation/testing/manual_testing/adding/wot_testing_manual_adding_no_make.gif "watch-o-tron testing adding watches")|
 | Submitting the add form without selecting a movement type informs users that field is required. | Click on Add Watch with nothing in the Make field. | SUCCESS - user is informed this field is required. | n/a | ![screenrecording](documentation/testing/manual_testing/adding/wot_testing_manual_adding_no_movement_type.gif "watch-o-tron testing adding watches") |
+| Submitting the add form with just whitespace informs the user that the field/s are in invalid. | Submit the form with only whitespace. |  |  |  |
 
 
 ## User Story Testing
