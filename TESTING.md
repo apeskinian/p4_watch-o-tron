@@ -221,7 +221,14 @@ Defensive programming was manually tested with the below user acceptance testing
 | | User clicks on sign in without entering username and is informed of required fields. | Clicking on sign in without entering username. | SUCCESS - user is informed that the form is not complete. | n/a | ![screenrecording](documentation/testing/manual_testing/login/wot_testing_manual_login_no_username.gif "watch-o-tron testing login process") |
 | | User clicks on sign in with invalid username or password and is informed of invalid input. | Clicking on sign in with invalid username or password. | SUCCESS - user is informed that the form is not valid. | n/a | ![screenrecording](documentation/testing/manual_testing/login/wot_testing_manual_login_invalid.gif "watch-o-tron testing login process") |
 | | User clicks on sign in with valid username an password and is taken to homepage. | Clicking on sign in with valid username and password. | SUCCESS - user is logged in and taken to homepage. | n/a | ![screenrecording](documentation/testing/manual_testing/login/wot_testing_manual_login_success.gif "watch-o-tron testing login process") |
+|  | User clicks on forgot password link and is taken to the page to enter an email address | Clicking on forgot password link. | SUCCESS - user is taken to the page to input an email address | n/a | ![screenrecording](documentation/testing/manual_testing/login/wot_testing_manual_login_forgot.gif "watch-o-tron testing forgot password process") |
+|  | User enters no email address in forgot password field and is informed of required field. | Not entering an email address into the form. | SUCCESS - user is informed of required field | n/a | ![screenrecording](documentation/testing/manual_testing/login/wot_testing_manual_login_forgot_no_email.gif "watch-o-tron testing forgot password process") |
+|  | User enters invalid email address in forgot password field and is informed of invalid form. | Entering an invalid email into the form. | SUCCESS - user is informed of invalid email address | n/a | ![screenrecording](documentation/testing/manual_testing/login/wot_testing_manual_login_forgot_invalid_email.gif "watch-o-tron testing forgot password process") |
+|  | User enters valid email address in forgot password field and is shown confirmation page. | Entering a valid email into the form. | SUCCESS - user is shown the confirmation page | n/a | ![screenrecording](documentation/testing/manual_testing/login/wot_testing_manual_login_forgot_valid_email.gif "watch-o-tron testing forgot password process") |
 
+| Page | Expectation | Test | Result | Fix | Screenshot |
+| --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  |  |
 
 ## User Story Testing
 
