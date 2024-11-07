@@ -352,10 +352,10 @@ def edit_movement(request, movement_id):
             errors = form.errors
             error_message = ''
             for field, error_list in errors.items():
-                error_message += f'{field}: {', '.join(error_list)}'
+                error_message += f'{', '.join(error_list)}'
             messages.error(
                 request,
-                f'Failed to edit movement. {error_message}'
+                f'Failed to edit movement: {error_message}'
             )
             return redirect('staff_settings')
     else:
@@ -399,8 +399,8 @@ def edit_list(request, list_id):
             errors = form.errors
             error_message = ''
             for field, error_list in errors.items():
-                error_message += f'{field}: {', '.join(error_list)}.'
-            messages.error(request, f'Failed to edit list. {error_message}')
+                error_message += f'{', '.join(error_list)}.'
+            messages.error(request, f'Failed to edit list: {error_message}')
             return redirect('staff_settings')
     else:
         context = get_staff_settings_context(request.user)
