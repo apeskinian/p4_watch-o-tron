@@ -48,7 +48,7 @@
                             <div class="d-none d-lg-block col-lg-2"></div>
                         </div>
                     </div>
-                    <!-- end of watch form -->
+                    <!-- end of watch form input -->
                     <div class="d-flex justify-content-center gap-2">
                         {% if mode == 'edit' %}
                             <a href="{% url 'cancel_process' 'Watch edit' origin %}" class="btn-watch-edit btn btn-primary">Cancel</a>
@@ -59,6 +59,7 @@
                             {% if mode == 'edit' %}Update Watch{% else %}Add Watch{% endif %}
                         </button>
                     </div>
+                    <!-- end of watch form -->
                 </form>
             </div>
         </div>

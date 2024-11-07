@@ -25,6 +25,7 @@ const watchModalConfirm = document.getElementById('watch-modal-confirm');
 
 // event listener to get form data and present in the modal for confirmation
 editButton.addEventListener('click', (e) => {
+    
     if (watchForm.checkValidity()) {
         // checking for an image from the gorm to show in the preview modal
         var imageInput = watchForm.elements.image;

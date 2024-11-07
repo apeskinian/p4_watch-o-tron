@@ -167,34 +167,34 @@ def manage_watch(request, origin, watch_id=None):
             for field, error_list in errors.items():
                 error_message += f'{field}: {', '.join(error_list)}.'
             messages.error(request, f'An error occured. {error_message}.')
-    else:
-        day = datetime.datetime.now()
-        lists = lists = get_user_lists(request.user)
+    
+    day = datetime.datetime.now()
+    lists = lists = get_user_lists(request.user)
 
-        # getting the list to preselect from the origin argument
-        try:
-            initial_list = WatchList.objects.get(list_name=origin)
-            initial_data = {'list_name': initial_list}
-        except WatchList.DoesNotExist:
-            initial_data = {}
+    # getting the list to preselect from the origin argument
+    try:
+        initial_list = WatchList.objects.get(list_name=origin)
+        initial_data = {'list_name': initial_list}
+    except WatchList.DoesNotExist:
+        initial_data = {}
 
-        context = {
-            'day': day.strftime('%w'),
-            'date': day.strftime('%d'),
-            'moonphase': moonphase(),
-            "origin": origin,
-            "lists": lists,
-            "watch_form": WatchForm(initial=initial_data),
-            "mode": 'add',
-        }
-        if watch_id:
-            watch = get_object_or_404(Watch, id=watch_id)
-            context.update({
-                "watch_form": WatchForm(instance=watch),
-                "watch": watch,
-                "mode": 'edit',
-            })
-        return render(request, 'watches/manage_watch.html', context)
+    context = {
+        'day': day.strftime('%w'),
+        'date': day.strftime('%d'),
+        'moonphase': moonphase(),
+        "origin": origin,
+        "lists": lists,
+        "watch_form": WatchForm(initial=initial_data),
+        "mode": 'add',
+    }
+    if watch_id:
+        watch = get_object_or_404(Watch, id=watch_id)
+        context.update({
+            "watch_form": WatchForm(instance=watch),
+            "watch": watch,
+            "mode": 'edit',
+        })
+    return render(request, 'watches/manage_watch.html', context)
 
 
 @login_required(login_url='accounts/login')
