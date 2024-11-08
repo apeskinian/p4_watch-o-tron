@@ -7,7 +7,7 @@
                 {% for list_name in lists %}
                     {% if forloop.counter < 3 %}
                     <li class="nav-item">
-                        <a href="{% url 'watch_list' list_name.list_name %}" class="nav-link {% if list_name.list_name == current_list %}active{% endif %}">{{ list_name.friendly_name }}</a>
+                        <a href="{% url 'watch_list' list_name.list_name %}" class="catch-link nav-link {% if list_name.list_name == current_list %}active{% endif %}">{{ list_name.friendly_name }}</a>
                     </li>
                     {% endif %}
                 {% endfor %}
@@ -20,7 +20,7 @@
                         {% for list_name in lists %}
                             {% if forloop.counter > 2 %}
                             <li class="nav-item text-center">
-                                <a href="{% url 'watch_list' list_name.list_name %}" class="nav-link {% if list_name.list_name == current_list %}active{% endif %}">{{ list_name.friendly_name }}</a>
+                                <a href="{% url 'watch_list' list_name.list_name %}" class="catch-link nav-link {% if list_name.list_name == current_list %}active{% endif %}">{{ list_name.friendly_name }}</a>
                             </li>
                             {% endif %}
                         {% endfor %}
@@ -29,7 +29,7 @@
                 {% endif %}
             </ul>
         </div>
-        <a href="{% url 'home' %}" class="navbar-nav position-absolute top-50 start-50 translate-middle">
+        <a href="{% url 'home' %}" class="catch-link navbar-nav position-absolute top-50 start-50 translate-middle">
             <div class="d-flex align-items-center gap-1">
                 <img src="{% static 'images/watch-_logo.webp' %}" alt="Logo" class="d-inline-block align-text-top logo">
                 {% include 'includes/clockface.html' %}
@@ -42,12 +42,12 @@
                 {% if user.is_superuser %}<span class="text-muted"> [admin]</span>{% endif %}
             </div>
             {% if user.is_staff %}
-            <div class="ms-2"><a href="{% url 'staff_settings' %}" class="btn btn-sm btn-primary" id="staff-btn" aria-label="go to the settings page"></a></div>
+            <div class="ms-2"><a href="{% url 'staff_settings' %}" class="catch-link btn btn-sm btn-primary" id="staff-btn" aria-label="go to the settings page"></a></div>
             {% endif %}
             {% if user.is_superuser %}
-            <div class="ms-2"><a href="{% url 'admin:index' %}" class="btn btn-sm btn-secondary" id="admin-btn" aria-label="go to the admin page"></a></div>
+            <div class="ms-2"><a href="{% url 'admin:index' %}" class="catch-link btn btn-sm btn-secondary" id="admin-btn" aria-label="go to the admin page"></a></div>
             {% endif %}
-            <div class="ms-2"><a href="{{ logout_url }}" class="btn btn-sm btn-danger">Sign Out</a></div>
+            <div class="ms-2"><a href="{{ logout_url }}" class="catch-link btn btn-sm btn-danger">Sign Out</a></div>
         </div>
     </div>
 </nav>
@@ -61,12 +61,12 @@
             <ul class="mobile-nav-list navbar-nav text-center">
                 {% for list_name in lists %}
                 <li class="nav-item">
-                    <a href="{% url 'watch_list' list_name.list_name %}" class="nav-link mobile-nav-item {% if list_name.list_name == current_list %}mobile-active{% endif %}">{{ list_name.friendly_name }}</a>
+                    <a href="{% url 'watch_list' list_name.list_name %}" class="catch-link nav-link mobile-nav-item {% if list_name.list_name == current_list %}mobile-active{% endif %}">{{ list_name.friendly_name }}</a>
                 </li>
                 {% endfor %}
                 {% if current_list %}
                 <li class="nav-item mobile-nav-buttons">
-                    <a href="{% url 'manage_watch' current_list %}" class="btn btn-success mobile-nav-button">Add Watch</a>
+                    <a href="{% url 'manage_watch' current_list %}" class="catch-link btn btn-success mobile-nav-button">Add Watch</a>
                 </li>
                 {% endif %}
             </ul>
@@ -78,12 +78,12 @@
                 </div>
                 <div class="session-id-mobile">
                     {% if user.is_staff %}
-                        <a href="{% url 'staff_settings' %}" class="btn btn-primary session-button-mobile" aria-label="go to the settings page">Settings</a>
+                        <a href="{% url 'staff_settings' %}" class="catch-link btn btn-primary session-button-mobile" aria-label="go to the settings page">Settings</a>
                     {% endif %}
                     {% if user.is_superuser %}
-                        <a href="{% url 'admin:index' %}" class="btn btn-secondary session-button-mobile" aria-label="go to the admin page">Admin Panel</a>
+                        <a href="{% url 'admin:index' %}" class="catch-link btn btn-secondary session-button-mobile" aria-label="go to the admin page">Admin Panel</a>
                     {% endif %}
-                    <a href="{{ logout_url }}" class="btn btn-danger session-button-mobile">Sign Out</a>
+                    <a href="{{ logout_url }}" class="catch-link btn btn-danger session-button-mobile">Sign Out</a>
                 </div>
             </div>
         </div>

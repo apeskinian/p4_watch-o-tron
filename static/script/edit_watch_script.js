@@ -104,15 +104,36 @@ watchModalConfirm.addEventListener('click', function () {
     watchForm.submit();
 });
 
+// show working spinner for modal cancel button
 watchModalCancel.addEventListener('click', function () {
     watchModalCancel.innerHTML = `
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
         <span role="status">Working...</span>`;
 });
 
+// show working spinner for form cancel button
 cancelButton.addEventListener('click', function () {
     cancelButton.innerHTML = `
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
         <span role="status">Working...</span>`;
+});
+
+
+// confirming if user wants to leave when in the add watch page
+const leaveModal = new bootstrap.Modal(document.getElementById('leaving-modal'));
+let intendedURL = null; 
+
+document.querySelectorAll('.catch-link').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        intendedURL = link.href;
+        leaveModal.show();
+    });
+});
+
+document.getElementById('watch-modal-leave').addEventListener('click', function() {
+    if (intendedURL) {
+        window.location.href = intendedURL;
+    }
 });
 
