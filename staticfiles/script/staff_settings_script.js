@@ -9,3 +9,27 @@ window.onload = () => {
         settingsModal.show();
     }
   };
+
+const addMovementButton = document.getElementById('add-movement-btn');
+const addListButton = document.getElementById('add-list-btn');
+const modalConfirmButton = document.getElementById('staff-modal-confirm');
+const modalCancelButton = document.getElementById('staff-modal-cancel');
+
+let modalBtns = [modalConfirmButton, modalCancelButton];
+let addBtns = [addMovementButton, addListButton];
+
+addBtns.forEach(function(button) {
+    button.addEventListener('click', function () {
+        button.innerHTML = `
+            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+            <span role="status"></span>`;
+    });
+})
+
+modalBtns.forEach(function(button) {
+    button.addEventListener('click', function () {
+        button.innerHTML = `
+            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+            <span role="status">Working...</span>`;
+    });
+})
