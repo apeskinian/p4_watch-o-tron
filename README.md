@@ -358,6 +358,12 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     When you have confirmed the details are correct, the watch is added to the chosen list and you are redirected to that list. If you notice a mistake, you can click on edit to return to the input form where you can make changes. Also, if you decide that you no longer wish to add this watch at the confirmation stage, you can click on cancel to return to the list you were previously viewing.
 
+    To prevent accidental loss of watch info, the user will be prompted if they attempt to navigate away from the page using any links while in the add watch form. They can then decide to continue adding/editing or leave.
+
+    | Navigating away prompt mobile | Navigating away prompt tablet | Navigating away prompt desktop |
+    | :---: | :---: | :---: |
+    | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_navigate_away_mobile.png "watch-o-tron add watch navigating away") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_navigate_away_tablet.png "watch-o-tron add watch navigating away") | ![screenshot](documentation/features/addwatch/wot_feature_add_watch_navigate_away_desktop.png "watch-o-tron add watch navigating away") |
+
 - ### Watch Action Buttons
 
     Each watch has its own action buttons which allow the user to manage each watch individually. To access these buttons, they simply click anywhere on the watch they wish to update. There are two default action buttons which are 'Edit' and 'Delete'. If the watch is located in the **Wish List**, then there is an extra action button labelled 'Purchased' that they can use to quickly move the watch to the Collection without going into the edit function.
@@ -481,9 +487,9 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
     #### Working Spinner
 
-    A spinner is used when a user confirms the addition or editing of a watch. This is when most data is being written to the database, especially if there is also an image to upload to Cloudinary. Therefore, a spinner is shown in the button and 'Working...' replaces the button text to inform the user that something is happening.
+    A spinner is used when a user confirms the addition or editing of a watch. This is when most data is being written to the database, especially if there is also an image to upload to Cloudinary. Therefore, a spinner is shown in the button replacing the button text to inform the user that something is happening.
 
-    ![screenshot](documentation/features/messaging/wot_feature_spinner.png "watch-o-tron working... spinner")
+    ![screenshot](documentation/features/messaging/wot_feature_spinner.gif "watch-o-tron spinner")
 
 
 
