@@ -496,10 +496,26 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 - ### Easter Eggs
 
     There's more than meets the eye in the Watch-O-Tron. I have implemented 4 Easter eggs into the site that curious users might notice.
+
+    <details>
+    <summary>Click here to reveal the hidden Easter eggs in the Watch-O-Tron.</summary>
+    <br>
+    <details>
+    <summary>Last chance to change your mind.</summary>
+    <br>
+
     - **Live clock:** the 'O' of the main logo hides a live clock which works to the user’s local time.
     - **Day complication:** the icon for the day complication is dynamic so that it shows the current day. There is also a little extra Easter egg nod to a certain popular watch brand who uses red text on Sundays.
     - **Date complication:** the icon for the date complication is dynamic so that it shows the current date.
     - **Moonphase complication:** the icon is dynamic and shows the current phase of the moon. Data used for this is retrieved from [Ephem](https://pypi.org/project/ephem/)
+    </details>
+    </details>
+
+
+    
+    
+
+
 
 
 ### Future Features
