@@ -132,12 +132,12 @@
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     {% if mode == 'edit' %}
-                        <a href="{% url 'cancel_process' 'Watch edit' origin %}" id="watch-modal-cancel" class="btn btn-primary">Cancel</a>
+                        <a href="{% url 'cancel_process' 'Watch edit' origin %}" id="watch-modal-cancel" class="btn btn-primary w-25">Cancel</a>
                     {% else %}
-                        <a href="{% url 'cancel_process' 'Watch addition' origin %}" id="watch-modal-cancel" class="btn btn-primary">Cancel</a>
+                        <a href="{% url 'cancel_process' 'Watch addition' origin %}" id="watch-modal-cancel" class="btn btn-primary w-25">Cancel</a>
                     {% endif %}
-                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Edit</button>
-                    <button type="button" class="btn btn-success" id="watch-modal-confirm">Confirm</button>
+                    <button type="button" class="btn btn-warning w-25" data-bs-dismiss="modal">Edit</button>
+                    <button type="button" class="btn btn-success w-25" id="watch-modal-confirm">Confirm</button>
                 </div>
             </div>
         </div>
@@ -155,8 +155,8 @@
                         <p><strong>Note: any unsaved changes will be lost.</strong></p>
                     </div>
                     <div class="d-flex justify-content-center gap-2">
-                        <button type="button" class="btn btn-primary btn-leave" data-bs-dismiss="modal" aria-label="Close">Continue</button>
-                        <button id="watch-modal-leave" class="btn btn-danger btn-leave" data-mode="{% if mode == 'edit' %}edit{% else %}add{% endif %}">Leave</button>
+                        <button type="button" class="btn btn-primary w-25" data-bs-dismiss="modal" aria-label="Close">Continue</button>
+                        <button id="watch-modal-leave" class="btn btn-danger w-25" data-mode="{% if mode == 'edit' %}edit{% else %}add{% endif %}">Leave</button>
                     </div>
                 </div>
             </div>

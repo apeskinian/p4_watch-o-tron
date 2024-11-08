@@ -118,9 +118,9 @@
                                 </p>
                                 <div class="d-flex justify-content-center gap-2">
                                     {% with content=edit_form|yesno:'Edit,Delete' %}
-                                        <a href="{% url 'cancel_process' content 'staff_settings' %}" id="staff-modal-cancel" class="btn btn-primary" aria-label="Close">Cancel</a>
+                                        <a href="{% url 'cancel_process' content 'staff_settings' %}" id="staff-modal-cancel" class="btn btn-primary w-25" aria-label="Close">Cancel</a>
                                     {% endwith %}
-                                    <button id="staff-modal-confirm" type="submit" class="btn {% if edit_form %}btn-success{% elif to_delete %}btn-danger{% endif %}">{% if edit_form %}Amend{% elif to_delete %}Delete{% endif %}</button>
+                                    <button id="staff-modal-confirm" type="submit" class="btn {% if edit_form %}btn-success{% elif to_delete %}btn-danger{% endif %} w-25">{% if edit_form %}Amend{% elif to_delete %}Delete{% endif %}</button>
                                 </div>
                             </div>
                         </form>

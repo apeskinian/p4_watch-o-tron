@@ -100,7 +100,7 @@ editButton.addEventListener('click', (e) => {
 watchModalConfirm.addEventListener('click', function () {
     watchModalConfirm.innerHTML = `
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-        <span role="status">Working...</span>`;
+        <span role="status"></span>`;
     watchForm.submit();
 });
 
@@ -108,14 +108,14 @@ watchModalConfirm.addEventListener('click', function () {
 watchModalCancel.addEventListener('click', function () {
     watchModalCancel.innerHTML = `
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-        <span role="status">Working...</span>`;
+        <span role="status"></span>`;
 });
 
 // show working spinner for form cancel button
 cancelButton.addEventListener('click', function () {
     cancelButton.innerHTML = `
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-        <span role="status">Working...</span>`;
+        <span role="status"></span>`;
 });
 
 
@@ -134,7 +134,7 @@ document.querySelectorAll('.catch-link').forEach(link => {
 document.getElementById('watch-modal-leave').addEventListener('click', function() {
     this.innerHTML = `
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-        <span role="status">Working...</span>`;
+        <span role="status"></span>`;
     if (intendedURL) {
         let url;
         if (this.getAttribute('data-mode') === 'edit') {
@@ -158,4 +158,3 @@ document.getElementById('watch-modal-leave').addEventListener('click', function(
         });
     }
 });
-

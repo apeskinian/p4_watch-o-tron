@@ -525,6 +525,14 @@ def cancel_process(request, content, cancel_url='home'):
 
 @login_required(login_url='accounts/login')
 def leaving_manage(request, content):
+    """
+    Called when leaving the manage watch page via a link. Adds a message
+    informing them of cancellation.
+    **Arguments**
+    ``content`` (str):
+        Information regarding what action is being cancelled, this is used
+        in the provided messsage.
+    """
     try:
         messages.info(request, f'{content} cancelled.')
         return JsonResponse({'status': 'message set'})

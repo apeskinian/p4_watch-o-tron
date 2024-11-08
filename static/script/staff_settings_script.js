@@ -27,9 +27,11 @@ addBtns.forEach(function(button) {
 })
 
 modalBtns.forEach(function(button) {
-    button.addEventListener('click', function () {
-        button.innerHTML = `
-            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-            <span role="status">Working...</span>`;
-    });
+    if (button) {
+        button.addEventListener('click', function () {
+            button.innerHTML = `
+                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                <span role="status"></span>`;
+        });
+    }
 })
