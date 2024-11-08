@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
+from django.http import JsonResponse
 from .models import Watch, WatchList, WatchMovement
 from .forms import WatchForm, MovementForm, ListForm
 from .utils.moons import moonphase
@@ -520,3 +521,13 @@ def cancel_process(request, content, cancel_url='home'):
     except Exception as e:
         messages.error(request, f'Error occured while cancelling: {str(e)}')
         return redirect('home')
+
+
+@login_required(login_url='accounts/login')
+def leaving_manage(request, content):
+    try:
+        messages.info(request, f'{content} cancelled.')
+        return JsonResponse({'status': 'message set'})
+    except Exception as e:
+        messages.error(request, f'Error occured while cancelling: {str(e)}')
+        return JsonResponse({'status': 'message set'})

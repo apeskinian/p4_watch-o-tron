@@ -303,6 +303,10 @@ main {
     max-width: 300px;
 }
 
+.btn-leave {
+    width: 33%;
+}
+
 /* WATCH-EDIT ->END<- */
 
 /* STAFF SETTINGS */

@@ -132,8 +132,30 @@ document.querySelectorAll('.catch-link').forEach(link => {
 });
 
 document.getElementById('watch-modal-leave').addEventListener('click', function() {
+    this.innerHTML = `
+        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+        <span role="status">Working...</span>`;
     if (intendedURL) {
-        window.location.href = intendedURL;
+        let url;
+        if (this.getAttribute('data-mode') === 'edit') {
+            url = editUrl
+        } else if (this.getAttribute('data-mode') === 'add') {
+            url = addUrl
+        }
+        
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            window.location.href = intendedURL;
+        })
+        .catch(error => {
+            window.location.href = intendedURL;
+        });
     }
 });
 
