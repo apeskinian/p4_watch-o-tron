@@ -43,7 +43,7 @@
                                 <div class="settings-form">
                                     {{ movement_form.movement_name }}
                                 </div>
-                                <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success" name="movement-form">Add</button>
+                                <button id="add-movement-btn" type="submit" class="btn-staff-setting-table btn btn-sm btn-success btn-working" name="movement-form">Add</button>
                             </div>
                         </form>
                     </td>
@@ -84,7 +84,7 @@
                                     <div class="settings-form">
                                         {{ list_form.friendly_name }}
                                     </div>
-                                    <button type="submit" class="btn-staff-setting-table btn btn-sm btn-success" name="list-form">Add</button>
+                                    <button id="add-list-btn" type="submit" class="btn-staff-setting-table btn btn-sm btn-success btn-working" name="list-form">Add</button>
                                 </div>
                             </form>
                         </td>
@@ -118,9 +118,9 @@
                                 </p>
                                 <div class="d-flex justify-content-center gap-2">
                                     {% with content=edit_form|yesno:'Edit,Delete' %}
-                                        <a href="{% url 'cancel_process' content 'staff_settings' %}" class="btn btn-primary" aria-label="Close">Cancel</a>
+                                        <a href="{% url 'cancel_process' content 'staff_settings' %}" id="modal-cancel" class="btn btn-primary" aria-label="Close">Cancel</a>
                                     {% endwith %}
-                                    <button type="submit" class="btn {% if edit_form %}btn-success{% elif to_delete %}btn-danger{% endif %}">{% if edit_form %}Amend{% elif to_delete %}Delete{% endif %}</button>
+                                    <button id="modal-confirm" type="submit" class="btn {% if edit_form %}btn-success{% elif to_delete %}btn-danger{% endif %}">{% if edit_form %}Amend{% elif to_delete %}Delete{% endif %}</button>
                                 </div>
                             </div>
                         </form>
