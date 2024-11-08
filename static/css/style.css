@@ -150,6 +150,10 @@ main {
     height: 56px;
     box-shadow: 0px 0.5px 0.5px 0.5px #d3d3d3;
 }
+
+.dropdown-menu {
+    padding: 0;
+}
 /* NAVBARS ->END<- */
 
 /* MESSAGES */
