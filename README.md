@@ -505,6 +505,9 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     <br>
 
     - **Live clock:** the 'O' of the main logo hides a live clock which works to the user’s local time.
+
+        ![screenshot](documentation/features/easter_eggs/wot_feature_easter_egg_clock.gif "watch-o-tron logo easter egg")
+
     - **Day complication:** the icon for the day complication is dynamic so that it shows the current day. There is also a little extra Easter egg nod to a certain popular watch brand who uses red text on Sundays.
     - **Date complication:** the icon for the date complication is dynamic so that it shows the current date.
     - **Moonphase complication:** the icon is dynamic and shows the current phase of the moon. Data used for this is retrieved from [Ephem](https://pypi.org/project/ephem/)
