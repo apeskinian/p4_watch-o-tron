@@ -23,6 +23,9 @@ addBtns.forEach(function(button) {
         button.innerHTML = `
             <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
             <span role="status"></span>`;
+        setTimeout(function() {
+            button.innerHTML = 'Add';
+        }, 1000);
     });
 })
 
