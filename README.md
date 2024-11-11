@@ -513,7 +513,12 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
         ![screenshot](documentation/features/easter_eggs/wot_feature_easter_egg_day.gif "watch-o-tron day easter egg")
 
     - **Date complication:** the icon for the date complication is dynamic so that it shows the current date.
+
+        ![screenshot](documentation/features/easter_eggs/wot_feature_easter_egg_date.gif "watch-o-tron date easter egg")
+
     - **Moonphase complication:** the icon is dynamic and shows the current phase of the moon. Data used for this is retrieved from [Ephem](https://pypi.org/project/ephem/)
+
+        ![screenshot](documentation/features/easter_eggs/wot_feature_easter_egg_moon.gif "watch-o-tron moon easter egg")
     </details>
     </details>
 
