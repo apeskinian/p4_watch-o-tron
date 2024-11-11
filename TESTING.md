@@ -300,7 +300,16 @@ Defensive programming was manually tested with the below user acceptance testing
 | Clicking the cancel button while editing a movement will cancel the process. The user will be notified via messages. | Click on the cancel button while editing a movement. | SUCCESS - the editing was cancelled and the user notified via messages. | n/a | ![screenrecording](documentation/testing/manual_testing/staff_settings/wot_testing_ss_edit_cancel_movement.gif "watch-o-tron testing staff settings") |
 | Clicking the modal close button while editing a list will cancel the process. The user will be notified via messages. | Click on the modal close button while editing a list. | SUCCESS - the editing was cancelled and the user notified via messages. | n/a | ![screenrecording](documentation/testing/manual_testing/staff_settings/wot_testing_ss_edit_close_modal_list.gif "watch-o-tron testing staff settings") |
 | Clicking the cancel button while editing a list will cancel the process. The user will be notified via messages. | Click on the cancel button while editing a list. | SUCCESS - the editing was cancelled and the user notified via messages. | n/a | ![screenrecording](documentation/testing/manual_testing/staff_settings/wot_testing_ss_edit_cancel_list.gif "watch-o-tron testing staff settings") |
-|  |  |  |  |  |
+| Clicking 'Amend' after changing the name in the movement edit form. The movement should be saved and user notified via messages.|  |  |  |  |
+| Clicking 'Amend' after changing the name in the movement edit form to the same name of an already existing movement. The movement should not be saved and the user notified that the edited name already exists. |  |  |  |  |
+| Clicking 'Amend' after leaving the name the same in the movement edit form. The movement should not be saved and the user notified that the name already exists. |  |  |  |  |
+| Clicking 'Amend' after clearing the name in the movement edit form. The user should be informed of the required field. |  |  |  |  |
+| Clicking 'Amend' after replacing the name with whitespace in the movement edit form. The form submission should be invalid and the user notified. |  |  |  |  |
+| Clicking 'Amend' after changing the name in the list edit form. The list should be saved and user notified via messages |  |  |  |  |
+| Clicking 'Amend' after changing the name in the list edit form to the same name of an already existing list. The list should not be saved and the user notified that the edited name already exists. |  |  |  |  |
+| Clicking 'Amend' after leaving the name the same in the list edit form. The movement should not be saved and the user notified that the name already exists. |  |  |  |  |
+| Clicking 'Amend' after clearing the name in the list edit form. The user should be informed of the required field. |  |  |  |  |
+| Clicking 'Amend' after replacing the name with whitespace in the list edit form. The form submission should be invalid and the user notified. |  |  |  |  |
 |  |  |  |  |  |
 |  |  |  |  |  |
 |  |  |  |  |  |
