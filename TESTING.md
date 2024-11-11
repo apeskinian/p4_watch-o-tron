@@ -281,6 +281,16 @@ Defensive programming was manually tested with the below user acceptance testing
 | Clicking confirm when presented with the watch confirmation should complete the process of adding a watch. The watch will be added to the specified list and the user will be directed to that list. They will also be notified of the watch addition via messages. | Click confirm when shown the watch confirmation modal. | SUCCESS - the watch is added to the specificed list and the user is directed to that list. They are also notified of the addition. | n/a | ![screenrecording](documentation/testing/manual_testing/adding_editing/wot_testing_manual_a_e_confirm_confirm.gif "watch-o-tron testing adding/editing watches") |
 | Clicking confirm when presented with the watch confirmation should complete the process of editing a watch. The watch details will be updated and if the list was changed the user will be directed to that list. They will also be notified of the watch amendment via messages. | Click confirm when shown the watch confirmation modal while editing. | SUCCESS - the watch is updated and if the list is changed the user is directed to that list. They are also notified of the amendment. | n/a | ![screenrecording](documentation/testing/manual_testing/adding_editing/wot_testing_manual_a_e_edit_confirm_confirm.gif "watch-o-tron testing adding/editing watches") |
 
+### Staff Settings
+| Expectation | Test | Result | Fix | Screenshot |
+| --- | --- | --- | --- | --- |
+| If the user is not a staff member they cannot see the staff settings button. | Log in as a normal user and see if the staff settings button is available in the navbar. | SUCCESS - a normal user does not have the button to access the staff settings page. | n/a | ![screenrecording](documentation/testing/manual_testing/staff_settings/wot_testing_ss_cannot_access.gif "watch-o-tron testing staff settings") |
+| If the user is a staff member they can access the staff settings page by clicking on the button in the navbar. | Click on staff settings button when logged in as a staff member. | SUCCESS - user logged in as staff member can access the staff settings page. | n/a |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+
 ## User Story Testing
 
 | User Story | Screenshot |
