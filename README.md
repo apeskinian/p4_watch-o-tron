@@ -846,6 +846,30 @@ To obtain your own Cloudinary API key, create an account and log in.
 - On your Cloudinary Dashboard, you can copy your **API Environment Variable**.
 - Be sure to remove the `CLOUDINARY_URL=` as part of the API **value**; this is the **key**.
 
+### Gmail API
+
+This project uses [Gmail](https://mail.google.com) to handle sending passwrod reset emails to users.
+
+Once you've created a Gmail (Google) account and logged-in, follow these series of steps to get your project connected.
+
+- Click on the **Account Settings** (cog icon) in the top-right corner of Gmail.
+- Click on the **Accounts and Import** tab.
+- Within the section called "Change account settings", click on the link for **Other Google Account settings**.
+- From this new page, select **Security** on the left.
+- Select **2-Step Verification** to turn it on. (*verify your password and account*)
+- Once verified, select **Turn On** for 2FA.
+- Navigate back to the **Security** page, and you'll see a new option called **App passwords** (*search for it at the top, if not*).
+- This might prompt you once again to confirm your password and account.
+- Select **Mail** for the app type.
+- Select **Other (Custom name)** for the device type.
+    - Any custom name, such as "Django" or `p4_watch-o-tron`
+- You'll be provided with a 16-character password (API key).
+    - Save this somewhere locally, as you cannot access this key again later!
+    - If your 16-character password contains *spaces*, make sure to remove them entirely.
+    - `SUPPORTEMAILPASSWORD` = user's 16-character API key
+    - `SUPPORTEMAIL` = user's own personal Gmail email address
+    - `SUPPORTEMAILHOST` = `smtp.gmail.com` if using Gmail.
+
 ### Heroku Deployment
 
 This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
