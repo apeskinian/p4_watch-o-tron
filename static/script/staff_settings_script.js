@@ -31,10 +31,22 @@ addBtns.forEach(function(button) {
 
 modalBtns.forEach(function(button) {
     if (button) {
-        button.addEventListener('click', function () {
-            button.innerHTML = `
-                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                <span role="status"></span>`;
-        });
+        if (button.classList.contains('btn-success')) {
+            button.addEventListener('click', function () {
+                button.innerHTML = `
+                    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                    <span role="status"></span>`;
+                setTimeout(function() {
+                    button.innerHTML = 'Amend';
+                }, 1000);
+            });
+        } else {
+            button.addEventListener('click', function () {
+                button.innerHTML = `
+                    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                    <span role="status"></span>`;
+            });
+        }
+
     }
 })
