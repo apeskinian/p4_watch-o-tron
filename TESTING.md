@@ -287,6 +287,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | If the user is not a staff member they cannot see the staff settings button. | Log in as a normal user and see if the staff settings button is available in the navbar. | SUCCESS - a normal user does not have the button to access the staff settings page. | n/a | ![screenrecording](documentation/testing/manual_testing/staff_settings/wot_testing_ss_cannot_access.gif "watch-o-tron testing staff settings") |
 | If the user is a staff member they can access the staff settings page by clicking on the button in the navbar. | Click on staff settings button when logged in as a staff member. | SUCCESS - user logged in as staff member can access the staff settings page. | n/a | ![screenrecording](documentation/testing/manual_testing/staff_settings/wot_testing_ss_can_access.gif "watch-o-tron testing staff settings") |
 | User cannot submit an empty new movement type. The user will be informed of the required field. | Clicking on add next to the new movment field. | SUCESS - user is informed that the field is required. | n/a |  |
+| User cannot submit an empty new list type. The user will be informed of the required field. | Clicking on add next to the new movment field. | SUCESS - user is informed that the field is required. | n/a |  |
 |  |  |  |  |  |
 |  |  |  |  |  |
 |  |  |  |  |  |
