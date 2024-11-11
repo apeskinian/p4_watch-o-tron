@@ -12,6 +12,7 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 > [!NOTE]  
 > The main template and also other partial html files listed below were tested as part of the main site files as they include them.
 > - base.html
+> - account_nav.html
 > - clockface.html
 > - messages.html
 > - pagination.html
