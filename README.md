@@ -503,7 +503,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     <details>
     <summary>Last chance to change your mind.</summary>
     <br>
-
+    
     - **Live clock:** the 'O' of the main logo hides a live clock which works to the user’s local time.
 
         ![screenshot](documentation/features/easter_eggs/wot_feature_easter_egg_logo.gif "watch-o-tron logo easter egg")
@@ -521,13 +521,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
         ![screenshot](documentation/features/easter_eggs/wot_feature_easter_egg_moon.gif "watch-o-tron moon easter egg")
     </details>
     </details>
-
-
-    
-    
-
-
-
 
 ### Future Features
 
