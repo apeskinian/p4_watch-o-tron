@@ -1,14 +1,22 @@
 from django.test import TestCase
 from .forms import WatchForm, MovementForm, ListForm
+from .models import WatchList, WatchMovement
 
 
 class TestWatchForm(TestCase):
 
+    def setUp(self):
+        # setting up test movement and list options
+        self.test_list = WatchList.objects.create(list_name='test_list')
+        self.test_movement = WatchMovement.objects.create(
+            movement_name='test_movement'
+        )
+
     def test_watch_make_is_required(self):
         form = WatchForm({
             'make': '',
-            'movement_type': 'test_movement',
-            'list_name': 'test_name'
+            'movement_type': self.test_movement.id,
+            'list_name': self.test_list.id
         })
         self.assertFalse(form.is_valid())
         self.assertIn('make', form.errors.keys())
@@ -18,7 +26,7 @@ class TestWatchForm(TestCase):
         form = WatchForm({
             'make': 'test_make',
             'movement_type': '',
-            'list_name': 'test_list'
+            'list_name': self.test_list.id
         })
         self.assertFalse(form.is_valid())
         self.assertIn('movement_type', form.errors.keys())
@@ -29,7 +37,7 @@ class TestWatchForm(TestCase):
     def test_watch_list_name_required(self):
         form = WatchForm({
             'make': 'test_make',
-            'movement_type': 'test_movement',
+            'movement_type': self.test_movement.id,
             'list_name': ''
         })
         self.assertFalse(form.is_valid())
@@ -37,6 +45,15 @@ class TestWatchForm(TestCase):
         self.assertEqual(
             form.errors['list_name'][0], 'This field is required.'
         )
+
+    def test_all_other_fields_are_optional(self):
+        form = WatchForm({
+            'make': 'test_make',
+            'movement_type': self.test_movement.id,
+            'list_name': self.test_list.id
+        })
+        self.assertTrue(form.is_valid())
+
 
     def test_fields_are_explicit_in_form_metaclass(self):
         form = WatchForm()
