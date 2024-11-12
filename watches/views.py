@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_control
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
@@ -29,6 +30,7 @@ def get_user_lists(user):
 
 
 @login_required(login_url='accounts/login')
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def home(request, list_name='collection'):
     """
     Displays a users watches in the requested list :model:`watches.Watch` and
@@ -101,6 +103,7 @@ def home(request, list_name='collection'):
 
 
 @login_required(login_url='accounts/login')
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def manage_watch(request, origin, watch_id=None):
     """
     Adds or edits an instance of :model:`watches.Watch` specified by the user.
@@ -277,6 +280,7 @@ def get_staff_settings_context(user):
 
 
 @staff_member_required(login_url='accounts/login')
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def staff_settings(request):
     """
     Shows staff members a list of movement types from
