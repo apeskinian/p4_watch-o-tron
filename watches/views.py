@@ -171,7 +171,7 @@ def manage_watch(request, origin, watch_id=None):
             for field, error_list in errors.items():
                 error_message += f'{field}: {', '.join(error_list)}.'
             messages.error(request, f'An error occured. {error_message}.')
-    
+
     day = datetime.datetime.now()
     lists = lists = get_user_lists(request.user)
 

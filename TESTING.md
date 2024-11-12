@@ -6,7 +6,6 @@
 ## Code Validation
 
 ### HTML
-
 I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
 
 > [!NOTE]  
@@ -34,7 +33,6 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | watches/templates/watches | staff_settings.html | ![screenshot](documentation/testing/validation/html/wot_testing_html_staff_settings.png "watch-o-tron html validation staff_settings") | no errors or warnings |
 
 ### CSS
-
 I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
 
 | Directory | File | Screenshot | Notes |
@@ -43,7 +41,6 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 | static | style.css | ![screenshot](documentation/testing/validation/css/wot_testing_css_style.png "watch-o-tron css validation style") | no errors found |
 
 ### JavaScript
-
 I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JS files.
 
 | Directory | File | Screenshot | Notes |
@@ -94,7 +91,6 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 I've tested my deployed project on multiple devices to check for responsiveness issues.
 
 ### Account Pages
-
 | Device | Login | Logout | Signup | Forgot Password | Password Request Sent | Password Reset From Email Link | Password Changed | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mobile (devtools) | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_login.png "watch-o-tron responsive mobile dev login") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_logout.png "watch-o-tron responsive mobile dev logout") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_signup.png "watch-o-tron responsive mobile dev signup") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_password_reset.png "watch-o-tron responsive mobile dev forgot password") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_password_reset_done.png "watch-o-tron responsive mobile dev request sent") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_password_reset_from_key.png "watch-o-tron responsive mobile dev password reset") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_password_reset_from_key_done.png "watch-o-tron responsive mobile dev password changed") | works as expected |
@@ -108,7 +104,6 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | 2K Monitor | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_login.png "watch-o-tron responsive 2k monitor login") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_logout.png "watch-o-tron responsive 2k monitor logout") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_signup.png "watch-o-tron responsive 2k monitor signup") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_password_reset.png "watch-o-tron responsive 2k monitor forgot password") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_password_reset_done.png "watch-o-tron responsive 2k monitor request sent") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_password_reset_from_key.png "watch-o-tron responsive 2k monitor password reset") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_password_reset_from_key_done.png "watch-o-tron responsive 2k monitor password changed") | works as expected |
 
 ### Main Site
-
 | Device | Home | Home with expanded menu | Add/Edit Watch | Staff Settings | 404 | 500 | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Mobile (devtools) | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_home.png "watch-o-tron responsive mobile dev home") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_home_menu.png "watch-o-tron responsive mobile dev home menu") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_add_edit.png "watch-o-tron responsive mobile dev add edit") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_staff_settings.png "watch-o-tron responsive mobile dev staff settings") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_404.png "watch-o-tron responsive mobile dev 404") | ![screenshot](documentation/testing/responsive/mobile_devtools/wot_testing_resposive_mobile_dev_500.png "watch-o-tron responsive mobile dev 500") | tooltips only show on tap with mobile device |
@@ -122,7 +117,6 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | 2K Monitor | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_home.png "watch-o-tron responsive 2k monitor home") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_home_menu.png "watch-o-tron responsive 2k monitor home menu") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_add_edit.png "watch-o-tron responsive 2k monitor add edit") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_staff_settings.png "watch-o-tron responsive 2k monitor staff settings") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_404.png "watch-o-tron responsive 2k monitor 404") | ![screenshot](documentation/testing/responsive/2k_monitor/wot_testing_resposive_2k_500.png "watch-o-tron responsive 2k monitor 500") | works as expected |
 
 ## Lighthouse Audit
-
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
 
 | Page | Mobile | Desktop | Notes |
@@ -141,60 +135,6 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | 500 |![screenshot](documentation/testing/lighthouse/mobile/wot_testing_lighthouse_mobile_500.png "watch-o-tron lighthouse mobile 500") | ![screenshot](documentation/testing/lighthouse/desktop/wot_testing_lighthouse_desktop_500.png "watch-o-tron lighthouse desktop 500") | Status code: 500 which is good for the 500 error page plus some minor warnings |
 
 ## Defensive Programming
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Defensive programming (defensive design) is extremely important!
-
-When building projects that accept user inputs or forms, you should always test the level of security for each.
-Examples of this could include (not limited to):
-
-Forms:
-- Users cannot submit an empty form
-- Users must enter valid email addresses
-
-PP3 (Python-only):
-- Users must enter a valid letter/word/string when prompted
-- Users must choose from a specific list only
-
-MS3 (Flask) | MS4/PP4/PP5 (Django):
-- Users cannot brute-force a URL to navigate to a restricted page
-- Users cannot perform CRUD functionality while logged-out
-- User-A should not be able to manipulate data belonging to User-B, or vice versa
-- Non-Authenticated users should not be able to access pages that require authentication
-- Standard users should not be able to access pages intended for superusers
-
-You'll want to test all functionality on your application, whether it's a standard form,
-or uses CRUD functionality for data manipulation on a database.
-Make sure to include the `required` attribute on any form-fields that should be mandatory.
-Try to access various pages on your site as different user types (User-A, User-B, guest user, admin, superuser).
-
-You should include any manual tests performed, and the expected results/outcome.
-
-Testing should be replicable.
-Ideally, tests cases should focus on each individual section of every page on the website.
-Each test case should be specific, objective, and step-wise replicable.
-
-Instead of adding a general overview saying that everything works fine,
-consider documenting tests on each element of the page
-(ie. button clicks, input box validation, navigation links, etc.) by testing them in their happy flow,
-and also the bad/exception flow, mentioning the expected and observed results,
-and drawing a parallel between them where applicable.
-
-Consider using the following format for manual test cases:
-
-Expected Outcome / Test Performed / Result Received / Fixes Implemented
-
-- **Expected**: "Feature is expected to do X when the user does Y."
-- **Testing**: "Tested the feature by doing Y."
-- (either) **Result**: "The feature behaved as expected, and it did Y."
-- (or) **Result**: "The feature did not respond to A, B, or C."
-- **Fix**: "I did Z to the code because something was missing."
-
-Use the table below as a basic start, and expand on it using the logic above.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 Defensive programming was manually tested with the below user acceptance testing:
 
 ### Creating a new user account
@@ -252,7 +192,6 @@ Defensive programming was manually tested with the below user acceptance testing
 | Hovering over the complication icons shows the relevant tooltip for that complication. | Hover over the complication icons. | SUCCESS - the correct tooltips are shown for each complication. | n/a | ![screenrecording](documentation/testing/manual_testing/viewing/wot_testing_viewing_tooltips.gif "watch-o-tron testing viewing watches") |
 
 ### Adding and Editing a watch
-
 > [!NOTE]  
 > The form used for adding and editing watches uses the same template. The only visual differences are that the edit form shows the current image being used for the watch and the submit button is labelled 'Update Watch' as opposed to 'Add Watch'. When editing a watch the form is prefilled with the current watch details. Testing for valid and invalid inputs is shown for adding a watch but is the same for editing as they use the same form.
 
@@ -357,11 +296,9 @@ Defensive programming was manually tested with the below user acceptance testing
 | Logged in user attempts to access staff settings page from address bar. User gets 404 page and can navigate back to the homepage. | Navigate manually to **/staff_settings/** while logged in as a standard user. | SUCCESS - user is directed to the 404 page where the link gets them back to their homepage. | n/a | ![screenrecording](documentation/testing/manual_testing/brute/wot_testing_brute_staff_settings_from_user.gif "watch-o-tron testing brute force attempts") |
 | Logged in user attempts to access admin panel from address bar. User is shown admin panel login with message informing them they are not authorised. | Navigate manually to **/admin/** while logged in as a standard user. | SUCCESS - user is shown the django admin panel login and also informed they are not authorised. | n/a | ![screenrecording](documentation/testing/manual_testing/brute/wot_testing_brute_admin_from_user.gif "watch-o-tron testing brute force attempts") |
 | Logged in staff member attempts to access admin panel from address bar. User is shown admin panel limited items they have permission to view/edit. This would be set by a super user. | Navigate manually to **/admin/** while logged in as a staff member. | SUCCESS - staff member is shown the django admin panel with only the items they are permitted to view/edit. | n/a | ![screenrecording](documentation/testing/manual_testing/brute/wot_testing_brute_admin_from_staff.gif "watch-o-tron testing brute force attempts") |
-| User attempts to gain access to previous users account after they log out by using browser navigation history. User should hit a redirect after the logout screen to take them back to login. | On login screen after a log out use back buttons to navigate back. | SUCCESS - after navigating back from the logout screen the user is taken back to the login. The previous user's data is kept safe. | n/a |  |
-
+| User attempts to gain access to previous users account after they log out by using browser back button. User should hit a redirect after the logout screen to take them back to login. | On login screen after a log out use back buttons to navigate back. | SUCCESS - after navigating back from the logout screen the user is taken back to the login. The previous user's data is kept safe. | n/a | ![screenrecording](documentation/testing/manual_testing/brute/wot_testing_brute_navigate_back.gif "watch-o-tron testing brute force attempts") |
 
 ## User Story Testing
-
 | User Story | Screenshot |
 | --- | --- |
 | As a new site user, I can sign up for an account so that I can log in and use the app. | ![screeshot](documentation/features/accounts/wot_feature_accounts_sign_up.png "watch-o-tron user story signup") |

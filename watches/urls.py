@@ -21,8 +21,7 @@ urlpatterns = [
         views.edit_movement, name='edit_movement'
     ),
     path('leaving_manage/<str:content>',
-        views.leaving_manage, name='leaving_manage'
-    ),
+         views.leaving_manage, name='leaving_manage'),
     path(
         'manage_watch/<str:origin>',
         views.manage_watch, name='manage_watch'
