@@ -340,6 +340,13 @@ Defensive programming was manually tested with the below user acceptance testing
     | User can confirm the list deletion by clicking the delete button. The movement will be deleted and the user notified via messages. | Click on the delete button. | SUCCESS - the list was deleted and the user notified. | n/a | ![screenrecording](documentation/testing/manual_testing/staff_settings/wot_testing_ss_del_list_confirm.gif "watch-o-tron testing staff settings") |
 
 
+### Logging out
+| Expectation | Test | Result | Fix | Screenshot Desktop | Screenshot Mobile |
+| --- | --- | --- | --- | --- | --- |
+| User can easily access the sign out button from all main pages in the site. The sign out button is in the same place on all pages. Clicking on the sign out button prompts the user to confirm they want to sign out. | Navigate through all the main pages and see the sign out button. Click on the sign out button. | SUCCESS - the sign out button is accessible throughout the site. Upon clicking the button the user is prompted to confirm. | n/a | ![screenrecording](documentation/testing/manual_testing/logout/wot_testing_logout_button.gif "watch-o-tron testing logging out") | ![screenrecording](documentation/testing/manual_testing/logout/wot_testing_logout_button_mobile.gif "watch-o-tron testing logging out") |
+| User can cancel the logout process by clicking on cancel. They will be taken back to the home screen and are notified. | Click on the cancel button in the logout prompt. | SUCCESS - the user is taken back to the home page and notified of the cancellation. | n/a |  |  |
+
+
 ## User Story Testing
 
 | User Story | Screenshot |
