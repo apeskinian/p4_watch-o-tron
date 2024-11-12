@@ -22,7 +22,9 @@ class TestWatchForm(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertIn('movement_type', form.errors.keys())
-        self.assertEqual(form.errors['movement_type'][0], 'This field is required.')
+        self.assertEqual(
+            form.errors['movement_type'][0], 'This field is required.'
+        )
     
     def test_watch_list_name_required(self):
         form = WatchForm({
@@ -32,7 +34,9 @@ class TestWatchForm(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertIn('list_name', form.errors.keys())
-        self.assertEqual(form.errors['list_name'][0], 'This field is required.')
+        self.assertEqual(
+            form.errors['list_name'][0], 'This field is required.'
+        )
 
     def test_fields_are_explicit_in_form_metaclass(self):
         form = WatchForm()
@@ -53,6 +57,27 @@ class TestWatchForm(TestCase):
             'image',
             'list_name',
         ])
+
+    def test_custom_labels(self):
+        form = WatchForm()
+        self.assertEqual(
+            form.fields['complication_chronograph'].label, 'Chronograph'
+        )
+        self.assertEqual(form.fields['complication_date'].label, 'Date')
+        self.assertEqual(form.fields['complication_day'].label, 'Day')
+        self.assertEqual(form.fields['complication_gmt'].label, 'GMT')
+        self.assertEqual(
+            form.fields['complication_world_timer'].label, 'World Timer'
+        )
+        self.assertEqual(
+            form.fields['complication_moonphase'].label, 'Moonphase'
+        )
+        self.assertEqual(
+            form.fields['complication_power_reserve'].label, 'Power Reserve'
+        )
+        self.assertEqual(
+            form.fields['complication_tourbillon'].label, 'Tourbillon'
+        )
 
 
 class TestMovementForm(TestCase):
