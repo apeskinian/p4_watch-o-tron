@@ -347,6 +347,11 @@ Defensive programming was manually tested with the below user acceptance testing
 | User can cancel the logout process by clicking on cancel. They will be taken back to the home screen and are notified. | Click on the cancel button in the logout prompt. | SUCCESS - the user is taken back to the home page and notified of the cancellation. | n/a | ![screenrecording](documentation/testing/manual_testing/logout/wot_testing_logout_cancel.gif "watch-o-tron testing logging out") | ![screenrecording](documentation/testing/manual_testing/logout/wot_testing_logout_cancel_mobile.gif "watch-o-tron testing logging out") |
 | User clicks on sign out and is taken to the logon screen. They are notified that they logged out. | Click on sign out on the confirmation prompt. | SUCCESS - user is logged out and notified. | n/a | ![screenrecording](documentation/testing/manual_testing/logout/wot_testing_logout_confirm.gif "watch-o-tron testing logging out") | ![screenrecording](documentation/testing/manual_testing/logout/wot_testing_logout_confirm_mobile.gif "watch-o-tron testing logging out") |
 
+### Brute force attempts
+| Expectation | Test | Result | Fix | Screenshot |
+| --- | --- | --- | --- | --- |
+| Attempted access to known pages from login by typing the address is redirected straight back to login page. | Manually navigate to **/collection**, **/wish-list**, **/staff_settings** from the login page. | SUCCESS - the user is redirected to the login page. | n/a | ![screenrecording](documentation/testing/manual_testing/brute/wot_testing_brute_known_from_login.gif "watch-o-tron testing brute force attempts") |
+
 
 ## User Story Testing
 
