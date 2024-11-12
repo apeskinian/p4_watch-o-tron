@@ -1,3 +1,4 @@
+import re
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import Watch, WatchList, WatchMovement
@@ -129,9 +130,12 @@ class MovementForm(forms.ModelForm):
         }
 
     def clean_movement_name(self):
+        # remove leading and trailing whitespace
         movement_name = self.cleaned_data.get('movement_name').strip()
+        # replace multiple whitespaces with a single space
+        movement_name_norm = re.sub(r'\s+', ' ', movement_name)
         if WatchMovement.objects.filter(
-            movement_name__iexact=movement_name).exists(
+            movement_name__iexact=movement_name_norm).exists(
         ):
             raise forms.ValidationError(
                 "A movement with this name already exists."
@@ -155,9 +159,12 @@ class ListForm(forms.ModelForm):
         }
 
     def clean_friendly_name(self):
+        # remove leading and trailing whitespace
         friendly_name = self.cleaned_data.get('friendly_name').strip()
+        # replace multiple whitespaces with a single space
+        friendly_name_norm = re.sub(r'\s+', ' ', friendly_name)
         if WatchList.objects.filter(
-            friendly_name__iexact=friendly_name).exists(
+            friendly_name__iexact=friendly_name_norm).exists(
         ):
             raise forms.ValidationError(
                 "A list with this name already exists."
