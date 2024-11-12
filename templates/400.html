@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<header>
+    {% include 'includes/account_nav.html' %}
+</header>
+<main>
+    <div class="wrong-turn-message text-center">
+        <h5>Oops, something went wrong.</h5>
+        <p>Return to the <a href="{% url 'home' %}">homepage</a> to get back.</p>
+    </div>
+</main>
+<footer>
+    <div class="signature-footer d-none d-md-flex fixed-bottom">
+        <div><strong>apeskinian|</strong></div>
+    </div>
+</footer>
+{% endblock %}
