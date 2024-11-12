@@ -157,6 +157,19 @@ class TestMovementForm(TestCase):
         form = MovementForm()
         self.assertEqual(form.fields['movement_name'].label, '')
 
+    def test_custom_widgets(self):
+        form = MovementForm()
+        self.assertEqual(
+            form.fields['movement_name'].widget.attrs['style'], 'width: 100%;'
+        )
+        self.assertEqual(
+            form.fields['movement_name'].widget.attrs['class'], 'form-control'
+        )
+        self.assertEqual(
+            form.fields['movement_name'].widget.attrs['placeholder'],
+            'enter new movement...'
+        )
+
 
 class TestListForm(TestCase):
 
