@@ -58,6 +58,25 @@ class TestWatchForm(TestCase):
             'list_name',
         ])
 
+    def test_non_complication_widgets(self):
+        form = WatchForm()
+        for formField in [
+            'make',
+            'collection',
+            'model',
+            'movement_type',
+            'movement_model',
+            'image',
+            'list_name',
+        ]:
+            self.assertEqual(
+                form.fields[formField].widget.attrs['class'], 'form-control'
+            )
+            self.assertEqual(
+                form.fields[formField].widget.attrs['style'], 'width: 100%;'
+            )
+
+
     def test_complication_custom_labels(self):
         form = WatchForm()
         self.assertEqual(
