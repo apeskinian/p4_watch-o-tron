@@ -180,6 +180,18 @@ class TestMovementForm(TestCase):
         self.assertTrue(form.is_valid())
         self.assertEqual(form.cleaned_data['movement_name'], 'Spring Drive')
 
+    def test_clean_movement_name_duplicate_case_insensitive(self):
+        self.test_movement = WatchMovement.objects.create(
+            movement_name='test movement'
+        )
+        form = MovementForm({'movement_name': 'test movement'})
+        self.assertFalse(form.is_valid())
+        self.assertIn('movement_name', form.errors)
+        self.assertEqual(
+            form.errors['movement_name'][0],
+            'A movement with this name already exists.'
+        )
+
 
 class TestListForm(TestCase):
 
