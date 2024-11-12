@@ -184,3 +184,7 @@ class TestListForm(TestCase):
     def test_fields_are_explicit_in_form_metaclass(self):
         form = ListForm()
         self.assertEqual(form.Meta.fields, ['friendly_name',])
+    
+    def test_custom_label(self):
+        form = ListForm()
+        self.assertEqual(form.fields['friendly_name'].label, '')
