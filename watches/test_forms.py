@@ -153,6 +153,10 @@ class TestMovementForm(TestCase):
         form = MovementForm()
         self.assertEqual(form.Meta.fields, ['movement_name',])
 
+    def test_custom_label(self):
+        form = MovementForm()
+        self.assertEqual(form.fields['movement_name'].label, '')
+
 
 class TestListForm(TestCase):
 
