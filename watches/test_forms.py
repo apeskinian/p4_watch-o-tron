@@ -184,7 +184,7 @@ class TestMovementForm(TestCase):
         self.test_movement = WatchMovement.objects.create(
             movement_name='test movement'
         )
-        form = MovementForm({'movement_name': 'test movement'})
+        form = MovementForm({'movement_name': 'tEst movEmEnt'})
         self.assertFalse(form.is_valid())
         self.assertIn('movement_name', form.errors)
         self.assertEqual(
@@ -192,6 +192,24 @@ class TestMovementForm(TestCase):
             'A movement with this name already exists.'
         )
 
+    def test_clean_movement_name_duplicate_with_extra_whitespace(self):
+        self.test_movement = WatchMovement.objects.create(
+            movement_name='test movement'
+        )
+        form = MovementForm({'movement_name': '  Test     moveMent  '})
+        self.assertFalse(form.is_valid())
+        self.assertIn('movement_name', form.errors)
+        self.assertEqual(
+            form.errors['movement_name'][0],
+            'A movement with this name already exists.'
+        )
+    
+    def test_valid_entry(self):
+        form = MovementForm({'movement_name': 'Perpetual Motion'})
+        self.assertTrue(form.is_valid())
+        self.assertEqual(
+            form.cleaned_data['movement_name'], 'Perpetual Motion'
+        )
 
 class TestListForm(TestCase):
 
