@@ -169,6 +169,16 @@ class TestMovementForm(TestCase):
             form.fields['movement_name'].widget.attrs['placeholder'],
             'enter new movement...'
         )
+    
+    def test_clean_movement_name_strips_whitespace(self):
+        form = MovementForm({'movement_name': '    Spring Drive   '})
+        self.assertTrue(form.is_valid())
+        self.assertEqual(form.cleaned_data['movement_name'], 'Spring Drive')
+
+    def test_clean_movement_name_normalises_whitespace(self):
+        form = MovementForm({'movement_name': 'Spring       Drive'})
+        self.assertTrue(form.is_valid())
+        self.assertEqual(form.cleaned_data['movement_name'], 'Spring Drive')
 
 
 class TestListForm(TestCase):

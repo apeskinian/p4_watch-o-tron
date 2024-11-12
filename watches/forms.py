@@ -131,11 +131,11 @@ class MovementForm(forms.ModelForm):
 
     def clean_movement_name(self):
         # remove leading and trailing whitespace
-        movement_name = self.cleaned_data.get('movement_name').strip()
+        movement_name_dirty = self.cleaned_data.get('movement_name')
         # replace multiple whitespaces with a single space
-        movement_name_norm = re.sub(r'\s+', ' ', movement_name)
+        movement_name = re.sub(r'\s+', ' ', movement_name_dirty).strip()
         if WatchMovement.objects.filter(
-            movement_name__iexact=movement_name_norm).exists(
+            movement_name__iexact=movement_name).exists(
         ):
             raise forms.ValidationError(
                 "A movement with this name already exists."
@@ -160,11 +160,11 @@ class ListForm(forms.ModelForm):
 
     def clean_friendly_name(self):
         # remove leading and trailing whitespace
-        friendly_name = self.cleaned_data.get('friendly_name').strip()
+        friendly_name_dirty = self.cleaned_data.get('friendly_name')
         # replace multiple whitespaces with a single space
-        friendly_name_norm = re.sub(r'\s+', ' ', friendly_name)
+        friendly_name = re.sub(r'\s+', ' ', friendly_name_dirty).strip()
         if WatchList.objects.filter(
-            friendly_name__iexact=friendly_name_norm).exists(
+            friendly_name__iexact=friendly_name).exists(
         ):
             raise forms.ValidationError(
                 "A list with this name already exists."
