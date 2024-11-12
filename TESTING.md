@@ -351,6 +351,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | Expectation | Test | Result | Fix | Screenshot |
 | --- | --- | --- | --- | --- |
 | Attempted access to known pages from login by typing the address is redirected straight back to login page. | Manually navigate to **/collection**, **/wish-list**, **/staff_settings** from the login page. | SUCCESS - the user is redirected to the login page. | n/a | ![screenrecording](documentation/testing/manual_testing/brute/wot_testing_brute_known_from_login.gif "watch-o-tron testing brute force attempts") |
+| Attempted access to django admin panel is shown a django admin login screen if not logged in. | Manually navigate to **/admin/** from the login page. | SUCCESS - the user is shown the login page for the django admin panel. | n/a | ![screenrecording](documentation/testing/manual_testing/brute/wot_testing_brute_admin_from_login.gif "watch-o-tron testing brute force attempts") |
 
 
 ## User Story Testing
