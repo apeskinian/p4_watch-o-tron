@@ -54,7 +54,6 @@ class TestWatchForm(TestCase):
         })
         self.assertTrue(form.is_valid())
 
-
     def test_fields_are_explicit_in_form_metaclass(self):
         form = WatchForm()
         self.assertEqual(form.Meta.fields, [
@@ -92,7 +91,6 @@ class TestWatchForm(TestCase):
             self.assertEqual(
                 form.fields[formField].widget.attrs['style'], 'width: 100%;'
             )
-
 
     def test_complication_custom_labels(self):
         form = WatchForm()
@@ -134,6 +132,11 @@ class TestWatchForm(TestCase):
                     'style': 'height: 25px; width: 40px;'
                 }
         )
+    
+    def test_initial_list_if_provided(self):
+        initial_data = {'list_name': self.test_list.id}
+        form = WatchForm(initial=initial_data)
+        self.assertEqual(form.fields['list_name'].initial, self.test_list.id)
 
 
 class TestMovementForm(TestCase):
