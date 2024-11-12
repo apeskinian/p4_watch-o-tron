@@ -188,3 +188,16 @@ class TestListForm(TestCase):
     def test_custom_label(self):
         form = ListForm()
         self.assertEqual(form.fields['friendly_name'].label, '')
+
+    def test_custom_widgets(self):
+        form = ListForm()
+        self.assertEqual(
+            form.fields['friendly_name'].widget.attrs['style'], 'width: 100%;'
+        )
+        self.assertEqual(
+            form.fields['friendly_name'].widget.attrs['class'], 'form-control'
+        )
+        self.assertEqual(
+            form.fields['friendly_name'].widget.attrs['placeholder'],
+            'enter new list...'
+        )
