@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf.urls import handler400
+from django.shortcuts import render
 from . import views
 
 
@@ -34,3 +36,9 @@ urlpatterns = [
     path('purchase/<watch_id>', views.purchase_watch, name='purchase'),
     path('staff_settings/', views.staff_settings, name='staff_settings'),
 ]
+
+
+def bad_request(request, exception):
+    return render(request, '400.html', status=400)
+
+handler400 = bad_request
