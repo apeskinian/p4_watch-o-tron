@@ -58,7 +58,7 @@ class TestWatchForm(TestCase):
             'list_name',
         ])
 
-    def test_custom_labels(self):
+    def test_complication_custom_labels(self):
         form = WatchForm()
         self.assertEqual(
             form.fields['complication_chronograph'].label, 'Chronograph'
@@ -77,6 +77,26 @@ class TestWatchForm(TestCase):
         )
         self.assertEqual(
             form.fields['complication_tourbillon'].label, 'Tourbillon'
+        )
+
+    def test_complication_custom_widgets(self):
+        form = WatchForm()
+        for complication in [
+            'complication_chronograph',
+            'complication_date',
+            'complication_day',
+            'complication_gmt',
+            'complication_world_timer',
+            'complication_moonphase',
+            'complication_power_reserve',
+            'complication_tourbillon',
+        ]:
+            self.assertEqual(form.fields[complication].widget.attrs,
+                {
+                    'role': 'switch',
+                    'class': 'form-check-input',
+                    'style': 'height: 25px; width: 40px;'
+                }
         )
 
 
