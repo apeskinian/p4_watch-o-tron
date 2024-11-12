@@ -241,3 +241,44 @@ class TestListForm(TestCase):
             form.fields['friendly_name'].widget.attrs['placeholder'],
             'enter new list...'
         )
+    
+    def test_clean_movement_name_strips_whitespace(self):
+        form = ListForm({'friendly_name': '    Wish List   '})
+        self.assertTrue(form.is_valid())
+        self.assertEqual(form.cleaned_data['friendly_name'], 'Wish List')
+
+    def test_clean_movement_name_normalises_whitespace(self):
+        form = ListForm({'friendly_name': 'Wish       List'})
+        self.assertTrue(form.is_valid())
+        self.assertEqual(form.cleaned_data['friendly_name'], 'Wish List')
+
+    def test_clean_movement_name_duplicate_case_insensitive(self):
+        self.test_list = WatchList.objects.create(
+            friendly_name='test list'
+        )
+        form = ListForm({'friendly_name': 'tEst lIsT'})
+        self.assertFalse(form.is_valid())
+        self.assertIn('friendly_name', form.errors)
+        self.assertEqual(
+            form.errors['friendly_name'][0],
+            'A list with this name already exists.'
+        )
+
+    def test_clean_movement_name_duplicate_with_extra_whitespace(self):
+        self.test_list = WatchList.objects.create(
+            friendly_name='test list'
+        )
+        form = ListForm({'friendly_name': '  Test     lISt  '})
+        self.assertFalse(form.is_valid())
+        self.assertIn('friendly_name', form.errors)
+        self.assertEqual(
+            form.errors['friendly_name'][0],
+            'A list with this name already exists.'
+        )
+    
+    def test_valid_entry(self):
+        form = ListForm({'friendly_name': 'Gift List'})
+        self.assertTrue(form.is_valid())
+        self.assertEqual(
+            form.cleaned_data['friendly_name'], 'Gift List'
+        )
