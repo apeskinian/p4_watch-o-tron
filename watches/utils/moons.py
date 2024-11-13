@@ -6,8 +6,7 @@ from datetime import date
 def moonphase(today=None):
 
     # get today's date if nothing provided
-    if today is None:
-        today = date.today()
+    today = today or date.today()
     
     # get last new moon from ephem
     last_new_moon = ephem.previous_new_moon(today).datetime().date()
@@ -35,4 +34,5 @@ def moonphase(today=None):
             return 'waning_crescent'
         case phase if 28.530588 < phase <= 29.530588:
             return 'new_moon'
-            
+        case _:
+            return 'new_moon'

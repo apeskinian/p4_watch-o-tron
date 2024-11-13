@@ -1,5 +1,6 @@
 from django.test import TestCase
-from datetime import date
+from unittest.mock import patch
+from datetime import date, datetime
 from .utils.moons import moonphase
 
 class TestMoonPhases(TestCase):
@@ -39,3 +40,11 @@ class TestMoonPhases(TestCase):
     def test_new_moon_again(self):
         known_waning_crescent = date(2024, 10, 31)
         self.assertEqual(moonphase(known_waning_crescent), 'new_moon')
+
+    @patch('ephem.previous_new_moon')
+    def test_moonphase_fallback_case(self, mock_previous_new_moon):
+        # override previous new moon date to today so delta is 0
+        mock_return = mock_previous_new_moon.return_value
+        mock_return.datetime.return_value.date.return_value = date.today()
+        result = moonphase()
+        self.assertEqual(result, 'new_moon')
