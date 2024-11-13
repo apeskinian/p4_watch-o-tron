@@ -68,7 +68,12 @@ class Watch(models.Model):
     complication_tourbillon = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'{self.make} {self.collection} {self.model}'
+        parts = [self.make]
+        if self.collection:
+            parts.append(self.collection)
+        if self.model:
+            parts.append(self.model)
+        return " ".join(parts)
 
     def delete(self, *args, **kwargs):
         # checking to see if the image is a placeholder and delete image if not
