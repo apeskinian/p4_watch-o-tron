@@ -80,7 +80,6 @@ class TestWatch(TestCase):
             image='wot/3263827.jpg'
         )
         
-        # making a mock image
         mock_image = MagicMock()
         mock_image.public_id = 'sample_public_id'
         watch.image = mock_image
@@ -102,3 +101,42 @@ class TestWatch(TestCase):
 
         watch.delete()
         mock_destroy.assert_not_called()
+    
+    @patch('watches.models.cloudinary_url') 
+    def test_get_optimized_image_url(self, mock_cloudinary_url):
+        mock_cloudinary_url.return_value = (
+            'https://res.cloudinary.com/demo/image/upload/'
+            'c_fill,h_400,w_400/q_auto:eco/f_auto/your_image.jpg',
+        )
+
+        watch = Watch.objects.create(
+            owner=self.user,
+            movement_type=self.test_movement,
+            list_name=self.test_list,
+            make="Rolex",
+            collection="Submariner",
+            model="116610LN",
+            image='watches/116610LN.jpg'
+        )
+
+        mock_image = MagicMock()
+        mock_image.public_id = 'your_image'
+        watch.image = mock_image
+
+        optimized_url = watch.get_optimized_image_url()
+
+        mock_cloudinary_url.assert_called_once_with(
+            'your_image',  # public_id
+            secure=True,
+            fetch_format='auto',
+            quality='auto:eco',
+            width=400,
+            height=400,
+            crop='fill'
+        )
+
+        self.assertEqual(
+            optimized_url,
+            'https://res.cloudinary.com/demo/image/upload/'
+            'c_fill,h_400,w_400/q_auto:eco/f_auto/your_image.jpg'
+        )
