@@ -70,7 +70,6 @@ class TestWatch(TestCase):
 
     @patch('cloudinary.uploader.destroy')
     def test_delete_with_image(self, mock_destroy):
-        # Setup: Create a Watch object with an image (not a placeholder)
         watch = Watch.objects.create(
             owner=self.user,
             movement_type=self.test_movement,
@@ -78,24 +77,19 @@ class TestWatch(TestCase):
             make="Seiko",
             collection="Prospex",
             model="Speedtimer",
-            image='wot/3263827.jpg'  # Example path to an image
+            image='wot/3263827.jpg'
         )
         
-        # Mock the image object to simulate a Cloudinary image object
+        # making a mock image
         mock_image = MagicMock()
         mock_image.public_id = 'sample_public_id'
-        watch.image = mock_image  # Assign the mocked image
+        watch.image = mock_image
 
-        # Call the delete method
         watch.delete()
-
-        # Assert that cloudinary.uploader.destroy was called with the correct public_id
         mock_destroy.assert_called_once_with('sample_public_id')
 
-    
     @patch('cloudinary.uploader.destroy')
     def test_delete_with_placeholder_image(self, mock_destroy):
-        # Create a Watch object with the 'placeholder' image
         watch = Watch.objects.create(
             owner=self.user,
             movement_type=self.test_movement,
@@ -103,11 +97,8 @@ class TestWatch(TestCase):
             make="Seiko",
             collection="Prospex",
             model="Speedtimer",
-            image='placeholder'  # Placeholder image
+            image='placeholder'
         )
 
-        # Call the delete method
         watch.delete()
-
-        # Assert that cloudinary.uploader.destroy was not called for a placeholder image
         mock_destroy.assert_not_called()
