@@ -1,6 +1,8 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
+from unittest.mock import patch, MagicMock
 from .models import Watch, WatchMovement, WatchList
+
 
 class TestWatchList(TestCase):
 
@@ -17,7 +19,7 @@ class TestWatchMovement(TestCase):
 class TestWatch(TestCase):
 
     def setUp(self):
-        # setting up test watch with movement and list options
+        # setting up test user, movement and list options
         self.test_list = WatchList.objects.create(list_name='Collection')
         self.test_movement = WatchMovement.objects.create(
             movement_name='Quartz'
@@ -65,3 +67,47 @@ class TestWatch(TestCase):
             list_name=self.test_list
         )
         self.assertEqual(str(self.test_watch), 'Seiko Prospex Speedtimer')
+
+    @patch('cloudinary.uploader.destroy')
+    def test_delete_with_image(self, mock_destroy):
+        # Setup: Create a Watch object with an image (not a placeholder)
+        watch = Watch.objects.create(
+            owner=self.user,
+            movement_type=self.test_movement,
+            list_name=self.test_list,
+            make="Seiko",
+            collection="Prospex",
+            model="Speedtimer",
+            image='wot/3263827.jpg'  # Example path to an image
+        )
+        
+        # Mock the image object to simulate a Cloudinary image object
+        mock_image = MagicMock()
+        mock_image.public_id = 'sample_public_id'
+        watch.image = mock_image  # Assign the mocked image
+
+        # Call the delete method
+        watch.delete()
+
+        # Assert that cloudinary.uploader.destroy was called with the correct public_id
+        mock_destroy.assert_called_once_with('sample_public_id')
+
+    
+    @patch('cloudinary.uploader.destroy')
+    def test_delete_with_placeholder_image(self, mock_destroy):
+        # Create a Watch object with the 'placeholder' image
+        watch = Watch.objects.create(
+            owner=self.user,
+            movement_type=self.test_movement,
+            list_name=self.test_list,
+            make="Seiko",
+            collection="Prospex",
+            model="Speedtimer",
+            image='placeholder'  # Placeholder image
+        )
+
+        # Call the delete method
+        watch.delete()
+
+        # Assert that cloudinary.uploader.destroy was not called for a placeholder image
+        mock_destroy.assert_not_called()
