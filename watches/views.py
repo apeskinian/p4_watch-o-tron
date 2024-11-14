@@ -496,7 +496,7 @@ def delete_list(request, list_id):
 
 
 @login_required(login_url='accounts/login')
-def cancel_process(request, content, cancel_url='home'):
+def cancel_process(request, content, cancel_url=None):
     """
     Called when an action is cancelled by the user.
     **Arguments**
@@ -514,6 +514,8 @@ def cancel_process(request, content, cancel_url='home'):
     """
     try:
         messages.info(request, f'{content} cancelled.')
+        if not cancel_url:
+            cancel_url = 'home'
         possible_lists = WatchList.objects.values_list('list_name', flat=True)
         if cancel_url in possible_lists:
             return redirect(
@@ -521,7 +523,7 @@ def cancel_process(request, content, cancel_url='home'):
                     'watch_list',
                     kwargs={'list_name': cancel_url})
             )
-        return redirect(cancel_url)
+        return redirect('home')
     except Exception as e:
         messages.error(request, f'Error occurred while cancelling: {str(e)}')
         return redirect('home')
