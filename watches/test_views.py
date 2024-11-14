@@ -83,6 +83,146 @@ class TestGetUserLists(TestCase):
         self.assertNotIn(self.other_list, user_lists)
 
 
+class TestHome(TestCase):
+
+    def setUp(self):
+        # set up a user and login
+        self.user = User.objects.create_user(
+            username='user',
+            password='password'
+        )
+        self.client.login(username='user', password='password')
+        # set up a test movement for watch objects
+        self.test_movement = WatchMovement.objects.create(
+            movement_name='movement'
+        )
+        # set up list
+        self.collection_list = WatchList.objects.create(
+            friendly_name='collection'
+        )
+        self.wishlist_list = WatchList.objects.create(
+            friendly_name='wish-list'
+        )
+        # create a watch
+        self.watch1 = Watch.objects.create(
+            owner=self.user,
+            make='test_make',
+            movement_type=self.test_movement,
+            list_name=self.collection_list
+        )
+        self.watch2 = Watch.objects.create(
+            owner=self.user,
+            make='test_make',
+            movement_type=self.test_movement,
+            list_name=self.collection_list
+        )
+        # URL for the home view
+        self.url = reverse('home')
+
+    def test_home_view_status_code(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+
+    def test_home_view_context_data(self):
+        response = self.client.get(self.url)
+        # check context variables
+        self.assertIn('day', response.context)
+        self.assertIn('date', response.context)
+        self.assertIn('moonphase', response.context)
+        self.assertIn('watches', response.context)
+        self.assertIn('lists', response.context)
+        self.assertIn('current_list', response.context)
+        # check current list name
+        self.assertEqual(response.context['current_list'], 'collection')
+        # check watches in queryset
+        watches = response.context['watches']
+        self.assertEqual(len(watches), 2)
+        self.assertIn(self.watch1, watches)
+        self.assertIn(self.watch2, watches)
+
+    def test_home_view_pagination(self):
+        # add more watches to test pagination
+        for i in range(10):
+            Watch.objects.create(
+                owner=self.user,
+                make='test_make',
+                movement_type=self.test_movement,
+                list_name=self.collection_list
+            )
+        # testing page 1
+        response = self.client.get(self.url, {'page': 1})
+        self.assertEqual(response.context['pages'].paginator.num_pages, 2)
+        # testing page 2
+        response_page_2 = self.client.get(self.url, {'page': 2})
+        self.assertEqual(response_page_2.context['pages'].number, 2)
+
+    def test_home_view_messages_pagination(self):
+        # add more watches to test pagination
+        for i in range(10):
+            Watch.objects.create(
+                owner=self.user,
+                make='test_make',
+                movement_type=self.test_movement,
+                list_name=self.collection_list
+            )
+        response = self.client.get(self.url)
+        messages = list(get_messages(response.wsgi_request))
+        
+        # check for pagination message
+        self.assertTrue(any(
+            'Switched to collection (Page 1 of 2)'
+            in message.message for message in messages
+        ))
+    
+    def test_home_view_messages_no_pagination(self):
+        response = self.client.get(self.url)
+        messages = list(get_messages(response.wsgi_request))
+
+        # check for no pagination message
+        self.assertTrue(any(
+            'Switched to collection' in message.message for message in messages
+        ))
+
+    def test_page_not_an_integer_exception(self):
+        # add more watches to test pagination
+        for i in range(10):
+            Watch.objects.create(
+                owner=self.user,
+                make='test_make',
+                movement_type=self.test_movement,
+                list_name=self.collection_list
+            )
+        # Simulate PageNotAnInteger by passing a non-integer value
+        response = self.client.get(self.url, {'page': 'invalid'})
+        
+        # Check that the response defaults to page 1
+        self.assertEqual(response.context['pages'].number, 1)
+
+    def test_empty_page_exception(self):
+        # add more watches to test pagination
+        for i in range(10):
+            Watch.objects.create(
+                owner=self.user,
+                make='test_make',
+                movement_type=self.test_movement,
+                list_name=self.collection_list
+            )
+        # simulate EmptyPage by passing an out-of-range page number
+        response = self.client.get(self.url, {'page': 999})
+        # Check that the response defaults to the last page
+        self.assertEqual(response.context['pages'].number, response.context['pages'].paginator.num_pages)
+
+    def test_home_view_access_denied_for_anonymous(self):
+            # Log out user to test anonymous access
+            self.client.logout()
+            response = self.client.get(self.url)
+            self.assertEqual(response.status_code, 302)
+            self.assertRedirects(
+                response, f'/accounts/login?next={self.url}',
+                fetch_redirect_response=False
+            )
+
+
 class TestDeleteWatch(TestCase):
 
     def setUp(self):
