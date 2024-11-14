@@ -210,7 +210,10 @@ class TestHome(TestCase):
         # simulate EmptyPage by passing an out-of-range page number
         response = self.client.get(self.url, {'page': 999})
         # Check that the response defaults to the last page
-        self.assertEqual(response.context['pages'].number, response.context['pages'].paginator.num_pages)
+        self.assertEqual(
+            response.context['pages'].number,
+            response.context['pages'].paginator.num_pages
+        )
 
     def test_home_view_access_denied_for_anonymous(self):
             # Log out user to test anonymous access
