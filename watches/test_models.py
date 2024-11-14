@@ -10,11 +10,13 @@ class TestWatchList(TestCase):
         test_list = WatchList.objects.create(friendly_name='Wish List')
         self.assertEqual(str(test_list), 'Wish List')
 
+
 class TestWatchMovement(TestCase):
 
     def test_movement_return_string(self):
         test_movement = WatchMovement.objects.create(movement_name='Quartz')
         self.assertEqual(str(test_movement), 'Quartz')
+
 
 class TestWatch(TestCase):
 

@@ -3,7 +3,7 @@ from unittest.mock import patch
 from datetime import date, datetime
 from .utils.moons import moonphase
 
-class TestMoonPhases(TestCase):
+class testMoonPhases(TestCase):
 
     def test_new_moon(self):
         known_new_moon = date(2024, 11, 1)

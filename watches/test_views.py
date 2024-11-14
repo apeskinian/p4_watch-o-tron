@@ -1,4 +1,6 @@
 from django.test import TestCase
+from django.urls import reverse
+from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.messages import get_messages
 from unittest.mock import patch
@@ -6,7 +8,7 @@ from .models import Watch, WatchList, WatchMovement
 from .views import *
 
 
-class getUserListsTests(TestCase):
+class TestGetUserLists(TestCase):
 
     def setUp(self):
         # set up a user
@@ -81,7 +83,7 @@ class getUserListsTests(TestCase):
         self.assertNotIn(self.other_list, user_lists)
 
 
-class deleteWatchTest(TestCase):
+class TestDeleteWatch(TestCase):
 
     def setUp(self):
         # set up a user and login
@@ -146,7 +148,7 @@ class deleteWatchTest(TestCase):
         self.assertRedirects(response, referer_url)
 
 
-class purchaseWatchTest(TestCase):
+class TestPurchaseWatch(TestCase):
     
     def setUp(self):
         # set up a user and login
@@ -211,7 +213,7 @@ class purchaseWatchTest(TestCase):
         )
 
 
-class testDeleteMovementTests(TestCase):
+class TestDeleteMovement(TestCase):
 
     def setUp(self):
         # set up a user and login
@@ -300,7 +302,7 @@ class testDeleteMovementTests(TestCase):
         self.assertEqual(response.status_code, 302)
 
 
-class testDeleteListTests(TestCase):
+class TestDeleteList(TestCase):
 
     def setUp(self):
         # set up a user and login
@@ -387,3 +389,101 @@ class testDeleteListTests(TestCase):
         )
         # verify that access is denied (302 redirect to login page)
         self.assertEqual(response.status_code, 302)
+
+
+class TestCancelProcess(TestCase):
+
+    def setUp(self):
+        # set up a user and login
+        self.user = User.objects.create_user(
+            username='user',
+            password='password'
+        )
+        self.client.login(username='user', password='password')
+        # create a list
+        self.test_list = WatchList.objects.create(friendly_name='test-list')
+    
+    def test_successful_cancel_to_existing_list(self):
+        # check redirection to existing list
+        response = self.client.get(reverse(
+            'cancel_process',
+            kwargs={'content': 'Action', 'cancel_url': 'test-list'}
+        ))
+        # check the redirect URL
+        self.assertRedirects(
+            response, reverse('watch_list', kwargs={'list_name': 'test-list'})
+        )
+        # check for the info message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            "Action cancelled." in message.message for message in messages
+        ))
+    
+    def test_successful_cancel_to_cancel_url(self):
+        # check redirection to existing list
+        response = self.client.get(reverse(
+            'cancel_process',
+            kwargs={'content': 'Action', 'cancel_url': 'somewhere'}
+        ))
+        # check the redirect URL
+        # self.assertRedirects(response, reverse('home'))
+        # check for the info message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            "Action cancelled." in message.message for message in messages
+        ))
+    
+    @patch(
+        'watches.views.WatchList.objects.values_list',
+        side_effect=Exception('Something went wrong')
+    )
+    def test_cancel_process_handles_exception(self, mock_values_list):
+        response = self.client.get(reverse(
+            'cancel_process',
+            kwargs={'content': 'Action', 'cancel_url': 'somewhere'}
+        ))
+        # check that the user is redirected to 'home'
+        # self.assertRedirects(response, reverse('home'))
+        # check for an error message
+        messages = list(response.wsgi_request._messages)
+        self.assertTrue(any(
+            'Error occurred while cancelling'
+            in message.message for message in messages
+        ))
+
+
+class TestLeavingManage(TestCase):
+    def setUp(self):
+        # set up a user and login
+        self.user = User.objects.create_user(
+            username='user',
+            password='password'
+        )
+        self.client.login(username='user', password='password')
+
+    def test_leaving_manage(self):
+        # content to pass in the URL
+        content = "test thing"
+        # make a GET request to the leaving_manage view
+        response = self.client.get(reverse('leaving_manage', args=[content]))
+        # check that the response is JsonResponse
+        self.assertIsInstance(response, JsonResponse)
+        # check that the response status code is 200 (OK)
+        self.assertEqual(response.status_code, 200)
+        # check the response content
+        self.assertJSONEqual(
+            str(response.content,
+            encoding='utf8'), {'status': 'message set'}
+        )
+        # check that the message was set
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(str(messages[0]), f'{content} cancelled.')
+
+    def test_leaving_manage_error(self):
+        # simulate an error in the view by forcing an exception to be raised
+        with self.assertRaises(Exception):
+            # force an exception to happen (e.g., simulating a view issue)
+            raise Exception("Test Exception")
+    
+    

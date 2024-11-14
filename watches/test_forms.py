@@ -211,6 +211,7 @@ class TestMovementForm(TestCase):
             form.cleaned_data['movement_name'], 'Perpetual Motion'
         )
 
+
 class TestListForm(TestCase):
 
     def test_list_name_is_required(self):
