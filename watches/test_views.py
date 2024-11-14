@@ -226,6 +226,45 @@ class TestHome(TestCase):
             )
 
 
+class TestManageWatch(TestCase):
+
+    def setUp(self):
+        # set up a user and login
+        self.user = User.objects.create_user(
+            username='user',
+            password='password'
+        )
+        self.client.login(username='user', password='password')
+        # set up a test movement for watch objects
+        self.test_movement = WatchMovement.objects.create(
+            movement_name='movement'
+        )
+        # set up list
+        self.collection_list = WatchList.objects.create(
+            friendly_name='collection'
+        )
+        self.wishlist_list = WatchList.objects.create(
+            friendly_name='wish-list'
+        )
+        # create a watch
+        self.watch1 = Watch.objects.create(
+            owner=self.user,
+            make='test_make',
+            movement_type=self.test_movement,
+            list_name=self.collection_list
+        )
+
+    def test_anonymous_user_redirected(self):
+        self.client.logout()
+        url = reverse('manage_watch', kwargs={'origin': 'collection'})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response, f'/manage_watch/accounts/login?next={url}',
+            fetch_redirect_response=False
+        )
+
+
 class TestDeleteWatch(TestCase):
 
     def setUp(self):
