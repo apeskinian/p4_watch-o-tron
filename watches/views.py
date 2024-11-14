@@ -251,7 +251,7 @@ def delete_watch(request, watch_id):
     except Exception as e:
         messages.error(
             request,
-            f'Error occured while deleting watch: {str(e)}'
+            f'Error occurred while deleting watch: {str(e)}'
         )
     return redirect(return_url)
 

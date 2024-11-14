@@ -6,13 +6,13 @@ from .models import Watch, WatchMovement, WatchList
 
 class TestWatchList(TestCase):
 
-    def testListReturnString(self):
+    def test_list_return_string(self):
         test_list = WatchList.objects.create(friendly_name='Wish List')
         self.assertEqual(str(test_list), 'Wish List')
 
 class TestWatchMovement(TestCase):
 
-    def testMovementReturnString(self):
+    def test_movement_return_string(self):
         test_movement = WatchMovement.objects.create(movement_name='Quartz')
         self.assertEqual(str(test_movement), 'Quartz')
 
@@ -28,7 +28,7 @@ class TestWatch(TestCase):
             username='testuser', password='password123'
         )
 
-    def testJustWatchMakeReturn(self):
+    def test_just_watch_make_return(self):
         self.test_watch = Watch.objects.create(
             owner=self.user,
             make='Seiko',
@@ -37,7 +37,7 @@ class TestWatch(TestCase):
         )
         self.assertEqual(str(self.test_watch), 'Seiko')
     
-    def testWatchMakeAndCollectionReturn(self):
+    def test_watch_make_and_collection_return(self):
         self.test_watch = Watch.objects.create(
             owner=self.user,
             make='Seiko',
@@ -47,7 +47,7 @@ class TestWatch(TestCase):
         )
         self.assertEqual(str(self.test_watch), 'Seiko Prospex')
 
-    def testWatchMakeAndModelReturn(self):
+    def test_watch_make_and_model_return(self):
         self.test_watch = Watch.objects.create(
             owner=self.user,
             make='Seiko',
@@ -57,7 +57,7 @@ class TestWatch(TestCase):
         )
         self.assertEqual(str(self.test_watch), 'Seiko Speedtimer')
     
-    def testWatchMakeAndCollectionAndModelReturn(self):
+    def test_watch_make_and_collection_and_model_return(self):
         self.test_watch = Watch.objects.create(
             owner=self.user,
             make='Seiko',
