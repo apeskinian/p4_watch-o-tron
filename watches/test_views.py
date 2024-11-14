@@ -243,7 +243,7 @@ class testDeleteMovementTests(TestCase):
             list_name=self.collection_list
         )
 
-    def test_for_affected_watches(self):
+    def test_for_affected_watches_on_movement_delete(self):
         response = self.client.get(reverse(
             'delete_movement', args=[self.test_movement.id]
         ))
@@ -295,6 +295,95 @@ class testDeleteMovementTests(TestCase):
         # attempt to access the view
         response = self.client.get(
             reverse('delete_movement', args=[self.test_movement.id])
+        )
+        # verify that access is denied (302 redirect to login page)
+        self.assertEqual(response.status_code, 302)
+
+
+class testDeleteListTests(TestCase):
+
+    def setUp(self):
+        # set up a user and login
+        self.staff_user = User.objects.create_user(
+            username='staff',
+            password='password',
+            is_staff=True
+        )
+        self.client.login(username='staff', password='password')
+        # set up a movement
+        self.test_movement = WatchMovement.objects.create(
+            movement_name='movement'
+        )
+        # set up test list
+        self.collection_list = WatchList.objects.create(
+            friendly_name='collection'
+        )
+        # create 2 watches
+        self.watch1 = Watch.objects.create(
+            owner=self.staff_user,
+            make='test_make',
+            movement_type=self.test_movement,
+            list_name=self.collection_list
+        )
+        self.watch2 = Watch.objects.create(
+            owner=self.staff_user,
+            make='test_make',
+            movement_type=self.test_movement,
+            list_name=self.collection_list
+        )
+
+    def test_for_affected_watches_on_list_delete(self):
+        response = self.client.get(reverse(
+            'delete_list', args=[self.collection_list.id]
+        ))
+        # check that the context includes the number of
+        # associated watches and list
+        self.assertEqual(response.context['associated'], 2)
+        self.assertEqual(response.context['to_delete'], self.collection_list)
+        # check that the correct template is used
+        self.assertTemplateUsed(response, 'watches/staff_settings.html')
+
+    def test_successful_list_deletion(self):
+        # delete the list
+        response = self.client.post(reverse(
+            'delete_list', args=[self.collection_list.id]
+        ))
+        # confirm list does not exist
+        with self.assertRaises(WatchList.DoesNotExist):
+            WatchList.objects.get(id=self.collection_list.id)
+        # check for a success message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            'deleted'
+            in message.message for message in messages
+        ))
+        # verify the redirection
+        self.assertRedirects(response, '/staff_settings/')
+
+    @patch('watches.models.WatchList.delete', side_effect=Exception(
+        "Deletion failed"
+    ))
+    def test_delete_list_post_failure(self, mock_delete):
+        # delete the list but simulating failure in delete method
+        response = self.client.post(
+            reverse('delete_list', args=[self.collection_list.id])
+        )
+        # check for an error message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(
+            any('Error occurred while deleting'
+            in message.message for message in messages
+        ))
+        # verify the redirection to 'staff_settings'
+        self.assertRedirects(response, reverse('staff_settings'))
+
+    def test_delete_list_access_denied_for_non_staff(self):
+        # log out the staff user and log in as a regular user
+        self.client.logout()
+        self.client.login(username='testuser', password='password')
+        # attempt to access the view
+        response = self.client.get(
+            reverse('delete_list', args=[self.collection_list.id])
         )
         # verify that access is denied (302 redirect to login page)
         self.assertEqual(response.status_code, 302)
