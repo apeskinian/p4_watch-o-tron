@@ -93,7 +93,7 @@ class deleteWatchTest(TestCase):
         self.test_movement = WatchMovement.objects.create(
             movement_name='movement'
         )
-        # set up default lists
+        # set up list
         self.collection_list = WatchList.objects.create(
             friendly_name='collection'
         )
@@ -145,3 +145,66 @@ class deleteWatchTest(TestCase):
         self.assertRedirects(response, referer_url)
 
 
+class purchaseWatchTest(TestCase):
+    
+    def setUp(self):
+        # set up a user and login
+        self.user = User.objects.create_user(
+            username='user',
+            password='password'
+        )
+        self.client.login(username='user', password='password')
+        # set up a test movement for watch objects
+        self.test_movement = WatchMovement.objects.create(
+            movement_name='movement'
+        )
+        # set up default lists
+        self.collection_list = WatchList.objects.create(
+            friendly_name='collection'
+        )
+        self.wish_list = WatchList.objects.create(
+            friendly_name='wish-list'
+        )
+        # create a watch
+        self.watch = Watch.objects.create(
+            owner=self.user,
+            make='test_make',
+            movement_type=self.test_movement,
+            list_name=self.wish_list
+        )
+
+    def test_successful_watch_purchase(self):
+        # set watch as purchased
+        response = self.client.post(reverse(
+            'purchase', args=[self.watch.id]
+        ))
+        # refresh watch details
+        self.watch.refresh_from_db()
+        # check watch is now in collection list
+        self.assertEqual(self.watch.list_name, self.collection_list)
+        # check for a success message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            'watch moved to Collection'
+            in message.message for message in messages
+        ))
+        # verify the redirection
+        self.assertRedirects(
+            response, reverse('watch_list', args=['collection'])
+        )
+
+    def test_unsuccessful_watch_purchase(self):
+        # set watch as purchased
+        response = self.client.post(reverse(
+            'purchase', args=[3263827]
+        ))
+        # check for an error message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            'Error occurred while moving watch to Collection'
+            in message.message for message in messages
+        ))
+        # verify the redirection
+        self.assertRedirects(
+            response, reverse('watch_list', args=['collection'])
+        )

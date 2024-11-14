@@ -170,7 +170,7 @@ def manage_watch(request, origin, watch_id=None):
             error_message = ''
             for field, error_list in errors.items():
                 error_message += f'{field}: {', '.join(error_list)}.'
-            messages.error(request, f'An error occured. {error_message}.')
+            messages.error(request, f'An error occurred. {error_message}.')
 
     day = datetime.datetime.now()
     lists = lists = get_user_lists(request.user)
@@ -224,7 +224,7 @@ def purchase_watch(request, watch_id):
     except Exception as e:
         messages.error(
             request,
-            f'Error occured while moving watch to Collection: {str(e)}'
+            f'Error occurred while moving watch to Collection: {str(e)}'
         )
     return redirect('watch_list', 'collection')
 
@@ -445,7 +445,7 @@ def delete_movement(request, movement_id):
         except Exception as e:
             messages.error(
                 request,
-                f'Error occured while deleting movement: {str(e)}'
+                f'Error occurred while deleting movement: {str(e)}'
             )
             return redirect('staff_settings')
     else:
@@ -484,7 +484,7 @@ def delete_list(request, list_id):
             messages.success(request, f'{list_name} deleted')
             return redirect('staff_settings')
         except Exception as e:
-            messages.error(request, f'Error occured while deleting: {str(e)}')
+            messages.error(request, f'Error occurred while deleting: {str(e)}')
             return redirect('staff_settings')
     else:
         context = get_staff_settings_context(request.user)
@@ -523,7 +523,7 @@ def cancel_process(request, content, cancel_url='home'):
             )
         return redirect(cancel_url)
     except Exception as e:
-        messages.error(request, f'Error occured while cancelling: {str(e)}')
+        messages.error(request, f'Error occurred while cancelling: {str(e)}')
         return redirect('home')
 
 
@@ -541,5 +541,5 @@ def leaving_manage(request, content):
         messages.info(request, f'{content} cancelled.')
         return JsonResponse({'status': 'message set'})
     except Exception as e:
-        messages.error(request, f'Error occured while cancelling: {str(e)}')
+        messages.error(request, f'Error occurred while cancelling: {str(e)}')
         return JsonResponse({'status': 'message set'})
