@@ -1002,7 +1002,9 @@ class TestCancelProcess(TestCase):
     @patch('django.contrib.messages.info')
     def test_cancel_process_handles_exception(self, mock_messages_info):
         # Mock messages.info to raise an exception
-        mock_messages_info.side_effect = Exception('Test exception during message')
+        mock_messages_info.side_effect = Exception(
+            'Test exception during message'
+        )
         # trigger the cancel_process view
         response = self.client.get(reverse(
             'cancel_process',
