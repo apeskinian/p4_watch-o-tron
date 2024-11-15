@@ -1016,11 +1016,12 @@ class TestLeavingManage(TestCase):
             password='password'
         )
         self.client.login(username='user', password='password')
+        self.url = reverse('leaving_manage', kwargs={'content': 'Test Action'})
 
     def test_leaving_manage(self):
-        # content to pass in the URL
+        # content message to pass in the URL
         content = "test thing"
-        # make a GET request to the leaving_manage view
+        # request to leave a message with the content
         response = self.client.get(reverse('leaving_manage', args=[content]))
         # check that the response is JsonResponse
         self.assertIsInstance(response, JsonResponse)
@@ -1036,10 +1037,20 @@ class TestLeavingManage(TestCase):
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]), f'{content} cancelled.')
 
-    def test_leaving_manage_error(self):
-        # simulate an error in the view by forcing an exception to be raised
-        with self.assertRaises(Exception):
-            # force an exception to happen (e.g., simulating a view issue)
-            raise Exception("Test Exception")
-    
-    
+    # patching messages.error and messages.info
+    @patch('watches.views.messages.error')
+    @patch('watches.views.messages.info')
+    def test_leaving_manage_exception(self, mock_info, mock_error):
+        # simulate and exception
+        mock_info.side_effect = Exception("Simulated Exception")
+        # request to leave a message with the content
+        response = self.client.get(self.url)
+        # check that the response status code is 200 (OK)
+        self.assertEqual(response.status_code, 200)
+        # check the response content
+        self.assertJSONEqual(response.content, {'status': 'message set'})
+        # check that the error message was set
+        mock_error.assert_called_once_with(
+            response.wsgi_request,
+            'Error occurred while cancelling: Simulated Exception'
+        )
