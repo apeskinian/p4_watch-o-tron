@@ -394,9 +394,39 @@ Below are the results from the various apps on my application that I've tested:
 
 #### Unit Test Issues
 
-| Issue | Cause | Fix |
-| --- | --- | --- |
-| When testing the moonphase I consistently got the wrong moonphase when comparing it to known dates. | I originally used a synodic month calculation but replaced it early on with the PyEphem package. This took a phase value retrieved from ephem which was used as a phase angle to calculate the current moonphase. This phase value is not an angle, it is actually a percentage value of the current illumination therefore making the calculations wrong. | To solve this I reverted back to the synodic month calculation method I used to begin with. However instead of using a fixed date for the calculation it now uses ephem to retrieve the last known new moon and so the calculations will remain accurate. |
+ - **Moonphase calculations**
+ 
+    When testing the moonphase I consistently got the wrong moonphase when comparing it to known dates.  
+ 
+    I originally used a synodic month calculation but replaced it early on with the [ephem](https://pypi.org/project/ephem/) package. This took a phase value retrieved from ephem which was used as a phase angle to calculate the current moonphase. This phase value is not an angle, it is actually a percentage value of the current illumination therefore making the calculations wrong.  
+ 
+    To solve this I reverted back to the synodic month calculation method I used to begin with. However instead of using a fixed date for the calculation as originally done, it now uses [ephem](https://pypi.org/project/ephem/) to retrieve the last known new moon and use that to calculate the phase.
+
+- **Redundant code inside a function in views.py**
+
+    ```python
+    def manage_watch(request, origin, watch_id=None):
+    ```
+
+    While testing it became clear that the code below was redundant as **origin** was a required argument. Without it a 404 error would happen before the try-except.
+
+    ```python
+    # getting the list to preselect from the origin argument
+    try:
+        initial_list = WatchList.objects.get(list_name=origin)
+        initial_data = {'list_name': initial_list}
+    except WatchList.DoesNotExist:
+        initial_data = {}
+    ```
+
+    To resolve this I removed the **try-except** and added a **get_object_or_404** as an extra safety measure.
+
+    ```python
+    # getting the list to preselect from the origin argument
+    initial_list = get_object_or_404(WatchList, list_name=origin)
+    initial_data = {'list_name': initial_list}
+    ```
+
 
 ## Bugs
 
