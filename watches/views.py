@@ -500,7 +500,7 @@ def cancel_process(request, content, cancel_url):
     ``content`` (str):
         Information regarding what action is being cancelled, this is used
         in the provided messsage.
-    ``cancel_url`` (str, optional):
+    ``cancel_url`` (str):
         The url name that the action was taken from.
     **Context**
     ``cancel_url``
