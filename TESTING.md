@@ -344,13 +344,11 @@ Defensive programming was manually tested with the below user acceptance testing
 | As a site admin, I can log in as a super user so that I can access the admin panel. | ![screeshot](documentation/features/accounts/wot_feature_accounts_admin_logged_in_desktop.png "watch-o-tron user story super user login") |
 
 ## Automated Testing
-
 I have conducted a series of automated tests on my application.
 
 I fully acknowledge and understand that, in a real-world scenario, an extensive set of additional tests would be more comprehensive.
 
 ### Python (Unit Testing)
-
 I have used Django's built-in unit testing framework to test the application functionality.
 
 In order to run the tests, I ran the following command in the terminal each time:
@@ -373,16 +371,26 @@ To see the HTML version of the reports, and find out whether some pieces of code
 
 `python3 -m http.server`
 
+Full coverage report
+![screenshot](documentation/testing/unit/wot_testing_unit_report.png "watch-o-tron full coverage report")
+
 Below are the results from the various apps on my application that I've tested:
 
 | App | File | Coverage | Screenshot |
 | --- | --- | --- | --- |
-| watches | test_forms.py | 99% | ![screenshot](documentation/tests/py-test-bag-forms.png) |
-| watches | test_models.py | 89% | ![screenshot](documentation/tests/py-test-bag-models.png) |
-| watches | test_urls.py | 100% | ![screenshot](documentation/tests/py-test-bag-urls.png) |
-| watches | test_views.py | 71% | ![screenshot](documentation/tests/py-test-bag-views.png) |
-| watches | test_moons.py | 71% | ![screenshot](documentation/tests/py-test-bag-views.png) |
-
+| watches | admin.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_admin.png "watch-o-tron unit testing") |
+| watches | apps.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_apps.png "watch-o-tron unit testing") |
+| watches | forms.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_forms.png "watch-o-tron unit testing") |
+| watches | test_forms.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_test_forms.png "watch-o-tron unit testing") |
+| watches | test_models.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_test_models.png "watch-o-tron unit testing") |
+| watches | test_moons.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_test_moons.png "watch-o-tron unit testing") |
+| watches | test_urls.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_test_urls.png "watch-o-tron unit testing") |
+| watches | test_views.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_test_views.png "watch-o-tron unit testing") |
+| watches | urls.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_urls.png "watch-o-tron unit testing") |
+| watches/utils | moons.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_moons.png "watch-o-tron unit testing") |
+| watches | views.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_views.png "watch-o-tron unit testing") |
+| watchotron | settings.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_watchotron_settings.png "watch-o-tron unit testing") |
+| watchotron | urls.py | 100% | ![screenshot](documentation/testing/unit/wot_testing_unit_watchotron_urls.png "watch-o-tron unit testing") |
 
 #### Unit Test Issues
 
