@@ -950,11 +950,18 @@ class TestDeleteList(TestCase):
 class TestCancelProcess(TestCase):
 
     def setUp(self):
-        # set up a user and login
+        # set up a user
         self.user = User.objects.create_user(
             username='user',
             password='password'
         )
+        # set up a staff user
+        self.user = User.objects.create_user(
+            username='staff',
+            password='password',
+            is_staff=True
+        )
+        # log in as user
         self.client.login(username='user', password='password')
         # create a list
         self.test_list = WatchList.objects.create(friendly_name='test-list')
@@ -976,35 +983,40 @@ class TestCancelProcess(TestCase):
         ))
     
     def test_successful_cancel_to_cancel_url(self):
+        # logout as user and login as staff for staff settings cancel_url
+        self.client.logout()
+        self.client.login(username='staff', password='password')
         # check redirection to existing list
         response = self.client.get(reverse(
             'cancel_process',
-            kwargs={'content': 'Action', 'cancel_url': 'somewhere'}
+            kwargs={'content': 'Action', 'cancel_url': 'staff_settings'}
         ))
         # check the redirect URL
-        # self.assertRedirects(response, reverse('home'))
+        self.assertRedirects(response, reverse('staff_settings'))
         # check for the info message
         messages = list(get_messages(response.wsgi_request))
         self.assertTrue(any(
             "Action cancelled." in message.message for message in messages
         ))
     
-    @patch(
-        'watches.views.WatchList.objects.values_list',
-        side_effect=Exception('Something went wrong')
-    )
-    def test_cancel_process_handles_exception(self, mock_values_list):
+    @patch('django.contrib.messages.info')
+    def test_cancel_process_handles_exception(self, mock_messages_info):
+        # Mock messages.info to raise an exception
+        mock_messages_info.side_effect = Exception('Test exception during message')
+        # trigger the cancel_process view
         response = self.client.get(reverse(
             'cancel_process',
-            kwargs={'content': 'Action', 'cancel_url': 'somewhere'}
+            kwargs={'content': 'Action', 'cancel_url': 'test-list'}
         ))
-        # check that the user is redirected to 'home'
-        # self.assertRedirects(response, reverse('home'))
-        # check for an error message
-        messages = list(response.wsgi_request._messages)
+        # verify that the exception is handled and the redirect occurs
+        self.assertRedirects(
+            response, reverse('watch_list', kwargs={'list_name': 'test-list'})
+        )
+        # check for the error message
+        messages = list(get_messages(response.wsgi_request))
         self.assertTrue(any(
-            'Error occurred while cancelling'
-            in message.message for message in messages
+            'Error occurred while cancelling:' in message.message
+            for message in messages
         ))
 
 

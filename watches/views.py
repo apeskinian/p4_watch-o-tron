@@ -493,7 +493,7 @@ def delete_list(request, list_id):
 
 
 @login_required(login_url='accounts/login')
-def cancel_process(request, content, cancel_url=None):
+def cancel_process(request, content, cancel_url):
     """
     Called when an action is cancelled by the user.
     **Arguments**
@@ -506,24 +506,20 @@ def cancel_process(request, content, cancel_url=None):
     ``cancel_url``
         If an instance with 'list_name' matching 'cancel_url' is in
         :model:`watches.WatchList`, the user is redirected to that list.
-    ``home``
-        If no matches are found user is redirected to 'home'.
+        If not they are redirected to the cancel_url that was provided.
     """
     try:
         messages.info(request, f'{content} cancelled.')
-        if not cancel_url:
-            cancel_url = 'home'
-        possible_lists = WatchList.objects.values_list('list_name', flat=True)
-        if cancel_url in possible_lists:
-            return redirect(
-                reverse(
-                    'watch_list',
-                    kwargs={'list_name': cancel_url})
-            )
-        return redirect('home')
     except Exception as e:
         messages.error(request, f'Error occurred while cancelling: {str(e)}')
-        return redirect('home')
+    possible_lists = WatchList.objects.values_list('list_name', flat=True)
+    if cancel_url in possible_lists:
+        return redirect(
+            reverse(
+                'watch_list',
+                kwargs={'list_name': cancel_url})
+        )
+    return redirect(cancel_url)
 
 
 @login_required(login_url='accounts/login')
