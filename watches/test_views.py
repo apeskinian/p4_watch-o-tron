@@ -351,6 +351,71 @@ class TestManageWatch(TestCase):
         ))
 
 
+class TestPurchaseWatch(TestCase):
+    
+    def setUp(self):
+        # set up a user and login
+        self.user = User.objects.create_user(
+            username='user',
+            password='password'
+        )
+        self.client.login(username='user', password='password')
+        # set up a test movement for watch objects
+        self.test_movement = WatchMovement.objects.create(
+            movement_name='movement'
+        )
+        # set up default lists
+        self.collection_list = WatchList.objects.create(
+            friendly_name='collection'
+        )
+        self.wish_list = WatchList.objects.create(
+            friendly_name='wish-list'
+        )
+        # create a watch
+        self.watch = Watch.objects.create(
+            owner=self.user,
+            make='test_make',
+            movement_type=self.test_movement,
+            list_name=self.wish_list
+        )
+
+    def test_successful_watch_purchase(self):
+        # set watch as purchased
+        response = self.client.post(reverse(
+            'purchase', args=[self.watch.id]
+        ))
+        # refresh watch details
+        self.watch.refresh_from_db()
+        # check watch is now in collection list
+        self.assertEqual(self.watch.list_name, self.collection_list)
+        # check for a success message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            'watch moved to Collection'
+            in message.message for message in messages
+        ))
+        # verify the redirection
+        self.assertRedirects(
+            response, reverse('watch_list', args=['collection'])
+        )
+
+    def test_unsuccessful_watch_purchase(self):
+        # set watch as purchased
+        response = self.client.post(reverse(
+            'purchase', args=[3263827]
+        ))
+        # check for an error message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            'Error occurred while moving watch to Collection'
+            in message.message for message in messages
+        ))
+        # verify the redirection
+        self.assertRedirects(
+            response, reverse('watch_list', args=['collection'])
+        )
+
+
 class TestDeleteWatch(TestCase):
 
     def setUp(self):
@@ -416,70 +481,104 @@ class TestDeleteWatch(TestCase):
         self.assertRedirects(response, referer_url)
 
 
-class TestPurchaseWatch(TestCase):
-    
+class TestStaffSettings(TestCase):
+
     def setUp(self):
-        # set up a user and login
+        #create staff user
+        self.staff = User.objects.create_user(
+            username='staff',
+            password='password',
+            is_staff=True
+        )
+        #create standard user
         self.user = User.objects.create_user(
             username='user',
             password='password'
         )
+        self.url = reverse('staff_settings')
+    
+    def test_staff_access(self):
+        # login with staff
+        self.client.login(username='staff', password='password')
+        # request page
+        response = self.client.get(self.url)
+        # check page loads with 200 status and renders template
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'watches/staff_settings.html')
+
+    def test_non_staff_access_is_denied(self):
+        # login with standard user
         self.client.login(username='user', password='password')
-        # set up a test movement for watch objects
-        self.test_movement = WatchMovement.objects.create(
-            movement_name='movement'
-        )
-        # set up default lists
-        self.collection_list = WatchList.objects.create(
-            friendly_name='collection'
-        )
-        self.wish_list = WatchList.objects.create(
-            friendly_name='wish-list'
-        )
-        # create a watch
-        self.watch = Watch.objects.create(
-            owner=self.user,
-            make='test_make',
-            movement_type=self.test_movement,
-            list_name=self.wish_list
-        )
+        # request page
+        response = self.client.get(self.url)
+        # check for 302 code as result of @staff_member_required
+        self.assertEqual(response.status_code, 302)
 
-    def test_successful_watch_purchase(self):
-        # set watch as purchased
-        response = self.client.post(reverse(
-            'purchase', args=[self.watch.id]
-        ))
-        # refresh watch details
-        self.watch.refresh_from_db()
-        # check watch is now in collection list
-        self.assertEqual(self.watch.list_name, self.collection_list)
-        # check for a success message
-        messages = list(get_messages(response.wsgi_request))
-        self.assertTrue(any(
-            'watch moved to Collection'
-            in message.message for message in messages
-        ))
-        # verify the redirection
-        self.assertRedirects(
-            response, reverse('watch_list', args=['collection'])
-        )
+    def test_no_login_access_is_denied(self):
+        # request page without logging in
+        response = self.client.get(self.url)
+        # check for 302 code as result of @staff_member_required
+        self.assertEqual(response.status_code, 302)
 
-    def test_unsuccessful_watch_purchase(self):
-        # set watch as purchased
-        response = self.client.post(reverse(
-            'purchase', args=[3263827]
-        ))
-        # check for an error message
-        messages = list(get_messages(response.wsgi_request))
-        self.assertTrue(any(
-            'Error occurred while moving watch to Collection'
-            in message.message for message in messages
-        ))
-        # verify the redirection
-        self.assertRedirects(
-            response, reverse('watch_list', args=['collection'])
-        )
+    def test_valid_movement_form_submission(self):
+        # login with staff member
+        self.client.login(username='staff', password='password')
+        # create new movement name to enter
+        form_data = {'movement_name': 'Perpetual Motion'}
+        # submit the form with the form data
+        response = self.client.post(self.url, data={'movement-form': 'submit', **form_data})
+        # check redirect staff_settings
+        self.assertRedirects(response, self.url)
+        # check that new movement has been created
+        self.assertTrue(WatchMovement.objects.filter(movement_name='Perpetual Motion').exists())
+        # check for success message
+        messages = list(response.wsgi_request._messages)
+        self.assertIn('Perpetual Motion movement created.', [msg.message for msg in messages])
 
+    def test_invalid_movement_form_submission(self):
+        # login with staff member
+        self.client.login(username='staff', password='password')
+        # create invalid form data with blank movement name
+        form_data = {'movement_name': ''}
+        # submit the form with the form data
+        response = self.client.post(self.url, data={'movement-form': 'submit', **form_data})
+        # check page is rendered okay still
+        self.assertEqual(response.status_code, 200)
+        # confirm that movement does not exist
+        self.assertFalse(WatchMovement.objects.exists())
+        # check for form validation message
+        messages = list(response.wsgi_request._messages)
+        self.assertTrue(any('This field is required.' in msg.message for msg in messages))
+
+    def test_valid_list_form_submission(self):
+        # login with staff member
+        self.client.login(username='staff', password='password')
+        # create new list name to enter
+        form_data = {'friendly_name': 'To Sell...'}
+        # submit the form with the form data
+        response = self.client.post(self.url, data={'list-form': 'submit', **form_data})
+        # check redirect staff_settings
+        self.assertRedirects(response, self.url)
+        # check that new list has been created
+        self.assertTrue(WatchList.objects.filter(friendly_name='To Sell...').exists())
+        # check for success message
+        messages = list(response.wsgi_request._messages)
+        self.assertIn('To Sell... created.', [msg.message for msg in messages])
+
+    def test_invalid_list_form_submission(self):
+        # login with staff member
+        self.client.login(username='staff', password='password')
+        # create invalid form data with blank list name
+        form_data = {'friendly_name': ''}
+        # submit the form with the form data
+        response = self.client.post(self.url, data={'list-form': 'submit', **form_data})
+        # check page is rendered okay still
+        self.assertEqual(response.status_code, 200)
+        # confirm that list does not exist
+        self.assertFalse(WatchMovement.objects.exists())
+        # check for form validation message
+        messages = list(response.wsgi_request._messages)
+        self.assertTrue(any('This field is required.' in msg.message for msg in messages))
 
 class TestDeleteMovement(TestCase):
 
