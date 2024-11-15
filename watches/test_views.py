@@ -526,14 +526,22 @@ class TestStaffSettings(TestCase):
         # create new movement name to enter
         form_data = {'movement_name': 'Perpetual Motion'}
         # submit the form with the form data
-        response = self.client.post(self.url, data={'movement-form': 'submit', **form_data})
+        response = self.client.post(
+            self.url, data={'movement-form': 'submit', **form_data}
+        )
         # check redirect staff_settings
         self.assertRedirects(response, self.url)
         # check that new movement has been created
-        self.assertTrue(WatchMovement.objects.filter(movement_name='Perpetual Motion').exists())
+        self.assertTrue(
+            WatchMovement.objects.filter
+            (movement_name='Perpetual Motion').exists()
+        )
         # check for success message
         messages = list(response.wsgi_request._messages)
-        self.assertIn('Perpetual Motion movement created.', [msg.message for msg in messages])
+        self.assertIn(
+            'Perpetual Motion movement created.',
+            [msg.message for msg in messages]
+        )
 
     def test_invalid_movement_form_submission(self):
         # login with staff member
@@ -541,14 +549,18 @@ class TestStaffSettings(TestCase):
         # create invalid form data with blank movement name
         form_data = {'movement_name': ''}
         # submit the form with the form data
-        response = self.client.post(self.url, data={'movement-form': 'submit', **form_data})
+        response = self.client.post(
+            self.url, data={'movement-form': 'submit', **form_data}
+        )
         # check page is rendered okay still
         self.assertEqual(response.status_code, 200)
         # confirm that movement does not exist
         self.assertFalse(WatchMovement.objects.exists())
         # check for form validation message
         messages = list(response.wsgi_request._messages)
-        self.assertTrue(any('This field is required.' in msg.message for msg in messages))
+        self.assertTrue(
+            any('This field is required.' in msg.message for msg in messages)
+        )
 
     def test_valid_list_form_submission(self):
         # login with staff member
@@ -556,14 +568,20 @@ class TestStaffSettings(TestCase):
         # create new list name to enter
         form_data = {'friendly_name': 'To Sell...'}
         # submit the form with the form data
-        response = self.client.post(self.url, data={'list-form': 'submit', **form_data})
+        response = self.client.post(
+            self.url, data={'list-form': 'submit', **form_data}
+        )
         # check redirect staff_settings
         self.assertRedirects(response, self.url)
         # check that new list has been created
-        self.assertTrue(WatchList.objects.filter(friendly_name='To Sell...').exists())
+        self.assertTrue(
+            WatchList.objects.filter(friendly_name='To Sell...').exists()
+        )
         # check for success message
         messages = list(response.wsgi_request._messages)
-        self.assertIn('To Sell... created.', [msg.message for msg in messages])
+        self.assertIn(
+            'To Sell... created.', [msg.message for msg in messages]
+        )
 
     def test_invalid_list_form_submission(self):
         # login with staff member
@@ -571,14 +589,18 @@ class TestStaffSettings(TestCase):
         # create invalid form data with blank list name
         form_data = {'friendly_name': ''}
         # submit the form with the form data
-        response = self.client.post(self.url, data={'list-form': 'submit', **form_data})
+        response = self.client.post(
+            self.url, data={'list-form': 'submit', **form_data}
+        )
         # check page is rendered okay still
         self.assertEqual(response.status_code, 200)
         # confirm that list does not exist
         self.assertFalse(WatchMovement.objects.exists())
         # check for form validation message
         messages = list(response.wsgi_request._messages)
-        self.assertTrue(any('This field is required.' in msg.message for msg in messages))
+        self.assertTrue(
+            any('This field is required.' in msg.message for msg in messages)
+        )
 
 class TestDeleteMovement(TestCase):
 
