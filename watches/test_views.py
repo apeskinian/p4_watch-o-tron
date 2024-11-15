@@ -602,6 +602,173 @@ class TestStaffSettings(TestCase):
             any('This field is required.' in msg.message for msg in messages)
         )
 
+
+class TestEditMovement(TestCase):
+
+    def setUp(self):
+        #create staff user
+        self.staff = User.objects.create_user(
+            username='staff',
+            password='password',
+            is_staff=True
+        )
+        # login as staff user
+        self.client.login(username='staff', password='password')
+        # create a movment to edit
+        self.test_movement = WatchMovement.objects.create(
+            movement_name='test movement'
+        )
+        # set up list
+        self.collection_list = WatchList.objects.create(
+            friendly_name='collection'
+        )
+        # create 2 watches
+        self.watch1 = Watch.objects.create(
+            owner=self.staff,
+            make='test_make',
+            movement_type=self.test_movement,
+            list_name=self.collection_list
+        )
+        self.watch2 = Watch.objects.create(
+            owner=self.staff,
+            make='test_make',
+            movement_type=self.test_movement,
+            list_name=self.collection_list
+        )
+
+    def test_bring_up_edit_movement_input(self):
+        # request edit
+        response = self.client.get(reverse(
+            'edit_movement', args=[self.test_movement.id]
+        ))
+        # check any associated watches are mentioned
+        self.assertEqual(response.context['associated'], 2)
+        # check the edit_form is part of the context
+        self.assertIn('edit_form', response.context)
+        # check correct template is rendered
+        self.assertTemplateUsed(response, 'watches/staff_settings.html')
+
+    def test_editing_movement_valid_data(self):
+        # create new name for movement
+        form_data = {'movement_name': 'new updated name'}
+        # submit form with new name
+        response = self.client.post(
+            reverse('edit_movement', args=[self.test_movement.id]),
+            data=form_data
+        )
+        # refresh info from the db and confirm the name has been changed
+        self.test_movement.refresh_from_db()
+        self.assertEqual(self.test_movement.movement_name, 'new updated name')
+        # confirm redirect to staff_settings
+        self.assertRedirects(response, reverse('staff_settings'))
+        # check for success message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            "Changes saved."
+            in message.message for message in messages
+        ))
+
+    def test_editing_movement_invalid_data(self):
+        # create invalid movement name
+        form_data = {'movement_name': ''}
+        # submit invalid form
+        response = self.client.post(
+            reverse('edit_movement', args=[self.test_movement.id]),
+            data=form_data
+        )
+        # confirm redirect to staff_settings
+        self.assertRedirects(response, reverse('staff_settings'))
+        # check for error message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            'Failed to edit movement:'
+            in message.message for message in messages
+        ))
+
+
+class TestEditList(TestCase):
+
+    def setUp(self):
+        #create staff user
+        self.staff = User.objects.create_user(
+            username='staff',
+            password='password',
+            is_staff=True
+        )
+        # login as staff user
+        self.client.login(username='staff', password='password')
+        # create a movment
+        self.test_movement = WatchMovement.objects.create(
+            movement_name='test movement'
+        )
+        # set up list to edit
+        self.test_list = WatchList.objects.create(
+            friendly_name='test list'
+        )
+        # create 2 watches
+        self.watch1 = Watch.objects.create(
+            owner=self.staff,
+            make='test_make',
+            movement_type=self.test_movement,
+            list_name=self.test_list
+        )
+        self.watch2 = Watch.objects.create(
+            owner=self.staff,
+            make='test_make',
+            movement_type=self.test_movement,
+            list_name=self.test_list
+        )
+
+    def test_bring_up_edit_list_input(self):
+        # request edit
+        response = self.client.get(reverse(
+            'edit_list', args=[self.test_list.id]
+        ))
+        # check any associated watches are mentioned
+        self.assertEqual(response.context['associated'], 2)
+        # check the edit_form is part of the context
+        self.assertIn('edit_form', response.context)
+        # check correct template is rendered
+        self.assertTemplateUsed(response, 'watches/staff_settings.html')
+
+    def test_editing_list_valid_data(self):
+        # create new name for list
+        form_data = {'friendly_name': 'new updated list'}
+        # submit form with new name
+        response = self.client.post(
+            reverse('edit_list', args=[self.test_list.id]),
+            data=form_data
+        )
+        # refresh info from the db and confirm the name has been changed
+        self.test_list.refresh_from_db()
+        self.assertEqual(self.test_list.friendly_name, 'new updated list')
+        # confirm redirect to staff_settings
+        self.assertRedirects(response, reverse('staff_settings'))
+        # check for success message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            "Changes saved."
+            in message.message for message in messages
+        ))
+
+    def test_editing_list_invalid_data(self):
+        # create invalid list name
+        form_data = {'friendly_name': ''}
+        # submit invalid form
+        response = self.client.post(
+            reverse('edit_list', args=[self.test_list.id]),
+            data=form_data
+        )
+        # confirm redirect to staff_settings
+        self.assertRedirects(response, reverse('staff_settings'))
+        # check for error message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            'Failed to edit list:'
+            in message.message for message in messages
+        ))
+
+
 class TestDeleteMovement(TestCase):
 
     def setUp(self):

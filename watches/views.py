@@ -395,7 +395,7 @@ def edit_list(request, list_id):
         form = ListForm(request.POST, instance=list_name)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Changes saved')
+            messages.success(request, f'Changes saved.')
             return redirect('staff_settings')
         else:
             errors = form.errors
