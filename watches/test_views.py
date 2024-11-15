@@ -274,6 +274,16 @@ class TestManageWatch(TestCase):
         self.assertEqual(response.context['mode'], 'add')
         self.assertIsInstance(response.context['watch_form'], WatchForm)
     
+    def test_edit_watch_view(self):
+        response = self.client.get(reverse(
+            'manage_watch', 
+            kwargs={'origin': 'collection', 'watch_id': self.watch1.id}
+        ))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('watch_form', response.context)
+        self.assertEqual(response.context['mode'], 'edit')
+        self.assertEqual(response.context['watch'].id, self.watch1.id)
+
     def test_add_watch(self):
         form_data = {
             'owner': self.user.id,
@@ -295,16 +305,6 @@ class TestManageWatch(TestCase):
             'Added test make watch'
             in message.message for message in messages
         ))
-
-    def test_edit_watch_view(self):
-        response = self.client.get(reverse(
-            'manage_watch', 
-            kwargs={'origin': 'collection', 'watch_id': self.watch1.id}
-        ))
-        self.assertEqual(response.status_code, 200)
-        self.assertIn('watch_form', response.context)
-        self.assertEqual(response.context['mode'], 'edit')
-        self.assertEqual(response.context['watch'].id, self.watch1.id)
 
     def test_edit_watch(self):
         form_data = {

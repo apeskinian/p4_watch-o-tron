@@ -176,11 +176,8 @@ def manage_watch(request, origin, watch_id=None):
     lists = lists = get_user_lists(request.user)
 
     # getting the list to preselect from the origin argument
-    try:
-        initial_list = WatchList.objects.get(list_name=origin)
-        initial_data = {'list_name': initial_list}
-    except WatchList.DoesNotExist:
-        initial_data = {}
+    initial_list = get_object_or_404(WatchList, list_name=origin)
+    initial_data = {'list_name': initial_list}
 
     context = {
         'day': day.strftime('%w'),
