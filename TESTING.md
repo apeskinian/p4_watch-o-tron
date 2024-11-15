@@ -394,143 +394,56 @@ Below are the results from the various apps on my application that I've tested:
 
 #### Unit Test Issues
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this section to list any known issues you ran into while writing your unit tests.
-Remember to include screenshots (where possible), and a solution to the issue (if known).
-
-This can be used for both "fixed" and "unresolved" issues.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+| Issue | Cause | Fix |
+| --- | --- | --- |
+| When testing the moonphase I consistently got the wrong moonphase when comparing it to known dates. | I originally used a synodic month calculation but replaced it early on with the PyEphem package. This took a phase value retrieved from ephem which was used as a phase angle to calculate the current moonphase. This phase value is not an angle, it is actually a percentage value of the current illumination therefore making the calculations wrong. | To solve this I reverted back to the synodic month calculation method I used to begin with. However instead of using a fixed date for the calculation it now uses ephem to retrieve the last known new moon and so the calculations will remain accurate. |
 
 ## Bugs
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-This section is primarily used for JavaScript and Python applications,
-but feel free to use this section to document any HTML/CSS bugs you might run into.
-
-It's very important to document any bugs you've discovered while developing the project.
-Make sure to include any necessary steps you've implemented to fix the bug(s) as well.
-
-**PRO TIP**: screenshots of bugs are extremely helpful, and go a long way!
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- JS Uncaught ReferenceError: `foobar` is undefined/not defined
-
-    ![screenshot](documentation/bugs/bug01.png)
-
-    - To fix this, I _____________________.
-
-- JS `'let'` or `'const'` or `'template literal syntax'` or `'arrow function syntax (=>)'` is available in ES6 (use `'esversion: 11'`) or Mozilla JS extensions (use moz).
-
-    ![screenshot](documentation/bugs/bug02.png)
-
-    - To fix this, I _____________________.
-
-- Python `'ModuleNotFoundError'` when trying to import module from imported package
-
-    ![screenshot](documentation/bugs/bug03.png)
-
-    - To fix this, I _____________________.
-
-- Django `TemplateDoesNotExist` at /appname/path appname/template_name.html
-
-    ![screenshot](documentation/bugs/bug04.png)
-
-    - To fix this, I _____________________.
-
-- Python `E501 line too long` (93 > 79 characters)
-
-    ![screenshot](documentation/bugs/bug04.png)
-
-    - To fix this, I _____________________.
-
 ### GitHub **Issues**
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-An improved way to manage bugs is to use the built-in **Issues** tracker on your GitHub repository.
-To access your Issues, click on the "Issues" tab at the top of your repository.
-Alternatively, use this link: https://github.com/apeskinian/p4_watch-o-tron/issues
-
-If using the Issues tracker for your bug management, you can simplify the documentation process.
-Issues allow you to directly paste screenshots into the issue without having to first save the screenshot locally,
-then uploading into your project.
-
-You can add labels to your issues (`bug`), assign yourself as the owner, and add comments/updates as you progress with fixing the issue(s).
-
-Once you've sorted the issue, you should then "Close" it.
-
-When showcasing your bug tracking for assessment, you can use the following format:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 **Fixed Bugs**
 
 [![GitHub issue custom search](https://img.shields.io/github/issues-search?query=repo%3Aapeskinian%2Fp4_watch-o-tron%20label%3Abug&label=bugs)](https://github.com/apeskinian/p4_watch-o-tron/issues?q=is%3Aissue+is%3Aclosed+label%3Abug)
 
-All previously closed/fixed bugs can be tracked [here](https://github.com/apeskinian/p4_watch-o-tron/issues?q=is%3Aissue+is%3Aclosed).
+All previously closed/fixed bugs can be tracked [here](https://github.com/apeskinian/p4_watch-o-tron/issues?q=is%3Aclosed+label%3Abug+).
 
 | Bug | Status |
 | --- | --- |
-| [JS Uncaught ReferenceError: `foobar` is undefined/not defined](https://github.com/apeskinian/p4_watch-o-tron/issues/1) | Closed |
-| [Python `'ModuleNotFoundError'` when trying to import module from imported package](https://github.com/apeskinian/p4_watch-o-tron/issues/2) | Closed |
-| [Django `TemplateDoesNotExist` at /appname/path appname/template_name.html](https://github.com/apeskinian/p4_watch-o-tron/issues/3) | Closed |
+| [[BUG] - Adding filter for watch list name breaks the app #23](https://github.com/apeskinian/p4_watch-o-tron/issues/23) | Closed |
+| [[BUG] - Django form checkboxes and dropdown #24](https://github.com/apeskinian/p4_watch-o-tron/issues/24) | Closed |
+| [[BUG] - Dropdown in Django form not setting as required #25](https://github.com/apeskinian/p4_watch-o-tron/issues/25) | Closed |
+| [[BUG] - Current Image in edit form #34](https://github.com/apeskinian/p4_watch-o-tron/issues/34) | Closed |
+| [[BUG] - CommandError: You must set settings.ALLOWED_HOSTS if DEBUG is False. #35](https://github.com/apeskinian/p4_watch-o-tron/issues/35) | Closed |
+| [[BUG] - Add and edit lists or movements at the same time #36](https://github.com/apeskinian/p4_watch-o-tron/issues/36) | Closed / Duplicate |
+| [[BUG] - Add and edit lists or movements at the same time #37](https://github.com/apeskinian/p4_watch-o-tron/issues/37) | Closed |
+| [[BUG] - 'Watch will be in your: CollectionCollectionCollection'.... #52](https://github.com/apeskinian/p4_watch-o-tron/issues/52) | Closed |
+| [[BUG] - Mobile navbar blocking add/edit buttons #53](https://github.com/apeskinian/p4_watch-o-tron/issues/53) | Closed |
+| [[BUG] - Cloudinary not serving images via https #59](https://github.com/apeskinian/p4_watch-o-tron/issues/59) | Closed |
+| [[BUG] - TypeError: Cannot read properties of undefined (reading 'backdrop') #60](https://github.com/apeskinian/p4_watch-o-tron/issues/60) | Closed |
+| [[BUG] - Adding/Editing watches: inputting whitespace is not caught when sending form input to the modal #62](https://github.com/apeskinian/p4_watch-o-tron/issues/62) | Closed |
+| [[BUG] - Multiple whitespace in new movements and lists is accepted. #63](https://github.com/apeskinian/p4_watch-o-tron/issues/63) | Closed |
+
+**Closed Issues**
+
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/apeskinian/p4_watch-o-tron)](https://github.com/apeskinian/p4_watch-o-tron/issues?q=is%3Aissue+is%3Aclosed)
+
+Closed issues can be tracked [here](https://github.com/apeskinian/p4_watch-o-tron/issues?q=is%3Aissue+is%3Aclosed)
 
 **Open Issues**
 
 [![GitHub issues](https://img.shields.io/github/issues/apeskinian/p4_watch-o-tron)](https://github.com/apeskinian/p4_watch-o-tron/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/apeskinian/p4_watch-o-tron)](https://github.com/apeskinian/p4_watch-o-tron/issues?q=is%3Aissue+is%3Aclosed)
 
 Any remaining open issues can be tracked [here](https://github.com/apeskinian/p4_watch-o-tron/issues).
 
-| Bug | Status |
+| Issue | Status |
 | --- | --- |
-| [JS `'let'` or `'const'` or `'template literal syntax'` or `'arrow function syntax (=>)'` is available in ES6 (use `'esversion: 11'`) or Mozilla JS extensions (use moz).](https://github.com/apeskinian/p4_watch-o-tron/issues/4) | Open |
-| [Python `E501 line too long` (93 > 79 characters)](https://github.com/apeskinian/p4_watch-o-tron/issues/5) | Open |
+| [[USER STORY] - User forum #19]([#19](https://github.com/apeskinian/p4_watch-o-tron/issues/19)) | backlog |
+| [[USER STORY] - Direct messaging #20]([#20](https://github.com/apeskinian/p4_watch-o-tron/issues/20)) | backlog |
+| [[USER STORY] - User can delete their account #21]([#21](https://github.com/apeskinian/p4_watch-o-tron/issues/21)) | backlog |
+
 
 ## Unfixed Bugs
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-You will need to mention unfixed bugs and why they were not fixed.
-This section should include shortcomings of the frameworks or technologies used.
-Although time can be a big variable to consider, paucity of time and difficulty understanding
-implementation is not a valid reason to leave bugs unfixed.
-
-If you've identified any unfixed bugs, no matter how small, be sure to list them here.
-It's better to be honest and list them, because if it's not documented and an assessor finds the issue,
-they need to know whether or not you're aware of them as well, and why you've not corrected/fixed them.
-
-Some examples:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- On devices smaller than 375px, the page starts to have `overflow-x` scrolling.
-
-    ![screenshot](documentation/bugs/unfixed-bug01.png)
-
-    - Attempted fix: I tried to add additional media queries to handle this, but things started becoming too small to read.
-
-- For PP3, when using a helper `clear()` function, any text above the height of the terminal does not clear, and remains when you scroll up.
-
-    ![screenshot](documentation/bugs/unfixed-bug02.png)
-
-    - Attempted fix: I tried to adjust the terminal size, but it only resizes the actual terminal, not the allowable area for text.
-
-- When validating HTML with a semantic `section` element, the validator warns about lacking a header `h2-h6`. This is acceptable.
-
-    ![screenshot](documentation/bugs/unfixed-bug03.png)
-
-    - Attempted fix: this is a known warning and acceptable, and my section doesn't require a header since it's dynamically added via JS.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-If you legitimately cannot find any unfixed bugs or warnings, then use the following sentence:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 > [!NOTE]  
 > There are no remaining bugs that I am aware of.
