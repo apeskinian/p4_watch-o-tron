@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.messages import get_messages
 from unittest.mock import patch
 from .models import Watch, WatchList, WatchMovement
+from .forms import WatchForm, ListForm, MovementForm
 from .views import *
 
 
@@ -254,7 +255,7 @@ class TestManageWatch(TestCase):
             list_name=self.collection_list
         )
 
-    def test_anonymous_user_redirected(self):
+    def test_unauthorised_access_attempt(self):
         self.client.logout()
         url = reverse('manage_watch', kwargs={'origin': 'collection'})
         response = self.client.get(url)
@@ -263,6 +264,91 @@ class TestManageWatch(TestCase):
             response, f'/manage_watch/accounts/login?next={url}',
             fetch_redirect_response=False
         )
+
+    def test_add_watch_view(self):
+        response = self.client.get(
+            reverse('manage_watch', kwargs={'origin': 'collection'})
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('watch_form', response.context)
+        self.assertEqual(response.context['mode'], 'add')
+        self.assertIsInstance(response.context['watch_form'], WatchForm)
+    
+    def test_add_watch(self):
+        form_data = {
+            'owner': self.user.id,
+            'make': 'test make',
+            'movement_type': self.test_movement.id,
+            'list_name': self.collection_list.id
+        }
+        response = self.client.post(
+            reverse('manage_watch', kwargs={'origin': 'collection'}),
+            data=form_data
+        )
+        self.assertRedirects(
+            response,
+            reverse('watch_list', kwargs={'list_name': 'collection'})
+        )
+
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            'Added test make watch'
+            in message.message for message in messages
+        ))
+
+    def test_edit_watch_view(self):
+        response = self.client.get(reverse(
+            'manage_watch', 
+            kwargs={'origin': 'collection', 'watch_id': self.watch1.id}
+        ))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('watch_form', response.context)
+        self.assertEqual(response.context['mode'], 'edit')
+        self.assertEqual(response.context['watch'].id, self.watch1.id)
+
+    def test_edit_watch(self):
+        form_data = {
+            'owner': self.user.id,
+            'make': 'new updated make', # new make
+            'movement_type': self.test_movement.id,
+            'list_name': self.wishlist_list.id # change list
+        }
+        response = self.client.post(reverse(
+            'manage_watch',
+            kwargs={'origin': 'collection', 'watch_id': self.watch1.id}
+        ), data=form_data)
+        self.assertRedirects(response, reverse(
+            'watch_list',
+            kwargs={'list_name': 'wish-list'}
+        ))
+        
+        self.watch1.refresh_from_db()
+        self.assertEqual(self.watch1.make, 'new updated make')
+        
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            "watch edited successfully"
+            in message.message for message in messages
+        ))
+
+    def test_invalid_form_data(self):
+        form_data = {
+            'owner': self.user.id,
+            'make': '', # missing out the make as required field
+            'movement_type': self.test_movement.id,
+            'list_name': self.collection_list.id
+        }
+        response = self.client.post(
+            reverse('manage_watch', kwargs={'origin': 'collection'}),
+            data=form_data
+        )
+        self.assertEqual(response.status_code, 200)
+        
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(
+            'An error occurred.'
+            in message.message for message in messages
+        ))
 
 
 class TestDeleteWatch(TestCase):
