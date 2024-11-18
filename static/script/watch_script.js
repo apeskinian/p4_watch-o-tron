@@ -64,12 +64,14 @@ navbarToggler.addEventListener('click', function() {
     }
 });
 
+// add spinner to modal confirm buttom
 watchModalConfirm.addEventListener('click', function () {
     watchModalConfirm.innerHTML = `
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
         <span role="status"></span>`;
 });
 
+// add spinner to modal cancel button
 watchModalCancel.addEventListener('click', function () {
     watchModalCancel.innerHTML = `
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
