@@ -3,6 +3,7 @@ from unittest.mock import patch
 from datetime import date, datetime
 from .utils.moons import moonphase
 
+
 class testMoonPhases(TestCase):
 
     def test_new_moon(self):
@@ -36,7 +37,7 @@ class testMoonPhases(TestCase):
     def test_waning_crescent(self):
         known_waning_crescent = date(2024, 11, 26)
         self.assertEqual(moonphase(known_waning_crescent), 'waning_crescent')
-    
+
     def test_new_moon_again(self):
         known_waning_crescent = date(2024, 10, 31)
         self.assertEqual(moonphase(known_waning_crescent), 'new_moon')
