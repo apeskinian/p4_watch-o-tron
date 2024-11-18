@@ -66,6 +66,11 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 | watches | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watches/views.py) | ![screenshot](documentation/testing/validation/py/wot_testing_py_views.png "watch-o-tron py validation views") | all clear, no errors found |
 | watchotron | settings.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watchotron/settings.py) | ![screenshot](documentation/testing/validation/py/wot_testing_py_settings.png "watch-o-tron py validation settings") | added # noqa to lines 141, 144, 147 and 150 to ignore Django's long lines then all clear, no errors found |
 | watchotron | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/apeskinian/p4_watch-o-tron/main/watchotron/urls.py) | ![screenshot](documentation/testing/validation/py/wot_testing_py__watch-o-tron_urls.png "watch-o-tron py validation watch-o-tron urls") | all clear, no errors found |
+| watches | test_forms.py | n/a | ![screenshot](documentation/testing/validation/py/wot_testing_py_test_forms.png "watch-o-tron py validation test forms") | all clear, no errors found |
+| watches | test_models.py | n/a | ![screenshot](documentation/testing/validation/py/wot_testing_py_test_models.png "watch-o-tron py validation test models") | all clear, no errors found |
+| watches | test_moons.py | n/a | ![screenshot](documentation/testing/validation/py/wot_testing_py_test_moons.png "watch-o-tron py validation test moons") | all clear, no errors found |
+| watches | test_urls.py | n/a | ![screenshot](documentation/testing/validation/py/wot_testing_py_test_urls.png "watch-o-tron py validation test urls") | all clear, no errors found |
+| watches | test_views.py | n/a | ![screenshot](documentation/testing/validation/py/wot_testing_py_test_views.png "watch-o-tron py validation test views") | all clear, no errors found |
 
 ## Browser Compatibility
 
