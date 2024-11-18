@@ -123,6 +123,7 @@ cancelButton.addEventListener('click', function () {
 const leaveModal = new bootstrap.Modal(document.getElementById('leaving-modal'));
 let intendedURL = null; 
 
+// set listener to show modal for every catch-link class member
 document.querySelectorAll('.catch-link').forEach(link => {
     link.addEventListener('click', function(event) {
         event.preventDefault();
@@ -131,10 +132,12 @@ document.querySelectorAll('.catch-link').forEach(link => {
     });
 });
 
+// set system message to use depending on if they were adding or editing
 document.getElementById('watch-modal-leave').addEventListener('click', function() {
     this.innerHTML = `
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
         <span role="status"></span>`;
+    // determine which url to send
     if (intendedURL) {
         let url;
         if (this.getAttribute('data-mode') === 'edit') {
@@ -142,7 +145,7 @@ document.getElementById('watch-modal-leave').addEventListener('click', function(
         } else if (this.getAttribute('data-mode') === 'add') {
             url = addUrl;
         }
-        
+        // requesting the url to set the correct system message
         fetch(url, {
             method: 'GET',
             headers: {
