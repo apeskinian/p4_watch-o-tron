@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import reverse, resolve
 from watches import views
 
+
 class TestUrls(TestCase):
 
     def test_home_url_resolves(self):
