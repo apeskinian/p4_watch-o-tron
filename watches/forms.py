@@ -130,8 +130,8 @@ class MovementForm(forms.ModelForm):
         }
 
     def clean_movement_name(self):
-        # remove leading and trailing whitespace
         movement_name_dirty = self.cleaned_data.get('movement_name')
+        # remove leading and trailing whitespace
         # replace multiple whitespaces with a single space
         movement_name = re.sub(r'\s+', ' ', movement_name_dirty).strip()
         if WatchMovement.objects.filter(
@@ -159,9 +159,9 @@ class ListForm(forms.ModelForm):
         }
 
     def clean_friendly_name(self):
-        # remove leading and trailing whitespace
         friendly_name_dirty = self.cleaned_data.get('friendly_name')
         # replace multiple whitespaces with a single space
+        # remove leading and trailing whitespace
         friendly_name = re.sub(r'\s+', ' ', friendly_name_dirty).strip()
         if WatchList.objects.filter(
             friendly_name__iexact=friendly_name).exists(

@@ -84,6 +84,7 @@ class Watch(models.Model):
         super().delete(*args, **kwargs)
 
     def get_optimized_image_url(self):
+        # set parameters for cloudinary image service
         return cloudinary_url(
             self.image.public_id,
             secure=True,

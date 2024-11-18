@@ -13,6 +13,7 @@ class TestWatchForm(TestCase):
         )
 
     def test_watch_make_is_required(self):
+        # leaving make field blank
         form = WatchForm({
             'make': '',
             'movement_type': self.test_movement.id,
@@ -23,6 +24,7 @@ class TestWatchForm(TestCase):
         self.assertEqual(form.errors['make'][0], 'This field is required.')
 
     def test_watch_movement_type_is_required(self):
+        # leaving movement type blank
         form = WatchForm({
             'make': 'test_make',
             'movement_type': '',
@@ -35,6 +37,7 @@ class TestWatchForm(TestCase):
         )
 
     def test_watch_list_name_required(self):
+        # leaving list field blank
         form = WatchForm({
             'make': 'test_make',
             'movement_type': self.test_movement.id,
@@ -47,6 +50,7 @@ class TestWatchForm(TestCase):
         )
 
     def test_all_other_fields_are_optional(self):
+        # just enter info for required fields and leave all others
         form = WatchForm({
             'make': 'test_make',
             'movement_type': self.test_movement.id,
@@ -55,6 +59,7 @@ class TestWatchForm(TestCase):
         self.assertTrue(form.is_valid())
 
     def test_fields_are_explicit_in_form_metaclass(self):
+        # testing the correct fields are shown in the form
         form = WatchForm()
         self.assertEqual(form.Meta.fields, [
             'make',
@@ -75,6 +80,7 @@ class TestWatchForm(TestCase):
         ])
 
     def test_non_complication_widgets(self):
+        # test fields have correct widgets
         form = WatchForm()
         for formField in [
             'make',
