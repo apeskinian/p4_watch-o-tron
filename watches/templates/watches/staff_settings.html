@@ -9,6 +9,7 @@
 <main>
     {% if user.is_staff %}
         <div class="container table-container">
+            <!-- movement table -->
             <table class="table caption-top">
                 <caption class="hidden">List of movemente</caption>
                 <thead class="table-light">
@@ -22,6 +23,7 @@
                 {% for movement in movements %}
                 <tr>
                     <td>{{ movement }}</td>
+                    <!-- adding edit and delete buttons for non default movements -->
                     {% if forloop.counter > 5 %}
                         <td class="text-center">
                             <a href="{% url 'edit_movement' movement.id %}" class="btn-staff-setting-table btn btn-sm btn-warning">Edit</a>
@@ -30,6 +32,7 @@
                             <a href="{% url 'delete_movement' movement.id %}" class="btn-staff-setting-table btn btn-sm btn-danger">Delete</a>
                         </td>
                     {% else %}
+                    <!-- default movements are not editable by staff -->
                         <td></td>
                         <td></td>
                     {% endif %}
@@ -50,6 +53,7 @@
                 </tr>
                 </tbody>
             </table>
+            <!-- lists table -->
             <table class="table caption-top">
                 <caption class="hidden">Lists</caption>
                 <thead class="table-light">
@@ -63,13 +67,15 @@
                     {% for list in all_lists %}
                     <tr>
                         <td>{{ list.friendly_name }}</td>
-                            {% if forloop.counter > 2 %}
-                        <td class="text-center">
-                            <a href="{% url 'edit_list' list.id %}" class="btn-staff-setting-table btn btn-sm btn-warning">Edit</a>
-                        </td>
-                        <td class="text-center">
-                            <a href="{% url 'delete_list' list.id %}" class="btn-staff-setting-table btn btn-sm btn-danger" >Delete</a>
-                        </td>
+                        <!-- adding edit and delete buttons for non default list types -->
+                        {% if forloop.counter > 2 %}
+                            <td class="text-center">
+                                <a href="{% url 'edit_list' list.id %}" class="btn-staff-setting-table btn btn-sm btn-warning">Edit</a>
+                            </td>
+                            <td class="text-center">
+                                <a href="{% url 'delete_list' list.id %}" class="btn-staff-setting-table btn btn-sm btn-danger" >Delete</a>
+                            </td>
+                        <!-- default lists are not editable by staff -->
                         {% else %}
                         <td></td>
                         <td></td>

@@ -6,12 +6,14 @@
     {% include 'includes/standard_nav.html' %}
 </header>
 <main>
+    <!-- main view showing the watches -->
     <div class="watch-container container">
         {% if watches %}
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4" id="watch-options">
             {% for watch in watches %}
             <div class="col">
                 <div class="watch-card card">
+                    <!-- watch image -->
                     <div class="position-relative" data-bs-toggle="collapse" data-bs-target="#collapse{{ watch.id }}" role="button" aria-expanded="false">
                         {% if 'placeholder' in watch.image.url %}
                         <img src="{% static 'images/placeholder.png' %}" alt="default watch image" class="card-img-top">
@@ -20,6 +22,7 @@
                         {% endif %}
                         <div class="overlay-text d-flex align-items-center justify-content-center"><i class="fa-solid fa-pen-to-square"></i></div>
                     </div>
+                    <!-- watch details -->
                     <div class="card-body d-flex flex-column align-items-center" data-bs-toggle="collapse" data-bs-target="#collapse{{ watch.id }}" role="button" aria-expanded="false">
                         <h3 class="card-title text-center">{{ watch.make }}</h3>
                         <h5 class="card-title text-center">
@@ -27,6 +30,7 @@
                             {% if not watch.collection or not watch.model %}<br>{% endif %}
                         </h5>
                         <p class="card-text text-center">{{ watch.movement_type }}{% if watch.movement_model %} ({{ watch.movement_model }}){% endif %}</p>
+                        <!-- watch complications -->
                         <div class="complications class=card-text">
                             <div>
                                 <img src="{% static 'images/complications/chronograph.png' %}" alt="Chronograph" class="complication {% if not watch.complication_chronograph %}not-complicated{% endif %}"
@@ -66,6 +70,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- collapsed action buttons -->
                     <div id="collapse{{ watch.id }}" class="collapse" data-bs-parent="#watch-options">
                         <div class="d-flex justify-content-center gap-2">
                         {% if current_list == 'wish-list' %}
@@ -80,6 +85,7 @@
             {% endfor %}
         </div>
         {% else %}
+        <!-- empty list message -->
         <div class="wrong-turn-message text-center">
             <h5>No watches found in this list.</h5>
             <p>Get started by clicking <a href="{% url 'manage_watch' current_list %}">here</a> or on the button below!</p>
