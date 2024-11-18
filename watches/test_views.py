@@ -13,7 +13,11 @@ class TestGetUserLists(TestCase):
 
     def setUp(self):
         """
-        Setting up instances of user, movement, lists and watches for testing.
+        Setting up instances for testing:
+        - User
+        - Movement
+        - List x3
+        - Watch x3
         """
         # set up a user
         self.user = User.objects.create_user(
@@ -98,6 +102,14 @@ class TestGetUserLists(TestCase):
 class TestHome(TestCase):
 
     def setUp(self):
+        """
+        Setting up instances for testing:
+        - User
+        - Movement
+        - List x2
+        - Watch x2
+        Also define the url to test the view.
+        """
         # set up a user and login
         self.user = User.objects.create_user(
             username='user',
@@ -108,7 +120,7 @@ class TestHome(TestCase):
         self.test_movement = WatchMovement.objects.create(
             movement_name='movement'
         )
-        # set up list
+        # set up lists
         self.collection_list = WatchList.objects.create(
             friendly_name='collection'
         )
@@ -132,10 +144,26 @@ class TestHome(TestCase):
         self.url = reverse('home')
 
     def test_home_view_status_code(self):
+        """
+        Test that the home view returns a 200 status code.
+
+        This test ensures that accessing the home view using a GET request 
+        responds with an HTTP 200 status code, indicating a successful response.
+        """
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
 
     def test_home_view_context_data(self):
+        """
+        Test that the home view provides the correct context data.
+
+        This test ensures that:
+        - The response context includes the expected variables: 'day', 'date',
+        'moonphase', 'watches', 'lists', and 'current_list'.
+        - The 'current_list' context variable is set to 'collection'.
+        - The 'watches' context variable contains the expected queryset,
+        including `self.watch1` and `self.watch2`, and has a total of 2 items.
+        """
         response = self.client.get(self.url)
         # check context variables
         self.assertIn('day', response.context)
@@ -153,6 +181,17 @@ class TestHome(TestCase):
         self.assertIn(self.watch2, watches)
 
     def test_home_view_pagination(self):
+        """
+        Test that the home view implements pagination correctly.
+
+        This test ensures that:
+        - When enough watches are added to require pagination, the total number 
+        of pages is calculated correctly (e.g., 2 pages for 12 items if
+        10 items fit per page).
+        - The context for page 1 contains the expected pagination information.
+        - Accessing the second page via a query parameter ('page=2') correctly 
+        sets the current page number to 2.
+        """
         # add more watches to test pagination
         for i in range(10):
             Watch.objects.create(
@@ -169,6 +208,16 @@ class TestHome(TestCase):
         self.assertEqual(response_page_2.context['pages'].number, 2)
 
     def test_home_view_messages_pagination(self):
+        """
+        Test that the home view displays a pagination message when multiple
+        pages exist.
+
+        This test ensures that:
+        - When there are enough items to paginate, a message is added to the 
+        messages framework indicating the current page and total number
+        of pages.
+        - The message includes the text 'Switched to collection (Page 1 of 2)'.
+        """
         # add more watches to test pagination
         for i in range(10):
             Watch.objects.create(
@@ -187,6 +236,15 @@ class TestHome(TestCase):
         ))
 
     def test_home_view_messages_no_pagination(self):
+        """
+        Test that the home view displays a message when no pagination is
+        required.
+
+        This test ensures that:
+        - When all items fit on a single page, the home view adds a simple
+        message indicating the active list ('Switched to collection') without
+        pagination details.
+        """
         response = self.client.get(self.url)
         messages = list(get_messages(response.wsgi_request))
 
@@ -196,6 +254,14 @@ class TestHome(TestCase):
         ))
 
     def test_page_not_an_integer_exception(self):
+        """
+        Test that the home view handles a non-integer page parameter.
+
+        This test ensures that:
+        - If a non-integer value is passed for the 'page' parameter, the
+        paginator defaults to displaying the first page without raising
+        an error.
+        """
         # add more watches to test pagination
         for i in range(10):
             Watch.objects.create(
@@ -211,6 +277,14 @@ class TestHome(TestCase):
         self.assertEqual(response.context['pages'].number, 1)
 
     def test_empty_page_exception(self):
+        """
+        Test that the home view handles out-of-range page numbers.
+
+        This test ensures that:
+        - If a page number is passed that exceeds the total number of pages,
+        the paginator defaults to displaying the last page without raising an
+        error.
+        """
         # add more watches to test pagination
         for i in range(10):
             Watch.objects.create(
@@ -228,6 +302,15 @@ class TestHome(TestCase):
         )
 
     def test_home_view_access_denied_for_anonymous(self):
+        """
+        Test that anonymous users are denied access to the home view.
+
+        This test ensures that:
+        - When an unauthenticated user tries to access the home view, they are 
+        redirected to the login page with the correct 'next' query parameter 
+        pointing to the originally requested URL.
+        - The redirection uses a 302 status code.
+        """
         # Log out user to test anonymous access
         self.client.logout()
         response = self.client.get(self.url)
