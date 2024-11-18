@@ -38,7 +38,7 @@ class TestWatch(TestCase):
             list_name=self.test_list
         )
         self.assertEqual(str(self.test_watch), 'Seiko')
-    
+
     def test_watch_make_and_collection_return(self):
         self.test_watch = Watch.objects.create(
             owner=self.user,
@@ -58,7 +58,7 @@ class TestWatch(TestCase):
             list_name=self.test_list
         )
         self.assertEqual(str(self.test_watch), 'Seiko Speedtimer')
-    
+
     def test_watch_make_and_collection_and_model_return(self):
         self.test_watch = Watch.objects.create(
             owner=self.user,
@@ -81,7 +81,7 @@ class TestWatch(TestCase):
             model="Speedtimer",
             image='wot/3263827.jpg'
         )
-        
+
         mock_image = MagicMock()
         mock_image.public_id = 'sample_public_id'
         watch.image = mock_image
@@ -103,8 +103,8 @@ class TestWatch(TestCase):
 
         watch.delete()
         mock_destroy.assert_not_called()
-    
-    @patch('watches.models.cloudinary_url') 
+
+    @patch('watches.models.cloudinary_url')
     def test_get_optimized_image_url(self, mock_cloudinary_url):
         mock_cloudinary_url.return_value = (
             'https://res.cloudinary.com/demo/image/upload/'
