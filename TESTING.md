@@ -46,9 +46,10 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
 | static | base_script.js | ![screenshot](documentation/testing/validation/js/wot_testing_js_base_script.png "watch-o-tron js validation base script") | bootstrap varable picked up as undefined and bootstrap variable tooltips marked as unused |
-| static | edit_watch_script.js | ![screenshot](documentation/testing/validation/js/wot_testing_js_edit_watch_script.png "watch-o-tron js validation edit watch script") | bootstrap varable picked up as undefined |
+| static | edit_watch_script.js | ![screenshot](documentation/testing/validation/js/wot_testing_js_edit_watch_script.png "watch-o-tron js validation edit watch script") | bootstrap varable picked up as undefined also editUrl and addUrl which are defined in manage_watch.html |
 | static | staff_settings_script.js | ![screenshot](documentation/testing/validation/js/wot_testing_js_staff_settings_script.png "watch-o-tron js validation staff settings script") | bootstrap varable picked up as undefined |
 | static | watch_script.js | ![screenshot](documentation/testing/validation/js/wot_testing_js_watch_script.png "watch-o-tron js validation watch script") | bootstrap varable picked up as undefined |
+| watches | manage_watch.html | ![screenshot](documentation/testing/validation/js/wot_testing_js_manage_watch_html_script.png "watch-o-tron js validation manage watch script") | picked up editUrl and addUrl as unused variables which are used in edit_watch_script.js |
 
 ### Python
 

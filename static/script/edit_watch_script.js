@@ -138,9 +138,9 @@ document.getElementById('watch-modal-leave').addEventListener('click', function(
     if (intendedURL) {
         let url;
         if (this.getAttribute('data-mode') === 'edit') {
-            url = editUrl
+            url = editUrl;
         } else if (this.getAttribute('data-mode') === 'add') {
-            url = addUrl
+            url = addUrl;
         }
         
         fetch(url, {
