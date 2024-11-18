@@ -704,6 +704,12 @@ class TestDeleteWatch(TestCase):
 class TestStaffSettings(TestCase):
 
     def setUp(self):
+        """
+        Setting up instances for testing:
+        - Staff level user
+        - Standard level user
+        Define url for 'staff_settings'
+        """
         # create staff user
         self.staff = User.objects.create_user(
             username='staff',
@@ -718,6 +724,14 @@ class TestStaffSettings(TestCase):
         self.url = reverse('staff_settings')
 
     def test_staff_access(self):
+        """
+        Test that staff users can access the staff settings page.
+
+        This test ensures that:
+        - A logged-in staff member can access the page.
+        - The page loads with a 200 status code.
+        - The correct template ('watches/staff_settings.html') is used.
+        """
         # login with staff
         self.client.login(username='staff', password='password')
         # request page
@@ -727,6 +741,15 @@ class TestStaffSettings(TestCase):
         self.assertTemplateUsed(response, 'watches/staff_settings.html')
 
     def test_non_staff_access_is_denied(self):
+        """
+        Test that non-staff users are denied access to the staff settings page.
+
+        This test ensures that:
+        - A logged-in user without staff privileges is redirected when
+        trying to access the page.
+        - The redirection status code is 302 due to the
+        `@staff_member_required` decorator.
+        """
         # login with standard user
         self.client.login(username='user', password='password')
         # request page
@@ -735,12 +758,31 @@ class TestStaffSettings(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_no_login_access_is_denied(self):
+        """
+        Test that anonymous users are denied access to the staff settings page.
+
+        This test ensures that:
+        - An unauthenticated user is redirected when attempting to access the
+        page.
+        - The redirection status code is 302 due to the
+        `@staff_member_required` decorator.
+        """
         # request page without logging in
         response = self.client.get(self.url)
         # check for 302 code as result of @staff_member_required
         self.assertEqual(response.status_code, 302)
 
     def test_valid_movement_form_submission(self):
+        """
+        Test the successful submission of a valid movement form by a staff
+        user.
+
+        This test ensures that:
+        - A staff user can successfully submit a valid movement form.
+        - The form submission redirects to the staff settings page.
+        - The new movement is created in the database.
+        - A success message is displayed after submission.
+        """
         # login with staff member
         self.client.login(username='staff', password='password')
         # create new movement name to enter
@@ -764,6 +806,16 @@ class TestStaffSettings(TestCase):
         )
 
     def test_invalid_movement_form_submission(self):
+        """
+        Test the submission of an invalid movement form by a staff user.
+
+        This test ensures that:
+        - A staff user submitting an invalid form (e.g., with a blank movement
+        name)
+        does not create a new movement in the database.
+        - The page renders with a 200 status code to display form errors.
+        - An appropriate form validation error message is displayed.
+        """
         # login with staff member
         self.client.login(username='staff', password='password')
         # create invalid form data with blank movement name
@@ -783,6 +835,15 @@ class TestStaffSettings(TestCase):
         )
 
     def test_valid_list_form_submission(self):
+        """
+        Test the successful submission of a valid list form by a staff user.
+
+        This test ensures that:
+        - A staff user can successfully submit a valid list form.
+        - The form submission redirects to the staff settings page.
+        - The new list is created in the database.
+        - A success message is displayed after submission.
+        """
         # login with staff member
         self.client.login(username='staff', password='password')
         # create new list name to enter
@@ -804,6 +865,15 @@ class TestStaffSettings(TestCase):
         )
 
     def test_invalid_list_form_submission(self):
+        """
+        Test the submission of an invalid list form by a staff user.
+
+        This test ensures that:
+        - A staff user submitting an invalid form (e.g., with a blank list
+        name) does not create a new list in the database.
+        - The page renders with a 200 status code to display form errors.
+        - An appropriate form validation error message is displayed.
+        """
         # login with staff member
         self.client.login(username='staff', password='password')
         # create invalid form data with blank list name
