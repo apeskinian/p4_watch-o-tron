@@ -1128,6 +1128,13 @@ class TestEditList(TestCase):
 class TestDeleteMovement(TestCase):
 
     def setUp(self):
+        """
+        Setting up instances for testing:
+        - Staff level user
+        - Movement
+        - List
+        - Watch x2
+        """
         # set up a user and login
         self.staff_user = User.objects.create_user(
             username='staff',
@@ -1158,6 +1165,15 @@ class TestDeleteMovement(TestCase):
         )
 
     def test_for_affected_watches_on_movement_delete(self):
+        """
+        Test that the movement delete page shows affected watches.
+
+        This test ensures that:
+        - The delete movement page correctly shows the number of watches 
+        associated with the movement.
+        - The context includes the movement to be deleted.
+        - The correct template ('watches/staff_settings.html') is used.
+        """
         response = self.client.get(reverse(
             'delete_movement', args=[self.test_movement.id]
         ))
@@ -1169,6 +1185,14 @@ class TestDeleteMovement(TestCase):
         self.assertTemplateUsed(response, 'watches/staff_settings.html')
 
     def test_successful_movement_deletion(self):
+        """
+        Test successful deletion of a movement.
+
+        This test ensures that:
+        - The movement is deleted successfully from the database.
+        - A success message is displayed after the deletion.
+        - The response redirects to the staff settings page.
+        """
         # delete the movement
         response = self.client.post(reverse(
             'delete_movement', args=[self.test_movement.id]
@@ -1189,6 +1213,14 @@ class TestDeleteMovement(TestCase):
         "Deletion failed"
     ))
     def test_delete_movement_post_failure(self, mock_delete):
+        """
+        Test the failure scenario for deleting a movement.
+
+        This test ensures that:
+        - If the deletion of a movement fails (simulated by patching the
+        delete method), an error message is displayed.
+        - The response redirects to the staff settings page.
+        """
         # delete the movement but simulating failure in delete method
         response = self.client.post(
             reverse('delete_movement', args=[self.test_movement.id])
@@ -1203,6 +1235,14 @@ class TestDeleteMovement(TestCase):
         self.assertRedirects(response, reverse('staff_settings'))
 
     def test_delete_movement_access_denied_for_non_staff(self):
+        """
+        Test that non-staff users cannot access the delete movement page.
+
+        This test ensures that:
+        - Non-staff users are redirected to the login page when attempting to 
+        access the delete movement view.
+        - The response status is a redirect (302).
+        """
         # log out the staff user and log in as a regular user
         self.client.logout()
         self.client.login(username='testuser', password='password')
