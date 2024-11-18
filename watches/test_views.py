@@ -608,6 +608,13 @@ class TestPurchaseWatch(TestCase):
 class TestDeleteWatch(TestCase):
 
     def setUp(self):
+        """
+        Setting up instances for testing:
+        - User
+        - Movement
+        - List
+        - Watch
+        """
         # set up a user and login
         self.user = User.objects.create_user(
             username='user',
@@ -631,6 +638,14 @@ class TestDeleteWatch(TestCase):
         )
 
     def test_successful_watch_delete(self):
+        """
+        Test the successful deletion of a watch.
+
+        This test ensures that:
+        - When a valid watch is deleted, it is removed from the database.
+        - A success message is displayed confirming the deletion.
+        - The user is redirected after deletion.
+        """
         # delete the watch
         response = self.client.post(reverse(
             'delete_watch', args=[self.watch.id]
@@ -648,6 +663,14 @@ class TestDeleteWatch(TestCase):
         self.assertRedirects(response, '/')
 
     def test_unsuccessful_watch_delete(self):
+        """
+        Test the handling of an unsuccessful watch deletion attempt.
+
+        This test ensures that:
+        - Attempting to delete a non-existent watch results in an error
+        message.
+        - The user is redirected after the failed deletion attempt.
+        """
         # delete a watch that does not exist
         response = self.client.post(reverse('delete_watch', args=[3263827]))
         # check for error message
@@ -660,6 +683,14 @@ class TestDeleteWatch(TestCase):
         self.assertRedirects(response, '/')
 
     def test_redirection_to_HTTP_referer(self):
+        """
+        Test that after deleting a watch, the user is redirected to the
+        referring URL.
+
+        This test ensures that:
+        - When an HTTP_REFERER header is provided, the user is redirected back
+        to the referring page after deleting a watch.
+        """
         # set the HTTP_REFERER in the headers to test redirection
         referer_url = reverse('home')
         response = self.client.post(
