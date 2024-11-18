@@ -21,7 +21,7 @@ class TestWatchForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('make', form.errors.keys())
         self.assertEqual(form.errors['make'][0], 'This field is required.')
-    
+
     def test_watch_movement_type_is_required(self):
         form = WatchForm({
             'make': 'test_make',
@@ -33,7 +33,7 @@ class TestWatchForm(TestCase):
         self.assertEqual(
             form.errors['movement_type'][0], 'This field is required.'
         )
-    
+
     def test_watch_list_name_required(self):
         form = WatchForm({
             'make': 'test_make',
@@ -125,14 +125,12 @@ class TestWatchForm(TestCase):
             'complication_power_reserve',
             'complication_tourbillon',
         ]:
-            self.assertEqual(form.fields[complication].widget.attrs,
-                {
-                    'role': 'switch',
-                    'class': 'form-check-input',
-                    'style': 'height: 25px; width: 40px;'
-                }
-        )
-    
+            self.assertEqual(form.fields[complication].widget.attrs, {
+                'role': 'switch',
+                'class': 'form-check-input',
+                'style': 'height: 25px; width: 40px;'
+            })
+
     def test_initial_list_if_provided(self):
         initial_data = {'list_name': self.test_list.id}
         form = WatchForm(initial=initial_data)
@@ -151,7 +149,7 @@ class TestMovementForm(TestCase):
 
     def test_fields_are_explicit_in_form_metaclass(self):
         form = MovementForm()
-        self.assertEqual(form.Meta.fields, ['movement_name',])
+        self.assertEqual(form.Meta.fields, ['movement_name', ])
 
     def test_custom_label(self):
         form = MovementForm()
@@ -169,7 +167,7 @@ class TestMovementForm(TestCase):
             form.fields['movement_name'].widget.attrs['placeholder'],
             'enter new movement...'
         )
-    
+
     def test_clean_movement_name_strips_whitespace(self):
         form = MovementForm({'movement_name': '    Spring Drive   '})
         self.assertTrue(form.is_valid())
@@ -203,7 +201,7 @@ class TestMovementForm(TestCase):
             form.errors['movement_name'][0],
             'A movement with this name already exists.'
         )
-    
+
     def test_valid_entry(self):
         form = MovementForm({'movement_name': 'Perpetual Motion'})
         self.assertTrue(form.is_valid())
@@ -224,8 +222,8 @@ class TestListForm(TestCase):
 
     def test_fields_are_explicit_in_form_metaclass(self):
         form = ListForm()
-        self.assertEqual(form.Meta.fields, ['friendly_name',])
-    
+        self.assertEqual(form.Meta.fields, ['friendly_name', ])
+
     def test_custom_label(self):
         form = ListForm()
         self.assertEqual(form.fields['friendly_name'].label, '')
@@ -242,7 +240,7 @@ class TestListForm(TestCase):
             form.fields['friendly_name'].widget.attrs['placeholder'],
             'enter new list...'
         )
-    
+
     def test_clean_movement_name_strips_whitespace(self):
         form = ListForm({'friendly_name': '    Wish List   '})
         self.assertTrue(form.is_valid())
@@ -276,7 +274,7 @@ class TestListForm(TestCase):
             form.errors['friendly_name'][0],
             'A list with this name already exists.'
         )
-    
+
     def test_valid_entry(self):
         form = ListForm({'friendly_name': 'Gift List'})
         self.assertTrue(form.is_valid())
