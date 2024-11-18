@@ -168,13 +168,13 @@ class TestHome(TestCase):
             )
         response = self.client.get(self.url)
         messages = list(get_messages(response.wsgi_request))
-        
+
         # check for pagination message
         self.assertTrue(any(
             'Switched to collection (Page 1 of 2)'
             in message.message for message in messages
         ))
-    
+
     def test_home_view_messages_no_pagination(self):
         response = self.client.get(self.url)
         messages = list(get_messages(response.wsgi_request))
@@ -195,7 +195,7 @@ class TestHome(TestCase):
             )
         # Simulate PageNotAnInteger by passing a non-integer value
         response = self.client.get(self.url, {'page': 'invalid'})
-        
+
         # Check that the response defaults to page 1
         self.assertEqual(response.context['pages'].number, 1)
 
@@ -217,14 +217,14 @@ class TestHome(TestCase):
         )
 
     def test_home_view_access_denied_for_anonymous(self):
-            # Log out user to test anonymous access
-            self.client.logout()
-            response = self.client.get(self.url)
-            self.assertEqual(response.status_code, 302)
-            self.assertRedirects(
-                response, f'/accounts/login?next={self.url}',
-                fetch_redirect_response=False
-            )
+        # Log out user to test anonymous access
+        self.client.logout()
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response, f'/accounts/login?next={self.url}',
+            fetch_redirect_response=False
+        )
 
 
 class TestManageWatch(TestCase):
@@ -273,10 +273,10 @@ class TestManageWatch(TestCase):
         self.assertIn('watch_form', response.context)
         self.assertEqual(response.context['mode'], 'add')
         self.assertIsInstance(response.context['watch_form'], WatchForm)
-    
+
     def test_edit_watch_view(self):
         response = self.client.get(reverse(
-            'manage_watch', 
+            'manage_watch',
             kwargs={'origin': 'collection', 'watch_id': self.watch1.id}
         ))
         self.assertEqual(response.status_code, 200)
@@ -309,9 +309,9 @@ class TestManageWatch(TestCase):
     def test_edit_watch(self):
         form_data = {
             'owner': self.user.id,
-            'make': 'new updated make', # new make
+            'make': 'new updated make',  # new make
             'movement_type': self.test_movement.id,
-            'list_name': self.wishlist_list.id # change list
+            'list_name': self.wishlist_list.id  # change list
         }
         response = self.client.post(reverse(
             'manage_watch',
@@ -321,10 +321,10 @@ class TestManageWatch(TestCase):
             'watch_list',
             kwargs={'list_name': 'wish-list'}
         ))
-        
+
         self.watch1.refresh_from_db()
         self.assertEqual(self.watch1.make, 'new updated make')
-        
+
         messages = list(get_messages(response.wsgi_request))
         self.assertTrue(any(
             "watch edited successfully"
@@ -334,7 +334,7 @@ class TestManageWatch(TestCase):
     def test_invalid_form_data(self):
         form_data = {
             'owner': self.user.id,
-            'make': '', # missing out the make as required field
+            'make': '',  # missing out the make as required field
             'movement_type': self.test_movement.id,
             'list_name': self.collection_list.id
         }
@@ -343,7 +343,7 @@ class TestManageWatch(TestCase):
             data=form_data
         )
         self.assertEqual(response.status_code, 200)
-        
+
         messages = list(get_messages(response.wsgi_request))
         self.assertTrue(any(
             'An error occurred.'
@@ -352,7 +352,7 @@ class TestManageWatch(TestCase):
 
 
 class TestPurchaseWatch(TestCase):
-    
+
     def setUp(self):
         # set up a user and login
         self.user = User.objects.create_user(
@@ -457,7 +457,7 @@ class TestDeleteWatch(TestCase):
         ))
         # verify the redirection
         self.assertRedirects(response, '/')
-    
+
     def test_unsuccessful_watch_delete(self):
         # delete a watch that does not exist
         response = self.client.post(reverse('delete_watch', args=[3263827]))
@@ -484,19 +484,19 @@ class TestDeleteWatch(TestCase):
 class TestStaffSettings(TestCase):
 
     def setUp(self):
-        #create staff user
+        # create staff user
         self.staff = User.objects.create_user(
             username='staff',
             password='password',
             is_staff=True
         )
-        #create standard user
+        # create standard user
         self.user = User.objects.create_user(
             username='user',
             password='password'
         )
         self.url = reverse('staff_settings')
-    
+
     def test_staff_access(self):
         # login with staff
         self.client.login(username='staff', password='password')
@@ -606,7 +606,7 @@ class TestStaffSettings(TestCase):
 class TestEditMovement(TestCase):
 
     def setUp(self):
-        #create staff user
+        # create staff user
         self.staff = User.objects.create_user(
             username='staff',
             password='password',
@@ -689,7 +689,7 @@ class TestEditMovement(TestCase):
 class TestEditList(TestCase):
 
     def setUp(self):
-        #create staff user
+        # create staff user
         self.staff = User.objects.create_user(
             username='staff',
             password='password',
@@ -841,8 +841,8 @@ class TestDeleteMovement(TestCase):
         messages = list(get_messages(response.wsgi_request))
         self.assertTrue(
             any("Error occurred while deleting movement"
-            in message.message for message in messages
-        ))
+                in message.message for message in messages)
+                )
         # verify the redirection to 'staff_settings'
         self.assertRedirects(response, reverse('staff_settings'))
 
@@ -930,8 +930,8 @@ class TestDeleteList(TestCase):
         messages = list(get_messages(response.wsgi_request))
         self.assertTrue(
             any('Error occurred while deleting'
-            in message.message for message in messages
-        ))
+                in message.message for message in messages)
+            )
         # verify the redirection to 'staff_settings'
         self.assertRedirects(response, reverse('staff_settings'))
 
@@ -965,7 +965,7 @@ class TestCancelProcess(TestCase):
         self.client.login(username='user', password='password')
         # create a list
         self.test_list = WatchList.objects.create(friendly_name='test-list')
-    
+
     def test_successful_cancel_to_existing_list(self):
         # check redirection to existing list
         response = self.client.get(reverse(
@@ -981,7 +981,7 @@ class TestCancelProcess(TestCase):
         self.assertTrue(any(
             "Action cancelled." in message.message for message in messages
         ))
-    
+
     def test_successful_cancel_to_cancel_url(self):
         # logout as user and login as staff for staff settings cancel_url
         self.client.logout()
@@ -998,7 +998,7 @@ class TestCancelProcess(TestCase):
         self.assertTrue(any(
             "Action cancelled." in message.message for message in messages
         ))
-    
+
     @patch('django.contrib.messages.info')
     def test_cancel_process_handles_exception(self, mock_messages_info):
         # Mock messages.info to raise an exception
@@ -1043,9 +1043,7 @@ class TestLeavingManage(TestCase):
         self.assertEqual(response.status_code, 200)
         # check the response content
         self.assertJSONEqual(
-            str(response.content,
-            encoding='utf8'), {'status': 'message set'}
-        )
+            str(response.content, encoding='utf8'), {'status': 'message set'})
         # check that the message was set
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
