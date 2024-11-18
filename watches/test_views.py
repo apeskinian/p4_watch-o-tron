@@ -1490,6 +1490,11 @@ class TestCancelProcess(TestCase):
 
 class TestLeavingManage(TestCase):
     def setUp(self):
+        """
+        Setting up instances for testing:
+        - User
+        Define url path as 'leaving_manage'
+        """
         # set up a user and login
         self.user = User.objects.create_user(
             username='user',
@@ -1499,6 +1504,17 @@ class TestLeavingManage(TestCase):
         self.url = reverse('leaving_manage', kwargs={'content': 'Test Action'})
 
     def test_leaving_manage(self):
+        """
+        Test leaving manage functionality with a message.
+
+        This test ensures that:
+        - A message is set and returned in the response.
+        - The response is a valid `JsonResponse` with status 200.
+        - The correct content is returned in JSON format
+        (`{'status': 'message set'}`).
+        - The message indicating cancellation is added to the message queue
+        (e.g., "test thing cancelled.").
+        """
         # content message to pass in the URL
         content = "test thing"
         # request to leave a message with the content
@@ -1519,6 +1535,15 @@ class TestLeavingManage(TestCase):
     @patch('watches.views.messages.error')
     @patch('watches.views.messages.info')
     def test_leaving_manage_exception(self, mock_info, mock_error):
+        """
+        Test exception handling during the leaving manage functionality.
+
+        This test ensures that:
+        - If an exception occurs while setting the message, an error message
+        is logged.
+        - The response still returns a valid JSON with status 200.
+        - The error message is properly passed to the messages.error function.
+        """
         # simulate and exception
         mock_info.side_effect = Exception("Simulated Exception")
         # request to leave a message with the content
