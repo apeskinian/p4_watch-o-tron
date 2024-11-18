@@ -896,6 +896,13 @@ class TestStaffSettings(TestCase):
 class TestEditMovement(TestCase):
 
     def setUp(self):
+        """
+        Setting up instances for testing:
+        - Staff level user
+        - Movement
+        - List
+        - Watch x2
+        """
         # create staff user
         self.staff = User.objects.create_user(
             username='staff',
@@ -927,6 +934,15 @@ class TestEditMovement(TestCase):
         )
 
     def test_bring_up_edit_movement_input(self):
+        """
+        Test that the edit movement page loads correctly.
+
+        This test ensures that:
+        - The edit movement page is accessible for the specified movement ID.
+        - The context includes the number of associated watches (`associated`).
+        - The context includes the `edit_form` for editing the movement.
+        - The correct template ('watches/staff_settings.html') is used.
+        """
         # request edit
         response = self.client.get(reverse(
             'edit_movement', args=[self.test_movement.id]
@@ -939,6 +955,14 @@ class TestEditMovement(TestCase):
         self.assertTemplateUsed(response, 'watches/staff_settings.html')
 
     def test_editing_movement_valid_data(self):
+        """
+        Test editing a movement with valid data.
+
+        This test ensures that:
+        - A valid form submission updates the movement's name in the database.
+        - The response redirects to the staff settings page.
+        - A success message is displayed after the update.
+        """
         # create new name for movement
         form_data = {'movement_name': 'new updated name'}
         # submit form with new name
@@ -959,6 +983,15 @@ class TestEditMovement(TestCase):
         ))
 
     def test_editing_movement_invalid_data(self):
+        """
+        Test editing a movement with invalid data.
+
+        This test ensures that:
+        - An invalid form submission does not update the movement in the
+        database.
+        - The response redirects to the staff settings page.
+        - An error message is displayed indicating the failure.
+        """
         # create invalid movement name
         form_data = {'movement_name': ''}
         # submit invalid form
