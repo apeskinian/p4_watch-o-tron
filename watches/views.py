@@ -46,7 +46,7 @@ def home(request, list_name='collection'):
         The current date as an integer (range 1-31)
         Used for setting complication icons.
     ``moonphase``
-        The current moonphase as a stroing.
+        The current moonphase as a string.
         Used for setting complication icons.
     ``watches``
         A queryset of watch objects filtered by user and chosen list type.
@@ -54,6 +54,8 @@ def home(request, list_name='collection'):
         A queryset of all the lists.
     ``current_list``
         Name of the currently viewed list (from the `list_name` field, string).
+    ``pages``
+        The page to display if paginated.
     **Template:**
     :template:`watches/home.html`
     """
@@ -201,7 +203,7 @@ def manage_watch(request, origin, watch_id=None):
 @login_required(login_url='accounts/login')
 def purchase_watch(request, watch_id):
     """
-    Moves an instance of :model:`watches`Watch to the users collection from
+    Moves an instance of :model:`watches.Watch` to the users collection from
     their wish list.
     **Arguments**
     ``watch_id`` (int):
@@ -229,7 +231,7 @@ def purchase_watch(request, watch_id):
 @login_required(login_url='accounts/login')
 def delete_watch(request, watch_id):
     """
-    Deletes an instance of :model:`watches`Watch from a users list.
+    Deletes an instance of :model:`watches.Watch` from a users list.
     **Arguments**
     ``watch_id`` (int):
         The primary key of the watch object to be deleted.
