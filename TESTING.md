@@ -427,6 +427,16 @@ Below are the results from the various apps on my application that I've tested:
     initial_data = {'list_name': initial_list}
     ```
 
+- **Database connections**
+
+    During testing there was a point where the app failed to connect to the database from anywhere. The terminal messages said the following:
+
+    ```
+    django.db.utils.OperationalError: connection to server at "ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech" (3.124.121.135), port 5432 failed: ERROR:  Failed to acquire permit to connect to the database. Too many database connection attempts are currently ongoing.
+    ```
+
+    To resolve this I reset the dyno for the app in Heroku, this then reset all the connections and everything worked again.
+
 
 ## Bugs
 
