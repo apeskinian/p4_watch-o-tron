@@ -7,7 +7,7 @@ class TestWatchForm(TestCase):
 
     def setUp(self):
         """
-        set up a list and movement instance for testing
+        Set up a list and movement instance for testing.
         """
         self.test_list = WatchList.objects.create(list_name='test_list')
         self.test_movement = WatchMovement.objects.create(
@@ -16,8 +16,8 @@ class TestWatchForm(TestCase):
 
     def test_watch_make_is_required(self):
         """
-        tests the make field is required by submitting the form with this
-        field blank
+        Tests the make field is required by submitting the form with this
+        field blank.
         """
         form = WatchForm({
             'make': '',
@@ -30,8 +30,8 @@ class TestWatchForm(TestCase):
 
     def test_watch_movement_type_is_required(self):
         """
-        tests the movement_type field is required by submitting the form with this
-        field blank
+        Tests the movement_type field is required by submitting the form with
+        this field blank.
         """
         form = WatchForm({
             'make': 'test_make',
@@ -46,8 +46,8 @@ class TestWatchForm(TestCase):
 
     def test_watch_list_name_required(self):
         """
-        tests the list_name field is required by submitting the form with this
-        field blank
+        Tests the list_name field is required by submitting the form with this
+        field blank.
         """
         form = WatchForm({
             'make': 'test_make',
@@ -62,8 +62,8 @@ class TestWatchForm(TestCase):
 
     def test_all_other_fields_are_optional(self):
         """
-        submitting the form with just the required fields, all others
-        are left empty
+        Submitting the form with just the required fields, all others
+        are left empty.
         """
         form = WatchForm({
             'make': 'test_make',
@@ -74,7 +74,7 @@ class TestWatchForm(TestCase):
 
     def test_fields_are_explicit_in_form_metaclass(self):
         """
-        testing the correct fields are shown in the form
+        Testing the correct fields are shown in the form.
         """
         form = WatchForm()
         self.assertEqual(form.Meta.fields, [
@@ -97,8 +97,8 @@ class TestWatchForm(TestCase):
 
     def test_non_complication_widgets(self):
         """
-        check that the input fields that aren't checkboxes have the
-        correct classes assigned to them
+        Check that the input fields that aren't checkboxes have the
+        correct classes assigned to them.
         """
         form = WatchForm()
         for formField in [
@@ -119,8 +119,8 @@ class TestWatchForm(TestCase):
 
     def test_complication_custom_labels(self):
         """
-        check that the complication checkboxes have the correct
-        custom labels
+        Check that the complication checkboxes have the correct
+        custom labels.
         """
         form = WatchForm()
         self.assertEqual(
@@ -144,8 +144,8 @@ class TestWatchForm(TestCase):
 
     def test_complication_custom_widgets(self):
         """
-        check that the complication checkboxes have the correct role, class
-        and style assigned to them
+        Check that the complication checkboxes have the correct role, class
+        and style assigned to them.
         """
         form = WatchForm()
         for complication in [
@@ -166,7 +166,7 @@ class TestWatchForm(TestCase):
 
     def test_initial_list_if_provided(self):
         """
-        test the list_name is prefilled if intital data is set
+        Test the list_name is prefilled if intital data is set.
         """
         initial_data = {'list_name': self.test_list.id}
         form = WatchForm(initial=initial_data)
@@ -177,8 +177,8 @@ class TestMovementForm(TestCase):
 
     def test_movement_is_required(self):
         """
-        check the movement_name field is required by submitting the form
-        with the field blank
+        Check the movement_name field is required by submitting the form
+        with the field blank.
         """
         form = MovementForm({'movement_name': ''})
         self.assertFalse(form.is_valid())
@@ -189,22 +189,22 @@ class TestMovementForm(TestCase):
 
     def test_fields_are_explicit_in_form_metaclass(self):
         """
-        check that movement_name is the only field in the form
+        Check that movement_name is the only field in the form.
         """
         form = MovementForm()
         self.assertEqual(form.Meta.fields, ['movement_name', ])
 
     def test_custom_label(self):
         """
-        check the movment_name field custom name is correct
+        Check the movment_name field custom name is correct.
         """
         form = MovementForm()
         self.assertEqual(form.fields['movement_name'].label, '')
 
     def test_custom_widgets(self):
         """
-        check the class, style and placeholder attributes are set correctly
-        via widgets
+        Check the class, style and placeholder attributes are set correctly
+        via widgets.
         """
         form = MovementForm()
         self.assertEqual(
@@ -220,8 +220,8 @@ class TestMovementForm(TestCase):
 
     def test_clean_movement_name_strips_whitespace(self):
         """
-        test that entering data with leading and trailing whitespace
-        is caught and cleaned correctly
+        Test that entering data with leading and trailing whitespace
+        is caught and cleaned correctly.
         """
         form = MovementForm({'movement_name': '    Spring Drive   '})
         self.assertTrue(form.is_valid())
@@ -229,8 +229,8 @@ class TestMovementForm(TestCase):
 
     def test_clean_movement_name_normalises_whitespace(self):
         """
-        test that entering data with excess whitespace between words
-        is caught and cleaned correctly
+        Test that entering data with excess whitespace between words
+        is caught and cleaned correctly.
         """
         form = MovementForm({'movement_name': 'Spring       Drive'})
         self.assertTrue(form.is_valid())
@@ -238,7 +238,7 @@ class TestMovementForm(TestCase):
 
     def test_clean_movement_name_duplicate_case_insensitive(self):
         """
-        test that case insensitive duplicate names are not accepted
+        Test that case insensitive duplicate names are not accepted.
         """
         self.test_movement = WatchMovement.objects.create(
             movement_name='test movement'
@@ -253,8 +253,8 @@ class TestMovementForm(TestCase):
 
     def test_clean_movement_name_duplicate_with_extra_whitespace(self):
         """
-        test that duplicate names with leading, trailing and excess whitespace
-        between words are not accepted
+        Test that duplicate names with leading, trailing and excess whitespace
+        between words are not accepted.
         """
         self.test_movement = WatchMovement.objects.create(
             movement_name='test movement'
@@ -269,7 +269,7 @@ class TestMovementForm(TestCase):
 
     def test_valid_entry(self):
         """
-        testing a valid entry is accepted
+        Testing a valid entry is accepted.
         """
         form = MovementForm({'movement_name': 'Perpetual Motion'})
         self.assertTrue(form.is_valid())
@@ -282,8 +282,8 @@ class TestListForm(TestCase):
 
     def test_list_name_is_required(self):
         """
-        check the friendly_name field is required by submitting the form
-        with the field blank
+        Check the friendly_name field is required by submitting the form
+        with the field blank.
         """
         form = ListForm({'friendly_name': ''})
         self.assertFalse(form.is_valid())
@@ -294,22 +294,22 @@ class TestListForm(TestCase):
 
     def test_fields_are_explicit_in_form_metaclass(self):
         """
-        check that friendly_name is the only field in the form
+        Check that friendly_name is the only field in the form.
         """
         form = ListForm()
         self.assertEqual(form.Meta.fields, ['friendly_name', ])
 
     def test_custom_label(self):
         """
-        check the friendly_name field custom name is correct
+        Check the friendly_name field custom name is correct.
         """
         form = ListForm()
         self.assertEqual(form.fields['friendly_name'].label, '')
 
     def test_custom_widgets(self):
         """
-        check the class, style and placeholder attributes are set correctly
-        via widgets
+        Check the class, style and placeholder attributes are set correctly
+        via widgets.
         """
         form = ListForm()
         self.assertEqual(
@@ -325,8 +325,8 @@ class TestListForm(TestCase):
 
     def test_clean_movement_name_strips_whitespace(self):
         """
-        test that entering data with leading and trailing whitespace
-        is caught and cleaned correctly
+        Test that entering data with leading and trailing whitespace
+        is caught and cleaned correctly.
         """
         form = ListForm({'friendly_name': '    Wish List   '})
         self.assertTrue(form.is_valid())
@@ -334,8 +334,8 @@ class TestListForm(TestCase):
 
     def test_clean_movement_name_normalises_whitespace(self):
         """
-        test that entering data with excess whitespace between words
-        is caught and cleaned correctly
+        Test that entering data with excess whitespace between words
+        is caught and cleaned correctly.
         """
         form = ListForm({'friendly_name': 'Wish       List'})
         self.assertTrue(form.is_valid())
@@ -343,7 +343,7 @@ class TestListForm(TestCase):
 
     def test_clean_movement_name_duplicate_case_insensitive(self):
         """
-        test that case insensitive duplicate names are not accepted
+        Test that case insensitive duplicate names are not accepted.
         """
         self.test_list = WatchList.objects.create(
             friendly_name='test list'
@@ -358,8 +358,8 @@ class TestListForm(TestCase):
 
     def test_clean_movement_name_duplicate_with_extra_whitespace(self):
         """
-        test that duplicate names with leading, trailing and excess whitespace
-        between words are not accepted
+        Test that duplicate names with leading, trailing and excess whitespace
+        between words are not accepted.
         """
         self.test_list = WatchList.objects.create(
             friendly_name='test list'
@@ -374,7 +374,7 @@ class TestListForm(TestCase):
 
     def test_valid_entry(self):
         """
-        testing a valid entry is accepted
+        Testing a valid entry is accepted.
         """
         form = ListForm({'friendly_name': 'Gift List'})
         self.assertTrue(form.is_valid())
