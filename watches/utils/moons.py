@@ -7,7 +7,7 @@ def moonphase(today=None):
 
     # get today's date if nothing provided
     today = today or date.today()
-    
+
     # get last new moon from ephem
     last_new_moon = ephem.previous_new_moon(today).datetime().date()
 
