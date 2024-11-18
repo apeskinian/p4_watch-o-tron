@@ -12,6 +12,9 @@ from .views import *
 class TestGetUserLists(TestCase):
 
     def setUp(self):
+        """
+        Setting up instances of user, movement, lists and watches for testing.
+        """
         # set up a user
         self.user = User.objects.create_user(
             username='user',
@@ -53,6 +56,9 @@ class TestGetUserLists(TestCase):
         )
 
     def test_get_user_lists_gets_correct_lists(self):
+        """
+        Test that the lists that the user has watches in a returned.
+        """
         # getting lists that user has watches in
         user_lists = get_user_lists(self.user)
         # checking the lists created above are found
@@ -62,6 +68,11 @@ class TestGetUserLists(TestCase):
         self.assertEqual(user_lists.count(), 3)
 
     def test_get_user_lists_does_not_get_someone_elses_too(self):
+        """
+        Test that only lists that the user has watches in are returned.
+        An extra user with a different list is created. This list should not
+        be returned.
+        """
         # create other user
         self.other_user = User.objects.create(
             username='other_user',
