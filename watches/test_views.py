@@ -519,6 +519,13 @@ class TestManageWatch(TestCase):
 class TestPurchaseWatch(TestCase):
 
     def setUp(self):
+        """
+        Setting up instances for testing:
+        - User
+        - Movement
+        - List x2
+        - Watch
+        """
         # set up a user and login
         self.user = User.objects.create_user(
             username='user',
@@ -545,6 +552,15 @@ class TestPurchaseWatch(TestCase):
         )
 
     def test_successful_watch_purchase(self):
+        """
+        Test the successful purchase flow for a watch.
+
+        This test ensures that:
+        - When a valid watch is purchased, its `list_name` is updated to the 
+        'collection' list.
+        - A success message is displayed confirming the move to the collection.
+        - The user is redirected to the 'collection' watch list view.
+        """
         # set watch as purchased
         response = self.client.post(reverse(
             'purchase', args=[self.watch.id]
@@ -565,6 +581,14 @@ class TestPurchaseWatch(TestCase):
         )
 
     def test_unsuccessful_watch_purchase(self):
+        """
+        Test the handling of an unsuccessful purchase attempt.
+
+        This test ensures that:
+        - When attempting to purchase a non-existent watch, an error message 
+        is displayed.
+        - The user is redirected back to the 'collection' watch list view.
+        """
         # set watch as purchased
         response = self.client.post(reverse(
             'purchase', args=[3263827]
