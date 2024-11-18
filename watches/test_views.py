@@ -1386,6 +1386,11 @@ class TestDeleteList(TestCase):
 class TestCancelProcess(TestCase):
 
     def setUp(self):
+        """
+        Setting up instances for testing:
+        - Staff level user
+        - Standard level user
+        """
         # set up a user
         self.user = User.objects.create_user(
             username='user',
@@ -1403,6 +1408,13 @@ class TestCancelProcess(TestCase):
         self.test_list = WatchList.objects.create(friendly_name='test-list')
 
     def test_successful_cancel_to_existing_list(self):
+        """
+        Test successful cancellation redirecting to an existing list.
+
+        This test ensures that:
+        - The cancellation redirects to the correct existing list.
+        - An appropriate success message ("Action cancelled.") is displayed.
+        """
         # check redirection to existing list
         response = self.client.get(reverse(
             'cancel_process',
@@ -1419,6 +1431,14 @@ class TestCancelProcess(TestCase):
         ))
 
     def test_successful_cancel_to_cancel_url(self):
+        """
+        Test successful cancellation redirecting to a cancel URL.
+
+        This test ensures that:
+        - The cancellation redirects to the provided cancel URL
+        (e.g., staff settings).
+        - An appropriate success message ("Action cancelled.") is displayed.
+        """
         # logout as user and login as staff for staff settings cancel_url
         self.client.logout()
         self.client.login(username='staff', password='password')
@@ -1437,6 +1457,16 @@ class TestCancelProcess(TestCase):
 
     @patch('django.contrib.messages.info')
     def test_cancel_process_handles_exception(self, mock_messages_info):
+        """
+        Test cancellation process handling an exception during message display.
+
+        This test ensures that:
+        - If an exception occurs while trying to display a message during
+        cancellation, it is caught and the process continues.
+        - The cancellation still redirects to the correct cancel URL.
+        - An error message is displayed indicating an issue during
+        cancellation.
+        """
         # Mock messages.info to raise an exception
         mock_messages_info.side_effect = Exception(
             'Test exception during message'
