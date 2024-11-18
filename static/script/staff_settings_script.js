@@ -10,6 +10,7 @@ window.onload = () => {
     }
   };
 
+// getting buttons to add the working spinner to
 const addMovementButton = document.getElementById('add-movement-btn');
 const addListButton = document.getElementById('add-list-btn');
 const modalConfirmButton = document.getElementById('staff-modal-confirm');
@@ -18,6 +19,7 @@ const modalCancelButton = document.getElementById('staff-modal-cancel');
 let modalBtns = [modalConfirmButton, modalCancelButton];
 let addBtns = [addMovementButton, addListButton];
 
+// adding spinner to add buttons
 addBtns.forEach(function(button) {
     button.addEventListener('click', function () {
         button.innerHTML = `
@@ -27,8 +29,9 @@ addBtns.forEach(function(button) {
             button.innerHTML = 'Add';
         }, 1000);
     });
-})
+});
 
+// adding spinner to modal buttons
 modalBtns.forEach(function(button) {
     if (button) {
         if (button.classList.contains('btn-success')) {
@@ -49,4 +52,4 @@ modalBtns.forEach(function(button) {
         }
 
     }
-})
+});
