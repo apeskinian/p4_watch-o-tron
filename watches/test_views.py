@@ -148,7 +148,8 @@ class TestHome(TestCase):
         Test that the home view returns a 200 status code.
 
         This test ensures that accessing the home view using a GET request 
-        responds with an HTTP 200 status code, indicating a successful response.
+        responds with an HTTP 200 status code, indicating a successful
+        response.
         """
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
@@ -228,7 +229,6 @@ class TestHome(TestCase):
             )
         response = self.client.get(self.url)
         messages = list(get_messages(response.wsgi_request))
-
         # check for pagination message
         self.assertTrue(any(
             'Switched to collection (Page 1 of 2)'
@@ -247,7 +247,6 @@ class TestHome(TestCase):
         """
         response = self.client.get(self.url)
         messages = list(get_messages(response.wsgi_request))
-
         # check for no pagination message
         self.assertTrue(any(
             'Switched to collection' in message.message for message in messages
@@ -272,7 +271,6 @@ class TestHome(TestCase):
             )
         # Simulate PageNotAnInteger by passing a non-integer value
         response = self.client.get(self.url, {'page': 'invalid'})
-
         # Check that the response defaults to page 1
         self.assertEqual(response.context['pages'].number, 1)
 
@@ -311,7 +309,7 @@ class TestHome(TestCase):
         pointing to the originally requested URL.
         - The redirection uses a 302 status code.
         """
-        # Log out user to test anonymous access
+        # log out user to test anonymous access
         self.client.logout()
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 302)
@@ -324,6 +322,13 @@ class TestHome(TestCase):
 class TestManageWatch(TestCase):
 
     def setUp(self):
+        """
+        Setting up instances for testing:
+        - User
+        - Movement
+        - List x2
+        - Watch
+        """
         # set up a user and login
         self.user = User.objects.create_user(
             username='user',
@@ -350,6 +355,17 @@ class TestManageWatch(TestCase):
         )
 
     def test_unauthorised_access_attempt(self):
+        """
+        Test that unauthorized access to the `manage_watch` view redirects to
+        the login page.
+
+        This test ensures that:
+        - If an unauthenticated user attempts to access the `manage_watch`
+        view, they are redirected to the login page with the appropriate
+        'next' query parameter.
+        - The redirection uses a 302 status code.
+        """
+        # logout to test unauthorised access
         self.client.logout()
         url = reverse('manage_watch', kwargs={'origin': 'collection'})
         response = self.client.get(url)
@@ -360,6 +376,15 @@ class TestManageWatch(TestCase):
         )
 
     def test_add_watch_view(self):
+        """
+        Test that the `manage_watch` view renders correctly in 'add' mode.
+
+        This test ensures that:
+        - Accessing the `manage_watch` view for adding a watch returns a 200
+        status code.
+        - The context includes a valid `watch_form` instance and sets the mode
+        to 'add'.
+        """
         response = self.client.get(
             reverse('manage_watch', kwargs={'origin': 'collection'})
         )
@@ -369,6 +394,15 @@ class TestManageWatch(TestCase):
         self.assertIsInstance(response.context['watch_form'], WatchForm)
 
     def test_edit_watch_view(self):
+        """
+        Test that the `manage_watch` view renders correctly in 'edit' mode.
+
+        This test ensures that:
+        - Accessing the `manage_watch` view for editing a watch returns a 200
+        status code.
+        - The context includes the `watch_form` instance, the mode set to
+        'edit', and the correct watch instance in the 'watch' context variable.
+        """
         response = self.client.get(reverse(
             'manage_watch',
             kwargs={'origin': 'collection', 'watch_id': self.watch1.id}
@@ -379,21 +413,33 @@ class TestManageWatch(TestCase):
         self.assertEqual(response.context['watch'].id, self.watch1.id)
 
     def test_add_watch(self):
+        """
+        Test that a new watch can be successfully added via the `manage_watch`
+        view.
+
+        This test ensures that:
+        - Submitting a valid POST request to add a new watch redirects to the 
+        appropriate watch list view.
+        - A success message indicating the watch was added is displayed.
+        """
+        # creating form data
         form_data = {
             'owner': self.user.id,
             'make': 'test make',
             'movement_type': self.test_movement.id,
             'list_name': self.collection_list.id
         }
+        # submitting form
         response = self.client.post(
             reverse('manage_watch', kwargs={'origin': 'collection'}),
             data=form_data
         )
+        # checking for correct response
         self.assertRedirects(
             response,
             reverse('watch_list', kwargs={'list_name': 'collection'})
         )
-
+        # checking for succes message
         messages = list(get_messages(response.wsgi_request))
         self.assertTrue(any(
             'Added test make watch'
@@ -401,12 +447,24 @@ class TestManageWatch(TestCase):
         ))
 
     def test_edit_watch(self):
+        """
+        Test that an existing watch can be successfully edited via the
+        `manage_watch` view.
+
+        This test ensures that:
+        - Submitting a valid POST request with updated data modifies the watch
+        details.
+        - The user is redirected to the updated list view.
+        - A success message indicating the watch was edited is displayed.
+        """
+        # create new form data with updated infor for make and list_name
         form_data = {
             'owner': self.user.id,
-            'make': 'new updated make',  # new make
+            'make': 'new updated make',
             'movement_type': self.test_movement.id,
-            'list_name': self.wishlist_list.id  # change list
+            'list_name': self.wishlist_list.id
         }
+        # submit form with updated info
         response = self.client.post(reverse(
             'manage_watch',
             kwargs={'origin': 'collection', 'watch_id': self.watch1.id}
@@ -415,10 +473,10 @@ class TestManageWatch(TestCase):
             'watch_list',
             kwargs={'list_name': 'wish-list'}
         ))
-
+        # refresh watch info from db
         self.watch1.refresh_from_db()
         self.assertEqual(self.watch1.make, 'new updated make')
-
+        # check for success message
         messages = list(get_messages(response.wsgi_request))
         self.assertTrue(any(
             "watch edited successfully"
@@ -426,18 +484,31 @@ class TestManageWatch(TestCase):
         ))
 
     def test_invalid_form_data(self):
+        """
+        Test that submitting invalid data to the `manage_watch` view returns
+        errors.
+
+        This test ensures that:
+        - Submitting an invalid POST request (e.g., missing required fields) 
+        does not create or update the watch.
+        - The response returns a 200 status code, keeping the user on the form
+        page.
+        - An error message indicating the issue is displayed.
+        """
+        # create form data with missing info for make field
         form_data = {
             'owner': self.user.id,
-            'make': '',  # missing out the make as required field
+            'make': '',
             'movement_type': self.test_movement.id,
             'list_name': self.collection_list.id
         }
+        # submit form with errors
         response = self.client.post(
             reverse('manage_watch', kwargs={'origin': 'collection'}),
             data=form_data
         )
         self.assertEqual(response.status_code, 200)
-
+        # check for error messages
         messages = list(get_messages(response.wsgi_request))
         self.assertTrue(any(
             'An error occurred.'
