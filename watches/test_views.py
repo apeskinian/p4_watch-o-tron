@@ -147,7 +147,7 @@ class TestHome(TestCase):
         """
         Test that the home view returns a 200 status code.
 
-        This test ensures that accessing the home view using a GET request 
+        This test ensures that accessing the home view using a GET request
         responds with an HTTP 200 status code, indicating a successful
         response.
         """
@@ -186,11 +186,11 @@ class TestHome(TestCase):
         Test that the home view implements pagination correctly.
 
         This test ensures that:
-        - When enough watches are added to require pagination, the total number 
+        - When enough watches are added to require pagination, the total number
         of pages is calculated correctly (e.g., 2 pages for 12 items if
         10 items fit per page).
         - The context for page 1 contains the expected pagination information.
-        - Accessing the second page via a query parameter ('page=2') correctly 
+        - Accessing the second page via a query parameter ('page=2') correctly
         sets the current page number to 2.
         """
         # add more watches to test pagination
@@ -214,7 +214,7 @@ class TestHome(TestCase):
         pages exist.
 
         This test ensures that:
-        - When there are enough items to paginate, a message is added to the 
+        - When there are enough items to paginate, a message is added to the
         messages framework indicating the current page and total number
         of pages.
         - The message includes the text 'Switched to collection (Page 1 of 2)'.
@@ -304,8 +304,8 @@ class TestHome(TestCase):
         Test that anonymous users are denied access to the home view.
 
         This test ensures that:
-        - When an unauthenticated user tries to access the home view, they are 
-        redirected to the login page with the correct 'next' query parameter 
+        - When an unauthenticated user tries to access the home view, they are
+        redirected to the login page with the correct 'next' query parameter
         pointing to the originally requested URL.
         - The redirection uses a 302 status code.
         """
@@ -418,7 +418,7 @@ class TestManageWatch(TestCase):
         view.
 
         This test ensures that:
-        - Submitting a valid POST request to add a new watch redirects to the 
+        - Submitting a valid POST request to add a new watch redirects to the
         appropriate watch list view.
         - A success message indicating the watch was added is displayed.
         """
@@ -489,7 +489,7 @@ class TestManageWatch(TestCase):
         errors.
 
         This test ensures that:
-        - Submitting an invalid POST request (e.g., missing required fields) 
+        - Submitting an invalid POST request (e.g., missing required fields)
         does not create or update the watch.
         - The response returns a 200 status code, keeping the user on the form
         page.
@@ -556,7 +556,7 @@ class TestPurchaseWatch(TestCase):
         Test the successful purchase flow for a watch.
 
         This test ensures that:
-        - When a valid watch is purchased, its `list_name` is updated to the 
+        - When a valid watch is purchased, its `list_name` is updated to the
         'collection' list.
         - A success message is displayed confirming the move to the collection.
         - The user is redirected to the 'collection' watch list view.
@@ -585,7 +585,7 @@ class TestPurchaseWatch(TestCase):
         Test the handling of an unsuccessful purchase attempt.
 
         This test ensures that:
-        - When attempting to purchase a non-existent watch, an error message 
+        - When attempting to purchase a non-existent watch, an error message
         is displayed.
         - The user is redirected back to the 'collection' watch list view.
         """
@@ -1169,7 +1169,7 @@ class TestDeleteMovement(TestCase):
         Test that the movement delete page shows affected watches.
 
         This test ensures that:
-        - The delete movement page correctly shows the number of watches 
+        - The delete movement page correctly shows the number of watches
         associated with the movement.
         - The context includes the movement to be deleted.
         - The correct template ('watches/staff_settings.html') is used.
@@ -1239,7 +1239,7 @@ class TestDeleteMovement(TestCase):
         Test that non-staff users cannot access the delete movement page.
 
         This test ensures that:
-        - Non-staff users are redirected to the login page when attempting to 
+        - Non-staff users are redirected to the login page when attempting to
         access the delete movement view.
         - The response status is a redirect (302).
         """
@@ -1346,7 +1346,7 @@ class TestDeleteList(TestCase):
         Test the failure scenario for deleting a list.
 
         This test ensures that:
-        - If the deletion of a list fails (simulated by patching the delete 
+        - If the deletion of a list fails (simulated by patching the delete
         method), an error message is displayed.
         - The response redirects to the staff settings page.
         """
@@ -1368,7 +1368,7 @@ class TestDeleteList(TestCase):
         Test that non-staff users cannot access the delete list page.
 
         This test ensures that:
-        - Non-staff users are redirected to the login page when attempting to 
+        - Non-staff users are redirected to the login page when attempting to
         access the delete list view.
         - The response status is a redirect (302).
         """
