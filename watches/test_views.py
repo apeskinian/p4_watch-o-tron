@@ -1012,6 +1012,13 @@ class TestEditMovement(TestCase):
 class TestEditList(TestCase):
 
     def setUp(self):
+        """
+        Setting up instances for testing:
+        - Staff level user
+        - Movement
+        - List
+        - Watch x2
+        """
         # create staff user
         self.staff = User.objects.create_user(
             username='staff',
@@ -1043,6 +1050,15 @@ class TestEditList(TestCase):
         )
 
     def test_bring_up_edit_list_input(self):
+        """
+        Test that the edit list page loads correctly.
+
+        This test ensures that:
+        - The edit list page is accessible for the specified list ID.
+        - The context includes the number of associated watches (`associated`).
+        - The context includes the `edit_form` for editing the list.
+        - The correct template ('watches/staff_settings.html') is used.
+        """
         # request edit
         response = self.client.get(reverse(
             'edit_list', args=[self.test_list.id]
@@ -1055,6 +1071,15 @@ class TestEditList(TestCase):
         self.assertTemplateUsed(response, 'watches/staff_settings.html')
 
     def test_editing_list_valid_data(self):
+        """
+        Test editing a list with valid data.
+
+        This test ensures that:
+        - A valid form submission updates the list's friendly name in the
+        database.
+        - The response redirects to the staff settings page.
+        - A success message is displayed after the update.
+        """
         # create new name for list
         form_data = {'friendly_name': 'new updated list'}
         # submit form with new name
@@ -1075,6 +1100,14 @@ class TestEditList(TestCase):
         ))
 
     def test_editing_list_invalid_data(self):
+        """
+        Test editing a list with invalid data.
+
+        This test ensures that:
+        - An invalid form submission does not update the list in the database.
+        - The response redirects to the staff settings page.
+        - An error message is displayed indicating the failure.
+        """
         # create invalid list name
         form_data = {'friendly_name': ''}
         # submit invalid form
