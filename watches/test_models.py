@@ -142,7 +142,7 @@ class TestWatch(TestCase):
     @patch('watches.models.cloudinary_url')
     def test_get_optimized_image_url(self, mock_cloudinary_url):
         """
-        Test that the `get_optimized_image_url` method generates the correct 
+        Test that the `get_optimized_image_url` method generates the correct
         optimized Cloudinary image URL.
         """
         mock_cloudinary_url.return_value = (
