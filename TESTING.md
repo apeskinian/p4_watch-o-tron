@@ -93,7 +93,6 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Safari | ![screenshot](documentation/testing/browsers/safari/wot_testing_browsers_safari_home.png "watch-o-tron safari home") | ![screenshot](documentation/testing/browsers/safari/wot_testing_browsers_safari_add_edit.png "watch-o-tron safari add edit") | ![screenshot](documentation/testing/browsers/safari/wot_testing_browsers_safari_staff_settings.png "watch-o-tron safari staff settings") | ![screenshot](documentation/testing/browsers/safari/wot_testing_browsers_safari_404.png "watch-o-tron safari 500") | ![screenshot](documentation/testing/browsers/safari/wot_testing_browsers_safari_404.png "watch-o-tron safari 500") | works as expected |
 
 ## Responsiveness
-
 I've tested my deployed project on multiple devices to check for responsiveness issues.
 
 ### Account Pages
