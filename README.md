@@ -893,7 +893,6 @@ Heroku needs three additional files in order to deploy properly.
 
 - requirements.txt
 - Procfile
-- runtime.txt
 
 You can install this project's **requirements** (where applicable) using:
 
@@ -907,11 +906,6 @@ The **Procfile** can be created with the following command:
 
 - `echo web: gunicorn app_name.wsgi > Procfile`
 - *replace **app_name** with the name of your primary Django app name; the folder where settings.py is located*
-
-The **runtime.txt** file needs to know which Python version you're using:
-1. type: `python3 --version` in the terminal.
-2. in the **runtime.txt** file, add your Python version:
-	- `python-3.9.19`
 
 For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
 
