@@ -1009,7 +1009,7 @@ There are no differences between the local and deployed version of the site.
 | [Medium - How to Style Your Django Forms](https://medium.com/swlh/how-to-style-your-django-forms-7e8463aae4fa) | manage watch forms | help on manually styling Django forms |
 | [Stack Overflow](https://stackoverflow.com/questions/52803129/how-to-add-django-template-variable-in-img-src) | entire site | adding django template variable to img src |
 | [Codepen](https://codepen.io/dope/pen/KJYMZz) | clock in main logo | base code for working clock |
-| [PyPI](https://pypi.org/project/ephem/) | watch object moonphase icons | package used to get last new moon date |
+| [Ephem PyPI](https://pypi.org/project/ephem/) | watch object moonphase icons | package used to get last new moon date    |
 | [Cloudinary](https://cloudinary.com/) | entire site | hosting user uploaded images |
 | [WhiteNoise](http://whitenoise.evans.io) | entire site | hosting static files on Heroku temporarily |
 
