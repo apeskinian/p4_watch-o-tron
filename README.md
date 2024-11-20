@@ -889,7 +889,7 @@ Deployment steps are as follows, after account setup:
 | `SUPPORTEMAILHOST` | user's own value |
 | `DISABLE_COLLECTSTATIC` | 1 (*this is temporary, and can be removed for the final deployment*) |
 
-Heroku needs three additional files in order to deploy properly.
+Heroku needs additional files in order to deploy properly.
 
 - requirements.txt
 - Procfile
