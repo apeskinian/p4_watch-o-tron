@@ -19,7 +19,7 @@ import cloudinary.api
 import dj_database_url
 from django.contrib.messages import constants as messages
 if os.path.isfile('env.py'):
-    import env
+    import env  # NOQA
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,12 +39,14 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = [
     '.ws.codeinstitute-ide.net',
-    '.herokuapp.com'
+    '.herokuapp.com',
+    '127.0.0.1'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
-    "https://*.herokuapp.com"
+    "https://*.herokuapp.com",
+    'https://127.0.0.1'
 ]
 
 # Application definition

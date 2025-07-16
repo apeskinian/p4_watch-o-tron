@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control
 from django.contrib.admin.views.decorators import staff_member_required
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+# from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from django.http import JsonResponse
 from .models import Watch, WatchList, WatchMovement
@@ -69,15 +69,15 @@ def home(request, list_name='collection'):
     current_list = get_object_or_404(WatchList, list_name=list_name)
     day = datetime.datetime.now()
 
-    paginator = Paginator(watches, 8)
-    page = request.GET.get('page', 1)
-    pages = paginator.get_page(page)
-    try:
-        watches = paginator.page(page)
-    except PageNotAnInteger:
-        watches = paginator.page(1)
-    except EmptyPage:
-        watches = paginator.page(paginator.num_pages)
+    # paginator = Paginator(watches, 8)
+    # page = request.GET.get('page', 1)
+    # pages = paginator.get_page(page)
+    # try:
+    #     watches = paginator.page(page)
+    # except PageNotAnInteger:
+    #     watches = paginator.page(1)
+    # except EmptyPage:
+    #     watches = paginator.page(paginator.num_pages)
 
     context = {
         'day': day.strftime('%w'),
@@ -86,20 +86,25 @@ def home(request, list_name='collection'):
         'watches': watches,
         'lists': lists,
         'current_list': current_list.list_name,
-        'pages': pages
+        # 'pages': pages
     }
 
-    if paginator.num_pages > 1:
-        messages.success(
-            request,
-            f'Switched to {current_list.friendly_name} '
-            f'(Page {pages.number} of {paginator.num_pages})'
-        )
-    else:
-        messages.success(
-            request,
-            f'Switched to {current_list.friendly_name}'
-        )
+    # if paginator.num_pages > 1:
+    #     messages.success(
+    #         request,
+    #         f'Switched to {current_list.friendly_name} '
+    #         f'(Page {pages.number} of {paginator.num_pages})'
+    #     )
+    # else:
+    #     messages.success(
+    #         request,
+    #         f'Switched to {current_list.friendly_name}'
+    #     )
+
+    messages.success(
+        request,
+        f'Switched to {current_list.friendly_name}'
+    )
 
     return render(request, 'watches/index.html', context)
 
@@ -122,7 +127,7 @@ def manage_watch(request, origin, watch_id=None):
         The current date as an integer (range 1-31)
         Used for setting complication icons.
     ``moonphase``
-        The current moonphase as a stroing.
+        The current moonphase as a strong.
         Used for setting complication icons.
     ``origin``
         Name of the list that the user was viewing when the action was called.
@@ -350,7 +355,7 @@ def edit_movement(request, movement_id):
         form = MovementForm(request.POST, instance=movement)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Changes saved.')
+            messages.success(request, 'Changes saved.')
             return redirect('staff_settings')
         else:
             errors = form.errors
@@ -397,7 +402,7 @@ def edit_list(request, list_id):
         form = ListForm(request.POST, instance=list_name)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Changes saved.')
+            messages.success(request, 'Changes saved.')
             return redirect('staff_settings')
         else:
             errors = form.errors
@@ -501,7 +506,7 @@ def cancel_process(request, content, cancel_url):
     **Arguments**
     ``content`` (str):
         Information regarding what action is being cancelled, this is used
-        in the provided messsage.
+        in the provided message.
     ``cancel_url`` (str):
         The url name that the action was taken from.
     **Context**
@@ -532,7 +537,7 @@ def leaving_manage(request, content):
     **Arguments**
     ``content`` (str):
         Information regarding what action is being cancelled, this is used
-        in the provided messsage.
+        in the provided message.
     """
     try:
         messages.info(request, f'{content} cancelled.')
