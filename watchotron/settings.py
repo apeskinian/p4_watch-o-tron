@@ -37,17 +37,9 @@ DEBUG = development
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = [
-    '.ws.codeinstitute-ide.net',
-    '.herokuapp.com',
-    '127.0.0.1'
-]
+ALLOWED_HOSTS = os.environ.get('HOSTS', '').split(',')
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://*.codeinstitute-ide.net/",
-    "https://*.herokuapp.com",
-    'https://127.0.0.1'
-]
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_ORIGINS', '').split(',')
 
 # Application definition
 

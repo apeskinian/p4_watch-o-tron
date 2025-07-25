@@ -11,3 +11,4 @@ db.sqlite3
 .venv_mac
 .venv_win
 .DS_Store
+wot-db.json
